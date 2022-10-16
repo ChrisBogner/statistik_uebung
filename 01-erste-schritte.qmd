@@ -36,16 +36,11 @@ Zu Beginn des Kurses werden wir jedoch nicht auf Ihren lokalen Rechnern arbeiten
 ## Was ist RStudio?
 RStudio Desktop ist eine Entwicklungsumgebung für R. Sie können die *open source* Version kostenlos für Ihren Rechner [hier](https://rstudio.com/products/rstudio/#rstudio-desktop) herunterladen. Es gibt eine live Einführung in RStudio im Kurs. Zusätzlich können Sie hier ein [Video](https://www.youtube.com/watch?v=r5wOhFVWXUE&list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o) dazu ansehen.
 
-Die Oberfläche von RStudio ist in vier Bereiche unterteilt (Abbildung \@ref(fig:rstudio)).
-```{r}
-#| echo: false
-#| fig-cap: Aufbau von RStudio
-#| out-width: "100%"
+Die Oberfläche von RStudio ist in vier Bereiche unterteilt (@fig-rstudio).
 
-knitr::include_graphics('figures/RStudio.png')
-```
+![Aufbau von RStudio](figures/RStudio.png){#fig-rstudio fig-align='left' width='600'}
 
-Sie sollten auch auf Ihrem eigenen Rechner einen Ordner für die Veranstaltung anlegen und darin jeweils einen Ordner für **Daten**, **Skripte** und **Notebooks**.
+Sie sollten auch auf Ihrem eigenen Rechner einen Ordner für die Veranstaltung anlegen und darin jeweils einen Ordner für **Folien**, **Daten** und **Notebooks**.
 
 ## Lesestoff
 Kapitel 1.1 und 1.2 in @ModernDive.

@@ -23,26 +23,23 @@ Es wird Sie vielleicht überraschen, aber das Skript, das Sie gerade lesen, ist 
 Wir werden vor allem mit R Notebooks arbeiten, die eine gute Interaktion zwischen dem geschriebenen Text und dem R-Code ermöglichen. Das Notebook kann sowohl in ein HTML-Dokument als auch in PDF oder Word als endgültiges Dokument umgewandelt werden. Diesen Prozess nennt man *knit*.
 
 ## Ein neues R Notebook erstellen
-Um ein neues R Notebook zu erstellen, klicken Sie das kleine grüne Plus oben links und wählen Sie R Notebook aus. Sie können es erst einmal bei untitled belassen (Abbildung \@ref(fig:r-notebook)).
+Um ein neues R Notebook zu erstellen, klicken Sie das kleine grüne Plus oben links und wählen Sie R Notebook aus. Sie können es erst einmal bei untitled belassen (@fig-r-notebook).
 
-```{r r-notebook, echo = F, fig.cap = 'Neues R Notebook anlegen', fig.width = 6, out.width = "40%"}
-knitr::include_graphics('figures/r-notebook.png')
-```
+![Neues R Notebook anlegen](figures/r-notebook.png){#fig-r-notebook fig-alt="Screenshot zeigt, wie man eines neues R Notebook anlegt." fig-align='left' height='500'}
+
 
 Wenn Sie ein neues Notebook erstellen, enthält das Template etwas Code. Lesen Sie sich das ruhig noch einmal durch, da es ein paar hilfreiche Tastenkürzel und Tipps. Danach können Sie den Text unterhalb des Headers löschen. 
 
-## Der Header eines Notebooks {#header}
-Ein R Notebook (und jedes andere R Markdown Dokument) besteht aus einem Header (Kopf) und dem eigentlichen Text und Code. Der Header hat dabei ein bestimmtes Layout, auf das Sie unbedingt achten müssen (Rechtschreibung!). Der Header ist **immer** zwischen drei Minuszeichen `---` eingeschlossen. Bei komplizierteren Headern gibt es auch Einrückungen (mit der Tab-Taste), die auch Bedeutung haben (s. weiterführende Literatur). Wir bleiben bei einem einfachen Header ohne Einrückungen (Abbildung \@ref(fig:rmarkdown-file)).
+## Der Header eines Notebooks {#sec-header}
+Ein R Notebook (und jedes andere R Markdown Dokument) besteht aus einem Header (Kopf) und dem eigentlichen Text und Code. Der Header hat dabei ein bestimmtes Layout, auf das Sie unbedingt achten müssen (Rechtschreibung!). Der Header ist **immer** zwischen drei Minuszeichen `---` eingeschlossen. Bei komplizierteren Headern gibt es auch Einrückungen (mit der Tab-Taste), die auch Bedeutung haben (s. weiterführende Literatur). Wir bleiben bei einem einfachen Header ohne Einrückungen (@fig-rmarkdown-file).
 
-Um einen neuen R-Chunk hinzuzufügen, klicken Sie auf das kleine grüne `C+` oben rechts oder verwenden Sie das Tastenkürzel **Str+Alt+i**:
-```{r rmarkdown-file, echo = F, fig.cap = 'Einen neuen Chunk hinzufügen', fig.width = 6, out.width = "100%"}
-knitr::include_graphics('figures/new_chunk.png')
-```
+Um einen neuen R-Chunk hinzuzufügen, klicken Sie auf das kleine grüne `C+` oben rechts oder verwenden Sie das Tastenkürzel **Str+Alt+i**.
 
+![Einen neuen R Chunk hinzufügen](figures/new_chunk.png){#fig-rmarkdown-file fig-alt='Screenshot zeigt, wie ein neuer R Chunk hinzufügt wird.' width="600" fig-align='left'}
 
-Text kann einfach unterhalb des Headers und *außerhalb der Chunks* getippt werden. Die wichtigsten Layoutelemente für den Text finden Sie [hier](https://rmarkdown.rstudio.com/authoring_basics.html). R Markdown unterstützt mathematische Notation in Latex-Stil. Eine Einführung in Latex würde an dieser Stelle aber zu weit führen.
+Text kann einfach unterhalb des Headers und *außerhalb der Chunks* getippt werden. **Die wichtigsten Layoutelemente für den Text finden Sie [hier](https://rmarkdown.rstudio.com/authoring_basics.html).** R Markdown unterstützt mathematische Notation in Latex-Stil. Eine Einführung in Latex würde an dieser Stelle aber zu weit führen.
 
-Das R Notebook hat den Vorteil, dass man über den Button `Preview` oben in der Leiste sofort die Ergebnisse anzeigen lassen kann. Sie müssen also nicht `knitten`. Falls Sie es doch möchten, klicken Sie auf das kleine Dreieck neben dem Preview und suchen Sie sich ein Output-Format aus. Ein einmal "geknittetes" Notebook ist kein Notebook mehr (kein Preview). Damit es wieder zum Nobebook wird, müssen Sie im Header `output: html_notebbok` einstellen (Abbildung \@ref(fig:rmarkdown-file)).
+Das R Notebook hat den Vorteil, dass man über den Button `Preview` oben in der Leiste sofort die Ergebnisse anzeigen lassen kann. Sie müssen also nicht `knitten`. Falls Sie es doch möchten, klicken Sie auf das kleine Dreieck neben dem Preview und suchen Sie sich ein Output-Format aus. Ein einmal "geknittetes" Notebook ist kein Notebook mehr (kein Preview). Damit es wieder zum Nobebook wird, müssen Sie im Header `output: html_notebbok` einstellen (@fig-rmarkdown-file).
 
 ## Wichtigste Regeln für Reproduzierbarkeit
 Ein weiteres [Video](https://www.youtube.com/watch?v=pjL2uP-fmPY&list=PLjTlxb-wKvXOU4WW4p3qc4VKWTI4gLNUf) von Prof. Peng widmet sich den wichtigsten Regeln für Reproduzierbarkeit.
@@ -66,10 +63,9 @@ r4ds, Kapitel 27 [@r4ds]
   - ein Mathematikelement: $x^2$
   - eine Liste
 
-Nutzen Sie die unter \@ref(header) verlinkte Liste der Layoutelemente.
+Nutzen Sie die unter @sec-header verlinkte Liste der Layoutelemente.
 
 ### Erste Schritte als Notebook
-- Wandeln Sie das R-Skript der ersten Session in ein R Notebooks um.
-- Fügen Sie mehr Erklärungstext zu den einzelnen Schritten hinzu.
+- Editieren Sie das R Notebook der ersten Session.
 - Gliedern Sie Ihr Notebook mit passenden Layoutelementen.
-
+- Fügen Sie mehr Erklärungstext zu den einzelnen Abschnitten.

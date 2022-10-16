@@ -1,12 +1,17 @@
 project:
   type: book
   output-dir: docs
-
+  
 book: 
   title: "Übung zur Vorlesung Statistik und Datenanalyse"
   author: "Christina Bogner"
   date: last-modified
   lang: de
+  language:
+    de:
+      crossref-ch-prefix: "Kapitel "
+      crossref-tbl-title: 'Tabelle '
+      crossref-fig-title: 'Abbildung '
   chapters: 
     - index.qmd
     - part: "EINFÜHRUNG IN R"
