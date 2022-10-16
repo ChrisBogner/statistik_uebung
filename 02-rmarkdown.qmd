@@ -1,11 +1,11 @@
 # R Markdown für reproduzierbare Forschung {#reproduzieren}
 
-```{block, type = 'rmdoutcomes'}
+:::{.outcomes}
 - Wichtigkeit der Reproduzierbarkeit erklären
 - Begriff *literate programming* definieren
 - Aufbau einer RMarkdown-Datei erklären
-- Einen einfachen ersten reproduzierbaren Bericht schreiben
-```
+- Einen einfachen ersten reproduzierbaren Bericht selbst schreiben
+:::
 
 ## Warum Reproduzierbarkeit in der Forschung wichtig ist
 Als Motivation für dieses Thema empfehle ich das [Video](https://www.youtube.com/watch?v=4rBX6r5emgQ&list=PLjTlxb-wKvXOU4WW4p3qc4VKWTI4gLNUf) von Prof. Roger Peng der John Hopkins Bloogmerg School of Public Health.

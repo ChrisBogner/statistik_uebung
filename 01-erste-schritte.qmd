@@ -1,18 +1,25 @@
-# (PART) Teil I: Daten explorieren {-}
 # Erste Schritte in R {#erste-schritte}
 
-```{block, type = 'rmdoutcomes'}
+```{r}
+#| echo: false
+#| warning: false
+library(tidyverse)
+library(kableExtra)
+```
+
+:::{.outcomes}
 - Layout und Bedeutung einzelner Fenster in RStudio kennen
+- R Notebooks kennen
 - Anweisungen aus dem Skript an die Konsole schicken
 - R als Taschenrechner benutzen
 - erste Funktionen aufrufen
 - Objekte mit eckigen Klammern [ ] ansprechen
 - R-Hilfeseiten aufrufen
 - Ihren ersten Plot erstellen
-```
+:::
 
 
-## Was ist `r fa("r-project", fill = "steelblue")`?
+## Was ist `r fontawesome::fa("r-project", fill = "steelblue")`?
 R ist eine Programmiersprache für Datenanalyse und statistische Modellierung. Es ist frei verfügbar (*open source software*) und neben Python einer der am meisten benutzten Programmiersprachen zur Datenanalyse und -visualisierung. R wurde von Ross Ihaka und Robert Gentleman 1996 veröffentlicht [@Ihaka1996]. Es gibt für R eine Vielzahl von Zusatzpaketen, die die Funktionalität und die Einsatzmöglichkeiten enorm erweitern.
 
 Sie können R für Ihren Computer auf der offiziellen R-Seite https://www.r-project.org/ herunterladen und installieren. Eine kurze Anleitung finden Sie auf ILIAS, zusammen mit der Liste der Pakete, die wir in diesm Kurs brachen werden. Zusätzlich können Sie sich [hier](https://www.youtube.com/watch?v=kygOqp_zijk&list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o&t=14s) ein Video zur Installation ansehen. 
@@ -30,7 +37,11 @@ Zu Beginn des Kurses werden wir jedoch nicht auf Ihren lokalen Rechnern arbeiten
 RStudio Desktop ist eine Entwicklungsumgebung für R. Sie können die *open source* Version kostenlos für Ihren Rechner [hier](https://rstudio.com/products/rstudio/#rstudio-desktop) herunterladen. Es gibt eine live Einführung in RStudio im Kurs. Zusätzlich können Sie hier ein [Video](https://www.youtube.com/watch?v=r5wOhFVWXUE&list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o) dazu ansehen.
 
 Die Oberfläche von RStudio ist in vier Bereiche unterteilt (Abbildung \@ref(fig:rstudio)).
-```{r rstudio, echo = F, fig.cap = 'Aufbau von RStudio', fig.width = 6, out.width = "100%"}
+```{r}
+#| echo: false
+#| fig-cap: Aufbau von RStudio
+#| out-width: "100%"
+
 knitr::include_graphics('figures/RStudio.png')
 ```
 
@@ -39,18 +50,19 @@ Sie sollten auch auf Ihrem eigenen Rechner einen Ordner für die Veranstaltung a
 ## Lesestoff
 Kapitel 1.1 und 1.2 in @ModernDive.
 
-## Aufgaben
+## Gemeinsame Aufgaben
 
-```{block, type='rmdalert'}
+:::{.alert}
 Bitte speichern Sie Ihr Skript regelmäßig ab!
-```
+:::
+
 ### Ars Haushaltsbuch
 
 Der angehende Datenanalyst Ar Stat möchte dem Rat seiner Mutter folgen und ein Haushaltsbuch anlegen. Zuerst möchte er sich einen Überblick über seine Ausgaben in der Uni-Mensa verschaffen und erstellt die folgende Tabelle:
 
-<br>
-
-```{r, results='asis', echo = F}
+```{r}
+#| echo: false
+#| results: asis
 
 tab <- tibble(Wochentag = c('Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag'), `Ausgaben (€)` = c(2.57, 2.90, 2.73, 3.23, 3.90))
 knitr::kable(tab, 
@@ -63,20 +75,23 @@ knitr::kable(tab,
 
 
 1. Wie viel hat Ar insgesamt in der Woche ausgegeben?
-2. Wie viel hat er im Schnitt pro Tag ausgegeben?
-3. Wie stark schwanken seine Ausgaben?
+2. Wie groß ist die Differenz zwischen dem höchsten und dem niedrigsten Betrag?
+3. Wie viel hätte er insgesamt ausgegeben, wenn er jeden Tag so viel gezahlt hätte, wie am Dienstag. **Wichtig: Verwenden Sie die [], um den Betrag von Dienstag auszuwählen!**
+
 
 Leider hat Ar sich beim Übertragen der Daten vertippt. Er hat am Dienstag seine Freundin zum Essen eingeladen und 7,95 € statt 2,90 € ausgegeben.
 
 4. Korrigieren Sie Ars Fehler.
-5. Wie und warum verändern sich die Ergebnisse aus den Teilaufgaben 1 bis 3?
+5. Wie verändern sich die Ergebnisse aus den Teilaufgaben 1 bis 3?
 
 
 ### Fehlende Werte {#rob2}
 
 R kodiert fehlende Werte mit `NA`. Ar Stat hat am Montag der darauffolgenden Woche in der Mensa gegessen, aber vergessen die Ausgaben zu notieren.
 
-```{r, results='asis', echo = F}
+```{r}
+#| echo: false
+#| results: asis
 
 tab <- tibble(`Wochentag` = c('Montag, 9. März', 'Dienstag, 10. März', 'Mittwoch, 11. März', 'Donnerstag, 12. März', 'Freitag, 13. März', 'Montag, 16. März'), `Amount spent (€)` = c(2.57, 2.90, 2.73, 3.23, 3.90, NA))
 knitr::kable(tab, 
@@ -91,34 +106,7 @@ knitr::kable(tab,
 - Lesen Sie, was passiert, wenn der Datenvektor bei der Berechnung der Summe fehlende Werte enthält. Rufen Sie dazu die Hilfe auf, i.e. `?sum`.
 - Korrigieren Sie die Berechnung der Summe entsprechend.
 
-### Ihr erster Plot {#firstplot}
-Vor allem am Anfang kann die Lernkurve in R recht flach verlaufen. Daher sollten Sie nicht vergessen, warum Sie R lernen, nämlich um echte Datensätze zu analysieren.
-
-Auch wenn Sie den Code unten noch nicht (ganz) verstehen, kopieren Sie ihn in Ihr R und lassen Sie ihn laufen.
-
-```{r, echo = T, results = 'hide', fig.show='hide'}
-library(tidyverse)
-library(gapminder)
-
-gapminder2007 <- gapminder %>% 
-  filter(year == 2007)
-
-ggplot(gapminder2007, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +
-  geom_point() +
-  scale_x_log10() +
-  xlab('GDP per capita') +
-  ylab('Life expectancy') +
-  labs(title = 'Gapminder data for the year 2007')
-  
-```
-
-- Welche Daten sind in diesem Datensatz enthalten? Nutzen Sie die Hilfe, i.e. `?gapminder`.
-- Was stellen die Farben in der Abbildung dar?
-- Was wird durch die Symbolgröße dargestellt?
-- Wie würden Sie den Zusammenhang zwischen den Variablen `GDP per capita` und `Life expectancy` beschreiben?
-
-
-
+## Hausaufgaben
 ### R als Taschenrechner
 
 R ist ein großer Taschenrechner mit vielen bereits definierten Funktionen. Es gelten die üblichen Rechenregeln wie z.B. Punkt-vor-Strich und die Klammern.
@@ -138,7 +126,8 @@ In R arbeitet man mit Objekten. Ein Objekt kann alles Mögliche sein: eine Varia
 
 Objekte erstellt man, indem man ihnen Namen gibt. Diesen Vorgang nennt man **Zuweisung** (*assignment*). Im Beispiel unten wird ein Objekt, in diesem Fall ein Skalar, namens `x` erzeugt, mit dem Wert 42. Um den Wert von `x` anzuzeigen, tippen Sie `x` ein.
 
-```{r "2_assignment", results = 'hide'}
+```{r}
+#| results: hide
 x <- 42
 
 # Zeige den Wert von x
@@ -148,7 +137,10 @@ x
 
 Zuweisungen können in R entweder mit dem `=` erfolgen oder mit `<-`. Beide Varianten sind gleichwertig. Dabei ist allerdings Pfeilrichtung entscheidend! `x <- 42` bedeutet: Die linke Seite (Zahl 42) wird dem Objekt `x` zugeordnet. Wenn man die Pfeilrichtung umdreht, macht die Zuweisung keinen Sinn und man erhält eine Fehlermeldung.
 
-```{r "2_assignment_long", error = T, results = 'hide'}
+```{r "2_assignment_long"}
+#| error: true
+#| results: hide
+
 # Sinnvolle Zuweisung
 x <- 42
 # Gleichwertige sinnvolle Zuweisung
@@ -163,7 +155,8 @@ Objektnamen können (fast) frei gewählt werden. Sie müssen mit einem Buchstabe
 
 Eine Zuweisung kann auch kompliziertere Anweisungen enthalten. Hier erstellen wir z.B. einen Vektor mithilfe der Funktion `c` (*concatenate*) und weisen das Ergebnis dem Objekt `my_a` zu.
 
-```{r "2_3", results = 'hide'}
+```{r "2_3"}
+#| results: hide
 my_a <- c(32, 54, 1.2, 398)
 ```
 
@@ -187,7 +180,8 @@ Häufig wollen wir für unsere Daten den Mittelwert berechnen.
 
 Um das "Innenleben" der Objekte in R anzusprechen, gibt es verschieden Möglichkeiten. In diesem Tutorial konzentrieren wir uns auf Vektoren. Um die einzelnen Komponenten im Vektor anzusprechen, benutzt man eckige Klammern `[ ]`. Um eine bestimmte Komponente zu adressieren (anzusprechen), schreibt man die Platznummer der Komponente in die Klammer. Wenn man im Vektor `my_c`, z.B. die dritte Komponente extrahieren möchte, dann schreibt man `my_c[3]`
 
-```{r "a_3", resutls = 'hide'}
+```{r "a_3"}
+#| results: hide
 my_c <- c(2, 45.7, pi, sqrt(23), 2^6)
 my_c[3]
 ```
@@ -203,18 +197,51 @@ Elemente in solchen Vektoren kann man mit Namen in eckigen Klammern ansprechen. 
 
 - Fragen Sie nach dem Element `Koeln` im Vektor `benannt`.
 
+
+
+
+### Ihr erster Plot {#firstplot}
+Vor allem am Anfang kann die Lernkurve in R recht flach verlaufen. Daher sollten Sie nicht vergessen, warum Sie R lernen, nämlich um echte Datensätze zu analysieren.
+
+Auch wenn Sie den Code unten noch nicht verstehen, kopieren Sie ihn in einen neuen R-Chunk in Ihrem Notebook und lassen Sie ihn laufen.
+
+```{r}
+#| echo: true
+#| results: hide
+#| fig-show: hide
+library(tidyverse)
+library(gapminder)
+
+gapminder2007 <- gapminder %>% 
+  filter(year == 2007)
+
+ggplot(gapminder2007, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +
+  geom_point() +
+  scale_x_log10() +
+  xlab('Bruttoinlandsprodukt pro Einwohner ($, inflationsbereinigt)') +
+  ylab('Lebenserwartung bei der Geburt (Jahre)') +
+  labs(title = 'Daten von Gapminder für das Jahr 2007')
+  
+```
+
+- Welche Daten sind in diesem Datensatz enthalten? Nutzen Sie die Hilfe, i.e. `?gapminder`.
+- Was stellen die Farben in der Abbildung dar?
+- Was wird durch die Symbolgröße dargestellt?
+- Wie würden Sie den Zusammenhang zwischen den Variablen `Bruttoinlandsprodukt pro Einwohner ($, inflationsbereinigt)` und `Lebenserwartung bei der Geburt (Jahre)` beschreiben?
+
+
 ## Ihre Arbeit einreichen
-- Speichern Sie Ihre .R Datei ab.
-- Laden Sie die Datei auf ILIAS in der dazugehörigen Übung hoch.
+- Speichern Sie Ihre .Rmd Datei ab.
+- Laden Sie die Datei auf ILIAS in Ihrer Übungsgruppe in der dazugehörigen Übung hoch.
 - Nach der Abgabe erhalten Sie die Musterlösung.
 - Vergleichen Sie Ihre Lösung selbstständig mit der Musterlösung.
 - Stellen Sie entweder in Campuswire (im #class-chat) oder in der nächsten Sitzung Fragen, falls Sie bei den Aufgaben etwas nicht verstanden haben und die Musterlösung es nicht aufklären konnte.
 
 <br>
 
-```{block, type='rmdalert'}
+:::{.alert}
 Beachten Sie die Deadline für das Hochladen der Hausaufgaben!
-```
+:::
 
 ## Lesestoff
 r4ds, Kapitel 4 [@r4ds]

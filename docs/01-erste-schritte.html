@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Übung zur Vorlesung Statistik und Datenanalyse - 1&nbsp; Erste Schritte in R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./02-rmarkdown.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="stat_style.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Erste Schritte in R</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Übung zur Vorlesung Statistik und Datenanalyse</a> 
+        <div class="sidebar-tools-main">
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Übung-zur-Vorlesung-Statistik-und-Datenanalyse.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Übung-zur-Vorlesung-Statistik-und-Datenanalyse.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Vorwort</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">EINFÜHRUNG IN R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-erste-schritte.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Erste Schritte in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-rmarkdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Markdown für reproduzierbare Forschung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Literatur</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#was-ist" id="toc-was-ist" class="nav-link active" data-scroll-target="#was-ist"> <span class="header-section-number">1.1</span> Was ist <svg aria-hidden="true" role="img" viewbox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:steelblue;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"></path></svg>?</a></li>
+  <li><a href="#was-ist-rstudio" id="toc-was-ist-rstudio" class="nav-link" data-scroll-target="#was-ist-rstudio"> <span class="header-section-number">1.2</span> Was ist RStudio?</a></li>
+  <li><a href="#lesestoff" id="toc-lesestoff" class="nav-link" data-scroll-target="#lesestoff"> <span class="header-section-number">1.3</span> Lesestoff</a></li>
+  <li><a href="#gemeinsame-aufgaben" id="toc-gemeinsame-aufgaben" class="nav-link" data-scroll-target="#gemeinsame-aufgaben"> <span class="header-section-number">1.4</span> Gemeinsame Aufgaben</a>
+  <ul class="collapse">
+  <li><a href="#ars-haushaltsbuch" id="toc-ars-haushaltsbuch" class="nav-link" data-scroll-target="#ars-haushaltsbuch"> <span class="header-section-number">1.4.1</span> Ars Haushaltsbuch</a></li>
+  <li><a href="#rob2" id="toc-rob2" class="nav-link" data-scroll-target="#rob2"> <span class="header-section-number">1.4.2</span> Fehlende Werte</a></li>
+  </ul></li>
+  <li><a href="#hausaufgaben" id="toc-hausaufgaben" class="nav-link" data-scroll-target="#hausaufgaben"> <span class="header-section-number">1.5</span> Hausaufgaben</a>
+  <ul class="collapse">
+  <li><a href="#r-als-taschenrechner" id="toc-r-als-taschenrechner" class="nav-link" data-scroll-target="#r-als-taschenrechner"> <span class="header-section-number">1.5.1</span> R als Taschenrechner</a></li>
+  <li><a href="#zuweisungen" id="toc-zuweisungen" class="nav-link" data-scroll-target="#zuweisungen"> <span class="header-section-number">1.5.2</span> Zuweisungen</a></li>
+  <li><a href="#funktionsaufruf" id="toc-funktionsaufruf" class="nav-link" data-scroll-target="#funktionsaufruf"> <span class="header-section-number">1.5.3</span> Funktionsaufruf</a></li>
+  <li><a href="#objekte-ansprechen" id="toc-objekte-ansprechen" class="nav-link" data-scroll-target="#objekte-ansprechen"> <span class="header-section-number">1.5.4</span> Objekte ansprechen</a></li>
+  <li><a href="#firstplot" id="toc-firstplot" class="nav-link" data-scroll-target="#firstplot"> <span class="header-section-number">1.5.5</span> Ihr erster Plot</a></li>
+  </ul></li>
+  <li><a href="#ihre-arbeit-einreichen" id="toc-ihre-arbeit-einreichen" class="nav-link" data-scroll-target="#ihre-arbeit-einreichen"> <span class="header-section-number">1.6</span> Ihre Arbeit einreichen</a></li>
+  <li><a href="#lesestoff-1" id="toc-lesestoff-1" class="nav-link" data-scroll-target="#lesestoff-1"> <span class="header-section-number">1.7</span> Lesestoff</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="erste-schritte" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Erste Schritte in R</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+
+</div>
+<div class="outcomes">
+<ul>
+<li>Layout und Bedeutung einzelner Fenster in RStudio kennen</li>
+<li>R Notebooks kennen</li>
+<li>Anweisungen aus dem Skript an die Konsole schicken</li>
+<li>R als Taschenrechner benutzen</li>
+<li>erste Funktionen aufrufen</li>
+<li>Objekte mit eckigen Klammern [ ] ansprechen</li>
+<li>R-Hilfeseiten aufrufen</li>
+<li>Ihren ersten Plot erstellen</li>
+</ul>
+</div>
+<section id="was-ist" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="was-ist"><span class="header-section-number">1.1</span> Was ist <svg aria-hidden="true" role="img" viewbox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:steelblue;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"></path></svg>?</h2>
+<p>R ist eine Programmiersprache für Datenanalyse und statistische Modellierung. Es ist frei verfügbar (<em>open source software</em>) und neben Python einer der am meisten benutzten Programmiersprachen zur Datenanalyse und -visualisierung. R wurde von Ross Ihaka und Robert Gentleman 1996 veröffentlicht <span class="citation" data-cites="Ihaka1996">(<a href="references.html#ref-Ihaka1996" role="doc-biblioref">Ihaka and Gentleman 1996</a>)</span>. Es gibt für R eine Vielzahl von Zusatzpaketen, die die Funktionalität und die Einsatzmöglichkeiten enorm erweitern.</p>
+<p>Sie können R für Ihren Computer auf der offiziellen R-Seite https://www.r-project.org/ herunterladen und installieren. Eine kurze Anleitung finden Sie auf ILIAS, zusammen mit der Liste der Pakete, die wir in diesm Kurs brachen werden. Zusätzlich können Sie sich <a href="https://www.youtube.com/watch?v=kygOqp_zijk&amp;list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o&amp;t=14s">hier</a> ein Video zur Installation ansehen.</p>
+<p>Auf der offiziellen R-Seite finden Sie auch zusätzliche Pakete, und zwar unter CRAN (<em>The Comprehensive R Archive Network</em>). Manche Pakete sind auf den CRAN-Seiten thematische in sogen. <a href="http://cran.r-project.org/web/views/">CRAN Task Views</a> gegliedert. Für den Umweltbereich sind folgende Paketsammlungen besonders relevant:</p>
+<ul>
+<li>Environmetrics: Analyse von Umweltdaten</li>
+<li>Multivariate: Multivariate Statistik</li>
+<li>Spatial: Analyse von räumlichen Daten</li>
+<li>TimeSeries: Zeitreihenanalyse</li>
+</ul>
+<p>Zu Beginn des Kurses werden wir jedoch nicht auf Ihren lokalen Rechnern arbeiten, sondern auf der RStudio Server Pro, der extra für die digitale Lehre mit R an der UzK eingeführt wurde. Das ermöglicht einen schnelleren Einstieg in R und bietet eine fast-live Unterstützung durch den Dozenten beim Programmieren. Daher biete ich zu diesem frühen Zeitpunkt im Kurs keine Unterstützung bei der Installation von R auf Ihren Privatrechnern. Für die ganz Ungeduldigen, gibt es hier eine kurze <a href="https://www.youtube.com/watch?v=kygOqp_zijk&amp;list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o&amp;t=14s">Einleitung zur Installation</a>.</p>
+</section>
+<section id="was-ist-rstudio" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="was-ist-rstudio"><span class="header-section-number">1.2</span> Was ist RStudio?</h2>
+<p>RStudio Desktop ist eine Entwicklungsumgebung für R. Sie können die <em>open source</em> Version kostenlos für Ihren Rechner <a href="https://rstudio.com/products/rstudio/#rstudio-desktop">hier</a> herunterladen. Es gibt eine live Einführung in RStudio im Kurs. Zusätzlich können Sie hier ein <a href="https://www.youtube.com/watch?v=r5wOhFVWXUE&amp;list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o">Video</a> dazu ansehen.</p>
+<p>Die Oberfläche von RStudio ist in vier Bereiche unterteilt (Abbildung @ref(fig:rstudio)).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/RStudio.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Aufbau von RStudio</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Sie sollten auch auf Ihrem eigenen Rechner einen Ordner für die Veranstaltung anlegen und darin jeweils einen Ordner für <strong>Daten</strong>, <strong>Skripte</strong> und <strong>Notebooks</strong>.</p>
+</section>
+<section id="lesestoff" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="lesestoff"><span class="header-section-number">1.3</span> Lesestoff</h2>
+<p>Kapitel 1.1 und 1.2 in <span class="citation" data-cites="ModernDive">Ismay and Kim (<a href="references.html#ref-ModernDive" role="doc-biblioref">2021</a>)</span>.</p>
+</section>
+<section id="gemeinsame-aufgaben" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="gemeinsame-aufgaben"><span class="header-section-number">1.4</span> Gemeinsame Aufgaben</h2>
+<div class="alert">
+<p>Bitte speichern Sie Ihr Skript regelmäßig ab!</p>
+</div>
+<section id="ars-haushaltsbuch" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="ars-haushaltsbuch"><span class="header-section-number">1.4.1</span> Ars Haushaltsbuch</h3>
+<p>Der angehende Datenanalyst Ar Stat möchte dem Rat seiner Mutter folgen und ein Haushaltsbuch anlegen. Zuerst möchte er sich einen Überblick über seine Ausgaben in der Uni-Mensa verschaffen und erstellt die folgende Tabelle:</p>
+<div class="cell-output-display">
+
+<table class="table table-striped" style="width: auto !important; ">
+<caption>Ars Mensaausgaben</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Wochentag </th>
+   <th style="text-align:right;"> Ausgaben (€) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Montag </td>
+   <td style="text-align:right;"> 2,57 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Dienstag </td>
+   <td style="text-align:right;"> 2,90 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mittwoch </td>
+   <td style="text-align:right;"> 2,73 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Donnerstag </td>
+   <td style="text-align:right;"> 3,23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Freitag </td>
+   <td style="text-align:right;"> 3,90 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<ol type="1">
+<li>Wie viel hat Ar insgesamt in der Woche ausgegeben?</li>
+<li>Wie groß ist die Differenz zwischen dem höchsten und dem niedrigsten Betrag?</li>
+<li>Wie viel hätte er insgesamt ausgegeben, wenn er jeden Tag so viel gezahlt hätte, wie am Dienstag. <strong>Wichtig: Verwenden Sie die [], um den Betrag von Dienstag auszuwählen!</strong></li>
+</ol>
+<p>Leider hat Ar sich beim Übertragen der Daten vertippt. Er hat am Dienstag seine Freundin zum Essen eingeladen und 7,95 € statt 2,90 € ausgegeben.</p>
+<ol start="4" type="1">
+<li>Korrigieren Sie Ars Fehler.</li>
+<li>Wie verändern sich die Ergebnisse aus den Teilaufgaben 1 bis 3?</li>
+</ol>
+</section>
+<section id="rob2" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="rob2"><span class="header-section-number">1.4.2</span> Fehlende Werte</h3>
+<p>R kodiert fehlende Werte mit <code>NA</code>. Ar Stat hat am Montag der darauffolgenden Woche in der Mensa gegessen, aber vergessen die Ausgaben zu notieren.</p>
+<div class="cell-output-display">
+
+<table class="table table-striped" style="width: auto !important; ">
+<caption>Ars Mensaausgaben, cont.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Wochentag </th>
+   <th style="text-align:right;"> Amount spent (€) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Montag, 9. März </td>
+   <td style="text-align:right;"> 2,57 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Dienstag, 10. März </td>
+   <td style="text-align:right;"> 2,90 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mittwoch, 11. März </td>
+   <td style="text-align:right;"> 2,73 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Donnerstag, 12. März </td>
+   <td style="text-align:right;"> 3,23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Freitag, 13. März </td>
+   <td style="text-align:right;"> 3,90 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Montag, 16. März </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<ul>
+<li>Wie ändert der fehlende Wert die Berechnung der Summe?</li>
+<li>Lesen Sie, was passiert, wenn der Datenvektor bei der Berechnung der Summe fehlende Werte enthält. Rufen Sie dazu die Hilfe auf, i.e.&nbsp;<code>?sum</code>.</li>
+<li>Korrigieren Sie die Berechnung der Summe entsprechend.</li>
+</ul>
+</section>
+</section>
+<section id="hausaufgaben" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="hausaufgaben"><span class="header-section-number">1.5</span> Hausaufgaben</h2>
+<section id="r-als-taschenrechner" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="r-als-taschenrechner"><span class="header-section-number">1.5.1</span> R als Taschenrechner</h3>
+<p>R ist ein großer Taschenrechner mit vielen bereits definierten Funktionen. Es gelten die üblichen Rechenregeln wie z.B. Punkt-vor-Strich und die Klammern.</p>
+<ul>
+<li>Schreiben Sie den Code, der 2 und 10 addiert</li>
+</ul>
+<p>Das korrekte Multiplikationszeichen in R ist <code>*</code>.</p>
+<ul>
+<li>Geben Sie den folgenden Befehl korrekt in R ein: (2 + 10) <span class="math inline">\(\times\)</span> 27</li>
+</ul>
+<p>Bei Dezimalzahlen wird der Dezimalpunkt und nicht das Komma verwendet. Das ist wichtig zu beachten, wenn Sie später Daten in R einlesen möchten.</p>
+<ul>
+<li>Berechnen Sie die Summe von 2,34 und 4,98.</li>
+</ul>
+</section>
+<section id="zuweisungen" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="zuweisungen"><span class="header-section-number">1.5.2</span> Zuweisungen</h3>
+<p>In R arbeitet man mit Objekten. Ein Objekt kann alles Mögliche sein: eine Variable, Daten, Vektoren etc. Wenn also das Ergebnis einer Berechnung oder ein Datenobjekt im R-Arbeitsbereich (<em>workspace</em>) zur Verfügung stehen soll, muss daraus ein Objekt erstellt werden.</p>
+<p>Objekte erstellt man, indem man ihnen Namen gibt. Diesen Vorgang nennt man <strong>Zuweisung</strong> (<em>assignment</em>). Im Beispiel unten wird ein Objekt, in diesem Fall ein Skalar, namens <code>x</code> erzeugt, mit dem Wert 42. Um den Wert von <code>x</code> anzuzeigen, tippen Sie <code>x</code> ein.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">42</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Zeige den Wert von x</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Zuweisungen können in R entweder mit dem <code>=</code> erfolgen oder mit <code>&lt;-</code>. Beide Varianten sind gleichwertig. Dabei ist allerdings Pfeilrichtung entscheidend! <code>x &lt;- 42</code> bedeutet: Die linke Seite (Zahl 42) wird dem Objekt <code>x</code> zugeordnet. Wenn man die Pfeilrichtung umdreht, macht die Zuweisung keinen Sinn und man erhält eine Fehlermeldung.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sinnvolle Zuweisung</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">42</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Gleichwertige sinnvolle Zuweisung</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">42</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Sinnloser Ausdruck. Fehlermeldung!</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">-&gt;</span> <span class="dv">42</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in 42 &lt;- x: ungültige (do_set) linke Seite in Zuweisung</code></pre>
+</div>
+</div>
+<p>Objektnamen können (fast) frei gewählt werden. Sie müssen mit einem Buchstaben beginnen und dürfen keine Sonderzeichen enthalten. Bei längeren Namen empfiehlt sich ein <code>_</code>. <strong>Streng verboten sind Namen von vordefinierten Funktionen!</strong></p>
+<ul>
+<li>Erstellen Sie ein Objekt namens <code>mein_objekt</code> und weisen Sie ihm das Ergebnis der Berechnung <span class="math inline">\(23^{2}\)</span> zu. Eine Potenz berechnen Sie mit <code>^</code>.</li>
+</ul>
+<p>Eine Zuweisung kann auch kompliziertere Anweisungen enthalten. Hier erstellen wir z.B. einen Vektor mithilfe der Funktion <code>c</code> (<em>concatenate</em>) und weisen das Ergebnis dem Objekt <code>my_a</code> zu.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">32</span>, <span class="dv">54</span>, <span class="fl">1.2</span>, <span class="dv">398</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="funktionsaufruf" class="level3" data-number="1.5.3">
+<h3 data-number="1.5.3" class="anchored" data-anchor-id="funktionsaufruf"><span class="header-section-number">1.5.3</span> Funktionsaufruf</h3>
+<p>In R gibt es eine Vielzahl von vordefinierten Funktionen. Ein Funktionsaufruf hat immer die gleiche Form: <em>mach_das(damit)</em> oder <em>mach_das(damit, und_mit_dieser_einstellung)</em>. Z.B. wird die Summe auf einem Objekt <code>mein_objekt</code> mit <code>sum(mein_objekt)</code> berechnet.</p>
+<ul>
+<li>Erstellen Sie einen Vektor mit den Zahlen 32, 54, 1,2 und 398 und weisen Sie ihn der Variablen <code>my_a</code> zu.</li>
+<li>Berechnen Sie die summe von <code>my_a</code>.</li>
+</ul>
+<p>Sie können im Übrigen auch Vektoren sinnvoll addieren.</p>
+<ul>
+<li>Erstellen Sie einen Vektor <code>my_b</code> mit der passenden Länge und addieren Sie ihn zum Vektor <code>my_a</code>. Die Addition erfolgt elementweise.</li>
+</ul>
+<p>Häufig wollen wir für unsere Daten den Mittelwert berechnen.</p>
+<ul>
+<li>Berechnen Sie den Mittelwert von <code>my_a</code></li>
+<li>Berechnen Sie die Standardabweichung von <code>my_a</code>.</li>
+</ul>
+</section>
+<section id="objekte-ansprechen" class="level3" data-number="1.5.4">
+<h3 data-number="1.5.4" class="anchored" data-anchor-id="objekte-ansprechen"><span class="header-section-number">1.5.4</span> Objekte ansprechen</h3>
+<p>Um das “Innenleben” der Objekte in R anzusprechen, gibt es verschieden Möglichkeiten. In diesem Tutorial konzentrieren wir uns auf Vektoren. Um die einzelnen Komponenten im Vektor anzusprechen, benutzt man eckige Klammern <code>[ ]</code>. Um eine bestimmte Komponente zu adressieren (anzusprechen), schreibt man die Platznummer der Komponente in die Klammer. Wenn man im Vektor <code>my_c</code>, z.B. die dritte Komponente extrahieren möchte, dann schreibt man <code>my_c[3]</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_c <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">45.7</span>, pi, <span class="fu">sqrt</span>(<span class="dv">23</span>), <span class="dv">2</span><span class="sc">^</span><span class="dv">6</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>my_c[<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wir können auch Vektoren erstellen, bei denen einzelne Elemente benannt sind.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>benannt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'Koeln'</span> <span class="ot">=</span> <span class="dv">50667</span>, <span class="st">'Berlin'</span> <span class="ot">=</span> <span class="dv">10965</span>, <span class="st">"Stuttgart"</span> <span class="ot">=</span> <span class="dv">70173</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Elemente in solchen Vektoren kann man mit Namen in eckigen Klammern ansprechen. Die Namen müssen in Anführungszeichen geschrieben werden. Es spielt keine Rolle, ob Sie einfache oder doppelte Anführungszeichen benutzen.</p>
+<ul>
+<li>Fragen Sie nach dem Element <code>Koeln</code> im Vektor <code>benannt</code>.</li>
+</ul>
+</section>
+<section id="firstplot" class="level3" data-number="1.5.5">
+<h3 data-number="1.5.5" class="anchored" data-anchor-id="firstplot"><span class="header-section-number">1.5.5</span> Ihr erster Plot</h3>
+<p>Vor allem am Anfang kann die Lernkurve in R recht flach verlaufen. Daher sollten Sie nicht vergessen, warum Sie R lernen, nämlich um echte Datensätze zu analysieren.</p>
+<p>Auch wenn Sie den Code unten noch nicht verstehen, kopieren Sie ihn in einen neuen R-Chunk in Ihrem Notebook und lassen Sie ihn laufen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>gapminder2007 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder2007, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">'Bruttoinlandsprodukt pro Einwohner ($, inflationsbereinigt)'</span>) <span class="sc">+</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">'Lebenserwartung bei der Geburt (Jahre)'</span>) <span class="sc">+</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Daten von Gapminder für das Jahr 2007'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Welche Daten sind in diesem Datensatz enthalten? Nutzen Sie die Hilfe, i.e.&nbsp;<code>?gapminder</code>.</li>
+<li>Was stellen die Farben in der Abbildung dar?</li>
+<li>Was wird durch die Symbolgröße dargestellt?</li>
+<li>Wie würden Sie den Zusammenhang zwischen den Variablen <code>Bruttoinlandsprodukt pro Einwohner ($, inflationsbereinigt)</code> und <code>Lebenserwartung bei der Geburt (Jahre)</code> beschreiben?</li>
+</ul>
+</section>
+</section>
+<section id="ihre-arbeit-einreichen" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="ihre-arbeit-einreichen"><span class="header-section-number">1.6</span> Ihre Arbeit einreichen</h2>
+<ul>
+<li>Speichern Sie Ihre .Rmd Datei ab.</li>
+<li>Laden Sie die Datei auf ILIAS in Ihrer Übungsgruppe in der dazugehörigen Übung hoch.</li>
+<li>Nach der Abgabe erhalten Sie die Musterlösung.</li>
+<li>Vergleichen Sie Ihre Lösung selbstständig mit der Musterlösung.</li>
+<li>Stellen Sie entweder in Campuswire (im #class-chat) oder in der nächsten Sitzung Fragen, falls Sie bei den Aufgaben etwas nicht verstanden haben und die Musterlösung es nicht aufklären konnte.</li>
+</ul>
+<p><br></p>
+<div class="alert">
+<p>Beachten Sie die Deadline für das Hochladen der Hausaufgaben!</p>
+</div>
+</section>
+<section id="lesestoff-1" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="lesestoff-1"><span class="header-section-number">1.7</span> Lesestoff</h2>
+<p>r4ds, Kapitel 4 <span class="citation" data-cites="r4ds">(<a href="references.html#ref-r4ds" role="doc-biblioref">Wickham and Grolemund 2021</a>)</span></p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-Ihaka1996" class="csl-entry" role="doc-biblioentry">
+Ihaka, Ross, and Robert Gentleman. 1996. <span>“R: <span>A Language</span> for <span>Data Analysis</span> and <span>Graphics</span>.”</span> <em>Journal of Computational and Graphical Statistics</em> 5 (3): 299–314. <a href="https://doi.org/10.1080/10618600.1996.10474713">https://doi.org/10.1080/10618600.1996.10474713</a>.
+</div>
+<div id="ref-ModernDive" class="csl-entry" role="doc-biblioentry">
+Ismay, Chester, and Albert Y. Kim. 2021. <em><span>ModernDive</span>: <span>Statistical Inference</span> via <span>Data Science</span></em>. <a href="https://moderndive.com/">https://moderndive.com/</a>.
+</div>
+<div id="ref-r4ds" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, and Garrett Grolemund. 2021. <em>R for <span>Data Science</span></em>. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Vorwort</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./02-rmarkdown.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Markdown für reproduzierbare Forschung</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,32 +1,68 @@
----
-bibliography: '../statistik_und_datenanalyse/statistik_und_datenanalyse.bib'
----
 
 # Vorwort {.unnumbered}
 
-## Kurs
-
 In dieser Veranstaltung werden wir folgende Werkzeuge verwenden:
 
-**ILIAS**: die Online-Lernplattform der UzK. Entweder sind Sie bereits automatisch in dem Kurs registriert oder werden von mir per Hand angemeldet.
+**ILIAS**: die Online-Lernplattform der UzK. Sie sollten alle bereits registriert sein.
 
 **Campuswire**: die Chatplattform dient der allgemeinen Kommunikation und der Selbstorganisation des Lernens. Verwenden Sie diese, um Fragen mit Ihren Kommilitonen\*innen und mir zu diskutieren. Sie sollten eine Einladungsmail zu Campuswire erhalten haben.
 
 **Zoom**: die Videokonferenz-Software bleibt unser Notfall-Werkzeug, falls keine Präsenz möglich ist.
 
-## Lernziele
+## Lernergebnisse (intended learning outcomes) {-}
 
-:::{.callout-note}
-## Lernziele des Kurses
+:::{.outcomes}
+**Datenanalyse**
+
 -   Daten für statistische Analysen aufbereiten
 -   Explorative (beschreibende) Datenanalyse durchführen
 -   Daten visualisieren
 -   Ergebnisse der Analysen reproduzierbar darstellen
+
+**Statistische Methoden**
+
+-   Einfache statistische Kenngrößen (Mittelwert, Standardabweichung etc.) berechnen
+-   Eine Korrelation zwischen zwei Datensätzen berechnen
+-   Hypothesentests durchführen und die Ergebnisse richtig berichten und interpretieren
+-   Konfidenzintervalle berechnen und interpretieren
+-   Ein linearen Modell berechnen, die Ergebnisse darstellen und interpretieren
 :::
+
+## Was mir im Umgang miteinander wichtig ist {-}
+
+- Pünktlichkeit bei Präsenz- und Zoomsitzungen
+- Gute Vorbereitung durch Erledigen der Hausaufgaben
+- Respektieren anderer Meinungen
+- Offenheit gegenüber neuen Sichtweisen, Themen und Methoden
+- Geduld mit sich selbst und den anderen `r emo::ji('smile')`
 
 ## Sinn und Unsinn dieses Skripts {.unnumbered}
 
 Dieses Skript ist ein lebendiges Begleitdokument des Kurses. Es wird laufend angepasst und aktualisiert.
+
+Ich nutze verschiedenfarbige Blöcke, um wichtige Stellen hervorzuheben:
+
+:::{.info}
+Infoblock
+:::
+
+<br>
+
+:::{.alert}
+Achtung, wichtig!
+:::
+
+<br>
+
+:::{.def}
+Definition
+:::
+
+<br>
+
+:::{.outcomes}
+Lernziele
+:::
 
 ## Inspiration, Quellen und Danksagung {.unnumbered}
 

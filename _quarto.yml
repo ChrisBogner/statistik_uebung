@@ -11,9 +11,8 @@ book:
     - index.qmd
     - part: "EINFÜHRUNG IN R"
       chapters: 
-        - 01-einfuehrung.qmd
-        - 02-erste-schritte.qmd
-        - 03-rmarkdown.qmd
+        - 01-erste-schritte.qmd
+        - 02-rmarkdown.qmd
     - references.qmd
   page-navigation: true
   downloads: [pdf, epub]
@@ -21,7 +20,7 @@ book:
     style: docked
     background: light
     
-bibliography: statistik_und_datenanalyse.bib
+bibliography: '../statistik_und_datenanalyse/statistik_und_datenanalyse.bib'
   
 format:
   html:
@@ -30,8 +29,8 @@ format:
     css: stat_style.css
   pdf:
     documentclass: scrreport
-    title: "Statistik und Datenanalyse"
+    title: "Übung zur Vorlesung Statistik und Datenanalyse"
   epub:
-    title: "Statistik und Datenanalyse"
+    title: "Übung zur Vorlesung Statistik und Datenanalyse"
 
 

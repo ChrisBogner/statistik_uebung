@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Übung zur Vorlesung Statistik und Datenanalyse - 2&nbsp; R Markdown für reproduzierbare Forschung</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./01-erste-schritte.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="stat_style.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Markdown für reproduzierbare Forschung</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Übung zur Vorlesung Statistik und Datenanalyse</a> 
+        <div class="sidebar-tools-main">
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Übung-zur-Vorlesung-Statistik-und-Datenanalyse.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Übung-zur-Vorlesung-Statistik-und-Datenanalyse.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Vorwort</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">EINFÜHRUNG IN R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-erste-schritte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Erste Schritte in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-rmarkdown.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Markdown für reproduzierbare Forschung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Bibliographie</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#warum-reproduzierbarkeit-in-der-forschung-wichtig-ist" id="toc-warum-reproduzierbarkeit-in-der-forschung-wichtig-ist" class="nav-link active" data-scroll-target="#warum-reproduzierbarkeit-in-der-forschung-wichtig-ist"> <span class="header-section-number">2.1</span> Warum Reproduzierbarkeit in der Forschung wichtig ist</a></li>
+  <li><a href="#literate-programming-idee-von-donald-knuth" id="toc-literate-programming-idee-von-donald-knuth" class="nav-link" data-scroll-target="#literate-programming-idee-von-donald-knuth"> <span class="header-section-number">2.2</span> <em>Literate Programming</em> Idee von Donald Knuth</a></li>
+  <li><a href="#reproduzierbare-berichte-mit-r-markdown" id="toc-reproduzierbare-berichte-mit-r-markdown" class="nav-link" data-scroll-target="#reproduzierbare-berichte-mit-r-markdown"> <span class="header-section-number">2.3</span> Reproduzierbare Berichte mit R Markdown</a></li>
+  <li><a href="#ein-neues-r-notebook-erstellen" id="toc-ein-neues-r-notebook-erstellen" class="nav-link" data-scroll-target="#ein-neues-r-notebook-erstellen"> <span class="header-section-number">2.4</span> Ein neues R Notebook erstellen</a></li>
+  <li><a href="#header" id="toc-header" class="nav-link" data-scroll-target="#header"> <span class="header-section-number">2.5</span> Der Header eines Notebooks</a></li>
+  <li><a href="#wichtigste-regeln-für-reproduzierbarkeit" id="toc-wichtigste-regeln-für-reproduzierbarkeit" class="nav-link" data-scroll-target="#wichtigste-regeln-für-reproduzierbarkeit"> <span class="header-section-number">2.6</span> Wichtigste Regeln für Reproduzierbarkeit</a></li>
+  <li><a href="#lesestoff" id="toc-lesestoff" class="nav-link" data-scroll-target="#lesestoff"> <span class="header-section-number">2.7</span> Lesestoff</a></li>
+  <li><a href="#weiterführende-literatur" id="toc-weiterführende-literatur" class="nav-link" data-scroll-target="#weiterführende-literatur"> <span class="header-section-number">2.8</span> Weiterführende Literatur</a></li>
+  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"> <span class="header-section-number">2.9</span> Aufgaben</a>
+  <ul class="collapse">
+  <li><a href="#erstes-notebook" id="toc-erstes-notebook" class="nav-link" data-scroll-target="#erstes-notebook"> <span class="header-section-number">2.9.1</span> Erstes Notebook</a></li>
+  <li><a href="#erste-schritte-als-notebook" id="toc-erste-schritte-als-notebook" class="nav-link" data-scroll-target="#erste-schritte-als-notebook"> <span class="header-section-number">2.9.2</span> Erste Schritte als Notebook</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="reproduzieren" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Markdown für reproduzierbare Forschung</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="outcomes">
+<ul>
+<li>Wichtigkeit der Reproduzierbarkeit erklären</li>
+<li>Begriff <em>literate programming</em> definieren</li>
+<li>Aufbau einer RMarkdown-Datei erklären</li>
+<li>Einen einfachen ersten reproduzierbaren Bericht selbst schreiben</li>
+</ul>
+</div>
+<section id="warum-reproduzierbarkeit-in-der-forschung-wichtig-ist" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="warum-reproduzierbarkeit-in-der-forschung-wichtig-ist"><span class="header-section-number">2.1</span> Warum Reproduzierbarkeit in der Forschung wichtig ist</h2>
+<p>Als Motivation für dieses Thema empfehle ich das <a href="https://www.youtube.com/watch?v=4rBX6r5emgQ&amp;list=PLjTlxb-wKvXOU4WW4p3qc4VKWTI4gLNUf">Video</a> von Prof.&nbsp;Roger Peng der John Hopkins Bloogmerg School of Public Health.</p>
+</section>
+<section id="literate-programming-idee-von-donald-knuth" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="literate-programming-idee-von-donald-knuth"><span class="header-section-number">2.2</span> <em>Literate Programming</em> Idee von Donald Knuth</h2>
+<p>Die Idee, dass man den Code und die dazugehörige Interpretation (Text, Bericht etc.) nicht voneinander trennen sollte, geht auf <span class="citation" data-cites="Knuth1984">Knuth (<a href="references.html#ref-Knuth1984" role="doc-biblioref">1984</a>)</span> zurück. Mit <em>Literate Programming</em> meinte Knuth, dass Programme auch nichts anderes wie literarische Werke sind. Er setzte den Fokus darauf, mit Programmen menschlichen Benutzern zu erklären, was man den Computer machen lassen möchte. Also weg vom computer- hin zum mensch-zentrierten Zugang. So wird Programmieren und in unserem Fall die Datenanalyse verständlich und vor allem reproduzierbar.</p>
+<p>Leider ist es in unserer modernen Forschungslandschaft immer noch nicht Standard. Das Trennen von Analyseergebnissen und Berichten (Forschungsartikeln) sorgt für viele (unentdeckte und unnötige) Fehler und Frust.</p>
+</section>
+<section id="reproduzierbare-berichte-mit-r-markdown" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="reproduzierbare-berichte-mit-r-markdown"><span class="header-section-number">2.3</span> Reproduzierbare Berichte mit R Markdown</h2>
+<p>R hat sein eigenes System von reproduzierbaren Berichten, genannt <strong>R Markdown</strong> <span class="citation" data-cites="RMarkdownGuide">(<a href="references.html#ref-RMarkdownGuide" role="doc-biblioref">Xie, Allaire, and Grolemund 2021</a>)</span>. Es ist benutzerfreundlich und ermöglicht unterschiedliche Formate von Berichten, wie HTML-Dokumente, PDF-Dateien, Präsentationsfolien usw.</p>
+<p>Es wird Sie vielleicht überraschen, aber das Skript, das Sie gerade lesen, ist nichts anderes als ein “literarisch” programmiertes Buch in R Bookdown <span class="citation" data-cites="RMarkdownGuide">(<a href="references.html#ref-RMarkdownGuide" role="doc-biblioref">Xie, Allaire, and Grolemund 2021</a>)</span>, einem R-Paket speziell für lange R Markdown-Dokumente.</p>
+<p>Wir werden vor allem mit R Notebooks arbeiten, die eine gute Interaktion zwischen dem geschriebenen Text und dem R-Code ermöglichen. Das Notebook kann sowohl in ein HTML-Dokument als auch in PDF oder Word als endgültiges Dokument umgewandelt werden. Diesen Prozess nennt man <em>knit</em>.</p>
+</section>
+<section id="ein-neues-r-notebook-erstellen" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="ein-neues-r-notebook-erstellen"><span class="header-section-number">2.4</span> Ein neues R Notebook erstellen</h2>
+<p>Um ein neues R Notebook zu erstellen, klicken Sie das kleine grüne Plus oben links und wählen Sie R Notebook aus. Sie können es erst einmal bei untitled belassen (Abbildung @ref(fig:r-notebook)).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/r-notebook.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<p></p><figcaption class="figure-caption">Neues R Notebook anlegen</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wenn Sie ein neues Notebook erstellen, enthält das Template etwas Code. Lesen Sie sich das ruhig noch einmal durch, da es ein paar hilfreiche Tastenkürzel und Tipps. Danach können Sie den Text unterhalb des Headers löschen.</p>
+</section>
+<section id="header" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="header"><span class="header-section-number">2.5</span> Der Header eines Notebooks</h2>
+<p>Ein R Notebook (und jedes andere R Markdown Dokument) besteht aus einem Header (Kopf) und dem eigentlichen Text und Code. Der Header hat dabei ein bestimmtes Layout, auf das Sie unbedingt achten müssen (Rechtschreibung!). Der Header ist <strong>immer</strong> zwischen drei Minuszeichen <code>---</code> eingeschlossen. Bei komplizierteren Headern gibt es auch Einrückungen (mit der Tab-Taste), die auch Bedeutung haben (s. weiterführende Literatur). Wir bleiben bei einem einfachen Header ohne Einrückungen (Abbildung @ref(fig:rmarkdown-file)).</p>
+<p>Um einen neuen R-Chunk hinzuzufügen, klicken Sie auf das kleine grüne <code>C+</code> oben rechts oder verwenden Sie das Tastenkürzel <strong>Str+Alt+i</strong>:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/new_chunk.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Einen neuen Chunk hinzufügen</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Text kann einfach unterhalb des Headers und <em>außerhalb der Chunks</em> getippt werden. Die wichtigsten Layoutelemente für den Text finden Sie <a href="https://rmarkdown.rstudio.com/authoring_basics.html">hier</a>. R Markdown unterstützt mathematische Notation in Latex-Stil. Eine Einführung in Latex würde an dieser Stelle aber zu weit führen.</p>
+<p>Das R Notebook hat den Vorteil, dass man über den Button <code>Preview</code> oben in der Leiste sofort die Ergebnisse anzeigen lassen kann. Sie müssen also nicht <code>knitten</code>. Falls Sie es doch möchten, klicken Sie auf das kleine Dreieck neben dem Preview und suchen Sie sich ein Output-Format aus. Ein einmal “geknittetes” Notebook ist kein Notebook mehr (kein Preview). Damit es wieder zum Nobebook wird, müssen Sie im Header <code>output: html_notebbok</code> einstellen (Abbildung @ref(fig:rmarkdown-file)).</p>
+</section>
+<section id="wichtigste-regeln-für-reproduzierbarkeit" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="wichtigste-regeln-für-reproduzierbarkeit"><span class="header-section-number">2.6</span> Wichtigste Regeln für Reproduzierbarkeit</h2>
+<p>Ein weiteres <a href="https://www.youtube.com/watch?v=pjL2uP-fmPY&amp;list=PLjTlxb-wKvXOU4WW4p3qc4VKWTI4gLNUf">Video</a> von Prof.&nbsp;Peng widmet sich den wichtigsten Regeln für Reproduzierbarkeit.</p>
+</section>
+<section id="lesestoff" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="lesestoff"><span class="header-section-number">2.7</span> Lesestoff</h2>
+<p>Intro zu Kapitel 2 (Basics), Kapitel 3.2.1 und 3.2.2 in <span class="citation" data-cites="RMarkdownGuide">Xie, Allaire, and Grolemund (<a href="references.html#ref-RMarkdownGuide" role="doc-biblioref">2021</a>)</span></p>
+</section>
+<section id="weiterführende-literatur" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="weiterführende-literatur"><span class="header-section-number">2.8</span> Weiterführende Literatur</h2>
+<p>r4ds, Kapitel 27 <span class="citation" data-cites="r4ds">(<a href="references.html#ref-r4ds" role="doc-biblioref">Wickham and Grolemund 2021</a>)</span></p>
+</section>
+<section id="aufgaben" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">2.9</span> Aufgaben</h2>
+<section id="erstes-notebook" class="level3" data-number="2.9.1">
+<h3 data-number="2.9.1" class="anchored" data-anchor-id="erstes-notebook"><span class="header-section-number">2.9.1</span> Erstes Notebook</h3>
+<ul>
+<li>Erstellen Sie ein R Notebook.</li>
+<li>Fügen Sie Layoutelemente hinzu:
+<ul>
+<li>Überschrift</li>
+<li>Unterüberschrift</li>
+<li>kursiver Text</li>
+<li>ein Exponent: R<sup>2</sup></li>
+<li>ein Mathematikelement: <span class="math inline">\(x^2\)</span></li>
+<li>eine Liste</li>
+</ul></li>
+</ul>
+<p>Nutzen Sie die unter @ref(header) verlinkte Liste der Layoutelemente.</p>
+</section>
+<section id="erste-schritte-als-notebook" class="level3" data-number="2.9.2">
+<h3 data-number="2.9.2" class="anchored" data-anchor-id="erste-schritte-als-notebook"><span class="header-section-number">2.9.2</span> Erste Schritte als Notebook</h3>
+<ul>
+<li>Wandeln Sie das R-Skript der ersten Session in ein R Notebooks um.</li>
+<li>Fügen Sie mehr Erklärungstext zu den einzelnen Schritten hinzu.</li>
+<li>Gliedern Sie Ihr Notebook mit passenden Layoutelementen.</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-Knuth1984" class="csl-entry" role="doc-biblioentry">
+Knuth, D. E. 1984. <span>“Literate <span>Programming</span>.”</span> <em>The Computer Journal</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
+</div>
+<div id="ref-r4ds" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, and Garrett Grolemund. 2021. <em>R for <span>Data Science</span></em>. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.
+</div>
+<div id="ref-RMarkdownGuide" class="csl-entry" role="doc-biblioentry">
+Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2021. <em>R <span>Markdown</span>: <span>The Definitive Guide</span></em>. <a href="https://bookdown.org/yihui/rmarkdown/">https://bookdown.org/yihui/rmarkdown/</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./01-erste-schritte.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Erste Schritte in R</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">Bibliographie</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

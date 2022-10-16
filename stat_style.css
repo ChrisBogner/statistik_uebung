@@ -47,7 +47,7 @@ pre code {
   font-size: 45px;
  }
 
-.rmdcomment {
+.comment {
   padding: 1em 1em 0.5em 5em;
   background: #f5f5f5;
   position:relative;
@@ -55,7 +55,7 @@ pre code {
   margin-bottom: 24px;
 }
 
-.rmdcomment:before {
+.comment:before {
     content: "\f075";
     font-family: FontAwesome;
     left:10px;
@@ -65,7 +65,7 @@ pre code {
     font-size: 45px;
  }
  
-.rmdinfo {
+.info {
   padding: 1em 1em 0.5em 5em;
   background: #e6f0ff;
   position:relative;
@@ -73,7 +73,7 @@ pre code {
   margin-bottom: 24px;
 }
 
-.rmdinfo:before {
+.info:before {
     content: "\f05a";
     font-family: FontAwesome;
     left:10px;
@@ -83,7 +83,7 @@ pre code {
     font-size: 45px;
  }
 
-.rmdalert {
+.alert {
   padding: 1em 1em 0.5em 5em;
   background: #ffe6f0;
   position:relative;
@@ -91,7 +91,7 @@ pre code {
   margin-bottom: 24px;
 }
 
-.rmdalert:before {
+.alert:before {
     content: "\f06a";
     font-family: FontAwesome;
     left:10px;
@@ -103,7 +103,7 @@ pre code {
  
 
  
-.rmdexample {
+.example {
   padding: 1em 1em 0.5em 5em;
   background: #f0ffe6;
   position:relative;
@@ -111,7 +111,7 @@ pre code {
   margin-bottom: 24px;
 }
 
-.rmdexample:before {
+.example:before {
     content: "\f055";
     font-family: FontAwesome;
     left: 10px;
@@ -121,7 +121,7 @@ pre code {
     font-size: 45px;
  }
  
- .rmdoutcomes {
+ .outcomes {
   padding: 1em 1em 0.5em 5em;
   background: #ffebcd;
   position:relative;
@@ -129,9 +129,9 @@ pre code {
   margin-bottom: 24px;
 }
 
-.rmdoutcomes:before {
-    content: "\f4d8";
-    font-family: "Font Awesome 5 Free";
+.outcomes:before {
+    content: "\f05b";
+    font-family: FontAwesome;
     font-weight: 900;
     left: 10px;
     position: absolute;
@@ -140,7 +140,7 @@ pre code {
     font-size: 45px;
  }
  
-.rmddef {
+.def {
   padding: 1em 1em 0.5em 5em;
   background: #ffe1b4;
   position:relative;
@@ -148,9 +148,9 @@ pre code {
   margin-bottom: 24px;
 }
 
-.rmddef:before {
+.def:before {
     content: "\f13d";
-    font-family: "Font Awesome 5 Free";
+    font-family: FontAwesome;
     font-weight: 900;
     left: 10px;
     position: absolute;

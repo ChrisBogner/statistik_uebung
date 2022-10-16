@@ -46,7 +46,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-einfuehrung.html" rel="next">
+<link href="./01-erste-schritte.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -141,24 +141,19 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-einfuehrung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Der Kurs</span></a>
+  <a href="./01-erste-schritte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Erste Schritte in R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-erste-schritte.html" class="sidebar-item-text sidebar-link">(PART) Teil I: Daten explorieren</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./03-rmarkdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Markdown für reproduzierbare Forschung</span></a>
+  <a href="./02-rmarkdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Markdown für reproduzierbare Forschung</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">Bibliographie</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Literatur</a>
   </div>
 </li>
     </ul>
@@ -172,8 +167,8 @@ div.csl-indent {
   <ul>
   <li><a href="#vorwort" id="toc-vorwort" class="nav-link active" data-scroll-target="#vorwort">Vorwort</a>
   <ul class="collapse">
-  <li><a href="#kurs" id="toc-kurs" class="nav-link" data-scroll-target="#kurs">Kurs</a></li>
-  <li><a href="#lernziele" id="toc-lernziele" class="nav-link" data-scroll-target="#lernziele">Lernziele</a></li>
+  <li><a href="#lernergebnisse-intended-learning-outcomes" id="toc-lernergebnisse-intended-learning-outcomes" class="nav-link" data-scroll-target="#lernergebnisse-intended-learning-outcomes">Lernergebnisse (intended learning outcomes)</a></li>
+  <li><a href="#was-mir-im-umgang-miteinander-wichtig-ist" id="toc-was-mir-im-umgang-miteinander-wichtig-ist" class="nav-link" data-scroll-target="#was-mir-im-umgang-miteinander-wichtig-ist">Was mir im Umgang miteinander wichtig ist</a></li>
   <li><a href="#sinn-und-unsinn-dieses-skripts" id="toc-sinn-und-unsinn-dieses-skripts" class="nav-link" data-scroll-target="#sinn-und-unsinn-dieses-skripts">Sinn und Unsinn dieses Skripts</a></li>
   <li><a href="#inspiration-quellen-und-danksagung" id="toc-inspiration-quellen-und-danksagung" class="nav-link" data-scroll-target="#inspiration-quellen-und-danksagung">Inspiration, Quellen und Danksagung</a></li>
   <li><a href="#reproduzierbarkeit" id="toc-reproduzierbarkeit" class="nav-link" data-scroll-target="#reproduzierbarkeit">Reproduzierbarkeit</a></li>
@@ -214,37 +209,59 @@ div.csl-indent {
 
 <section id="vorwort" class="level1 unnumbered">
 <h1 class="unnumbered">Vorwort</h1>
-<section id="kurs" class="level2">
-<h2 class="anchored" data-anchor-id="kurs">Kurs</h2>
 <p>In dieser Veranstaltung werden wir folgende Werkzeuge verwenden:</p>
-<p><strong>ILIAS</strong>: die Online-Lernplattform der UzK. Entweder sind Sie bereits automatisch in dem Kurs registriert oder werden von mir per Hand angemeldet.</p>
+<p><strong>ILIAS</strong>: die Online-Lernplattform der UzK. Sie sollten alle bereits registriert sein.</p>
 <p><strong>Campuswire</strong>: die Chatplattform dient der allgemeinen Kommunikation und der Selbstorganisation des Lernens. Verwenden Sie diese, um Fragen mit Ihren Kommilitonen*innen und mir zu diskutieren. Sie sollten eine Einladungsmail zu Campuswire erhalten haben.</p>
 <p><strong>Zoom</strong>: die Videokonferenz-Software bleibt unser Notfall-Werkzeug, falls keine Präsenz möglich ist.</p>
-</section>
-<section id="lernziele" class="level2">
-<h2 class="anchored" data-anchor-id="lernziele">Lernziele</h2>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Lernziele des Kurses
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="lernergebnisse-intended-learning-outcomes" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="lernergebnisse-intended-learning-outcomes">Lernergebnisse (intended learning outcomes)</h2>
+<div class="outcomes">
+<p><strong>Datenanalyse</strong></p>
 <ul>
 <li>Daten für statistische Analysen aufbereiten</li>
 <li>Explorative (beschreibende) Datenanalyse durchführen</li>
 <li>Daten visualisieren</li>
 <li>Ergebnisse der Analysen reproduzierbar darstellen</li>
 </ul>
+<p><strong>Statistische Methoden</strong></p>
+<ul>
+<li>Einfache statistische Kenngrößen (Mittelwert, Standardabweichung etc.) berechnen</li>
+<li>Eine Korrelation zwischen zwei Datensätzen berechnen</li>
+<li>Hypothesentests durchführen und die Ergebnisse richtig berichten und interpretieren</li>
+<li>Konfidenzintervalle berechnen und interpretieren</li>
+<li>Ein linearen Modell berechnen, die Ergebnisse darstellen und interpretieren</li>
+</ul>
 </div>
-</div>
+</section>
+<section id="was-mir-im-umgang-miteinander-wichtig-ist" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="was-mir-im-umgang-miteinander-wichtig-ist">Was mir im Umgang miteinander wichtig ist</h2>
+<ul>
+<li>Pünktlichkeit bei Präsenz- und Zoomsitzungen</li>
+<li>Gute Vorbereitung durch Erledigen der Hausaufgaben</li>
+<li>Respektieren anderer Meinungen</li>
+<li>Offenheit gegenüber neuen Sichtweisen, Themen und Methoden</li>
+<li>Geduld mit sich selbst und den anderen 😄</li>
+</ul>
 </section>
 <section id="sinn-und-unsinn-dieses-skripts" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="sinn-und-unsinn-dieses-skripts">Sinn und Unsinn dieses Skripts</h2>
 <p>Dieses Skript ist ein lebendiges Begleitdokument des Kurses. Es wird laufend angepasst und aktualisiert.</p>
+<p>Ich nutze verschiedenfarbige Blöcke, um wichtige Stellen hervorzuheben:</p>
+<div class="info">
+<p>Infoblock</p>
+</div>
+<p><br></p>
+<div class="alert">
+<p>Achtung, wichtig!</p>
+</div>
+<p><br></p>
+<div class="def">
+<p>Definition</p>
+</div>
+<p><br></p>
+<div class="outcomes">
+<p>Lernziele</p>
+</div>
 </section>
 <section id="inspiration-quellen-und-danksagung" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="inspiration-quellen-und-danksagung">Inspiration, Quellen und Danksagung</h2>
@@ -347,12 +364,13 @@ loaded via a namespace (and not attached):
  [1] rstudioapi_0.13   knitr_1.39        magrittr_2.0.3    R6_2.5.1         
  [5] rlang_1.0.2       fastmap_1.1.0     fansi_1.0.3       highr_0.9        
  [9] stringr_1.4.0     tools_4.2.1       xfun_0.31         sessioninfo_1.2.2
-[13] utf8_1.2.2        cli_3.3.0         htmltools_0.5.2   ellipsis_0.3.2   
-[17] yaml_2.3.5        digest_0.6.29     rprojroot_2.0.3   tibble_3.1.7     
-[21] fontawesome_0.3.0 lifecycle_1.0.1   crayon_1.5.1      vctrs_0.4.1      
-[25] htmlwidgets_1.5.4 glue_1.6.2        evaluate_0.15     rmarkdown_2.14   
-[29] stringi_1.7.6     compiler_4.2.1    pillar_1.7.0      desc_1.4.1       
-[33] jsonlite_1.8.0    pkgconfig_2.0.3  </code></pre>
+[13] utf8_1.2.2        cli_3.3.0         ellipsis_0.3.2    htmltools_0.5.2  
+[17] yaml_2.3.5        digest_0.6.29     assertthat_0.2.1  rprojroot_2.0.3  
+[21] lifecycle_1.0.1   tibble_3.1.7      fontawesome_0.3.0 crayon_1.5.1     
+[25] purrr_0.3.4       vctrs_0.4.1       htmlwidgets_1.5.4 glue_1.6.2       
+[29] evaluate_0.15     rmarkdown_2.14    emo_0.0.0.9000    stringi_1.7.6    
+[33] pillar_1.7.0      compiler_4.2.1    desc_1.4.1        generics_0.1.2   
+[37] jsonlite_1.8.0    lubridate_1.8.0   pkgconfig_2.0.3  </code></pre>
 </div>
 </div>
 <p><img src="figures/Cc-by-nc-sa_icon.png" class="img-fluid" style="width:10.0%"></p>
@@ -478,8 +496,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-einfuehrung.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Der Kurs</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./01-erste-schritte.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Erste Schritte in R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
