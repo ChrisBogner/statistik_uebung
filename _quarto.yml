@@ -1,0 +1,37 @@
+project:
+  type: book
+  output-dir: docs
+
+book: 
+  title: "Übung zur Vorlesung Statistik und Datenanalyse"
+  author: "Christina Bogner"
+  date: last-modified
+  lang: de
+  chapters: 
+    - index.qmd
+    - part: "EINFÜHRUNG IN R"
+      chapters: 
+        - 01-einfuehrung.qmd
+        - 02-erste-schritte.qmd
+        - 03-rmarkdown.qmd
+    - references.qmd
+  page-navigation: true
+  downloads: [pdf, epub]
+  sidebar:
+    style: docked
+    background: light
+    
+bibliography: statistik_und_datenanalyse.bib
+  
+format:
+  html:
+    theme: cosmo
+    code-copy: true
+    css: stat_style.css
+  pdf:
+    documentclass: scrreport
+    title: "Statistik und Datenanalyse"
+  epub:
+    title: "Statistik und Datenanalyse"
+
+
