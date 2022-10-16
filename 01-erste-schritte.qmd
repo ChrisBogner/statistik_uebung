@@ -213,9 +213,10 @@ gapminder2007 <- gapminder %>%
 ggplot(gapminder2007, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +
   geom_point() +
   scale_x_log10() +
-  xlab('Bruttoinlandsprodukt pro Einwohner ($, inflationsbereinigt)') +
-  ylab('Lebenserwartung bei der Geburt (Jahre)') +
-  labs(title = 'Daten von Gapminder für das Jahr 2007')
+  labs(x = 'Bruttoinlandsprodukt pro Einwohner ($, inflationsbereinigt)', 
+       y = 'Lebenserwartung bei der Geburt (Jahre)',
+       title = 'Daten von Gapminder für das Jahr 2007',
+       caption = 'http://www.gapminder.org/data/')
   
 ```
 
