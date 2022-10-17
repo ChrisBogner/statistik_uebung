@@ -297,11 +297,11 @@ div.csl-indent {
 <li>Spatial: Analyse von räumlichen Daten</li>
 <li>TimeSeries: Zeitreihenanalyse</li>
 </ul>
-<p>Zu Beginn des Kurses werden wir jedoch nicht auf Ihren lokalen Rechnern arbeiten, sondern auf der RStudio Server Pro, der extra für die digitale Lehre mit R an der UzK eingeführt wurde. Das ermöglicht einen schnelleren Einstieg in R und bietet eine fast-live Unterstützung durch den Dozenten beim Programmieren. Daher biete ich zu diesem frühen Zeitpunkt im Kurs keine Unterstützung bei der Installation von R auf Ihren Privatrechnern. Für die ganz Ungeduldigen, gibt es hier eine kurze <a href="https://www.youtube.com/watch?v=kygOqp_zijk&amp;list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o&amp;t=14s">Einleitung zur Installation</a>.</p>
+<p>Zu Beginn des Kurses werden wir jedoch nicht auf Ihren lokalen Rechnern arbeiten, sondern auf den bereits eingerichteten Uni-Rechnern in den EDV-Räumen. Daher biete ich zu diesem frühen Zeitpunkt im Kurs keine Unterstützung bei der Installation von R auf Ihren Privatrechnern. Für die ganz Ungeduldigen, gibt es hier eine kurze <a href="https://www.youtube.com/watch?v=kygOqp_zijk&amp;list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o&amp;t=14s">Einleitung zur Installation</a>.</p>
 </section>
 <section id="was-ist-rstudio" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="was-ist-rstudio"><span class="header-section-number">1.2</span> Was ist RStudio?</h2>
-<p>RStudio Desktop ist eine Entwicklungsumgebung für R. Sie können die <em>open source</em> Version kostenlos für Ihren Rechner <a href="https://rstudio.com/products/rstudio/#rstudio-desktop">hier</a> herunterladen. Es gibt eine live Einführung in RStudio im Kurs. Zusätzlich können Sie hier ein <a href="https://www.youtube.com/watch?v=r5wOhFVWXUE&amp;list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o">Video</a> dazu ansehen.</p>
+<p>RStudio Desktop ist eine Entwicklungsumgebung für R. <strong>Wichtig</strong>: RStudio wird erst nach R installiert und macht ohne R keinen Sinn. Sie können die <em>open source</em> Version kostenlos für Ihren Rechner <a href="https://rstudio.com/products/rstudio/#rstudio-desktop">hier</a> herunterladen, falls Sie sich entscheiden, (später) R auf Ihrem Rechner zu installieren. Es gibt eine live Einführung in RStudio im Kurs. Zusätzlich können Sie hier ein <a href="https://www.youtube.com/watch?v=r5wOhFVWXUE&amp;list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o">Video</a> dazu ansehen.</p>
 <p>Die Oberfläche von RStudio ist in vier Bereiche unterteilt (<a href="#fig-rstudio">Figure&nbsp;<span>1.1</span></a>).</p>
 <div id="fig-rstudio" class="quarto-figure quarto-figure-left anchored">
 <figure class="figure">
@@ -445,7 +445,7 @@ div.csl-indent {
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Zeige den Wert von x</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Zuweisungen können in R entweder mit dem <code>=</code> erfolgen oder mit <code>&lt;-</code>. Beide Varianten sind gleichwertig. Dabei ist allerdings Pfeilrichtung entscheidend! <code>x &lt;- 42</code> bedeutet: Die linke Seite (Zahl 42) wird dem Objekt <code>x</code> zugeordnet. Wenn man die Pfeilrichtung umdreht, macht die Zuweisung keinen Sinn und man erhält eine Fehlermeldung.</p>
+<p>Zuweisungen können in R entweder mit dem <code>=</code> erfolgen oder mit <code>&lt;-</code>. Beide Varianten sind gleichwertig. Dabei ist allerdings Pfeilrichtung entscheidend! <code>x &lt;- 42</code> bedeutet: Die rechte Seite (Zahl 42) wird dem Objekt <code>x</code> zugeordnet. Wenn man die Pfeilrichtung umdreht, macht die Zuweisung keinen Sinn und man erhält eine Fehlermeldung.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sinnvolle Zuweisung</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">42</span></span>
@@ -513,9 +513,10 @@ div.csl-indent {
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder2007, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">'Bruttoinlandsprodukt pro Einwohner ($, inflationsbereinigt)'</span>) <span class="sc">+</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">'Lebenserwartung bei der Geburt (Jahre)'</span>) <span class="sc">+</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Daten von Gapminder für das Jahr 2007'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Bruttoinlandsprodukt pro Einwohner ($, inflationsbereinigt)'</span>, </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">'Lebenserwartung bei der Geburt (Jahre)'</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">'Daten von Gapminder für das Jahr 2007'</span>,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">'http://www.gapminder.org/data/'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Welche Daten sind in diesem Datensatz enthalten? Nutzen Sie die Hilfe, i.e.&nbsp;<code>?gapminder</code>.</li>
