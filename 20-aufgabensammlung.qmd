@@ -1,0 +1,33 @@
+# Aufgabensammlung
+
+## Erste Schritte
+```{r}
+#| echo: false
+library(tibble)
+library(kableExtra)
+```
+
+### Morphometrische Messungen an Vögeln
+In einer Studie wurden 1100 Spitzschwanzammer (*Ammodramus caudacutus*) vermessen. Wir nutzen einen Teil des Datensatzes [@Zuur2009]. Die gemessenen Variablen sind Fluegel, Fuss (Tarsus), Kopf, Gewicht. Leider git die Datenquelle die Messeinheiten nicht an. Die Daten sind wie folgt:
+
+
+```{r}
+#| echo: false
+Fluegel <- c(59, 55, 53.5, 55, 52.5, 57.5, 53, 55)
+Fuss <- c(22.3, 19.7, 20.8, 20.3, 20.8, 21.5, 20.6, 21.5)
+Kopf <- c(31.2, 30.4, 30.6, 30.3, 30.3, 30.8, 32.5, NA)
+Gewicht <- c(9.5, 13.8, 14.8, 15.2, 15.5, 15.6, 15.6, 15.7)
+
+birds <- tibble(Fluegel, Fuss, Kopf, Gewicht)
+```
+
+```{r}
+#| echo: false
+kable(birds) %>% 
+  kable_styling(bootstrap_options = c("striped", "condensed"), 
+                latex_options = c("striped", "hold_position"), full_width = FALSE) %>%
+  column_spec(1:4, width = "10em")
+```
+1. Erstellen Sie jede Variable einzeln mithilfe der Funktion `c()`.
+2. Wie viele Vögel sind in der Tabelle zu finden. Nutzen Sie dazu die Funktion `length()`. Sehen Sie in der Hilfe nach, wie man diese benutzt.
+3. Führen Sie alle Variablen zu einem einzelnen Datenobjekt, einem `tibble` zusammen mithilfe der Funktion `tibble()` aus dem R-Paket `tibble`.

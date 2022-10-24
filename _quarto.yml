@@ -19,6 +19,8 @@ book:
         - 01-erste-schritte.qmd
         - 02-rmarkdown.qmd
     - references.qmd
+  appendices:
+    - 20-aufgabensammlung.qmd
   page-navigation: true
   downloads: [pdf, epub]
   sidebar:
