@@ -76,7 +76,10 @@ div.csl-indent {
 
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="stat_style.css">
 </head>
@@ -150,6 +153,11 @@ div.csl-indent {
   <a href="./02-rmarkdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Markdown für reproduzierbare Forschung</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-ggplot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in die Darstellung von Daten</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -184,6 +192,10 @@ div.csl-indent {
   <li><a href="#erste-schritte" id="toc-erste-schritte" class="nav-link active" data-scroll-target="#erste-schritte"> <span class="header-section-number">A.1</span> Erste Schritte</a>
   <ul class="collapse">
   <li><a href="#morphometrische-messungen-an-vögeln" id="toc-morphometrische-messungen-an-vögeln" class="nav-link" data-scroll-target="#morphometrische-messungen-an-vögeln"> <span class="header-section-number">A.1.1</span> Morphometrische Messungen an Vögeln</a></li>
+  </ul></li>
+  <li><a href="#einführung-in-die-darstellung-von-daten" id="toc-einführung-in-die-darstellung-von-daten" class="nav-link" data-scroll-target="#einführung-in-die-darstellung-von-daten"> <span class="header-section-number">A.2</span> Einführung in die Darstellung von Daten</a>
+  <ul class="collapse">
+  <li><a href="#pinguine" id="toc-pinguine" class="nav-link" data-scroll-target="#pinguine"> <span class="header-section-number">A.2.1</span> Pinguine</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -289,6 +301,21 @@ div.csl-indent {
 <li>Wie viele Vögel sind in der Tabelle zu finden. Nutzen Sie dazu die Funktion <code>length()</code>. Sehen Sie in der Hilfe nach, wie man diese benutzt.</li>
 <li>Führen Sie alle Variablen zu einem einzelnen Datenobjekt, einem <code>tibble</code> zusammen mithilfe der Funktion <code>tibble()</code> aus dem R-Paket <code>tibble</code>.</li>
 </ol>
+</section>
+</section>
+<section id="einführung-in-die-darstellung-von-daten" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="einführung-in-die-darstellung-von-daten"><span class="header-section-number">A.2</span> Einführung in die Darstellung von Daten</h2>
+<section id="pinguine" class="level3" data-number="A.2.1">
+<h3 data-number="A.2.1" class="anchored" data-anchor-id="pinguine"><span class="header-section-number">A.2.1</span> Pinguine</h3>
+<ol type="1">
+<li>Laden Sie die Bibliotheken <code>tidyverse</code> und <code>palmerpenguins</code> mithilfe der Funktion <code>library()</code>.</li>
+<li>Laden Sie den Datensatz <code>penguins</code> mithilfe der Funtion <code>data()</code>.</li>
+<li>Sehen Sie sich den Datensatz an.</li>
+<li>Plotten Sie ein Streudiagramm der Variablen Flossenlänge <code>flipper_length_mm</code> auf der <span class="math inline">\(x\)</span>-Achse und der Variablen Körpergewicht <code>body_mass_g</code> auf der <span class="math inline">\(y\)</span>-Achse.</li>
+<li>Beschriften Sie die Grafik sinnvoll.</li>
+<li>Färben Sie die Punkte je nach Art unterschiedlich ein mithilfe der Variablen <code>species</code>.</li>
+</ol>
+<p>Sie sollten diegleiche (bis auf die Farbauswahl) Grafik erhalten, wie in der Vorlesung 🤓.`</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">

@@ -31,3 +31,17 @@ kable(birds) %>%
 1. Erstellen Sie jede Variable einzeln mithilfe der Funktion `c()`.
 2. Wie viele Vögel sind in der Tabelle zu finden. Nutzen Sie dazu die Funktion `length()`. Sehen Sie in der Hilfe nach, wie man diese benutzt.
 3. Führen Sie alle Variablen zu einem einzelnen Datenobjekt, einem `tibble` zusammen mithilfe der Funktion `tibble()` aus dem R-Paket `tibble`.
+
+
+## Einführung in die Darstellung von Daten
+
+### Pinguine
+
+1. Laden Sie die Bibliotheken `tidyverse` und `palmerpenguins` mithilfe der Funktion `library()`.
+2. Laden Sie den Datensatz `penguins` mithilfe der Funtion `data()`.
+2. Sehen Sie sich den Datensatz an.
+3. Plotten Sie ein Streudiagramm der Variablen Flossenlänge `flipper_length_mm` auf der $x$-Achse und der Variablen Körpergewicht `body_mass_g` auf der $y$-Achse.
+3. Beschriften Sie die Grafik sinnvoll.
+4. Färben Sie die Punkte je nach Art unterschiedlich ein mithilfe der Variablen `species`.
+
+Sie sollten diegleiche (bis auf die Farbauswahl) Grafik erhalten, wie in der Vorlesung `r emo::ji('nerd')`.

@@ -18,6 +18,7 @@ book:
       chapters: 
         - 01-erste-schritte.qmd
         - 02-rmarkdown.qmd
+        - 03-ggplot.qmd
     - references.qmd
   appendices:
     - 20-aufgabensammlung.qmd
@@ -34,6 +35,7 @@ format:
     theme: cosmo
     code-copy: true
     css: stat_style.css
+    df-print: paged
   pdf:
     documentclass: scrreport
     title: "Übung zur Vorlesung Statistik und Datenanalyse"

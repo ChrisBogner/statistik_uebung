@@ -179,6 +179,125 @@
     "href": "20-aufgabensammlung.html",
     "title": "Appendix A — Aufgabensammlung",
     "section": "",
-    "text": "In einer Studie wurden 1100 Spitzschwanzammer (Ammodramus caudacutus) vermessen. Wir nutzen einen Teil des Datensatzes (Zuur, Ieno, and Meesters 2009). Die gemessenen Variablen sind Fluegel, Fuss (Tarsus), Kopf, Gewicht. Leider git die Datenquelle die Messeinheiten nicht an. Die Daten sind wie folgt:\n\n\n\n\n\n\n\n \n  \n    Fluegel \n    Fuss \n    Kopf \n    Gewicht \n  \n \n\n  \n    59.0 \n    22.3 \n    31.2 \n    9.5 \n  \n  \n    55.0 \n    19.7 \n    30.4 \n    13.8 \n  \n  \n    53.5 \n    20.8 \n    30.6 \n    14.8 \n  \n  \n    55.0 \n    20.3 \n    30.3 \n    15.2 \n  \n  \n    52.5 \n    20.8 \n    30.3 \n    15.5 \n  \n  \n    57.5 \n    21.5 \n    30.8 \n    15.6 \n  \n  \n    53.0 \n    20.6 \n    32.5 \n    15.6 \n  \n  \n    55.0 \n    21.5 \n    NA \n    15.7 \n  \n\n\n\n\n\n\nErstellen Sie jede Variable einzeln mithilfe der Funktion c().\nWie viele Vögel sind in der Tabelle zu finden. Nutzen Sie dazu die Funktion length(). Sehen Sie in der Hilfe nach, wie man diese benutzt.\nFühren Sie alle Variablen zu einem einzelnen Datenobjekt, einem tibble zusammen mithilfe der Funktion tibble() aus dem R-Paket tibble.\n\n\n\n\n\nZuur, A. F., E. Ieno, and E. Meesters. 2009. A Beginner’s Guide to R. Springer."
+    "text": "In einer Studie wurden 1100 Spitzschwanzammer (Ammodramus caudacutus) vermessen. Wir nutzen einen Teil des Datensatzes (Zuur, Ieno, and Meesters 2009). Die gemessenen Variablen sind Fluegel, Fuss (Tarsus), Kopf, Gewicht. Leider git die Datenquelle die Messeinheiten nicht an. Die Daten sind wie folgt:\n\n\n\n\n\n\n\n \n  \n    Fluegel \n    Fuss \n    Kopf \n    Gewicht \n  \n \n\n  \n    59.0 \n    22.3 \n    31.2 \n    9.5 \n  \n  \n    55.0 \n    19.7 \n    30.4 \n    13.8 \n  \n  \n    53.5 \n    20.8 \n    30.6 \n    14.8 \n  \n  \n    55.0 \n    20.3 \n    30.3 \n    15.2 \n  \n  \n    52.5 \n    20.8 \n    30.3 \n    15.5 \n  \n  \n    57.5 \n    21.5 \n    30.8 \n    15.6 \n  \n  \n    53.0 \n    20.6 \n    32.5 \n    15.6 \n  \n  \n    55.0 \n    21.5 \n    NA \n    15.7 \n  \n\n\n\n\n\n\nErstellen Sie jede Variable einzeln mithilfe der Funktion c().\nWie viele Vögel sind in der Tabelle zu finden. Nutzen Sie dazu die Funktion length(). Sehen Sie in der Hilfe nach, wie man diese benutzt.\nFühren Sie alle Variablen zu einem einzelnen Datenobjekt, einem tibble zusammen mithilfe der Funktion tibble() aus dem R-Paket tibble."
+  },
+  {
+    "objectID": "03-ggplot.html",
+    "href": "03-ggplot.html",
+    "title": "3  Einführung in die Darstellung von Daten",
+    "section": "",
+    "text": "Aufbau des Aufrufs der Funktion ggplot() kennen\nfünf wichtigste Grafiktypen kennen und einsetzten"
+  },
+  {
+    "objectID": "03-ggplot.html#aufbau-eines-darstellungsbefehls",
+    "href": "03-ggplot.html#aufbau-eines-darstellungsbefehls",
+    "title": "3  Einführung in die Darstellung von Daten",
+    "section": "3.1 Aufbau eines Darstellungsbefehls",
+    "text": "3.1 Aufbau eines Darstellungsbefehls\nDas Paket ggplot2 ist ein sehr mächtiges Visualisierungswerkzeug. Der Name steht für “the grammar of graphics”. Das bedeutet, dass man mithilfe von verschiedenen Funktion in ggplot2 seine Grafik Schritt für Schritt aufbaut, wie einen (grammatikalisch korrekten) Satz. In aller Kürze bedeutet das:\n\nEine statistische Grafik ist eine Zuordnung (mapping) von Variablen in einem Datensatz (data) zu (ästhetischen) Attributen (aes) von geometrischen Objekten (geom).\n\nWir müssen also für die Darstellung von Daten R Folgendes mitteilen:\n\ndata: der Datensatz, der die Variablen enthält, die wir darstellen möchten.\naes: (ästhetische) Attribute für die geometrischen Objekte, die dargestellt werden sollen. Diese Attribute sind, z.B. die x und y Koordinaten, Farbe, Form und Größe der geometrischen Objekte\ngeom: geometrische Objekte, die dargestellt werden sollen, z.B. Punkte, Linien, Boxen, Balken/Säulen etc.\n\nWir laden zunächst die nötigen Bibliotheken.\n\nlibrary(ggplot2)\nlibrary(gapminder)\n\nAnschließend filtern wir den Datensatz gapminder, um nur die Daten aus dem Jahr 2007 zu behalten. Der Code filter(year == 2007) bedeutet, dass wir nur die Zeilen aus dem Datensatz behalten wollen, in denen in der Variable year 2007 steht.\n\ngapminder2007 <- gapminder %>% \n  filter(year == 2007)\n\nWir überzeugen uns davon, dass es geklappt hat 😄. Blättern Sie durch den Datensatz und überprüfen Sie die Werte in der Variablen year.\n\ngapminder2007"
+  },
+  {
+    "objectID": "03-ggplot.html#punktdiagramm",
+    "href": "03-ggplot.html#punktdiagramm",
+    "title": "3  Einführung in die Darstellung von Daten",
+    "section": "3.2 Punktdiagramm",
+    "text": "3.2 Punktdiagramm\nEin typischer Befehl zur Visualisierung würde also so aussehen:\n\nggplot(data = gapminder2007, mapping = aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +\n  geom_point()\n\n{width== “90%”}\n\n\nIn Worten könnte man es vielleicht wie folgt umschreiben:\n\nNimm den Datensatz (data) gapminder und\nordne folgende Attribute zu:\n\nauf die x-Achse die Variable gdpPercap\nauf die y-Achse die Variable lifeExp\nfärbe ein mithilfe der Variablen continent\nbestimme die Größe der Symbole mithilfe der Variablen pop\n\nStelle das Ganze als geometrisches Objekte Punkte dar (geom_point())\n\nSie sehen, dass diese Zuordnungen klar nach einer Legende verlangen, die dann auch automatisch, sowohl für die Farbe als auch für die Größe der Symbole, erstellt wird.\nDie Anweisungen zur Visualisierung in ggplot2 werden mit einem + verbunden. Man kann (und in diesem Fall soll) weitere Anweisungen geben. Z.B. sind die Beschriftungen der beiden Achsen so nichtssagend und müssen verbessert werden. Wir hängen mit einem +-Zeichen weitere Befehle hinzu:\n\nggplot(data = gapminder2007, mapping = aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +\n  geom_point() + \n  labs(x = 'Bruttoinlandsprodukt pro Kopf (US$)', y = 'Lebenserwartung (Jahre)',\n       color = 'Kontinent', size = 'Bevölkerung')\n\n{width== “90%”}"
+  },
+  {
+    "objectID": "03-ggplot.html#weitere-geoms",
+    "href": "03-ggplot.html#weitere-geoms",
+    "title": "3  Einführung in die Darstellung von Daten",
+    "section": "3.3 Weitere geoms",
+    "text": "3.3 Weitere geoms\nDas geom_point() produziert ein Streudiagramm auch XY-Diagramm (scatter plot). Weiter wichtige Grafiktypen sind\n\ngeom_line(): Linien\ngeom_bar(): Balken"
+  },
+  {
+    "objectID": "03-ggplot.html#scatter",
+    "href": "03-ggplot.html#scatter",
+    "title": "3  Einführung in die Darstellung von Daten",
+    "section": "3.2 Streudiagramm",
+    "text": "3.2 Streudiagramm\nEin typischer Befehl zur Visualisierung eines Streudiagramms würde so aussehen:\n\nggplot(data = gapminder2007, \n       mapping = aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +\n  geom_point()\n\n\n\n\nIn Worten könnte man es vielleicht wie folgt umschreiben:\n\nNimm den Datensatz (data) gapminder und\nordne folgende Attribute zu:\n\nauf die x-Achse die Variable gdpPercap (Bruttoinlandsprodukt)\nauf die y-Achse die Variable lifeExp (Lebenserwartung)\nfärbe ein mithilfe der Variablen continent (Kontinent)\n\nStelle das Ganze als geometrisches Objekte Punkte dar (geom_point())\n\nSie sehen, dass diese Zuordnungen klar nach einer Legende verlangen, die dann auch automatisch, sowohl für die Farbe continent als auch für die Größe der Symbole pop, erstellt wird.\nDie Anweisungen zur Visualisierung in ggplot2 werden mit einem + verbunden. Man kann (und in diesem Fall soll) weitere Anweisungen geben. Z. B. sind die Beschriftungen der beiden Achsen so nichts sagend und müssen verbessert werden. Wir hängen mit einem +-Zeichen weitere Befehle hinzu:\n\nggplot(data = gapminder2007, \n       mapping = aes(x = gdpPercap, y = lifeExp, color = continent)) +\n  geom_point() + \n  labs(x = 'Bruttoinlandsprodukt pro Einwohner (US$, inflationsbereinigt)',\n       y = 'Lebenserwartung bei der Geburt (Jahre)',\n       color = 'Kontinent',\n       title = 'Daten von Gapminder für das Jahr 2007',\n       caption = 'http://www.gapminder.org/data/')"
+  },
+  {
+    "objectID": "03-ggplot.html#histogramm",
+    "href": "03-ggplot.html#histogramm",
+    "title": "3  Einführung in die Darstellung von Daten",
+    "section": "3.5 Histogramm",
+    "text": "3.5 Histogramm\nWie ist das GDP im Jahre 2007 in Afrika und Europa verteilt? Dazu nutzen wir das Histogramm und filtern die Daten vorher entsprechend. Als Ästhetik eignet sich hier fill besser als color.\n\nafrica_europe <- gapminder2007 %>% \n  filter(continent %in% c('Africa', 'Europe'))\n\nggplot(africa_europe, mapping = aes(x = gdpPercap, fill = continent)) +\n  geom_histogram(bins = 20)"
+  },
+  {
+    "objectID": "03-ggplot.html#boxplot",
+    "href": "03-ggplot.html#boxplot",
+    "title": "3  Einführung in die Darstellung von Daten",
+    "section": "3.6 Boxplot",
+    "text": "3.6 Boxplot\nWie ist das GDP im Jahre 2007 auf verschiedenen Kontinenten verteilt? Ein Histogramm mit allen Kontinenten würde schnell sehr unübersichtlich werden. Das geht mit einem Boxplot besser.\n\nggplot(gapminder2007, mapping = aes(x = continent, y = gdpPercap)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "03-ggplot.html#säulendiagramm",
+    "href": "03-ggplot.html#säulendiagramm",
+    "title": "3  Einführung in die Darstellung von Daten",
+    "section": "3.5 Säulendiagramm",
+    "text": "3.5 Säulendiagramm\nWie viele Einträge gibt es pro Kontinent? Das Säulendiagramm zählt für uns die Einträge im Datensatz zusammen. Es stellt also dieselben Daten dar, die eine Häufigkeitstabelle enthalten würde.\n\nggplot(data = gapminder, \n       mapping = aes(x = continent)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "03-ggplot.html#lesestoff",
+    "href": "03-ggplot.html#lesestoff",
+    "title": "3  Einführung in die Darstellung von Daten",
+    "section": "3.6 Lesestoff",
+    "text": "3.6 Lesestoff\nKapitel 2.1 in Ismay and Kim (2021)"
+  },
+  {
+    "objectID": "03-ggplot.html#aufgaben",
+    "href": "03-ggplot.html#aufgaben",
+    "title": "3  Einführung in die Darstellung von Daten",
+    "section": "3.7 Aufgaben",
+    "text": "3.7 Aufgaben\n\n3.7.1 Darstellung von großen Zahlen\nWir verändern die Grafik aus Section 3.2 so, dass die Symbole nach der Größe der Einwohnerzahl skaliert werden. Dazu benutzen wir eine neues Argument in der Funktion aes(size = pop):\n\nggplot(data = gapminder2007, \n       mapping = aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +\n  geom_point() + \n  labs(x = 'Bruttoinlandsprodukt pro Einwohner (US$, inflationsbereinigt)',\n       y = 'Lebenserwartung bei der Geburt (Jahre)',\n       color = 'Kontinent',\n       title = 'Daten von Gapminder für das Jahr 2007',\n       caption = 'http://www.gapminder.org/data/')\n\n\n\n\nDie Einwohnerzahlen sind sehr groß. Daher stellt R sie in der sogen. wissenschaftlichen Notation dar. Dabei steht z. B. e+08 für \\(10^8\\). Das heißt 2.5e+08 sind 250000000 Einwohner.\nBeschriften Sie die Legende für die Größe der Symbole richtig, indem Sie size = 'Einwohnerzahl' in der Funktion labs hinzufügen.\n\n\n3.7.2 Grafiken richtig beschriften\nBis auf die Grafik in Section 3.4 fehlen bei den Grafiken oben ordentliche Achsenbeschriftungen und Titel für die Legenden. Ergänzen Sie den Code entsprechend."
+  },
+  {
+    "objectID": "03-ggplot.html#ihre-arbeit-einreichen",
+    "href": "03-ggplot.html#ihre-arbeit-einreichen",
+    "title": "3  Einführung in die Darstellung von Daten",
+    "section": "3.8 Ihre Arbeit einreichen",
+    "text": "3.8 Ihre Arbeit einreichen\n\nSpeichern Sie Ihr Notebook ab.\nLaden Sie Ihre .Rmd Datei in ILIAS hoch. Beachten Sie die Frist!\nSie erhalten die Musterlösung nach dem Hochladen.\n\n\n\n\n\nIsmay, Chester, and Albert Y. Kim. 2021. ModernDive: Statistical Inference via Data Science. https://moderndive.com/."
+  },
+  {
+    "objectID": "03-ggplot.html#streudiagramm",
+    "href": "03-ggplot.html#streudiagramm",
+    "title": "3  Einführung in die Darstellung von Daten",
+    "section": "3.2 Streudiagramm",
+    "text": "3.2 Streudiagramm\nEin typischer Befehl zur Visualisierung eines Streudiagramms würde so aussehen:\n\nggplot(data = gapminder2007, \n       mapping = aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +\n  geom_point()\n\n\n\n\nIn Worten könnte man es vielleicht wie folgt umschreiben:\n\nNimm den Datensatz (data) gapminder und\nordne folgende Attribute zu:\n\nauf die x-Achse die Variable gdpPercap (Bruttoinlandsprodukt)\nauf die y-Achse die Variable lifeExp (Lebenserwartung)\nfärbe ein mithilfe der Variablen continent (Kontinent)\nbestimme die Größe der Symbole mithilfe der Variablen pop (Einwohnerzahl)\n\nStelle das Ganze als geometrisches Objekte Punkte dar (geom_point())\n\nSie sehen, dass diese Zuordnungen klar nach einer Legende verlangen, die dann auch automatisch, sowohl für die Farbe continent als auch für die Größe der Symbole pop, erstellt wird.\nDie Anweisungen zur Visualisierung in ggplot2 werden mit einem + verbunden. Man kann (und in diesem Fall soll) weitere Anweisungen geben. Z. B. sind die Beschriftungen der beiden Achsen so nichts sagend und müssen verbessert werden. Wir hängen mit einem +-Zeichen weitere Befehle hinzu:\n\nggplot(data = gapminder2007, \n       mapping = aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +\n  geom_point() + \n  labs(x = 'Bruttoinlandsprodukt pro Einwohner (US$, inflationsbereinigt)',\n       y = 'Lebenserwartung bei der Geburt (Jahre)',\n       color = 'Kontinent',\n       size = 'Einwohnerzahl',\n       title = 'Daten von Gapminder für das Jahr 2007',\n       caption = 'http://www.gapminder.org/data/')"
+  },
+  {
+    "objectID": "03-ggplot.html#line",
+    "href": "03-ggplot.html#line",
+    "title": "3  Einführung in die Darstellung von Daten",
+    "section": "3.4 Liniendiagramm",
+    "text": "3.4 Liniendiagramm\nEs ergibt wenig Sinn, die obere Grafik mit Linien darzustellen. Allerdings eignen sich Linien ausgezeichnet, um einen zeitlichen Verlauf zu visualisieren. Daher filtern wir aus dem Datensatz gapminder die Zeitreihen für Frankreich und Deutschland heraus. Weil wir jetzt zwei Länder haben möchten, muss beim Filtern ein Vektor mit Ländernamen angegeben werden und statt == der Operator %in%. Wir werden später noch ausführlich auf diese Operatoren zurückkommen.\n\nfrance_germany <- gapminder %>% \n  filter(country %in% c('France', 'Germany'))\n\n\nggplot(data = france_germany, \n       mapping = aes(x = year, y = gdpPercap, color = country)) +\n  geom_line()"
+  },
+  {
+    "objectID": "03-ggplot.html#sec-scatter",
+    "href": "03-ggplot.html#sec-scatter",
+    "title": "3  Einführung in die Darstellung von Daten",
+    "section": "3.2 Streudiagramm",
+    "text": "3.2 Streudiagramm\nEin typischer Befehl zur Visualisierung eines Streudiagramms würde so aussehen:\n\nggplot(data = gapminder2007, \n       mapping = aes(x = gdpPercap, y = lifeExp, color = continent)) +\n  geom_point()\n\n\n\n\nIn Worten könnte man es vielleicht wie folgt umschreiben:\n\nNimm den Datensatz gapminder2007 (data = gapminder2007) und\nordne folgende Attribute zu:\n\nauf die x-Achse die Variable gdpPercap (x = gdpPercap) (Bruttoinlandsprodukt)\nauf die y-Achse die Variable lifeExp (y = lifeExp) (Lebenserwartung)\nfärbe ein mithilfe der Variablen continent (color = continent).\n\nStelle das Ganze als geometrisches Objekte Punkte dar (geom_point())\n\nSie sehen, dass diese Zuordnungen klar nach einer Legende verlangen, die dann auch automatisch, sowohl für die Farbe continent als auch für die Größe der Symbole pop, erstellt wird.\nDie Anweisungen zur Visualisierung in ggplot2 werden mit einem + verbunden. Man kann (und in diesem Fall soll) weitere Anweisungen geben. Z. B. sind die Beschriftungen der beiden Achsen so nichts sagend und müssen verbessert werden. Wir hängen mit einem +-Zeichen weitere Befehle hinzu:\n\nggplot(data = gapminder2007, \n       mapping = aes(x = gdpPercap, y = lifeExp, color = continent)) +\n  geom_point() + \n  labs(x = 'Bruttoinlandsprodukt pro Einwohner (US$, inflationsbereinigt)',\n       y = 'Lebenserwartung bei der Geburt (Jahre)',\n       color = 'Kontinent',\n       title = 'Daten von Gapminder für das Jahr 2007',\n       caption = 'http://www.gapminder.org/data/')"
+  },
+  {
+    "objectID": "03-ggplot.html#sec-line",
+    "href": "03-ggplot.html#sec-line",
+    "title": "3  Einführung in die Darstellung von Daten",
+    "section": "3.4 Liniendiagramm",
+    "text": "3.4 Liniendiagramm\nEs ergibt wenig Sinn, die obere Grafik mit Linien darzustellen. Allerdings eignen sich Linien ausgezeichnet, um einen zeitlichen Verlauf zu visualisieren. Daher filtern wir aus dem Datensatz gapminder die Zeitreihen für Frankreich und Deutschland heraus. Weil wir jetzt zwei Länder haben möchten, muss beim Filtern ein Vektor mit Ländernamen angegeben werden und statt == der Operator %in%. Wir werden später noch ausführlich auf diese Operatoren zurückkommen.\n\nfrance_germany <- gapminder %>% \n  filter(country %in% c('France', 'Germany'))\n\n\nggplot(data = france_germany, \n       mapping = aes(x = year, y = gdpPercap, color = country)) +\n  geom_line()"
+  },
+  {
+    "objectID": "20-aufgabensammlung.html#einführung-in-die-darstellung-von-daten",
+    "href": "20-aufgabensammlung.html#einführung-in-die-darstellung-von-daten",
+    "title": "Appendix A — Aufgabensammlung",
+    "section": "A.2 Einführung in die Darstellung von Daten",
+    "text": "A.2 Einführung in die Darstellung von Daten\n\nA.2.1 Pinguine\n\nLaden Sie die Bibliotheken tidyverse und palmerpenguins mithilfe der Funktion library().\nLaden Sie den Datensatz penguins mithilfe der Funtion data().\nSehen Sie sich den Datensatz an.\nPlotten Sie ein Streudiagramm der Variablen Flossenlänge flipper_length_mm auf der \\(x\\)-Achse und der Variablen Körpergewicht body_mass_g auf der \\(y\\)-Achse.\nBeschriften Sie die Grafik sinnvoll.\nFärben Sie die Punkte je nach Art unterschiedlich ein mithilfe der Variablen species.\n\nSie sollten diegleiche (bis auf die Farbauswahl) Grafik erhalten, wie in der Vorlesung 🤓.`\n\n\n\n\nZuur, A. F., E. Ieno, and E. Meesters. 2009. A Beginner’s Guide to R. Springer."
+  },
+  {
+    "objectID": "03-ggplot.html#balkendiagramm",
+    "href": "03-ggplot.html#balkendiagramm",
+    "title": "3  Einführung in die Darstellung von Daten",
+    "section": "3.5 Balkendiagramm",
+    "text": "3.5 Balkendiagramm\nWie viele Einträge gibt es pro Kontinent? Das Balkendiagramm zählt für uns die Einträge im Datensatz zusammen. Es stellt also dieselben Daten dar, die eine Häufigkeitstabelle enthalten würde.\n\nggplot(data = gapminder, \n       mapping = aes(x = continent)) +\n  geom_bar()"
   }
 ]

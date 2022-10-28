@@ -1,0 +1,152 @@
+# Einführung in die Darstellung von Daten {#ggplot}
+
+:::{.outcomes}
+- Aufbau des Aufrufs der Funktion `ggplot()` kennen
+- fünf wichtigste Grafiktypen kennen und einsetzten
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+library(tidyverse)
+library(kableExtra)
+```
+
+
+## Aufbau eines Darstellungsbefehls
+
+Das Paket `ggplot2` ist ein sehr mächtiges Visualisierungswerkzeug. Der Name steht für "the grammar of graphics". Das bedeutet, dass man mithilfe von verschiedenen Funktion in `ggplot2` seine Grafik Schritt für Schritt aufbaut, wie einen (grammatikalisch korrekten) Satz. In aller Kürze bedeutet das:
+
+> Eine statistische Grafik ist eine Zuordnung (`mapping`) von Variablen in einem Datensatz (`data`) zu (ästhetischen) Attributen (`aes`) von geometrischen Objekten (`geom`).
+
+Wir müssen also für die Darstellung von Daten R Folgendes mitteilen:
+
+1. `data`: der Datensatz, der die Variablen enthält, die wir darstellen möchten.
+
+1. `aes`: (ästhetische) Attribute für die geometrischen Objekte, die dargestellt werden sollen. Diese Attribute sind, z.B. die x und y Koordinaten, Farbe, Form und Größe der geometrischen Objekte
+
+1. `geom`: geometrische Objekte, die dargestellt werden sollen, z.B. Punkte, Linien, Boxen, Balken/Säulen etc.
+
+Wir laden zunächst die nötigen Bibliotheken.
+```{r}
+#| message: false
+library(ggplot2)
+library(gapminder)
+```
+
+Anschließend  filtern wir den Datensatz `gapminder`, um nur die Daten aus dem Jahr 2007 zu behalten. Der Code `filter(year == 2007)` bedeutet, dass wir nur die Zeilen aus dem Datensatz behalten wollen, in denen in der Variable `year` 2007 steht.
+```{r}
+gapminder2007 <- gapminder %>% 
+  filter(year == 2007)
+```
+
+Wir überzeugen uns davon, dass es geklappt hat `r emo::ji('smile')`. Blättern Sie durch den Datensatz und überprüfen Sie die Werte in der Variablen `year`.
+```{r}
+gapminder2007
+```
+
+
+## Streudiagramm {#sec-scatter}
+Ein typischer Befehl zur Visualisierung eines Streudiagramms würde so aussehen:
+```{r}
+#| out-width: "90%"
+ggplot(data = gapminder2007, 
+       mapping = aes(x = gdpPercap, y = lifeExp, color = continent)) +
+  geom_point()
+```
+
+In Worten könnte man es vielleicht wie folgt umschreiben:
+
+1. Nimm den Datensatz `gapminder2007` (`data = gapminder2007`)  und 
+
+1. ordne folgende Attribute zu:
+    a. auf die x-Achse die Variable `gdpPercap` (`x = gdpPercap`) (Bruttoinlandsprodukt)
+    a. auf die y-Achse die Variable `lifeExp` (`y = lifeExp`) (Lebenserwartung)
+    a. färbe ein mithilfe der Variablen `continent` (`color = continent`).
+
+2. Stelle das Ganze als geometrisches Objekte *Punkte* dar (`geom_point()`)
+
+Sie sehen, dass diese Zuordnungen klar nach einer Legende verlangen, die dann auch automatisch, sowohl für die Farbe `continent` als auch für die Größe der Symbole `pop`, erstellt wird.
+
+Die Anweisungen zur Visualisierung in `ggplot2` werden mit einem `+` verbunden. Man kann (und in diesem Fall soll) weitere Anweisungen geben. Z. B. sind die Beschriftungen der beiden Achsen so nichts sagend und müssen verbessert werden. Wir hängen mit einem `+`-Zeichen weitere Befehle hinzu:
+
+```{r}
+#| out-width: "90%"
+ggplot(data = gapminder2007, 
+       mapping = aes(x = gdpPercap, y = lifeExp, color = continent)) +
+  geom_point() + 
+  labs(x = 'Bruttoinlandsprodukt pro Einwohner (US$, inflationsbereinigt)',
+       y = 'Lebenserwartung bei der Geburt (Jahre)',
+       color = 'Kontinent',
+       title = 'Daten von Gapminder für das Jahr 2007',
+       caption = 'http://www.gapminder.org/data/')
+```
+
+
+## Weitere geoms
+Das `geom_point()` produziert ein Streudiagramm auch XY-Diagramm (*scatter plot*). Weiter wichtige Grafiktypen sind
+
+- `geom_line()`: Linien
+- `geom_bar()`: Balken
+
+## Liniendiagramm {#sec-line}
+Es ergibt wenig Sinn, die obere Grafik mit Linien darzustellen. Allerdings eignen sich Linien ausgezeichnet, um einen zeitlichen Verlauf zu visualisieren. Daher filtern wir aus dem Datensatz `gapminder` die Zeitreihen für Frankreich und Deutschland heraus. Weil wir jetzt zwei Länder haben möchten, muss beim Filtern ein Vektor mit Ländernamen angegeben werden und statt `==` der Operator `%in%`. Wir werden später noch ausführlich auf diese Operatoren zurückkommen.
+
+```{r}
+france_germany <- gapminder %>% 
+  filter(country %in% c('France', 'Germany'))
+```
+
+
+```{r}
+#| out-width: "90%"
+ggplot(data = france_germany, 
+       mapping = aes(x = year, y = gdpPercap, color = country)) +
+  geom_line()
+```
+
+
+## Balkendiagramm
+Wie viele Einträge gibt es pro Kontinent? Das Balkendiagramm zählt für uns die Einträge im Datensatz zusammen. Es stellt also dieselben Daten dar, die eine Häufigkeitstabelle enthalten würde.
+
+```{r, out.width = "90%"}
+ggplot(data = gapminder, 
+       mapping = aes(x = continent)) +
+  geom_bar()
+```
+
+## Lesestoff
+Kapitel 2.1 in @ModernDive
+
+
+## Aufgaben
+
+### Darstellung von großen Zahlen
+Wir verändern die Grafik aus @sec-scatter so, dass die Symbole nach der Größe der Einwohnerzahl skaliert werden. Dazu benutzen wir eine neues Argument in der Funktion `aes(size = pop)`:
+
+```{r}
+#| out-width: "90%"
+ggplot(data = gapminder2007, 
+       mapping = aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +
+  geom_point() + 
+  labs(x = 'Bruttoinlandsprodukt pro Einwohner (US$, inflationsbereinigt)',
+       y = 'Lebenserwartung bei der Geburt (Jahre)',
+       color = 'Kontinent',
+       title = 'Daten von Gapminder für das Jahr 2007',
+       caption = 'http://www.gapminder.org/data/')
+```
+
+Die Einwohnerzahlen sind sehr groß. Daher stellt R sie in der sogen. wissenschaftlichen Notation dar. Dabei steht z. B. e+08 für $10^8$. Das heißt 2.5e+08 sind `r format(2.5e+08, scientific = F)` Einwohner.
+
+Beschriften Sie die Legende für die Größe der Symbole richtig, indem Sie `size = 'Einwohnerzahl'` in der Funktion labs hinzufügen.
+       
+
+### Grafiken richtig beschriften
+Bis auf die Grafik in @sec-line fehlen bei den Grafiken oben ordentliche Achsenbeschriftungen und Titel für die Legenden. Ergänzen Sie den Code entsprechend.
+
+
+
+## Ihre Arbeit einreichen
+- Speichern Sie Ihr Notebook ab.
+- Laden Sie Ihre .Rmd Datei in ILIAS hoch. **Beachten Sie die Frist!**
+- Sie erhalten die Musterlösung nach dem Hochladen.
