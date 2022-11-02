@@ -107,7 +107,7 @@ ggplot(data = france_germany,
 
 
 ## Balkendiagramm
-Wie viele Einträge gibt es pro Kontinent? Das Balkendiagramm zählt für uns die Einträge im Datensatz zusammen. Es stellt also dieselben Daten dar, die eine Häufigkeitstabelle enthalten würde.
+Wie viele Länder gibt es pro Kontinent? Das Balkendiagramm zählt für uns die Einträge im Datensatz zusammen. Es stellt also dieselben Daten dar, die eine Häufigkeitstabelle enthalten würde.
 
 ```{r, out.width = "90%"}
 ggplot(data = gapminder2007, 
