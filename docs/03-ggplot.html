@@ -349,9 +349,9 @@ div.csl-indent {
 <li>auf die y-Achse die Variable <code>lifeExp</code> (<code>y = lifeExp</code>) (Lebenserwartung)</li>
 <li>färbe ein mithilfe der Variablen <code>continent</code> (<code>color = continent</code>).</li>
 </ol></li>
-<li><p>Stelle das Ganze als geometrisches Objekte <em>Punkte</em> dar (<code>geom_point()</code>)</p></li>
+<li><p>Stelle das Ganze als geometrisches Objekt <em>Punkte</em> dar (<code>geom_point()</code>)</p></li>
 </ol>
-<p>Sie sehen, dass diese Zuordnungen klar nach einer Legende verlangen, die dann auch automatisch, sowohl für die Farbe <code>continent</code> als auch für die Größe der Symbole <code>pop</code>, erstellt wird.</p>
+<p>Sie sehen, dass diese Zuordnungen klar nach einer Legende verlangen, die dann auch automatisch erstellt wird. Merke: <code>color</code> innerhalb der Funktion <code>aes()</code> erstellt die Legende automatisch.</p>
 <p>Die Anweisungen zur Visualisierung in <code>ggplot2</code> werden mit einem <code>+</code> verbunden. Man kann (und in diesem Fall soll) weitere Anweisungen geben. Z. B. sind die Beschriftungen der beiden Achsen so nichts sagend und müssen verbessert werden. Wir hängen mit einem <code>+</code>-Zeichen weitere Befehle hinzu:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder2007, </span>

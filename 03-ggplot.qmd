@@ -64,9 +64,9 @@ In Worten könnte man es vielleicht wie folgt umschreiben:
     a. auf die y-Achse die Variable `lifeExp` (`y = lifeExp`) (Lebenserwartung)
     a. färbe ein mithilfe der Variablen `continent` (`color = continent`).
 
-2. Stelle das Ganze als geometrisches Objekte *Punkte* dar (`geom_point()`)
+2. Stelle das Ganze als geometrisches Objekt *Punkte* dar (`geom_point()`)
 
-Sie sehen, dass diese Zuordnungen klar nach einer Legende verlangen, die dann auch automatisch, sowohl für die Farbe `continent` als auch für die Größe der Symbole `pop`, erstellt wird.
+Sie sehen, dass diese Zuordnungen klar nach einer Legende verlangen, die dann auch automatisch erstellt wird. Merke: `color` innerhalb der Funktion `aes()` erstellt die Legende automatisch.
 
 Die Anweisungen zur Visualisierung in `ggplot2` werden mit einem `+` verbunden. Man kann (und in diesem Fall soll) weitere Anweisungen geben. Z. B. sind die Beschriftungen der beiden Achsen so nichts sagend und müssen verbessert werden. Wir hängen mit einem `+`-Zeichen weitere Befehle hinzu:
 
