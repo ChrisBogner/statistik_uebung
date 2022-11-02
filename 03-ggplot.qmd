@@ -110,7 +110,7 @@ ggplot(data = france_germany,
 Wie viele Einträge gibt es pro Kontinent? Das Balkendiagramm zählt für uns die Einträge im Datensatz zusammen. Es stellt also dieselben Daten dar, die eine Häufigkeitstabelle enthalten würde.
 
 ```{r, out.width = "90%"}
-ggplot(data = gapminder, 
+ggplot(data = gapminder2007, 
        mapping = aes(x = continent)) +
   geom_bar()
 ```

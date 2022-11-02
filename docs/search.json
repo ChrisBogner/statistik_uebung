@@ -298,6 +298,6 @@
     "href": "03-ggplot.html#balkendiagramm",
     "title": "3  Einführung in die Darstellung von Daten",
     "section": "3.5 Balkendiagramm",
-    "text": "3.5 Balkendiagramm\nWie viele Einträge gibt es pro Kontinent? Das Balkendiagramm zählt für uns die Einträge im Datensatz zusammen. Es stellt also dieselben Daten dar, die eine Häufigkeitstabelle enthalten würde.\n\nggplot(data = gapminder, \n       mapping = aes(x = continent)) +\n  geom_bar()"
+    "text": "3.5 Balkendiagramm\nWie viele Einträge gibt es pro Kontinent? Das Balkendiagramm zählt für uns die Einträge im Datensatz zusammen. Es stellt also dieselben Daten dar, die eine Häufigkeitstabelle enthalten würde.\n\nggplot(data = gapminder2007, \n       mapping = aes(x = continent)) +\n  geom_bar()"
   }
 ]
