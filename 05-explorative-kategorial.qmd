@@ -1,0 +1,217 @@
+# Exploration von kategorialen Daten {#sec-explorative-kategorial}
+
+:::{.outcomes}
+- Kategoriale Variablen in Faktor umwandeln
+- Kategoriale Variablen darstellen
+- Neue Variablen mit `mutate()` erstellen
+- Häufigkeits- und Kontingenztabellen erstellen
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+library(tidyverse)
+library(kableExtra)
+library(lubridate)
+```
+
+## Mobilität in Europa
+
+Wir nutzen erneut den Datensatz aus der ersten Sitzung der Vorlesung. Zunächst laden wir wie immer die nötigen Bibliotheken.
+
+```{r}
+#| eval: false
+library(tidyverse)
+```
+
+Das Einlesen eines Datensatzes aus einer Textdatei haben Sie ja bereits im letzten Kapitel gelernt.
+
+```{r}
+car_numbers <- read_delim(file = 'Daten/autos_2022-11-06.csv', delim = ';')
+```
+### Kategoriale Variablen als Faktoren
+Wir sehen uns das `tibble` etwas genauer an.
+```{r}
+car_numbers
+```
+
+Kategorische Variablen werden als Text (*character*) eingelesen. Das bedeutet, dass wir R nicht (so leicht) fragen können, welche verschiedenen Merkmalsausprägungen die Variable enthält. Eine bessere Klasse für eine kategoriale Variable ist ein **Faktor**  (*factor*). Bei einem Faktor werden die unterschiedlichen Merkmalsausprägungen (*levels*) explizit gespeichert. Wir wandeln daher die Text-Variable `geo` in einen Faktor um.
+
+```{r}
+car_numbers <- car_numbers %>% 
+  mutate(geo_factor = as_factor(geo))
+```
+
+Die Funktion `mutate()` kann neue Variablen in einem Datensatz erstellen, verändern oder löschen. In unserem Fall erstellen wir eine neue Variable, die wir `geo_factor` nennen. Die Funktion `as_factor()` wandelt (konvertiert) die Text-Variable `geo` in einen Faktor. Die Funktion `mutate()` fügt neue Variablen am Ende des `tibble`s ein:
+```{r}
+car_numbers
+```
+
+
+Nun können wir R auch fragen, welche verschiedene Merkmalsausprägungen (*levels*) diese Variable enthält:
+
+```{r}
+levels(car_numbers$geo_factor)
+```
+
+Die einzlenen Merkmalsausprägungen sind die verschiedenen Ländern. Der Datensatz enthält `r length(levels(car_numbers$geo_factor))` unterschiedliche Länder.
+
+### Balkendiagramm mit `geom_col()` {#sec-geom-col}
+Wir möchten die Daten als Balkendiagramm darstellen. Das Ziel ist eine ähnliche Darstellung, wie in der Vorlesung.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+ggplot(car_numbers, aes(x = geo, y = values, fill = as_factor(year(time)))) +
+  geom_col(position = position_dodge()) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+  labs(x = '', y = 'Anzahl pro 1000 Einwohner',
+       fill = 'Jahr',
+       title = 'Anzahl der Autos in Europa',
+       caption = 'Datenquelle: EUROSTAT, Datensatz: road_eqs_carhab')
+```
+
+Dazu müssen wir zuerst eine neue Variable erstellen, die wir zum Einfärben der Jahre nutzen können. Dazu benötigen wir eine zusätzliche Bibliothek, du uns den Umgang mit Datum und Uhrzeit erleichtert. Sie heißt `lubridate`.
+
+```{r}
+#| eval: false
+library(lubridate)
+```
+
+Nun nutzen wir die Funktion `year()` aus `lubridate`, um aus der Variablen `time` nur das Jahr zu extrahieren. Wir erstellen dazu mit `mutate()` wieder einen neue Variable, die wir `time_year` nennen.
+```{r}
+car_numbers <- car_numbers %>% 
+  mutate(time_year = year(time))
+```
+
+Auch diese Variable wir an das Ende des Datensatzes `car_numbers` gestellt.
+```{r}
+car_numbers
+```
+
+Eine Variable zum Einfärben mit zwei verschiedenen Farben (je Jahr eine andere Farbe) muss kategorial sein. Die Variable `time_year` ist aber numerisch. Daher nutzen wir `mutate()`, um `time_year` in einen Faktor zu verwandeln.
+```{r}
+car_numbers <- car_numbers %>% 
+  mutate(time_year = as_factor(time_year))
+```
+
+In diesem Fall erstellt `mutate()` keine neue Variable, sondern überschreibt (verändert) die vorhandene Variable `time_year`. Das ist möglich und gängige Praxis in R. Jetzt ist `time_year` ein Faktor, was man auch in der Darstelung des `tibble` sehen kann.
+```{r}
+car_numbers
+```
+
+Nun geht es an die Darstellung. Im Kapitel @sec-ggplot haben Sie das `geom_bar()` kennengelernt. Es kann die Anzahl der Einträge in einer Variablen auszählen und diese als Balkendiagramm darstellen. Das möchten wir aber in unserem Fall nicht. Wir wollen die Anzahl der Autos darstellen, die in der Variablen `value` enthalten ist. In anderen Worten, wir wollen Werte und keine ausgezählten Merkmalsausprägungen (*counts*) darstellen. Das ist die Aufgabe des `geom_col()` (col steht für columns, also Säulen/Balken).
+```{r}
+#| warning: false
+#| message: false
+ggplot(data = car_numbers, mapping = aes(x = geo, y = values, fill = time_year)) +
+  geom_col()
+```
+Es ist noch etwas Nacharbeit nötig. Sieht man in die Hilfe von `geom_col()`, dann kann man nachlesen, dass es standardmäßig ein Stapelbalkendiagramm darstellt (*stacked bar plot* ). Möchte man die Balken nebeneinander haben (*dodged bar plot*), muss man das explizit sagen.
+```{r}
+#| echo: false
+#| warning: false
+ggplot(data = car_numbers, mapping = aes(x = geo, y = values, fill = time_year)) +
+  geom_col(position = position_dodge()) 
+```
+
+Die Ländernamen erscheinen (wie es Standard ist) horizontal. In unserem Fall überdecken sie sich aber und wir sollten sie vertikal schreiben. Dazu gibt es eine neue Funktion aus `ggplot2`, die wie alle anderen mit einem `+` angehängt wird. Sie heißt `theme()`. Der Parameter, der die einzelnen 
+```{r}
+ggplot(data = car_numbers, mapping = aes(x = geo, y = values, fill = time_year)) +
+  geom_col(position = position_dodge()) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5))
+```
+
+
+## Lending Club -- Peer-to-Peer-Kredite
+
+[Lending Club](https://de.wikipedia.org/wiki/Lending_Club#cite_note-1): Ein US-Unternehmen, das Individuen über eine Plattform ermöglicht, an andere Individuen Geld zu verleihen (Peer-to-Peer-Kredite). Wir haben den Datensatz bereits in der Vorlesung kennengelernt. Er ist in der Bibliothek `openintro` als `loands_full_schema` zu finden. Wir laden die Bibliothek und holen uns den Datensatz.
+```{r}
+#| warning: false
+# Das R-Paket (auch Bibliothek genannt) laden
+library(openintro)
+
+# Datensatz laden
+data(loans_full_schema)
+
+# Datensatz ansehen
+glimpse(loans_full_schema)
+```
+
+### Häufigkeitstabelle
+Wir erstellen eine Häufigkeitstabelle der Variable `homeownership`. Dazu müssen wir die einzlenen Merkmalsausprägungen auszählen lassen. Das übernimmt die Funktion `count()`.
+```{r}
+loans_full_schema %>% 
+  count(homeownership)
+```
+
+Das sieht anders aus, als in der Vorlesung. Das liegt daran, dass die Variable `homeownership` für die Vorlesung verändert wurde. Es ist nämlich störend, wenn die Merkmalsausprägungen mit Großbuchstaben geschrieben werden. Außerdem macht es logisch Sinn, zuerst die gemieteten, dann die mit einer Hypothek belegten und zum Schluss die Eigentumsobjekte zu sehen. Das spiegelt in einer gewissen Weise das Risiko wieder, das ein Kredit nicht bedient werden kann. Achtung: Es ist trotzdem keine ordinal-skalierte Variable!
+
+Wir ändern die Darstellung der Variablen `homeownership`. Um den Originaldatensatz nicht zu überschreiben, erstellen wir einen neuen, den wir `loans` nennen.
+```{r}
+loans <- loans_full_schema %>%
+  mutate(homeownership = tolower(homeownership),
+         homeownership = fct_relevel(homeownership, "rent", "mortgage", "own"))
+```
+
+Sie sehen, dass man die beiden Änderungen in einem Aufruf zu `mutate()` durchführen darf. Zuerst macht die Funktion `tolower()` aus den Großbuchstaben Kleinbuchstaben, danach änder die Funktion `fct_relevel()` die Reihenfolge der Kategorien der Merkmalsausprägungen (*levles*). Jetzt entspricht das Ergebnis dem der Vorlesung.
+```{r}
+loans %>% 
+  count(homeownership)
+```
+
+
+### Kontingenztabelle
+Eine Kontingenztabelle fasst zwei kategoriale Variablen zusammen. Jede Zeile zeigt die Anzahl der Kombinationen zwischen diesen Variablen.
+
+```{r}
+loans %>%
+  count(application_type, homeownership)
+```
+
+Die Tabelle sieht auch anders aus als in der Vorlesung. Sie ist nämlich `tidy`: jede Spalte ist eine Variable und jede Zeile ist eine Beobachtung. In diesem Fall möchte man es aber eigentlich `untidy` dargestellt haben. Das ist einer der seltenen Fälle, nämlich die Darstellung von Tabellen, wo das auch Sinn macht. Achtung, jetzt wird es nerdy `r emo::ji('nerd')`. 
+
+Wir formatieren die Tabelle von lang `tidy` auf breit und `untidy`. Dabei wandern die Einträge der Spalte `homeowndership` in die Breite und werden zu neuen Spalten. Die einträge in den Tabellenzellen kommen aus der Spalte `n`. 
+```{r}
+loans %>%
+  count(application_type, homeownership) %>%
+  pivot_wider(names_from = homeownership, values_from = n)
+```
+
+Jetzt fehlen nur noch die Zeilen- und Spaltensummen. Da hilft die Bibliothek `janitor`
+```{r}
+#| warning: false
+#| message: false
+library(janitor)
+
+loans %>%
+  count(application_type, homeownership) %>%
+  pivot_wider(names_from = homeownership, values_from = n) %>% 
+  adorn_totals(where = c("row", "col"))
+```
+
+Bis auf wenige ästhetische Griffe ist das jetzt das Gleiche wie in der Vorlesung `r emo::ji('smile')`.
+
+
+
+<!-- ## Lesestoff -->
+<!-- Kapitel 2.1 in @ModernDive -->
+
+## Aufgaben
+
+### Grafik beschriften
+Beschriften Sie die finale Grafik aus @sec-geom-col so, dass sie wie dort anfangs dargestellt aussieht.
+
+### Aufgaben der Funktion `theme()`
+1. Lesen Sie nach, was die Aufgabe der Funktion `theme()` ist. Fassen Sie den Abschnitt *Description* kurz mit Ihren eigenen Worten zusammen.
+2. Ich habe in der Vorlesung `theme_classic()` benutzt. Ändern Sie die finale Grafik in @sec-geom-col so, dass auch dort dieses `theme` benutzt wird.
+3. Finden Sie heraus, was `hjust` und `vjust` tun. Probieren Sie die Werte 0, 0.5 und 1 aus. Wie ändert sich die Position der Ländernamen?
+
+### Tutorium 
+Bearbeiten Sie das Tutorium "Einführung in Daten: 1 - Die Sprache der Daten". Sie können entweder die deutsche Übersetzung oder das englische Original bearbeiten. Das Tutorium muss nicht hochgeladen werden.
+
+## Ihre Arbeit einreichen
+- Speichern Sie Ihr Notebook ab.
+- Laden Sie Ihre .Rmd Datei in ILIAS hoch. **Beachten Sie die Frist!**
+- Sie erhalten die Musterlösung nach dem Hochladen.

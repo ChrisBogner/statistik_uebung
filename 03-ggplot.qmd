@@ -1,4 +1,4 @@
-# Einführung in die Darstellung von Daten {#ggplot}
+# Einführung in die Darstellung von Daten {#sec-ggplot}
 
 :::{.outcomes}
 - Aufbau des Aufrufs der Funktion `ggplot()` kennen
@@ -68,7 +68,7 @@ In Worten könnte man es vielleicht wie folgt umschreiben:
 
 Sie sehen, dass diese Zuordnungen klar nach einer Legende verlangen, die dann auch automatisch erstellt wird. Merke: `color` innerhalb der Funktion `aes()` erstellt die Legende automatisch.
 
-Die Anweisungen zur Visualisierung in `ggplot2` werden mit einem `+` verbunden. Man kann (und in diesem Fall soll) weitere Anweisungen geben. Z. B. sind die Beschriftungen der beiden Achsen so nichts sagend und müssen verbessert werden. Wir hängen mit einem `+`-Zeichen weitere Befehle hinzu:
+Die Anweisungen zur Visualisierung in `ggplot2` werden mit einem `+` verbunden. Man kann (und in diesem Fall soll) weitere Anweisungen geben. Z. B. sind die Beschriftungen der beiden Achsen so nichtssagend und müssen verbessert werden. Wir hängen mit einem `+`-Zeichen weitere Befehle hinzu:
 
 ```{r}
 #| out-width: "90%"
@@ -107,7 +107,7 @@ ggplot(data = france_germany,
 
 
 ## Balkendiagramm
-Wie viele Länder gibt es pro Kontinent? Das Balkendiagramm zählt für uns die Einträge im Datensatz zusammen. Es stellt also dieselben Daten dar, die eine Häufigkeitstabelle enthalten würde.
+Wie viele Länder gibt es pro Kontinent im Jahr 2007? Das Balkendiagramm zählt für uns die Einträge im Datensatz zusammen. Es stellt also dieselben Daten dar, die eine Häufigkeitstabelle enthalten würde.
 
 ```{r, out.width = "90%"}
 ggplot(data = gapminder2007, 
@@ -122,7 +122,7 @@ Kapitel 2.1 in @ModernDive
 ## Aufgaben
 
 ### Darstellung von großen Zahlen
-Wir verändern die Grafik aus @sec-scatter so, dass die Symbole nach der Größe der Einwohnerzahl skaliert werden. Dazu benutzen wir eine neues Argument in der Funktion `aes(size = pop)`:
+Wir verändern die Grafik aus @sec-scatter so, dass die Symbole nach der Größe der Einwohnerzahl skaliert werden. Dazu benutzen wir ein neues Argument in der Funktion `aes(size = pop)`:
 
 ```{r}
 #| out-width: "90%"
@@ -138,7 +138,7 @@ ggplot(data = gapminder2007,
 
 Die Einwohnerzahlen sind sehr groß. Daher stellt R sie in der sogen. wissenschaftlichen Notation dar. Dabei steht z. B. e+08 für $10^8$. Das heißt 2.5e+08 sind `r format(2.5e+08, scientific = F)` Einwohner.
 
-Beschriften Sie die Legende für die Größe der Symbole richtig, indem Sie `size = 'Einwohnerzahl'` in der Funktion labs hinzufügen.
+Beschriften Sie die Legende für die Größe der Symbole richtig, indem Sie `size = 'Einwohnerzahl'` in der Funktion `labs()` hinzufügen.
        
 
 ### Grafiken richtig beschriften

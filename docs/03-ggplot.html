@@ -107,7 +107,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./04-einlesen.html" rel="next">
 <link href="./02-rmarkdown.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -220,6 +220,26 @@ div.csl-indent {
   <a href="./03-ggplot.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in die Darstellung von Daten</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-einlesen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Daten in R einlesen und aus R speichern</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">EXPLORATIVE DATENANALYSE</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-explorative-kategorial.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploration von kategorialen Daten</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -229,12 +249,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Appendices</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./20-aufgabensammlung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Aufgabensammlung</span></a>
@@ -271,7 +291,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="ggplot" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in die Darstellung von Daten</span></span></h1>
+<h1 class="title"><span id="sec-ggplot" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in die Darstellung von Daten</span></span></h1>
 </div>
 
 
@@ -352,7 +372,7 @@ div.csl-indent {
 <li><p>Stelle das Ganze als geometrisches Objekt <em>Punkte</em> dar (<code>geom_point()</code>)</p></li>
 </ol>
 <p>Sie sehen, dass diese Zuordnungen klar nach einer Legende verlangen, die dann auch automatisch erstellt wird. Merke: <code>color</code> innerhalb der Funktion <code>aes()</code> erstellt die Legende automatisch.</p>
-<p>Die Anweisungen zur Visualisierung in <code>ggplot2</code> werden mit einem <code>+</code> verbunden. Man kann (und in diesem Fall soll) weitere Anweisungen geben. Z. B. sind die Beschriftungen der beiden Achsen so nichts sagend und müssen verbessert werden. Wir hängen mit einem <code>+</code>-Zeichen weitere Befehle hinzu:</p>
+<p>Die Anweisungen zur Visualisierung in <code>ggplot2</code> werden mit einem <code>+</code> verbunden. Man kann (und in diesem Fall soll) weitere Anweisungen geben. Z. B. sind die Beschriftungen der beiden Achsen so nichtssagend und müssen verbessert werden. Wir hängen mit einem <code>+</code>-Zeichen weitere Befehle hinzu:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder2007, </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
@@ -393,7 +413,7 @@ div.csl-indent {
 </section>
 <section id="balkendiagramm" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="balkendiagramm"><span class="header-section-number">3.5</span> Balkendiagramm</h2>
-<p>Wie viele Einträge gibt es pro Kontinent? Das Balkendiagramm zählt für uns die Einträge im Datensatz zusammen. Es stellt also dieselben Daten dar, die eine Häufigkeitstabelle enthalten würde.</p>
+<p>Wie viele Länder gibt es pro Kontinent im Jahr 2007? Das Balkendiagramm zählt für uns die Einträge im Datensatz zusammen. Es stellt also dieselben Daten dar, die eine Häufigkeitstabelle enthalten würde.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder2007, </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> continent)) <span class="sc">+</span></span>
@@ -411,7 +431,7 @@ div.csl-indent {
 <h2 data-number="3.7" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">3.7</span> Aufgaben</h2>
 <section id="darstellung-von-großen-zahlen" class="level3" data-number="3.7.1">
 <h3 data-number="3.7.1" class="anchored" data-anchor-id="darstellung-von-großen-zahlen"><span class="header-section-number">3.7.1</span> Darstellung von großen Zahlen</h3>
-<p>Wir verändern die Grafik aus <a href="#sec-scatter"><span>Section&nbsp;3.2</span></a> so, dass die Symbole nach der Größe der Einwohnerzahl skaliert werden. Dazu benutzen wir eine neues Argument in der Funktion <code>aes(size = pop)</code>:</p>
+<p>Wir verändern die Grafik aus <a href="#sec-scatter"><span>Section&nbsp;3.2</span></a> so, dass die Symbole nach der Größe der Einwohnerzahl skaliert werden. Dazu benutzen wir ein neues Argument in der Funktion <code>aes(size = pop)</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder2007, </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
@@ -426,7 +446,7 @@ div.csl-indent {
 </div>
 </div>
 <p>Die Einwohnerzahlen sind sehr groß. Daher stellt R sie in der sogen. wissenschaftlichen Notation dar. Dabei steht z. B. e+08 für <span class="math inline">\(10^8\)</span>. Das heißt 2.5e+08 sind 250000000 Einwohner.</p>
-<p>Beschriften Sie die Legende für die Größe der Symbole richtig, indem Sie <code>size = 'Einwohnerzahl'</code> in der Funktion labs hinzufügen.</p>
+<p>Beschriften Sie die Legende für die Größe der Symbole richtig, indem Sie <code>size = 'Einwohnerzahl'</code> in der Funktion <code>labs()</code> hinzufügen.</p>
 </section>
 <section id="grafiken-richtig-beschriften" class="level3" data-number="3.7.2">
 <h3 data-number="3.7.2" class="anchored" data-anchor-id="grafiken-richtig-beschriften"><span class="header-section-number">3.7.2</span> Grafiken richtig beschriften</h3>
@@ -554,8 +574,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">Literatur</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04-einlesen.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Daten in R einlesen und aus R speichern</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

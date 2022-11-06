@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Übung zur Vorlesung Statistik und Datenanalyse - 4&nbsp; Daten in R einlesen und aus R speichern</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./05-explorative-kategorial.html" rel="next">
+<link href="./03-ggplot.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+<link rel="stylesheet" href="stat_style.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Daten in R einlesen und aus R speichern</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Übung zur Vorlesung Statistik und Datenanalyse</a> 
+        <div class="sidebar-tools-main">
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Übung-zur-Vorlesung-Statistik-und-Datenanalyse.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Übung-zur-Vorlesung-Statistik-und-Datenanalyse.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Vorwort</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">EINFÜHRUNG IN R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-erste-schritte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Erste Schritte in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-rmarkdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Markdown für reproduzierbare Forschung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-ggplot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in die Darstellung von Daten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-einlesen.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Daten in R einlesen und aus R speichern</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">EXPLORATIVE DATENANALYSE</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-explorative-kategorial.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploration von kategorialen Daten</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Literatur</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-aufgabensammlung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Aufgabensammlung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#daten-aus-textdateien-in-r-einlesen" id="toc-daten-aus-textdateien-in-r-einlesen" class="nav-link active" data-scroll-target="#daten-aus-textdateien-in-r-einlesen"> <span class="header-section-number">4.1</span> Daten aus Textdateien in R einlesen</a></li>
+  <li><a href="#einzelne-variablen-ansprechen" id="toc-einzelne-variablen-ansprechen" class="nav-link" data-scroll-target="#einzelne-variablen-ansprechen"> <span class="header-section-number">4.2</span> Einzelne Variablen ansprechen</a></li>
+  <li><a href="#ansprechen-mehrere-spalten-in-einem-tibble" id="toc-ansprechen-mehrere-spalten-in-einem-tibble" class="nav-link" data-scroll-target="#ansprechen-mehrere-spalten-in-einem-tibble"> <span class="header-section-number">4.3</span> Ansprechen mehrere Spalten in einem <code>tibble</code></a></li>
+  <li><a href="#ein-tibble-erstellen" id="toc-ein-tibble-erstellen" class="nav-link" data-scroll-target="#ein-tibble-erstellen"> <span class="header-section-number">4.4</span> Ein <code>tibble</code> erstellen</a></li>
+  <li><a href="#daten-aus-r-speichern" id="toc-daten-aus-r-speichern" class="nav-link" data-scroll-target="#daten-aus-r-speichern"> <span class="header-section-number">4.5</span> Daten aus R speichern</a></li>
+  <li><a href="#lesestoff" id="toc-lesestoff" class="nav-link" data-scroll-target="#lesestoff"> <span class="header-section-number">4.6</span> Lesestoff</a></li>
+  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"> <span class="header-section-number">4.7</span> Aufgaben</a></li>
+  <li><a href="#die-umfrage-aus-der-ersten-sitzung" id="toc-die-umfrage-aus-der-ersten-sitzung" class="nav-link" data-scroll-target="#die-umfrage-aus-der-ersten-sitzung"> <span class="header-section-number">4.8</span> Die Umfrage aus der ersten Sitzung</a></li>
+  <li><a href="#ihre-arbeit-einreichen" id="toc-ihre-arbeit-einreichen" class="nav-link" data-scroll-target="#ihre-arbeit-einreichen"> <span class="header-section-number">4.9</span> Ihre Arbeit einreichen</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-einlesen" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Daten in R einlesen und aus R speichern</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="outcomes">
+<ul>
+<li>Daten aus Textdateien in R einlesen</li>
+<li>Die $-Notation</li>
+<li>Ansprechen eines Eintrags im <code>tibble</code></li>
+<li>Daten als Textdateien aus R speichern</li>
+</ul>
+</div>
+<div class="cell">
+
+</div>
+<section id="daten-aus-textdateien-in-r-einlesen" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="daten-aus-textdateien-in-r-einlesen"><span class="header-section-number">4.1</span> Daten aus Textdateien in R einlesen</h2>
+<p>Um Daten aus Textdateien (z.B. aus .csv, .txt, .dat) in R zu importieren (i.e.&nbsp;einzulesen) werden wir die Bibliothek <code>readr</code> aus <code>tidyverse</code> benutzen. Wir laden erst einmal <code>tidyverse</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wir gehen davon aus, dass die Daten im Ordner <code>Daten</code> gespeichert sind. Falls Ihre Daten an einem anderen Ort abgelegt sind, müssen Sie den Pfad beim Einlesen entsprechend anpassen.</p>
+<p>Um die Daten zu laden, gibt es in der Bibliothek <code>readr</code> verschiedene Funktionen, die alle mit <code>read_</code> beginnen. Die allgemeinste davon ist <code>read_delim</code>. Darin kann man explizit einstellen, mit welchem Zeichen (z. B. Komma, Strichpunkt etc.) die einzelnen Spalten in der zu importierenden Datei getrennt sind. In der Datei, die wir einlesen, ist das Trennungszeichen <code>;</code>. Das müssen Sie aber bei jeder Datei, die Sie einlesen, nachsehen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>car_numbers <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="at">file =</span> <span class="st">'Daten/autos_2022-11-06.csv'</span>, <span class="at">delim =</span> <span class="st">';'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 76 Columns: 4
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ";"
+chr  (2): geo, unit
+dbl  (1): values
+date (1): time
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<p>Ein kurzer Blick auf den Datensatz, den Sie aus der ersten Sitzung der Vorlesung erkennen sollten 😄. Es sind die Daten zur <strong>Mobilität in Europa</strong> aus <a href="https://ec.europa.eu/eurostat/databrowser/view/road_eqs_carhab/default/bar?lang=en">eurostat</a>, heruntergeladen am 06.11.2022 und vorgefiltert. Die Daten beinhalten die Anzhal der “Personenkraftwagen je 1 000 Einwohner”, online Datencode: ROAD_EQS_CARHAB.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>car_numbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["geo"],"name":[1],"type":["chr"],"align":["left"]},{"label":["time"],"name":[2],"type":["date"],"align":["right"]},{"label":["unit"],"name":[3],"type":["chr"],"align":["left"]},{"label":["values"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Albania","2":"2018-01-01","3":"Number","4":"161"},{"1":"Albania","2":"2020-01-01","3":"Number","4":"191"},{"1":"Austria","2":"2018-01-01","3":"Number","4":"562"},{"1":"Austria","2":"2020-01-01","3":"Number","4":"570"},{"1":"Belgium","2":"2018-01-01","3":"Number","4":"511"},{"1":"Belgium","2":"2020-01-01","3":"Number","4":"510"},{"1":"Bulgaria","2":"2018-01-01","3":"Number","4":"396"},{"1":"Bulgaria","2":"2020-01-01","3":"Number","4":"414"},{"1":"Croatia","2":"2018-01-01","3":"Number","4":"409"},{"1":"Croatia","2":"2020-01-01","3":"Number","4":"433"},{"1":"Cyprus","2":"2018-01-01","3":"Number","4":"629"},{"1":"Cyprus","2":"2020-01-01","3":"Number","4":"645"},{"1":"Czechia","2":"2018-01-01","3":"Number","4":"540"},{"1":"Czechia","2":"2020-01-01","3":"Number","4":"565"},{"1":"Denmark","2":"2018-01-01","3":"Number","4":"447"},{"1":"Denmark","2":"2020-01-01","3":"Number","4":"466"},{"1":"Estonia","2":"2018-01-01","3":"Number","4":"563"},{"1":"Estonia","2":"2020-01-01","3":"Number","4":"608"},{"1":"Finland","2":"2018-01-01","3":"Number","4":"629"},{"1":"Finland","2":"2020-01-01","3":"Number","4":"652"},{"1":"France","2":"2018-01-01","3":"Number","4":"569"},{"1":"France","2":"2020-01-01","3":"Number","4":"567"},{"1":"Germany","2":"2018-01-01","3":"Number","4":"567"},{"1":"Germany","2":"2020-01-01","3":"Number","4":"580"},{"1":"Greece","2":"2018-01-01","3":"Number","4":"493"},{"1":"Greece","2":"2020-01-01","3":"Number","4":"514"},{"1":"Hungary","2":"2018-01-01","3":"Number","4":"373"},{"1":"Hungary","2":"2020-01-01","3":"Number","4":"403"},{"1":"Iceland","2":"2018-01-01","3":"Number","4":"749"},{"1":"Iceland","2":"2020-01-01","3":"Number","4":"731"},{"1":"Ireland","2":"2018-01-01","3":"Number","4":"445"},{"1":"Ireland","2":"2020-01-01","3":"Number","4":"458"},{"1":"Italy","2":"2018-01-01","3":"Number","4":"652"},{"1":"Italy","2":"2020-01-01","3":"Number","4":"670"},{"1":"Kosovo","2":"2018-01-01","3":"Number","4":"143"},{"1":"Kosovo","2":"2020-01-01","3":"NA","4":"NA"},{"1":"Latvia","2":"2018-01-01","3":"Number","4":"369"},{"1":"Latvia","2":"2020-01-01","3":"Number","4":"390"},{"1":"Liechtenstein","2":"2018-01-01","3":"Number","4":"780"},{"1":"Liechtenstein","2":"2020-01-01","3":"Number","4":"779"},{"1":"Lithuania","2":"2018-01-01","3":"Number","4":"512"},{"1":"Lithuania","2":"2020-01-01","3":"Number","4":"560"},{"1":"Luxembourg","2":"2018-01-01","3":"Number","4":"676"},{"1":"Luxembourg","2":"2020-01-01","3":"Number","4":"682"},{"1":"Malta","2":"2018-01-01","3":"Number","4":"608"},{"1":"Malta","2":"2020-01-01","3":"Number","4":"597"},{"1":"Montenegro","2":"2018-01-01","3":"Number","4":"332"},{"1":"Montenegro","2":"2020-01-01","3":"Number","4":"338"},{"1":"Netherlands","2":"2018-01-01","3":"Number","4":"494"},{"1":"Netherlands","2":"2020-01-01","3":"Number","4":"503"},{"1":"North Macedonia","2":"2018-01-01","3":"Number","4":"200"},{"1":"North Macedonia","2":"2020-01-01","3":"Number","4":"207"},{"1":"Norway","2":"2018-01-01","3":"Number","4":"516"},{"1":"Norway","2":"2020-01-01","3":"Number","4":"544"},{"1":"Poland","2":"2018-01-01","3":"Number","4":"617"},{"1":"Poland","2":"2020-01-01","3":"Number","4":"664"},{"1":"Portugal","2":"2018-01-01","3":"Number","4":"514"},{"1":"Portugal","2":"2020-01-01","3":"Number","4":"540"},{"1":"Romania","2":"2018-01-01","3":"Number","4":"332"},{"1":"Romania","2":"2020-01-01","3":"Number","4":"379"},{"1":"Serbia","2":"2018-01-01","3":"NA","4":"NA"},{"1":"Serbia","2":"2020-01-01","3":"Number","4":"315"},{"1":"Slovakia","2":"2018-01-01","3":"Number","4":"426"},{"1":"Slovakia","2":"2020-01-01","3":"Number","4":"447"},{"1":"Slovenia","2":"2018-01-01","3":"Number","4":"549"},{"1":"Slovenia","2":"2020-01-01","3":"Number","4":"555"},{"1":"Spain","2":"2018-01-01","3":"Number","4":"513"},{"1":"Spain","2":"2020-01-01","3":"Number","4":"521"},{"1":"Sweden","2":"2018-01-01","3":"Number","4":"476"},{"1":"Sweden","2":"2020-01-01","3":"Number","4":"476"},{"1":"Switzerland","2":"2018-01-01","3":"Number","4":"539"},{"1":"Switzerland","2":"2020-01-01","3":"Number","4":"537"},{"1":"Türkiye","2":"2018-01-01","3":"Number","4":"151"},{"1":"Türkiye","2":"2020-01-01","3":"Number","4":"157"},{"1":"United Kingdom","2":"2018-01-01","3":"Number","4":"473"},{"1":"United Kingdom","2":"2020-01-01","3":"NA","4":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Das Ergebnis des Einlesens mit <code>read_</code> Funktionen ist immer ein <code>tibble</code>.</p>
+</section>
+<section id="einzelne-variablen-ansprechen" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="einzelne-variablen-ansprechen"><span class="header-section-number">4.2</span> Einzelne Variablen ansprechen</h2>
+<p>Jede Variable hat einen Namen. Man kann diesen nutzen, um die Variable anzusprechen. Z. B. könnten wir die Variable <code>geo</code> so ansprechen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>car_numbers<span class="sc">$</span>geo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Albania"         "Albania"         "Austria"         "Austria"        
+ [5] "Belgium"         "Belgium"         "Bulgaria"        "Bulgaria"       
+ [9] "Croatia"         "Croatia"         "Cyprus"          "Cyprus"         
+[13] "Czechia"         "Czechia"         "Denmark"         "Denmark"        
+[17] "Estonia"         "Estonia"         "Finland"         "Finland"        
+[21] "France"          "France"          "Germany"         "Germany"        
+[25] "Greece"          "Greece"          "Hungary"         "Hungary"        
+[29] "Iceland"         "Iceland"         "Ireland"         "Ireland"        
+[33] "Italy"           "Italy"           "Kosovo"          "Kosovo"         
+[37] "Latvia"          "Latvia"          "Liechtenstein"   "Liechtenstein"  
+[41] "Lithuania"       "Lithuania"       "Luxembourg"      "Luxembourg"     
+[45] "Malta"           "Malta"           "Montenegro"      "Montenegro"     
+[49] "Netherlands"     "Netherlands"     "North Macedonia" "North Macedonia"
+[53] "Norway"          "Norway"          "Poland"          "Poland"         
+[57] "Portugal"        "Portugal"        "Romania"         "Romania"        
+[61] "Serbia"          "Serbia"          "Slovakia"        "Slovakia"       
+[65] "Slovenia"        "Slovenia"        "Spain"           "Spain"          
+[69] "Sweden"          "Sweden"          "Switzerland"     "Switzerland"    
+[73] "Türkiye"         "Türkiye"         "United Kingdom"  "United Kingdom" </code></pre>
+</div>
+</div>
+<p>Sie sehen, dass die Darstellung jetzt anders aussieht, weil eine einzelne Variable ein Vektor ist und kein <code>tibble</code>. Vektoren werden (durchnummeriert) ausgegeben und wir sehen alle 76 Einträge (Länder) nacheinander in der Reihenfolge ihres Erscheinens in der Variablen <code>geo</code>.</p>
+</section>
+<section id="ansprechen-mehrere-spalten-in-einem-tibble" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="ansprechen-mehrere-spalten-in-einem-tibble"><span class="header-section-number">4.3</span> Ansprechen mehrere Spalten in einem <code>tibble</code></h2>
+<p>Ein <code>tibble</code> ist ein zwei-dimensionales Objekt: Es hat Zeilen (erste Dimension) und Spalten (zweite Dimension). Um so ein Objekt richtig anzusprechen, erweitern wir unsere Notation mit den eckigen Klammern. Jetzt brauchen wir nämlich zwei Indizes: einen Index für die Zeile und einen Index für die Spalte eines Eintrags. Wenn wir z. B. den dritten Eintrag in der ersten Spalte (Variable <code>geo</code>) sehen wollen, schreiben wir:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>car_numbers[<span class="dv">3</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["geo"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"Austria"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Es handelt sich um Österreich. Wir können auch ganze Spalten (Variablen) ansprechen. Dafür wird der erste Index (für Zeilen) weggelassen. Nichts (oder ein Leerzeichen) signalisieren R, dass alle Einträge gemeint sind. So können wir die erste Spalte wie folgt ansprechen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>car_numbers[, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["geo"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"Albania"},{"1":"Albania"},{"1":"Austria"},{"1":"Austria"},{"1":"Belgium"},{"1":"Belgium"},{"1":"Bulgaria"},{"1":"Bulgaria"},{"1":"Croatia"},{"1":"Croatia"},{"1":"Cyprus"},{"1":"Cyprus"},{"1":"Czechia"},{"1":"Czechia"},{"1":"Denmark"},{"1":"Denmark"},{"1":"Estonia"},{"1":"Estonia"},{"1":"Finland"},{"1":"Finland"},{"1":"France"},{"1":"France"},{"1":"Germany"},{"1":"Germany"},{"1":"Greece"},{"1":"Greece"},{"1":"Hungary"},{"1":"Hungary"},{"1":"Iceland"},{"1":"Iceland"},{"1":"Ireland"},{"1":"Ireland"},{"1":"Italy"},{"1":"Italy"},{"1":"Kosovo"},{"1":"Kosovo"},{"1":"Latvia"},{"1":"Latvia"},{"1":"Liechtenstein"},{"1":"Liechtenstein"},{"1":"Lithuania"},{"1":"Lithuania"},{"1":"Luxembourg"},{"1":"Luxembourg"},{"1":"Malta"},{"1":"Malta"},{"1":"Montenegro"},{"1":"Montenegro"},{"1":"Netherlands"},{"1":"Netherlands"},{"1":"North Macedonia"},{"1":"North Macedonia"},{"1":"Norway"},{"1":"Norway"},{"1":"Poland"},{"1":"Poland"},{"1":"Portugal"},{"1":"Portugal"},{"1":"Romania"},{"1":"Romania"},{"1":"Serbia"},{"1":"Serbia"},{"1":"Slovakia"},{"1":"Slovakia"},{"1":"Slovenia"},{"1":"Slovenia"},{"1":"Spain"},{"1":"Spain"},{"1":"Sweden"},{"1":"Sweden"},{"1":"Switzerland"},{"1":"Switzerland"},{"1":"Türkiye"},{"1":"Türkiye"},{"1":"United Kingdom"},{"1":"United Kingdom"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Beim Ansprechen ganzer Zeilen ist es ähnlich. Wir lassen den Index für die Spalte weg. Um die erste Zeile anzusprechen, schreiben wir:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>car_numbers[<span class="dv">1</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["geo"],"name":[1],"type":["chr"],"align":["left"]},{"label":["time"],"name":[2],"type":["date"],"align":["right"]},{"label":["unit"],"name":[3],"type":["chr"],"align":["left"]},{"label":["values"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Albania","2":"2018-01-01","3":"Number","4":"161"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Sie sollten einen wichtigen Unterschied zwischen der $-Notation und dem Ansprechen in eckigen Klammern bemerken: Die $-Notation gibt einen Vektor zurück. Wenn Sie ein <code>tibble</code> mit eckigen Klammern ansprechen, ist die Antwort ein <code>tibble</code>.</p>
+</section>
+<section id="ein-tibble-erstellen" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="ein-tibble-erstellen"><span class="header-section-number">4.4</span> Ein <code>tibble</code> erstellen</h2>
+<p>Um ein <code>tibble</code> zu erstellen, nutzen wir die Funktion <code>tibble()</code> und zählen auf, welche Variablen wir dort haben möchten.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>car_numbers_short <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Land =</span> car_numbers<span class="sc">$</span>geo, <span class="at">Zeit =</span> car_numbers<span class="sc">$</span>time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In dem Datensatz <code>car_numbers_short</code> haben wir jetzt die beiden Variablen <code>geo</code> und <code>time</code> aus dem Datensatz <code>car_numbers</code> als <code>tibble</code> abgespeichert.</p>
+</section>
+<section id="daten-aus-r-speichern" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="daten-aus-r-speichern"><span class="header-section-number">4.5</span> Daten aus R speichern</h2>
+<p>Wir speichern dieses <code>tibble</code> als Textdatei. Dafür nutzen wir die Funktion <code>wirte_delim()</code>, die ebenfalls in der Bibliothek <code>readr</code> in <code>tidyverse</code> vorhanden ist. Achten Sie darauf, dass <code>write_delim()</code> nur <code>tibble</code> speichern kann. Wenn Sie einen Vektor (eine einzelne Variable) abspeichern möchten, dann wandeln Sie diesen zuerst in ein <code>tibble</code> um.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_delim</span>(<span class="at">x =</span> car_numbers_short, <span class="at">file =</span> <span class="st">'Daten/geo.csv'</span>, <span class="at">delim =</span> <span class="st">';'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="lesestoff" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="lesestoff"><span class="header-section-number">4.6</span> Lesestoff</h2>
+<p>Kapitel 4.1 in <span class="citation" data-cites="ModernDive">Ismay and Kim (<a href="references.html#ref-ModernDive" role="doc-biblioref">2021</a>)</span></p>
+</section>
+<section id="aufgaben" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">4.7</span> Aufgaben</h2>
+</section>
+<section id="die-umfrage-aus-der-ersten-sitzung" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="die-umfrage-aus-der-ersten-sitzung"><span class="header-section-number">4.8</span> Die Umfrage aus der ersten Sitzung</h2>
+<p>Lesen Sie die Datei ‘Umfrage_2022_kurz.csv’ ein. Sie enthält die Umfrageergebnisse aus der ersten Session der Vorlesung zur Frage ‘Haben Sie schon mal einen Statistikkurs besucht?’</p>
+<div class="cell">
+
+</div>
+<ol type="1">
+<li>Wie viele Einträge enthält der Datensatz?</li>
+<li>Wie viele Variablen enthält der Datensatz?</li>
+<li>Sind die Variablen numerisch oder kategorial?</li>
+<li>Erklären Sie jede Variable. Welche Information enthält sie?</li>
+<li>Stellen Sie die Antworten auf die Frage als Balkendiagramm dar. Es soll wie folgt aussehen:</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="04-einlesen_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Wie viele Teinlehmende haben bereits einen Statistikkurs besucht (ungefähr)?</li>
+</ol>
+</section>
+<section id="ihre-arbeit-einreichen" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="ihre-arbeit-einreichen"><span class="header-section-number">4.9</span> Ihre Arbeit einreichen</h2>
+<ul>
+<li>Speichern Sie Ihr Notebook ab.</li>
+<li>Laden Sie Ihre .Rmd Datei in ILIAS hoch. <strong>Beachten Sie die Frist!</strong></li>
+<li>Sie erhalten die Musterlösung nach dem Hochladen.</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-ModernDive" class="csl-entry" role="doc-biblioentry">
+Ismay, Chester, and Albert Y. Kim. 2021. <em><span>ModernDive</span>: <span>Statistical Inference</span> via <span>Data Science</span></em>. <a href="https://moderndive.com/">https://moderndive.com/</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./03-ggplot.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in die Darstellung von Daten</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./05-explorative-kategorial.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploration von kategorialen Daten</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

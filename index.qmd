@@ -25,7 +25,7 @@ In dieser Veranstaltung werden wir folgende Werkzeuge verwenden:
 -   Eine Korrelation zwischen zwei Datensätzen berechnen
 -   Hypothesentests durchführen und die Ergebnisse richtig berichten und interpretieren
 -   Konfidenzintervalle berechnen und interpretieren
--   Ein linearen Modell berechnen, die Ergebnisse darstellen und interpretieren
+-   Ein lineares Modell berechnen, die Ergebnisse darstellen und interpretieren
 :::
 
 ## Was mir im Umgang miteinander wichtig ist {-}

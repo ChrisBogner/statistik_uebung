@@ -19,6 +19,10 @@ book:
         - 01-erste-schritte.qmd
         - 02-rmarkdown.qmd
         - 03-ggplot.qmd
+        - 04-einlesen.qmd
+    - part: "EXPLORATIVE DATENANALYSE"
+      chapters:
+        - 05-explorative-kategorial.qmd
     - references.qmd
   appendices:
     - 20-aufgabensammlung.qmd

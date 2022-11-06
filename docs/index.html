@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Christina Bogner">
-<meta name="dcterms.date" content="2022-11-02">
+<meta name="dcterms.date" content="2022-11-06">
 
 <title>Übung zur Vorlesung Statistik und Datenanalyse</title>
 <style>
@@ -157,6 +157,26 @@ div.csl-indent {
   <a href="./03-ggplot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in die Darstellung von Daten</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-einlesen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Daten in R einlesen und aus R speichern</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">EXPLORATIVE DATENANALYSE</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-explorative-kategorial.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploration von kategorialen Daten</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -166,12 +186,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Appendices</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./20-aufgabensammlung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Aufgabensammlung</span></a>
@@ -221,7 +241,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 2, 2022</p>
+      <p class="date">November 6, 2022</p>
     </div>
   </div>
     
@@ -252,7 +272,7 @@ div.csl-indent {
 <li>Eine Korrelation zwischen zwei Datensätzen berechnen</li>
 <li>Hypothesentests durchführen und die Ergebnisse richtig berichten und interpretieren</li>
 <li>Konfidenzintervalle berechnen und interpretieren</li>
-<li>Ein linearen Modell berechnen, die Ergebnisse darstellen und interpretieren</li>
+<li>Ein lineares Modell berechnen, die Ergebnisse darstellen und interpretieren</li>
 </ul>
 </div>
 </section>
@@ -299,7 +319,7 @@ div.csl-indent {
 </section>
 <section id="reproduzierbarkeit" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="reproduzierbarkeit">Reproduzierbarkeit</h2>
-<p>Dieses Skript wurde in <a href="https://www.rstudio.com/products/rstudio/">RStudio</a> mit <a href="https://quarto.org/">Quarto</a> geschrieben und in R version 4.2.1 (2022-06-23) gebaut. Folgende Pakete werden für die Beispiele und Übungen benötigt:</p>
+<p>Dieses Skript wurde in <a href="https://www.rstudio.com/products/rstudio/">RStudio</a> mit <a href="https://quarto.org/">Quarto</a> geschrieben und in R version 4.2.2 (2022-10-31) gebaut. Folgende Pakete werden für die Beispiele und Übungen benötigt:</p>
 <div class="cell">
 
 </div>
@@ -364,7 +384,7 @@ div.csl-indent {
 <p>Die komplette Information zur Session lautet:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.2.1 (2022-06-23)
+<pre><code>R version 4.2.2 (2022-10-31)
 Platform: x86_64-pc-linux-gnu (64-bit)
 Running under: Ubuntu 22.04.1 LTS
 
@@ -386,13 +406,13 @@ attached base packages:
 loaded via a namespace (and not attached):
  [1] rstudioapi_0.13   knitr_1.39        magrittr_2.0.3    R6_2.5.1         
  [5] rlang_1.0.2       fastmap_1.1.0     fansi_1.0.3       highr_0.9        
- [9] stringr_1.4.0     tools_4.2.1       xfun_0.31         sessioninfo_1.2.2
+ [9] stringr_1.4.0     tools_4.2.2       xfun_0.31         sessioninfo_1.2.2
 [13] utf8_1.2.2        cli_3.3.0         ellipsis_0.3.2    htmltools_0.5.2  
 [17] yaml_2.3.5        digest_0.6.29     assertthat_0.2.1  rprojroot_2.0.3  
 [21] lifecycle_1.0.1   tibble_3.1.7      fontawesome_0.3.0 crayon_1.5.1     
 [25] purrr_0.3.4       vctrs_0.4.1       htmlwidgets_1.5.4 glue_1.6.2       
 [29] evaluate_0.15     rmarkdown_2.14    emo_0.0.0.9000    stringi_1.7.6    
-[33] pillar_1.7.0      compiler_4.2.1    desc_1.4.1        generics_0.1.2   
+[33] pillar_1.7.0      compiler_4.2.2    desc_1.4.1        generics_0.1.2   
 [37] jsonlite_1.8.0    lubridate_1.8.0   pkgconfig_2.0.3  </code></pre>
 </div>
 </div>
