@@ -1,6 +1,7 @@
 # Exploration von kategorialen Daten {#sec-explorative-kategorial}
 
 :::{.outcomes}
+- Den Pipe-Operator `%>%`nutzen
 - Kategoriale Variablen in Faktor umwandeln
 - Kategoriale Variablen darstellen
 - Neue Variablen mit `mutate()` erstellen
@@ -42,7 +43,22 @@ car_numbers <- car_numbers %>%
   mutate(geo_factor = as_factor(geo))
 ```
 
-Die Funktion `mutate()` kann neue Variablen in einem Datensatz erstellen, verändern oder löschen. In unserem Fall erstellen wir eine neue Variable, die wir `geo_factor` nennen. Die Funktion `as_factor()` wandelt (konvertiert) die Text-Variable `geo` in einen Faktor. Die Funktion `mutate()` fügt neue Variablen am Ende des `tibble`s ein:
+Das Zeichen `%>%` heißt Pipe-Operator. Man spricht ihn als **und dann** aus. Mehr dazu lernen Sie im Tutorium. Hier reicht es, wenn Sie sich die Funktion des Pipe-Operators als ein **Weitergeben** oder ein **Übergeben** des Objekts auf der linken Seite des Pipe-Operators (also `car_numbers`) an die erste Stelle der Funktion in der neuen Zeile (bzw. rechts vom Pipe-Operator, also an die Funktion `mutate()`) vorstellen. Das bedeutet, dass man den Code oben auch wie folgt schreiben könnte: 
+```{r}
+mutate(.data = car_numbers, geo_factor = as_factor(geo))
+```
+Das ist aber viel unübersichtlicher als mit dem Pipe-Operator. Da dieser den Code so schön strukturiert, wird er häufig verwendet und ist ein fester Bestandteil von `tidyverse`. 
+
+Die Funktion `mutate()` kann neue Variablen in einem Datensatz erstellen, verändern oder löschen. In unserem Fall erstellen wir eine neue Variable, die wir `geo_factor` nennen. Die Funktion `as_factor()` wandelt (konvertiert) die Text-Variable `geo` in einen Faktor. 
+
+Den Code `car_numbers %>% mutate(geo_factor = as_factor(geo))` kann man also aussprechen als:
+
+- Nimm den Datensatz `car_numbers` und dann 
+- erstelle darin eine neue Variable `geo_factor`, in der die Variable `geo` als Faktor abgespeichert wird.
+
+Den Pipe-Operator erhält man mit der Tastenkombination `Str`+`Shift`+`M`.
+
+Die Funktion `mutate()` fügt neue Variablen am Ende des Datensatzes ein:
 ```{r}
 car_numbers
 ```
@@ -54,7 +70,7 @@ Nun können wir R auch fragen, welche verschiedene Merkmalsausprägungen (*level
 levels(car_numbers$geo_factor)
 ```
 
-Die einzlenen Merkmalsausprägungen sind die verschiedenen Ländern. Der Datensatz enthält `r length(levels(car_numbers$geo_factor))` unterschiedliche Länder.
+Die einzelnen Merkmalsausprägungen sind die verschiedenen Länder. Der Datensatz enthält `r length(levels(car_numbers$geo_factor))` unterschiedliche Länder.
 
 ### Balkendiagramm mit `geom_col()` {#sec-geom-col}
 Wir möchten die Daten als Balkendiagramm darstellen. Das Ziel ist eine ähnliche Darstellung, wie in der Vorlesung.
@@ -72,14 +88,14 @@ ggplot(car_numbers, aes(x = geo, y = values, fill = as_factor(year(time)))) +
        caption = 'Datenquelle: EUROSTAT, Datensatz: road_eqs_carhab')
 ```
 
-Dazu müssen wir zuerst eine neue Variable erstellen, die wir zum Einfärben der Jahre nutzen können. Dazu benötigen wir eine zusätzliche Bibliothek, du uns den Umgang mit Datum und Uhrzeit erleichtert. Sie heißt `lubridate`.
+Dazu müssen wir zuerst eine neue Variable erstellen, die wir zum Einfärben der Jahre nutzen können. Dazu benötigen wir eine zusätzliche Bibliothek, die uns den Umgang mit Datum und Uhrzeit erleichtert. Sie heißt `lubridate`.
 
 ```{r}
 #| eval: false
 library(lubridate)
 ```
 
-Nun nutzen wir die Funktion `year()` aus `lubridate`, um aus der Variablen `time` nur das Jahr zu extrahieren. Wir erstellen dazu mit `mutate()` wieder einen neue Variable, die wir `time_year` nennen.
+Nun nutzen wir die Funktion `year()` aus `lubridate`, um aus der Variablen `time` nur das Jahr zu extrahieren. Wir erstellen dazu mit `mutate()` wieder eine neue Variable, die wir `time_year` nennen.
 ```{r}
 car_numbers <- car_numbers %>% 
   mutate(time_year = year(time))
@@ -96,7 +112,7 @@ car_numbers <- car_numbers %>%
   mutate(time_year = as_factor(time_year))
 ```
 
-In diesem Fall erstellt `mutate()` keine neue Variable, sondern überschreibt (verändert) die vorhandene Variable `time_year`. Das ist möglich und gängige Praxis in R. Jetzt ist `time_year` ein Faktor, was man auch in der Darstelung des `tibble` sehen kann.
+In diesem Fall erstellt `mutate()` keine neue Variable, sondern überschreibt (verändert) die vorhandene Variable `time_year`. Das ist möglich und gängige Praxis in R. Jetzt ist `time_year` ein Faktor, was man auch in der Darstellung des `tibble` sehen kann.
 ```{r}
 car_numbers
 ```
@@ -140,13 +156,13 @@ glimpse(loans_full_schema)
 ```
 
 ### Häufigkeitstabelle
-Wir erstellen eine Häufigkeitstabelle der Variable `homeownership`. Dazu müssen wir die einzlenen Merkmalsausprägungen auszählen lassen. Das übernimmt die Funktion `count()`.
+Wir erstellen eine Häufigkeitstabelle der Variable `homeownership`. Dazu müssen wir die einzelnen Merkmalsausprägungen auszählen lassen. Das übernimmt die Funktion `count()`.
 ```{r}
 loans_full_schema %>% 
   count(homeownership)
 ```
 
-Das sieht anders aus, als in der Vorlesung. Das liegt daran, dass die Variable `homeownership` für die Vorlesung verändert wurde. Es ist nämlich störend, wenn die Merkmalsausprägungen mit Großbuchstaben geschrieben werden. Außerdem macht es logisch Sinn, zuerst die gemieteten, dann die mit einer Hypothek belegten und zum Schluss die Eigentumsobjekte zu sehen. Das spiegelt in einer gewissen Weise das Risiko wieder, das ein Kredit nicht bedient werden kann. Achtung: Es ist trotzdem keine ordinal-skalierte Variable!
+Die Tabelle sieht anders aus als in der Vorlesung. Das liegt daran, dass die Variable `homeownership` für die Vorlesung verändert wurde. Es ist nämlich störend, wenn die Merkmalsausprägungen mit Großbuchstaben geschrieben werden. Außerdem macht es logisch Sinn, zuerst die gemieteten, dann die mit einer Hypothek belegten und zum Schluss die Eigentumsobjekte zu sehen. Das spiegelt in einer gewissen Weise das Risiko wider, dass ein Kredit nicht bedient werden kann. Achtung: Es ist trotzdem keine ordinal-skalierte Variable!
 
 Wir ändern die Darstellung der Variablen `homeownership`. Um den Originaldatensatz nicht zu überschreiben, erstellen wir einen neuen, den wir `loans` nennen.
 ```{r}

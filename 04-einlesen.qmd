@@ -116,7 +116,7 @@ ggplot(umfrage, mapping = aes(x = Poll_Option)) +
 ```
 
 
-6. Wie viele Teinlehmende haben bereits einen Statistikkurs besucht (ungefähr)?
+6. Wie viele Teilnehmende haben bereits einen Statistikkurs besucht (ungefähr)?
 
 ## Ihre Arbeit einreichen
 - Speichern Sie Ihr Notebook ab.
