@@ -48,7 +48,7 @@ car_numbers$geo
 
 Sie sehen, dass die Darstellung jetzt anders aussieht, weil eine einzelne Variable ein Vektor ist und kein `tibble`. Vektoren werden (durchnummeriert) ausgegeben und wir sehen alle 76 Einträge (Länder) nacheinander in der Reihenfolge ihres Erscheinens in der Variablen `geo`.
 
-## Ansprechen mehrere Spalten in einem `tibble`
+## Ansprechen von Spalten, Zeilen und Zellen in einem `tibble`
 Ein `tibble` ist ein zwei-dimensionales Objekt: Es hat Zeilen (erste Dimension) und Spalten (zweite Dimension). Um so ein Objekt richtig anzusprechen, erweitern wir unsere Notation mit den eckigen Klammern. Jetzt brauchen wir nämlich zwei Indizes: einen Index für die Zeile und einen Index für die Spalte eines Eintrags. Wenn wir z. B. den dritten Eintrag in der ersten Spalte (Variable `geo`) sehen wollen, schreiben wir:
 ```{r}
 car_numbers[3, 1]
@@ -76,7 +76,7 @@ In dem Datensatz `car_numbers_short` haben wir jetzt die beiden Variablen `geo` 
 
 
 ## Daten aus R speichern
-Wir speichern dieses `tibble` als Textdatei. Dafür nutzen wir die Funktion `wirte_delim()`, die ebenfalls in der Bibliothek `readr` in `tidyverse` vorhanden ist. Achten Sie darauf, dass `write_delim()` nur `tibble` speichern kann. Wenn Sie einen Vektor (eine einzelne Variable) abspeichern möchten, dann wandeln Sie diesen zuerst in ein `tibble` um.
+Wir speichern dieses `tibble` als Textdatei. Dafür nutzen wir die Funktion `write_delim()`, die ebenfalls in der Bibliothek `readr` in `tidyverse` vorhanden ist. Achten Sie darauf, dass `write_delim()` nur `tibble` speichern kann. Wenn Sie einen Vektor (eine einzelne Variable) abspeichern möchten, dann wandeln Sie diesen zuerst in ein `tibble` um.
 ```{r}
 write_delim(x = car_numbers_short, file = 'Daten/geo.csv', delim = ';')
 ```

@@ -272,7 +272,7 @@ div.csl-indent {
   <ul>
   <li><a href="#daten-aus-textdateien-in-r-einlesen" id="toc-daten-aus-textdateien-in-r-einlesen" class="nav-link active" data-scroll-target="#daten-aus-textdateien-in-r-einlesen"> <span class="header-section-number">4.1</span> Daten aus Textdateien in R einlesen</a></li>
   <li><a href="#einzelne-variablen-ansprechen" id="toc-einzelne-variablen-ansprechen" class="nav-link" data-scroll-target="#einzelne-variablen-ansprechen"> <span class="header-section-number">4.2</span> Einzelne Variablen ansprechen</a></li>
-  <li><a href="#ansprechen-mehrere-spalten-in-einem-tibble" id="toc-ansprechen-mehrere-spalten-in-einem-tibble" class="nav-link" data-scroll-target="#ansprechen-mehrere-spalten-in-einem-tibble"> <span class="header-section-number">4.3</span> Ansprechen mehrere Spalten in einem <code>tibble</code></a></li>
+  <li><a href="#ansprechen-von-spalten-zeilen-und-zellen-in-einem-tibble" id="toc-ansprechen-von-spalten-zeilen-und-zellen-in-einem-tibble" class="nav-link" data-scroll-target="#ansprechen-von-spalten-zeilen-und-zellen-in-einem-tibble"> <span class="header-section-number">4.3</span> Ansprechen von Spalten, Zeilen und Zellen in einem <code>tibble</code></a></li>
   <li><a href="#ein-tibble-erstellen" id="toc-ein-tibble-erstellen" class="nav-link" data-scroll-target="#ein-tibble-erstellen"> <span class="header-section-number">4.4</span> Ein <code>tibble</code> erstellen</a></li>
   <li><a href="#daten-aus-r-speichern" id="toc-daten-aus-r-speichern" class="nav-link" data-scroll-target="#daten-aus-r-speichern"> <span class="header-section-number">4.5</span> Daten aus R speichern</a></li>
   <li><a href="#lesestoff" id="toc-lesestoff" class="nav-link" data-scroll-target="#lesestoff"> <span class="header-section-number">4.6</span> Lesestoff</a></li>
@@ -377,8 +377,8 @@ date (1): time
 </div>
 <p>Sie sehen, dass die Darstellung jetzt anders aussieht, weil eine einzelne Variable ein Vektor ist und kein <code>tibble</code>. Vektoren werden (durchnummeriert) ausgegeben und wir sehen alle 76 Einträge (Länder) nacheinander in der Reihenfolge ihres Erscheinens in der Variablen <code>geo</code>.</p>
 </section>
-<section id="ansprechen-mehrere-spalten-in-einem-tibble" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="ansprechen-mehrere-spalten-in-einem-tibble"><span class="header-section-number">4.3</span> Ansprechen mehrere Spalten in einem <code>tibble</code></h2>
+<section id="ansprechen-von-spalten-zeilen-und-zellen-in-einem-tibble" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="ansprechen-von-spalten-zeilen-und-zellen-in-einem-tibble"><span class="header-section-number">4.3</span> Ansprechen von Spalten, Zeilen und Zellen in einem <code>tibble</code></h2>
 <p>Ein <code>tibble</code> ist ein zwei-dimensionales Objekt: Es hat Zeilen (erste Dimension) und Spalten (zweite Dimension). Um so ein Objekt richtig anzusprechen, erweitern wir unsere Notation mit den eckigen Klammern. Jetzt brauchen wir nämlich zwei Indizes: einen Index für die Zeile und einen Index für die Spalte eines Eintrags. Wenn wir z. B. den dritten Eintrag in der ersten Spalte (Variable <code>geo</code>) sehen wollen, schreiben wir:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>car_numbers[<span class="dv">3</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -427,7 +427,7 @@ date (1): time
 </section>
 <section id="daten-aus-r-speichern" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="daten-aus-r-speichern"><span class="header-section-number">4.5</span> Daten aus R speichern</h2>
-<p>Wir speichern dieses <code>tibble</code> als Textdatei. Dafür nutzen wir die Funktion <code>wirte_delim()</code>, die ebenfalls in der Bibliothek <code>readr</code> in <code>tidyverse</code> vorhanden ist. Achten Sie darauf, dass <code>write_delim()</code> nur <code>tibble</code> speichern kann. Wenn Sie einen Vektor (eine einzelne Variable) abspeichern möchten, dann wandeln Sie diesen zuerst in ein <code>tibble</code> um.</p>
+<p>Wir speichern dieses <code>tibble</code> als Textdatei. Dafür nutzen wir die Funktion <code>write_delim()</code>, die ebenfalls in der Bibliothek <code>readr</code> in <code>tidyverse</code> vorhanden ist. Achten Sie darauf, dass <code>write_delim()</code> nur <code>tibble</code> speichern kann. Wenn Sie einen Vektor (eine einzelne Variable) abspeichern möchten, dann wandeln Sie diesen zuerst in ein <code>tibble</code> um.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_delim</span>(<span class="at">x =</span> car_numbers_short, <span class="at">file =</span> <span class="st">'Daten/geo.csv'</span>, <span class="at">delim =</span> <span class="st">';'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -458,7 +458,7 @@ date (1): time
 </div>
 </div>
 <ol start="6" type="1">
-<li>Wie viele Teinlehmende haben bereits einen Statistikkurs besucht (ungefähr)?</li>
+<li>Wie viele Teilnehmende haben bereits einen Statistikkurs besucht (ungefähr)?</li>
 </ol>
 </section>
 <section id="ihre-arbeit-einreichen" class="level2" data-number="4.9">

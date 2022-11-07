@@ -45,8 +45,17 @@ car_numbers <- car_numbers %>%
 
 Das Zeichen `%>%` heißt Pipe-Operator. Man spricht ihn als **und dann** aus. Mehr dazu lernen Sie im Tutorium. Hier reicht es, wenn Sie sich die Funktion des Pipe-Operators als ein **Weitergeben** oder ein **Übergeben** des Objekts auf der linken Seite des Pipe-Operators (also `car_numbers`) an die erste Stelle der Funktion in der neuen Zeile (bzw. rechts vom Pipe-Operator, also an die Funktion `mutate()`) vorstellen. Das bedeutet, dass man den Code oben auch wie folgt schreiben könnte: 
 ```{r}
-mutate(.data = car_numbers, geo_factor = as_factor(geo))
+car_numbers_test <- mutate(.data = car_numbers, geo_factor = as_factor(geo))
 ```
+
+Es kommt dasgleiche raus:
+```{r}
+car_numbers
+
+car_numbers_test
+```
+
+
 Das ist aber viel unübersichtlicher als mit dem Pipe-Operator. Da dieser den Code so schön strukturiert, wird er häufig verwendet und ist ein fester Bestandteil von `tidyverse`. 
 
 Die Funktion `mutate()` kann neue Variablen in einem Datensatz erstellen, verändern oder löschen. In unserem Fall erstellen wir eine neue Variable, die wir `geo_factor` nennen. Die Funktion `as_factor()` wandelt (konvertiert) die Text-Variable `geo` in einen Faktor. 
@@ -88,7 +97,7 @@ ggplot(car_numbers, aes(x = geo, y = values, fill = as_factor(year(time)))) +
        caption = 'Datenquelle: EUROSTAT, Datensatz: road_eqs_carhab')
 ```
 
-Dazu müssen wir zuerst eine neue Variable erstellen, die wir zum Einfärben der Jahre nutzen können. Dazu benötigen wir eine zusätzliche Bibliothek, die uns den Umgang mit Datum und Uhrzeit erleichtert. Sie heißt `lubridate`.
+Dafür müssen wir zuerst eine neue Variable erstellen, die wir zum Einfärben der Jahre nutzen können. Dazu benötigen wir eine zusätzliche Bibliothek, die uns den Umgang mit Datum und Uhrzeit erleichtert. Sie heißt `lubridate`.
 
 ```{r}
 #| eval: false
@@ -126,13 +135,12 @@ ggplot(data = car_numbers, mapping = aes(x = geo, y = values, fill = time_year))
 ```
 Es ist noch etwas Nacharbeit nötig. Sieht man in die Hilfe von `geom_col()`, dann kann man nachlesen, dass es standardmäßig ein Stapelbalkendiagramm darstellt (*stacked bar plot* ). Möchte man die Balken nebeneinander haben (*dodged bar plot*), muss man das explizit sagen.
 ```{r}
-#| echo: false
 #| warning: false
 ggplot(data = car_numbers, mapping = aes(x = geo, y = values, fill = time_year)) +
   geom_col(position = position_dodge()) 
 ```
 
-Die Ländernamen erscheinen (wie es Standard ist) horizontal. In unserem Fall überdecken sie sich aber und wir sollten sie vertikal schreiben. Dazu gibt es eine neue Funktion aus `ggplot2`, die wie alle anderen mit einem `+` angehängt wird. Sie heißt `theme()`. Der Parameter, der die einzelnen 
+Die Ländernamen erscheinen (wie es Standard ist) horizontal. In unserem Fall überdecken sie sich aber und wir sollten sie vertikal schreiben. Dazu gibt es eine neue Funktion aus `ggplot2`, die wie alle anderen mit einem `+` angehängt wird. Sie heißt `theme()`. Der Parameter, der für die Gestaltung der $x$-Achse zuständig ist, heißt `axis.text.x` Die Funktion `element_text` mit der Einstellung `angle = 90` dreht die einzelnen Länder um 90 Grad. Die Aufgabe der beiden anderen Parameter finden Sie im Rahmen der Aufgaben heraus.
 ```{r}
 ggplot(data = car_numbers, mapping = aes(x = geo, y = values, fill = time_year)) +
   geom_col(position = position_dodge()) +

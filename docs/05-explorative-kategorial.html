@@ -122,6 +122,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="stat_style.css">
 </head>
@@ -344,7 +345,20 @@ date (1): time
 </div>
 <p>Das Zeichen <code>%&gt;%</code> heißt Pipe-Operator. Man spricht ihn als <strong>und dann</strong> aus. Mehr dazu lernen Sie im Tutorium. Hier reicht es, wenn Sie sich die Funktion des Pipe-Operators als ein <strong>Weitergeben</strong> oder ein <strong>Übergeben</strong> des Objekts auf der linken Seite des Pipe-Operators (also <code>car_numbers</code>) an die erste Stelle der Funktion in der neuen Zeile (bzw. rechts vom Pipe-Operator, also an die Funktion <code>mutate()</code>) vorstellen. Das bedeutet, dass man den Code oben auch wie folgt schreiben könnte:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">.data =</span> car_numbers, <span class="at">geo_factor =</span> <span class="fu">as_factor</span>(geo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>car_numbers_test <span class="ot">&lt;-</span> <span class="fu">mutate</span>(<span class="at">.data =</span> car_numbers, <span class="at">geo_factor =</span> <span class="fu">as_factor</span>(geo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Es kommt dasgleiche raus:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>car_numbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["geo"],"name":[1],"type":["chr"],"align":["left"]},{"label":["time"],"name":[2],"type":["date"],"align":["right"]},{"label":["unit"],"name":[3],"type":["chr"],"align":["left"]},{"label":["values"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["geo_factor"],"name":[5],"type":["fct"],"align":["left"]}],"data":[{"1":"Albania","2":"2018-01-01","3":"Number","4":"161","5":"Albania"},{"1":"Albania","2":"2020-01-01","3":"Number","4":"191","5":"Albania"},{"1":"Austria","2":"2018-01-01","3":"Number","4":"562","5":"Austria"},{"1":"Austria","2":"2020-01-01","3":"Number","4":"570","5":"Austria"},{"1":"Belgium","2":"2018-01-01","3":"Number","4":"511","5":"Belgium"},{"1":"Belgium","2":"2020-01-01","3":"Number","4":"510","5":"Belgium"},{"1":"Bulgaria","2":"2018-01-01","3":"Number","4":"396","5":"Bulgaria"},{"1":"Bulgaria","2":"2020-01-01","3":"Number","4":"414","5":"Bulgaria"},{"1":"Croatia","2":"2018-01-01","3":"Number","4":"409","5":"Croatia"},{"1":"Croatia","2":"2020-01-01","3":"Number","4":"433","5":"Croatia"},{"1":"Cyprus","2":"2018-01-01","3":"Number","4":"629","5":"Cyprus"},{"1":"Cyprus","2":"2020-01-01","3":"Number","4":"645","5":"Cyprus"},{"1":"Czechia","2":"2018-01-01","3":"Number","4":"540","5":"Czechia"},{"1":"Czechia","2":"2020-01-01","3":"Number","4":"565","5":"Czechia"},{"1":"Denmark","2":"2018-01-01","3":"Number","4":"447","5":"Denmark"},{"1":"Denmark","2":"2020-01-01","3":"Number","4":"466","5":"Denmark"},{"1":"Estonia","2":"2018-01-01","3":"Number","4":"563","5":"Estonia"},{"1":"Estonia","2":"2020-01-01","3":"Number","4":"608","5":"Estonia"},{"1":"Finland","2":"2018-01-01","3":"Number","4":"629","5":"Finland"},{"1":"Finland","2":"2020-01-01","3":"Number","4":"652","5":"Finland"},{"1":"France","2":"2018-01-01","3":"Number","4":"569","5":"France"},{"1":"France","2":"2020-01-01","3":"Number","4":"567","5":"France"},{"1":"Germany","2":"2018-01-01","3":"Number","4":"567","5":"Germany"},{"1":"Germany","2":"2020-01-01","3":"Number","4":"580","5":"Germany"},{"1":"Greece","2":"2018-01-01","3":"Number","4":"493","5":"Greece"},{"1":"Greece","2":"2020-01-01","3":"Number","4":"514","5":"Greece"},{"1":"Hungary","2":"2018-01-01","3":"Number","4":"373","5":"Hungary"},{"1":"Hungary","2":"2020-01-01","3":"Number","4":"403","5":"Hungary"},{"1":"Iceland","2":"2018-01-01","3":"Number","4":"749","5":"Iceland"},{"1":"Iceland","2":"2020-01-01","3":"Number","4":"731","5":"Iceland"},{"1":"Ireland","2":"2018-01-01","3":"Number","4":"445","5":"Ireland"},{"1":"Ireland","2":"2020-01-01","3":"Number","4":"458","5":"Ireland"},{"1":"Italy","2":"2018-01-01","3":"Number","4":"652","5":"Italy"},{"1":"Italy","2":"2020-01-01","3":"Number","4":"670","5":"Italy"},{"1":"Kosovo","2":"2018-01-01","3":"Number","4":"143","5":"Kosovo"},{"1":"Kosovo","2":"2020-01-01","3":"NA","4":"NA","5":"Kosovo"},{"1":"Latvia","2":"2018-01-01","3":"Number","4":"369","5":"Latvia"},{"1":"Latvia","2":"2020-01-01","3":"Number","4":"390","5":"Latvia"},{"1":"Liechtenstein","2":"2018-01-01","3":"Number","4":"780","5":"Liechtenstein"},{"1":"Liechtenstein","2":"2020-01-01","3":"Number","4":"779","5":"Liechtenstein"},{"1":"Lithuania","2":"2018-01-01","3":"Number","4":"512","5":"Lithuania"},{"1":"Lithuania","2":"2020-01-01","3":"Number","4":"560","5":"Lithuania"},{"1":"Luxembourg","2":"2018-01-01","3":"Number","4":"676","5":"Luxembourg"},{"1":"Luxembourg","2":"2020-01-01","3":"Number","4":"682","5":"Luxembourg"},{"1":"Malta","2":"2018-01-01","3":"Number","4":"608","5":"Malta"},{"1":"Malta","2":"2020-01-01","3":"Number","4":"597","5":"Malta"},{"1":"Montenegro","2":"2018-01-01","3":"Number","4":"332","5":"Montenegro"},{"1":"Montenegro","2":"2020-01-01","3":"Number","4":"338","5":"Montenegro"},{"1":"Netherlands","2":"2018-01-01","3":"Number","4":"494","5":"Netherlands"},{"1":"Netherlands","2":"2020-01-01","3":"Number","4":"503","5":"Netherlands"},{"1":"North Macedonia","2":"2018-01-01","3":"Number","4":"200","5":"North Macedonia"},{"1":"North Macedonia","2":"2020-01-01","3":"Number","4":"207","5":"North Macedonia"},{"1":"Norway","2":"2018-01-01","3":"Number","4":"516","5":"Norway"},{"1":"Norway","2":"2020-01-01","3":"Number","4":"544","5":"Norway"},{"1":"Poland","2":"2018-01-01","3":"Number","4":"617","5":"Poland"},{"1":"Poland","2":"2020-01-01","3":"Number","4":"664","5":"Poland"},{"1":"Portugal","2":"2018-01-01","3":"Number","4":"514","5":"Portugal"},{"1":"Portugal","2":"2020-01-01","3":"Number","4":"540","5":"Portugal"},{"1":"Romania","2":"2018-01-01","3":"Number","4":"332","5":"Romania"},{"1":"Romania","2":"2020-01-01","3":"Number","4":"379","5":"Romania"},{"1":"Serbia","2":"2018-01-01","3":"NA","4":"NA","5":"Serbia"},{"1":"Serbia","2":"2020-01-01","3":"Number","4":"315","5":"Serbia"},{"1":"Slovakia","2":"2018-01-01","3":"Number","4":"426","5":"Slovakia"},{"1":"Slovakia","2":"2020-01-01","3":"Number","4":"447","5":"Slovakia"},{"1":"Slovenia","2":"2018-01-01","3":"Number","4":"549","5":"Slovenia"},{"1":"Slovenia","2":"2020-01-01","3":"Number","4":"555","5":"Slovenia"},{"1":"Spain","2":"2018-01-01","3":"Number","4":"513","5":"Spain"},{"1":"Spain","2":"2020-01-01","3":"Number","4":"521","5":"Spain"},{"1":"Sweden","2":"2018-01-01","3":"Number","4":"476","5":"Sweden"},{"1":"Sweden","2":"2020-01-01","3":"Number","4":"476","5":"Sweden"},{"1":"Switzerland","2":"2018-01-01","3":"Number","4":"539","5":"Switzerland"},{"1":"Switzerland","2":"2020-01-01","3":"Number","4":"537","5":"Switzerland"},{"1":"Türkiye","2":"2018-01-01","3":"Number","4":"151","5":"Türkiye"},{"1":"Türkiye","2":"2020-01-01","3":"Number","4":"157","5":"Türkiye"},{"1":"United Kingdom","2":"2018-01-01","3":"Number","4":"473","5":"United Kingdom"},{"1":"United Kingdom","2":"2020-01-01","3":"NA","4":"NA","5":"United Kingdom"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>car_numbers_test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -362,9 +376,9 @@ date (1): time
 <li>erstelle darin eine neue Variable <code>geo_factor</code>, in der die Variable <code>geo</code> als Faktor abgespeichert wird.</li>
 </ul>
 <p>Den Pipe-Operator erhält man mit der Tastenkombination <code>Str</code>+<code>Shift</code>+<code>M</code>.</p>
-<p>Die Funktion <code>mutate()</code> fügt neue Variablen am Ende des <code>tibble</code>s ein:</p>
+<p>Die Funktion <code>mutate()</code> fügt neue Variablen am Ende des Datensatzes ein:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>car_numbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>car_numbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -376,7 +390,7 @@ date (1): time
 </div>
 <p>Nun können wir R auch fragen, welche verschiedene Merkmalsausprägungen (<em>levels</em>) diese Variable enthält:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(car_numbers<span class="sc">$</span>geo_factor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(car_numbers<span class="sc">$</span>geo_factor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Albania"         "Austria"         "Belgium"         "Bulgaria"       
  [5] "Croatia"         "Cyprus"          "Czechia"         "Denmark"        
@@ -390,28 +404,28 @@ date (1): time
 [37] "Türkiye"         "United Kingdom" </code></pre>
 </div>
 </div>
-<p>Die einzlenen Merkmalsausprägungen sind die verschiedenen Ländern. Der Datensatz enthält 38 unterschiedliche Länder.</p>
+<p>Die einzelnen Merkmalsausprägungen sind die verschiedenen Länder. Der Datensatz enthält 38 unterschiedliche Länder.</p>
 </section>
 <section id="sec-geom-col" class="level3" data-number="5.1.2">
 <h3 data-number="5.1.2" class="anchored" data-anchor-id="sec-geom-col"><span class="header-section-number">5.1.2</span> Balkendiagramm mit <code>geom_col()</code></h3>
 <p>Wir möchten die Daten als Balkendiagramm darstellen. Das Ziel ist eine ähnliche Darstellung, wie in der Vorlesung.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="05-explorative-kategorial_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<p><img src="05-explorative-kategorial_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Dazu müssen wir zuerst eine neue Variable erstellen, die wir zum Einfärben der Jahre nutzen können. Dazu benötigen wir eine zusätzliche Bibliothek, du uns den Umgang mit Datum und Uhrzeit erleichtert. Sie heißt <code>lubridate</code>.</p>
+<p>Dafür müssen wir zuerst eine neue Variable erstellen, die wir zum Einfärben der Jahre nutzen können. Dazu benötigen wir eine zusätzliche Bibliothek, die uns den Umgang mit Datum und Uhrzeit erleichtert. Sie heißt <code>lubridate</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Nun nutzen wir die Funktion <code>year()</code> aus <code>lubridate</code>, um aus der Variablen <code>time</code> nur das Jahr zu extrahieren. Wir erstellen dazu mit <code>mutate()</code> wieder einen neue Variable, die wir <code>time_year</code> nennen.</p>
+<p>Nun nutzen wir die Funktion <code>year()</code> aus <code>lubridate</code>, um aus der Variablen <code>time</code> nur das Jahr zu extrahieren. Wir erstellen dazu mit <code>mutate()</code> wieder eine neue Variable, die wir <code>time_year</code> nennen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>car_numbers <span class="ot">&lt;-</span> car_numbers <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_year =</span> <span class="fu">year</span>(time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>car_numbers <span class="ot">&lt;-</span> car_numbers <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_year =</span> <span class="fu">year</span>(time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Auch diese Variable wir an das Ende des Datensatzes <code>car_numbers</code> gestellt.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>car_numbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>car_numbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -423,12 +437,12 @@ date (1): time
 </div>
 <p>Eine Variable zum Einfärben mit zwei verschiedenen Farben (je Jahr eine andere Farbe) muss kategorial sein. Die Variable <code>time_year</code> ist aber numerisch. Daher nutzen wir <code>mutate()</code>, um <code>time_year</code> in einen Faktor zu verwandeln.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>car_numbers <span class="ot">&lt;-</span> car_numbers <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_year =</span> <span class="fu">as_factor</span>(time_year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>car_numbers <span class="ot">&lt;-</span> car_numbers <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_year =</span> <span class="fu">as_factor</span>(time_year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In diesem Fall erstellt <code>mutate()</code> keine neue Variable, sondern überschreibt (verändert) die vorhandene Variable <code>time_year</code>. Das ist möglich und gängige Praxis in R. Jetzt ist <code>time_year</code> ein Faktor, was man auch in der Darstelung des <code>tibble</code> sehen kann.</p>
+<p>In diesem Fall erstellt <code>mutate()</code> keine neue Variable, sondern überschreibt (verändert) die vorhandene Variable <code>time_year</code>. Das ist möglich und gängige Praxis in R. Jetzt ist <code>time_year</code> ein Faktor, was man auch in der Darstellung des <code>tibble</code> sehen kann.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>car_numbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>car_numbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -440,28 +454,30 @@ date (1): time
 </div>
 <p>Nun geht es an die Darstellung. Im Kapitel <a href="03-ggplot.html"><span>Chapter&nbsp;3</span></a> haben Sie das <code>geom_bar()</code> kennengelernt. Es kann die Anzahl der Einträge in einer Variablen auszählen und diese als Balkendiagramm darstellen. Das möchten wir aber in unserem Fall nicht. Wir wollen die Anzahl der Autos darstellen, die in der Variablen <code>value</code> enthalten ist. In anderen Worten, wir wollen Werte und keine ausgezählten Merkmalsausprägungen (<em>counts</em>) darstellen. Das ist die Aufgabe des <code>geom_col()</code> (col steht für columns, also Säulen/Balken).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> car_numbers, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> geo, <span class="at">y =</span> values, <span class="at">fill =</span> time_year)) <span class="sc">+</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="05-explorative-kategorial_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Es ist noch etwas Nacharbeit nötig. Sieht man in die Hilfe von <code>geom_col()</code>, dann kann man nachlesen, dass es standardmäßig ein Stapelbalkendiagramm darstellt (<em>stacked bar plot</em> ). Möchte man die Balken nebeneinander haben (<em>dodged bar plot</em>), muss man das explizit sagen.</p>
-<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> car_numbers, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> geo, <span class="at">y =</span> values, <span class="at">fill =</span> time_year)) <span class="sc">+</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="05-explorative-kategorial_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Die Ländernamen erscheinen (wie es Standard ist) horizontal. In unserem Fall überdecken sie sich aber und wir sollten sie vertikal schreiben. Dazu gibt es eine neue Funktion aus <code>ggplot2</code>, die wie alle anderen mit einem <code>+</code> angehängt wird. Sie heißt <code>theme()</code>. Der Parameter, der die einzelnen</p>
+<p>Es ist noch etwas Nacharbeit nötig. Sieht man in die Hilfe von <code>geom_col()</code>, dann kann man nachlesen, dass es standardmäßig ein Stapelbalkendiagramm darstellt (<em>stacked bar plot</em> ). Möchte man die Balken nebeneinander haben (<em>dodged bar plot</em>), muss man das explizit sagen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> car_numbers, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> geo, <span class="at">y =</span> values, <span class="at">fill =</span> time_year)) <span class="sc">+</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>()) <span class="sc">+</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> car_numbers, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> geo, <span class="at">y =</span> values, <span class="at">fill =</span> time_year)) <span class="sc">+</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="05-explorative-kategorial_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Die Ländernamen erscheinen (wie es Standard ist) horizontal. In unserem Fall überdecken sie sich aber und wir sollten sie vertikal schreiben. Dazu gibt es eine neue Funktion aus <code>ggplot2</code>, die wie alle anderen mit einem <code>+</code> angehängt wird. Sie heißt <code>theme()</code>. Der Parameter, der für die Gestaltung der <span class="math inline">\(x\)</span>-Achse zuständig ist, heißt <code>axis.text.x</code> Die Funktion <code>element_text</code> mit der Einstellung <code>angle = 90</code> dreht die einzelnen Länder um 90 Grad. Die Aufgabe der beiden anderen Parameter finden Sie im Rahmen der Aufgaben heraus.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> car_numbers, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> geo, <span class="at">y =</span> values, <span class="at">fill =</span> time_year)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>()) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 3 rows containing missing values (geom_col).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="05-explorative-kategorial_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+<p><img src="05-explorative-kategorial_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -470,14 +486,14 @@ date (1): time
 <h2 data-number="5.2" class="anchored" data-anchor-id="lending-club-peer-to-peer-kredite"><span class="header-section-number">5.2</span> Lending Club – Peer-to-Peer-Kredite</h2>
 <p><a href="https://de.wikipedia.org/wiki/Lending_Club#cite_note-1">Lending Club</a>: Ein US-Unternehmen, das Individuen über eine Plattform ermöglicht, an andere Individuen Geld zu verleihen (Peer-to-Peer-Kredite). Wir haben den Datensatz bereits in der Vorlesung kennengelernt. Er ist in der Bibliothek <code>openintro</code> als <code>loands_full_schema</code> zu finden. Wir laden die Bibliothek und holen uns den Datensatz.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Das R-Paket (auch Bibliothek genannt) laden</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Datensatz laden</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(loans_full_schema)</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Datensatz ansehen</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(loans_full_schema)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Das R-Paket (auch Bibliothek genannt) laden</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Datensatz laden</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(loans_full_schema)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Datensatz ansehen</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(loans_full_schema)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 10,000
 Columns: 55
@@ -540,10 +556,10 @@ $ paid_late_fees                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 </div>
 <section id="häufigkeitstabelle" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="häufigkeitstabelle"><span class="header-section-number">5.2.1</span> Häufigkeitstabelle</h3>
-<p>Wir erstellen eine Häufigkeitstabelle der Variable <code>homeownership</code>. Dazu müssen wir die einzlenen Merkmalsausprägungen auszählen lassen. Das übernimmt die Funktion <code>count()</code>.</p>
+<p>Wir erstellen eine Häufigkeitstabelle der Variable <code>homeownership</code>. Dazu müssen wir die einzelnen Merkmalsausprägungen auszählen lassen. Das übernimmt die Funktion <code>count()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>loans_full_schema <span class="sc">%&gt;%</span> </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(homeownership)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>loans_full_schema <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(homeownership)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -553,17 +569,17 @@ $ paid_late_fees                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 </div>
 </div>
 </div>
-<p>Das sieht anders aus, als in der Vorlesung. Das liegt daran, dass die Variable <code>homeownership</code> für die Vorlesung verändert wurde. Es ist nämlich störend, wenn die Merkmalsausprägungen mit Großbuchstaben geschrieben werden. Außerdem macht es logisch Sinn, zuerst die gemieteten, dann die mit einer Hypothek belegten und zum Schluss die Eigentumsobjekte zu sehen. Das spiegelt in einer gewissen Weise das Risiko wieder, das ein Kredit nicht bedient werden kann. Achtung: Es ist trotzdem keine ordinal-skalierte Variable!</p>
+<p>Die Tabelle sieht anders aus als in der Vorlesung. Das liegt daran, dass die Variable <code>homeownership</code> für die Vorlesung verändert wurde. Es ist nämlich störend, wenn die Merkmalsausprägungen mit Großbuchstaben geschrieben werden. Außerdem macht es logisch Sinn, zuerst die gemieteten, dann die mit einer Hypothek belegten und zum Schluss die Eigentumsobjekte zu sehen. Das spiegelt in einer gewissen Weise das Risiko wider, dass ein Kredit nicht bedient werden kann. Achtung: Es ist trotzdem keine ordinal-skalierte Variable!</p>
 <p>Wir ändern die Darstellung der Variablen <code>homeownership</code>. Um den Originaldatensatz nicht zu überschreiben, erstellen wir einen neuen, den wir <code>loans</code> nennen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>loans <span class="ot">&lt;-</span> loans_full_schema <span class="sc">%&gt;%</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">homeownership =</span> <span class="fu">tolower</span>(homeownership),</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">homeownership =</span> <span class="fu">fct_relevel</span>(homeownership, <span class="st">"rent"</span>, <span class="st">"mortgage"</span>, <span class="st">"own"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>loans <span class="ot">&lt;-</span> loans_full_schema <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">homeownership =</span> <span class="fu">tolower</span>(homeownership),</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">homeownership =</span> <span class="fu">fct_relevel</span>(homeownership, <span class="st">"rent"</span>, <span class="st">"mortgage"</span>, <span class="st">"own"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Sie sehen, dass man die beiden Änderungen in einem Aufruf zu <code>mutate()</code> durchführen darf. Zuerst macht die Funktion <code>tolower()</code> aus den Großbuchstaben Kleinbuchstaben, danach änder die Funktion <code>fct_relevel()</code> die Reihenfolge der Kategorien der Merkmalsausprägungen (<em>levles</em>). Jetzt entspricht das Ergebnis dem der Vorlesung.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>loans <span class="sc">%&gt;%</span> </span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(homeownership)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>loans <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(homeownership)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -578,8 +594,8 @@ $ paid_late_fees                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 <h3 data-number="5.2.2" class="anchored" data-anchor-id="kontingenztabelle"><span class="header-section-number">5.2.2</span> Kontingenztabelle</h3>
 <p>Eine Kontingenztabelle fasst zwei kategoriale Variablen zusammen. Jede Zeile zeigt die Anzahl der Kombinationen zwischen diesen Variablen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>loans <span class="sc">%&gt;%</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(application_type, homeownership)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>loans <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(application_type, homeownership)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -592,9 +608,9 @@ $ paid_late_fees                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 <p>Die Tabelle sieht auch anders aus als in der Vorlesung. Sie ist nämlich <code>tidy</code>: jede Spalte ist eine Variable und jede Zeile ist eine Beobachtung. In diesem Fall möchte man es aber eigentlich <code>untidy</code> dargestellt haben. Das ist einer der seltenen Fälle, nämlich die Darstellung von Tabellen, wo das auch Sinn macht. Achtung, jetzt wird es nerdy 🤓.</p>
 <p>Wir formatieren die Tabelle von lang <code>tidy</code> auf breit und <code>untidy</code>. Dabei wandern die Einträge der Spalte <code>homeowndership</code> in die Breite und werden zu neuen Spalten. Die einträge in den Tabellenzellen kommen aus der Spalte <code>n</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>loans <span class="sc">%&gt;%</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(application_type, homeownership) <span class="sc">%&gt;%</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> homeownership, <span class="at">values_from =</span> n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>loans <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(application_type, homeownership) <span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> homeownership, <span class="at">values_from =</span> n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -606,12 +622,12 @@ $ paid_late_fees                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 </div>
 <p>Jetzt fehlen nur noch die Zeilen- und Spaltensummen. Da hilft die Bibliothek <code>janitor</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>loans <span class="sc">%&gt;%</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(application_type, homeownership) <span class="sc">%&gt;%</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> homeownership, <span class="at">values_from =</span> n) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="fu">c</span>(<span class="st">"row"</span>, <span class="st">"col"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>loans <span class="sc">%&gt;%</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(application_type, homeownership) <span class="sc">%&gt;%</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> homeownership, <span class="at">values_from =</span> n) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="fu">c</span>(<span class="st">"row"</span>, <span class="st">"col"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
