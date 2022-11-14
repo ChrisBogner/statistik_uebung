@@ -40,20 +40,20 @@ kable(birds) %>%
 ### Pinguine
 
 1. Laden Sie die Bibliotheken `tidyverse` und `palmerpenguins` mithilfe der Funktion `library()`.
-2. Laden Sie den Datensatz `penguins` mithilfe der Funtion `data()`.
+2. Laden Sie den Datensatz `penguins` mithilfe der Funktion `data()`.
 2. Sehen Sie sich den Datensatz an.
 3. Plotten Sie ein Streudiagramm der Variablen Flossenlänge `flipper_length_mm` auf der $x$-Achse und der Variablen Körpergewicht `body_mass_g` auf der $y$-Achse.
 3. Beschriften Sie die Grafik sinnvoll.
 4. Färben Sie die Punkte je nach Art unterschiedlich ein mithilfe der Variablen `species`.
 
-Sie sollten diegleiche (bis auf die Farbauswahl) Grafik erhalten, wie in der Vorlesung `r emo::ji('nerd')`.
+Sie sollten die gleiche (bis auf die Farbauswahl) Grafik erhalten, wie in der Vorlesung `r emo::ji('nerd')`.
 
 ## Daten in R einlesen und aus R speichern
 
 ### Politbarometer 2021: Einlesen von Fremdformaten
-Es gibt viele verschiedene Statistikpakete (z. B. SAS, SPSS, Stata), die mit grafischen Oberflächen arbeiten. Da die Analysen darin nicht *reproducible* sind (weil mit der Maus zusammengeklickt), empfehlen wir diese nicht. Nichtsdestotrotz, gibt es manchmal interessante Datensätze, die in den Formaten dieser Statistikpakete vorliegen. ACHTUNG: Diese Aufgabe ist anspruchsvoll!
+Es gibt viele verschiedene Statistikpakete (z. B. SAS, SPSS, Stata), die mit grafischen Oberflächen arbeiten. Da die Analysen darin nicht *reproducible* sind (weil mit der Maus zusammengeklickt), empfehlen wir diese nicht. Dennoch gibt es manchmal interessante Datensätze, die in den Formaten dieser Statistikpakete vorliegen. ACHTUNG: Diese Aufgabe ist anspruchsvoll!
 
-In dieser Übung lernen Sie das Paket [haven](https://haven.tidyverse.org/) kennen, dass solche Formate einlesen kann. Heaven ist Teil von `tidyverse`, muss aber extra installiert und geladen werden.
+In dieser Übung lernen Sie das Paket [haven](https://haven.tidyverse.org/) kennen, dass solche Formate einlesen kann. Haven ist Teil von `tidyverse`, muss aber extra installiert und geladen werden.
 
 1. Laden Sie die Bibliotheken `tidyverse` und `haven`.
 
@@ -61,7 +61,7 @@ Wir beschäftigen uns mit dem Datensatz "Politbarometer 2021". Die Politbaromete
 
 2. Laden Sie unter "Downloads" (rechts oben) den Datensatz "ZA7856_v1-0-0.dta.zip Stata (Dataset) 1.9 MB" herunter. Dafür werden Sie sich einmalig (und kostenlos) anmelden müssen.
 
-Das ist ein komprimierter Datensatz des Statistikpakets Stata. Speichern Sie den Datensatz in Ihrem "Daten"-Ordner und entpacken Sie ihn dort. Es wird ein Ordner Namens ZA7856_v1-0-0.dta erstellt, in dem Sie die Datei "ZA7856_v1-0-0.dta" finden. Das ist der eigentliche Datensatz.
+Das ist ein komprimierter Datensatz des Statistikpakets Stata. Speichern Sie den Datensatz in Ihrem "Daten"-Ordner und entpacken Sie ihn dort. Es wird ein Ordner namens ZA7856_v1-0-0.dta erstellt, in dem Sie die Datei "ZA7856_v1-0-0.dta" finden. Das ist der eigentliche Datensatz.
 
 3. Datensatz einlesen mit der Funktion read_dta(). Passen Sie den Pfad zur Datei an, da ich für die Übung eine andere Verzeichnisstruktur habe!
 ```{r}
@@ -110,7 +110,7 @@ gesis_short <- gesis %>%
 ## Exploration von kategorialen Daten
 
 ### Politbarometer 2021: Das Interesse für Politik
-Wir analysiere den Datensatz, den Sie in der vorherigen Übung geladen und vorbereitet haben.
+Wir analysieren den Datensatz, den Sie in der vorherigen Übung geladen und vorbereitet haben.
 
 1. Laden Sie nun den kurzen Datensatz `gesis_short` mit der passenden Bibliothek ein. Sie müssen vorher natürlich diese Bibliothek mit `library()` laden.
 
@@ -133,7 +133,7 @@ gesis_short <- read_delim('Daten/gesis_short.csv', delim = ';') %>%
 
 5. Wir wollen nun wissen, wie das Politikinteresse in den Bundesländern ausgeprägt ist. Dafür sehen wir uns die Antworten auf die Frage "Wie stark interessieren Sie sich für Politik, ...". Die Antworten sind in der Variablen `Polit_Interesse` enthalten. Wie haben die Befragten abgestimmt?
 
-6. Die Reihenfolge der Merkmalsausprägungen ist unlogisch. Das müssen wir ändern. Bei dieser Variablen gibt es eine logische Reihenfolge: Sehr stark, stark, etwas, kaum, gar nicht, KA. Letzteres steht für keine Angabe. Nutzen Sie den folgenden Code, um die Variable `Polit_interesse` in ein Faktor mit richtiger Reihenfolge der Merkmalsausprägungen umzuwandeln.
+6. Die Reihenfolge der Merkmalsausprägungen ist unlogisch. Das müssen wir ändern. Bei dieser Variablen gibt es eine logische Reihenfolge: Sehr stark, stark, etwas, kaum, gar nicht, KA. Letzteres steht für keine Angabe. Nutzen Sie den folgenden Code, um die Variable `Polit_interesse` in einen Faktor mit richtiger Reihenfolge der Merkmalsausprägungen umzuwandeln.
 ```{r}
 #| eval: false
 gesis_short <- gesis_short %>% 
@@ -145,7 +145,7 @@ Wiederholen Sie nun die Aufgabe 5.
 
 7. Vergleichen Sie die Antworten zwischen den Bundesländern. Ist das Interesse der Bürger ähnlich? Warum ist das schwer zu beantworten?
 
-8. Wir pirschen uns an die relativen Häifigkeiten heran. Was macht der nachfolgende Code. Sehen Sie gegebenenfalls in der Hilfe nach.
+8. Wir pirschen uns an die relativen Häufigkeiten heran. Was macht der nachfolgende Code. Sehen Sie gegebenenfalls in der Hilfe nach.
 ```{r}
 #| eval: false
 gesis_short %>% 
@@ -164,9 +164,9 @@ gesis_short %>%
   pivot_wider(names_from = Bundesland, values_from = Anteil)
 ```
 
-Zurück zu unseren Frage: Ist das Interesse der Bürger in allen Bundesländern ähnlich?
+Zurück zu unserer Frage: Ist das Interesse der Bürger in allen Bundesländern ähnlich?
 
-9. Beantworten Sie die Frage nun auch graphisch, indem Sie einen Balkendiagramm plotten. Es soll so aussehen:
+9. Beantworten Sie die Frage jetzt auch grafisch, indem Sie ein Balkendiagramm plotten. Es soll so aussehen:
 ```{r}
 #| echo: false
 ggplot(data = gesis_short, mapping = aes(y = Bundesland, fill = Polit_interesse)) +
