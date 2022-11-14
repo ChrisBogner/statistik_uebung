@@ -15,6 +15,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
@@ -158,6 +221,26 @@ div.csl-indent {
   <a href="./03-ggplot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in die Darstellung von Daten</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-einlesen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Daten in R einlesen und aus R speichern</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">EXPLORATIVE DATENANALYSE</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-explorative-kategorial.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploration von kategorialen Daten</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -167,12 +250,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Appendices</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./20-aufgabensammlung.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Aufgabensammlung</span></a>
@@ -196,6 +279,14 @@ div.csl-indent {
   <li><a href="#einführung-in-die-darstellung-von-daten" id="toc-einführung-in-die-darstellung-von-daten" class="nav-link" data-scroll-target="#einführung-in-die-darstellung-von-daten"> <span class="header-section-number">A.2</span> Einführung in die Darstellung von Daten</a>
   <ul class="collapse">
   <li><a href="#pinguine" id="toc-pinguine" class="nav-link" data-scroll-target="#pinguine"> <span class="header-section-number">A.2.1</span> Pinguine</a></li>
+  </ul></li>
+  <li><a href="#daten-in-r-einlesen-und-aus-r-speichern" id="toc-daten-in-r-einlesen-und-aus-r-speichern" class="nav-link" data-scroll-target="#daten-in-r-einlesen-und-aus-r-speichern"> <span class="header-section-number">A.3</span> Daten in R einlesen und aus R speichern</a>
+  <ul class="collapse">
+  <li><a href="#politbarometer-2021-einlesen-von-fremdformaten" id="toc-politbarometer-2021-einlesen-von-fremdformaten" class="nav-link" data-scroll-target="#politbarometer-2021-einlesen-von-fremdformaten"> <span class="header-section-number">A.3.1</span> Politbarometer 2021: Einlesen von Fremdformaten</a></li>
+  </ul></li>
+  <li><a href="#exploration-von-kategorialen-daten" id="toc-exploration-von-kategorialen-daten" class="nav-link" data-scroll-target="#exploration-von-kategorialen-daten"> <span class="header-section-number">A.4</span> Exploration von kategorialen Daten</a>
+  <ul class="collapse">
+  <li><a href="#politbarometer-2021-das-interesse-für-politik" id="toc-politbarometer-2021-das-interesse-für-politik" class="nav-link" data-scroll-target="#politbarometer-2021-das-interesse-für-politik"> <span class="header-section-number">A.4.1</span> Politbarometer 2021: Das Interesse für Politik</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -316,6 +407,122 @@ div.csl-indent {
 <li>Färben Sie die Punkte je nach Art unterschiedlich ein mithilfe der Variablen <code>species</code>.</li>
 </ol>
 <p>Sie sollten diegleiche (bis auf die Farbauswahl) Grafik erhalten, wie in der Vorlesung 🤓.</p>
+</section>
+</section>
+<section id="daten-in-r-einlesen-und-aus-r-speichern" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="daten-in-r-einlesen-und-aus-r-speichern"><span class="header-section-number">A.3</span> Daten in R einlesen und aus R speichern</h2>
+<section id="politbarometer-2021-einlesen-von-fremdformaten" class="level3" data-number="A.3.1">
+<h3 data-number="A.3.1" class="anchored" data-anchor-id="politbarometer-2021-einlesen-von-fremdformaten"><span class="header-section-number">A.3.1</span> Politbarometer 2021: Einlesen von Fremdformaten</h3>
+<p>Es gibt viele verschiedene Statistikpakete (z. B. SAS, SPSS, Stata), die mit grafischen Oberflächen arbeiten. Da die Analysen darin nicht <em>reproducible</em> sind (weil mit der Maus zusammengeklickt), empfehlen wir diese nicht. Nichtsdestotrotz, gibt es manchmal interessante Datensätze, die in den Formaten dieser Statistikpakete vorliegen. ACHTUNG: Diese Aufgabe ist anspruchsvoll!</p>
+<p>In dieser Übung lernen Sie das Paket <a href="https://haven.tidyverse.org/">haven</a> kennen, dass solche Formate einlesen kann. Heaven ist Teil von <code>tidyverse</code>, muss aber extra installiert und geladen werden.</p>
+<ol type="1">
+<li>Laden Sie die Bibliotheken <code>tidyverse</code> und <code>haven</code>.</li>
+</ol>
+<p>Wir beschäftigen uns mit dem Datensatz “Politbarometer 2021”. Die Politbarometer kennen Sie bestimmt aus dem ZDF. Das sind Telefonumfragen, die seit 1977 etwa monatlich von der Forschungsgruppe Wahlen für das ZDF durchgeführt werden. Wir sehen uns die Daten aus dem Jahr 2021 an. Sie sind für Lehre und Forschung frei. Sie müssen Sie jedoch selbst herunterladen, die Nutzungsbedingungen lesen und ihnen zustimmen. Die Daten gibt es hier: http://dx.doi.org/10.4232/1.13909.</p>
+<ol start="2" type="1">
+<li>Laden Sie unter “Downloads” (rechts oben) den Datensatz “ZA7856_v1-0-0.dta.zip Stata (Dataset) 1.9 MB” herunter. Dafür werden Sie sich einmalig (und kostenlos) anmelden müssen.</li>
+</ol>
+<p>Das ist ein komprimierter Datensatz des Statistikpakets Stata. Speichern Sie den Datensatz in Ihrem “Daten”-Ordner und entpacken Sie ihn dort. Es wird ein Ordner Namens ZA7856_v1-0-0.dta erstellt, in dem Sie die Datei “ZA7856_v1-0-0.dta” finden. Das ist der eigentliche Datensatz.</p>
+<ol start="3" type="1">
+<li>Datensatz einlesen mit der Funktion read_dta(). Passen Sie den Pfad zur Datei an, da ich für die Übung eine andere Verzeichnisstruktur habe!</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>gesis <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">'Daten/ZA7856_v1-0-0.dta/ZA7856_v1-0-0.dta'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li><p>Wie viele Beobachtungen und Variablen enthält der Datensatz?</p></li>
+<li><p>Die Variablennamen sind nichtssagend. Um den Datensatz zu verstehen, laden Sie auf der GESIS-Seite das Codebook herunter (rechts oben bei Downloads). Die Variablennamen sind in der “Tabelle 1: Variablenkorrespondenzliste Politbarometer 2021” gelistet.</p></li>
+<li><p>Wir werden gemeinsam die Variablen richtig umbenennen und die kategorialen Variablen zu Faktoren ändern. Gehen Sie durch den Code Zeile für Zeile durch und erklären Sie, was dieser macht.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gesis_short <span class="ot">&lt;-</span> gesis <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Befragtennummer =</span> V2,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">Erhebungsmonat =</span> V4,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">Erhebungswoche =</span> V5,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Bundesland =</span> V6,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">Erhebungsgebiet =</span> V7,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">Einwohner =</span> V8,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">Polit_interesse =</span> V124) <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Erhebungsmonat =</span> <span class="fu">as_factor</span>(Erhebungsmonat),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">Erhebungswoche =</span> <span class="fu">as_factor</span>(Erhebungswoche),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">Bundesland =</span> <span class="fu">as_factor</span>(Bundesland),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">Erhebungsgebiet =</span> <span class="fu">as_factor</span>(Erhebungsgebiet),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">Einwohner =</span> <span class="fu">as_factor</span>(Einwohner),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">Polit_interesse =</span> <span class="fu">as_factor</span>(Polit_interesse)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Befragtennummer,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>         Erhebungsmonat,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>         Erhebungswoche,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>         Bundesland,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>         Erhebungsgebiet,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>         Einwohner,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>         Polit_interesse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="7" type="1">
+<li><p>Wie hat sich der Typ der kategorialen Variablen im Datensatz <code>gesis_short</code> gegenüber dem ursprünglichen Datensatz <code>gesis</code> verändert?</p></li>
+<li><p>Speichern Sie den neuen Datensatz <code>gesis_short</code> mit <code>write_delim()</code> ab.</p></li>
+</ol>
+</section>
+</section>
+<section id="exploration-von-kategorialen-daten" class="level2" data-number="A.4">
+<h2 data-number="A.4" class="anchored" data-anchor-id="exploration-von-kategorialen-daten"><span class="header-section-number">A.4</span> Exploration von kategorialen Daten</h2>
+<section id="politbarometer-2021-das-interesse-für-politik" class="level3" data-number="A.4.1">
+<h3 data-number="A.4.1" class="anchored" data-anchor-id="politbarometer-2021-das-interesse-für-politik"><span class="header-section-number">A.4.1</span> Politbarometer 2021: Das Interesse für Politik</h3>
+<p>Wir analysiere den Datensatz, den Sie in der vorherigen Übung geladen und vorbereitet haben.</p>
+<ol type="1">
+<li>Laden Sie nun den kurzen Datensatz <code>gesis_short</code> mit der passenden Bibliothek ein. Sie müssen vorher natürlich diese Bibliothek mit <code>library()</code> laden.</li>
+</ol>
+<div class="cell">
+
+</div>
+<ol start="2" type="1">
+<li><p>Untersuchen Sie den Datensatz nach dem Laden. Wie sind die kategorialen Variablen kodiert (chr odr fct)? Warum? Sehen Sie in der Hilfe von <code>read_delim</code> nach.</p></li>
+<li><p>Wir müssen nach dem Einlesen die kategorialen Variablen erneut in Faktoren umwandeln. Diese Information geht durch das Speichern mit <code>write_delim()</code> und das erneute Einlesen mit <code>read_delim()</code> verloren. Wandeln Sie die Variable <code>Bundesland</code> in einen Faktor um. Wenn Sie mit der Funktion <code>as_fcator()</code> arbeiten, ist die Reihenfolge der Merkmalsausprägungen (der unterschiedlichen Werte einer kategorialen Variablen) standardmäßig so, wie diese im Datensatz erscheinen. Das ist für die Bundesländer ausreichend.</p></li>
+<li><p>Wie viele Personen wurden pro Bundesland im Politbarometer im Jahr 2021 befragt?</p></li>
+<li><p>Wir wollen nun wissen, wie das Politikinteresse in den Bundesländern ausgeprägt ist. Dafür sehen wir uns die Antworten auf die Frage “Wie stark interessieren Sie sich für Politik, …”. Die Antworten sind in der Variablen <code>Polit_Interesse</code> enthalten. Wie haben die Befragten abgestimmt?</p></li>
+<li><p>Die Reihenfolge der Merkmalsausprägungen ist unlogisch. Das müssen wir ändern. Bei dieser Variablen gibt es eine logische Reihenfolge: Sehr stark, stark, etwas, kaum, gar nicht, KA. Letzteres steht für keine Angabe. Nutzen Sie den folgenden Code, um die Variable <code>Polit_interesse</code> in ein Faktor mit richtiger Reihenfolge der Merkmalsausprägungen umzuwandeln.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gesis_short <span class="ot">&lt;-</span> gesis_short <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(gesis_short <span class="ot">&lt;-</span> gesis_short <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Polit_interesse =</span> <span class="fu">factor</span>(Polit_interesse, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">'Sehr stark'</span>, <span class="st">'stark'</span>, <span class="st">'etwas'</span>, <span class="st">'kaum'</span>, <span class="st">'gar nicht'</span>, <span class="st">'KA'</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wiederholen Sie nun die Aufgabe 5.</p>
+<ol start="7" type="1">
+<li><p>Vergleichen Sie die Antworten zwischen den Bundesländern. Ist das Interesse der Bürger ähnlich? Warum ist das schwer zu beantworten?</p></li>
+<li><p>Wir pirschen uns an die relativen Häifigkeiten heran. Was macht der nachfolgende Code. Sehen Sie gegebenenfalls in der Hilfe nach.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gesis_short <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Bundesland, Polit_interesse) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Bundesland, <span class="at">values_from =</span> n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Der nächste Schritt ist es, die relativen Häufigkeiten (Anteile) für jedes Bundesland auszurechnen, um die obige Frage zu beantworten. Erklären Sie, was der nachfolgende Code macht:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>gesis_short <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Bundesland, Polit_interesse) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Bundesland) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Anteil =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>n) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Bundesland, <span class="at">values_from =</span> Anteil)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Zurück zu unseren Frage: Ist das Interesse der Bürger in allen Bundesländern ähnlich?</p>
+<ol start="9" type="1">
+<li>Beantworten Sie die Frage nun auch graphisch, indem Sie einen Balkendiagramm plotten. Es soll so aussehen:</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="20-aufgabensammlung_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Dafür können Sie folgende Code-Fragmente ergänzen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ___, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> ___, <span class="at">fill =</span> ___)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="fu">position_fill</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(___)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Was macht <code>geom_bar(position = position_fill(reverse = TRUE))</code>?</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">

@@ -36,7 +36,9 @@ Wir sehen uns das `tibble` etwas genauer an.
 car_numbers
 ```
 
-Kategorische Variablen werden als Text (*character*) eingelesen. Das bedeutet, dass wir R nicht (so leicht) fragen können, welche verschiedenen Merkmalsausprägungen die Variable enthält. Eine bessere Klasse für eine kategoriale Variable ist ein **Faktor**  (*factor*). Bei einem Faktor werden die unterschiedlichen Merkmalsausprägungen (*levels*) explizit gespeichert. Wir wandeln daher die Text-Variable `geo` in einen Faktor um.
+Kategorische Variablen werden als Text (*character*) eingelesen. Das bedeutet, dass wir R nicht (so leicht) fragen können, welche verschiedenen Merkmalsausprägungen die Variable enthält. Zur Erinnerung: **Merkmalsausprägungen** sind die theoretisch möglichen Werte, die eine Variable annehmen kann. **Merkmalswert** ist dann der tatsächlich beobachtete Wert (die Beobachtung), den die Variable angenommen hat.
+
+Eine bessere Klasse für eine kategoriale Variable ist ein **Faktor**  (*factor*). Bei einem Faktor werden die unterschiedlichen Merkmalsausprägungen (*levels*) explizit gespeichert. Wir wandeln daher die Text-Variable `geo` in einen Faktor um.
 
 ```{r}
 car_numbers <- car_numbers %>% 
@@ -73,7 +75,7 @@ car_numbers
 ```
 
 
-Nun können wir R auch fragen, welche verschiedene Merkmalsausprägungen (*levels*) diese Variable enthält:
+Nun können wir R auch fragen, welche verschiedenen Merkmalsausprägungen (*levels*) diese Variable enthält:
 
 ```{r}
 levels(car_numbers$geo_factor)
@@ -126,7 +128,7 @@ In diesem Fall erstellt `mutate()` keine neue Variable, sondern überschreibt (v
 car_numbers
 ```
 
-Nun geht es an die Darstellung. Im Kapitel @sec-ggplot haben Sie das `geom_bar()` kennengelernt. Es kann die Anzahl der Einträge in einer Variablen auszählen und diese als Balkendiagramm darstellen. Das möchten wir aber in unserem Fall nicht. Wir wollen die Anzahl der Autos darstellen, die in der Variablen `value` enthalten ist. In anderen Worten, wir wollen Werte und keine ausgezählten Merkmalsausprägungen (*counts*) darstellen. Das ist die Aufgabe des `geom_col()` (col steht für columns, also Säulen/Balken).
+Nun geht es an die Darstellung. Im Kapitel @sec-ggplot haben Sie das `geom_bar()` kennengelernt. Es kann die Anzahl der Einträge in einer Variablen auszählen und diese als Balkendiagramm darstellen. Das möchten wir aber in unserem Fall nicht. Wir wollen die Anzahl der Autos darstellen, die in der Variablen `value` enthalten ist. In anderen Worten, wir wollen die Merkmalswerte (Beobachtungen) selbst und und nicht deren Anzahl (*counts*) darstellen. Das ist die Aufgabe des `geom_col()` (col steht für columns, also Säulen/Balken).
 ```{r}
 #| warning: false
 #| message: false
@@ -164,7 +166,7 @@ glimpse(loans_full_schema)
 ```
 
 ### Häufigkeitstabelle
-Wir erstellen eine Häufigkeitstabelle der Variable `homeownership`. Dazu müssen wir die einzelnen Merkmalsausprägungen auszählen lassen. Das übernimmt die Funktion `count()`.
+Wir erstellen eine Häufigkeitstabelle der Variable `homeownership`. Dazu müssen wir die einzelnen Merkmalswerte auszählen lassen. Das übernimmt die Funktion `count()`.
 ```{r}
 loans_full_schema %>% 
   count(homeownership)
@@ -179,7 +181,7 @@ loans <- loans_full_schema %>%
          homeownership = fct_relevel(homeownership, "rent", "mortgage", "own"))
 ```
 
-Sie sehen, dass man die beiden Änderungen in einem Aufruf zu `mutate()` durchführen darf. Zuerst macht die Funktion `tolower()` aus den Großbuchstaben Kleinbuchstaben, danach änder die Funktion `fct_relevel()` die Reihenfolge der Kategorien der Merkmalsausprägungen (*levles*). Jetzt entspricht das Ergebnis dem der Vorlesung.
+Sie sehen, dass man die beiden Änderungen in einem Aufruf zu `mutate()` durchführen darf. Zuerst macht die Funktion `tolower()` aus den Großbuchstaben Kleinbuchstaben, danach änder die Funktion `fct_relevel()` die Reihenfolge der Merkmalsausprägungen (*levles*). Jetzt entspricht das Ergebnis dem der Vorlesung.
 ```{r}
 loans %>% 
   count(homeownership)

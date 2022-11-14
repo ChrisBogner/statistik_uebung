@@ -338,7 +338,8 @@ date (1): time
 </div>
 </div>
 </div>
-<p>Kategorische Variablen werden als Text (<em>character</em>) eingelesen. Das bedeutet, dass wir R nicht (so leicht) fragen können, welche verschiedenen Merkmalsausprägungen die Variable enthält. Eine bessere Klasse für eine kategoriale Variable ist ein <strong>Faktor</strong> (<em>factor</em>). Bei einem Faktor werden die unterschiedlichen Merkmalsausprägungen (<em>levels</em>) explizit gespeichert. Wir wandeln daher die Text-Variable <code>geo</code> in einen Faktor um.</p>
+<p>Kategorische Variablen werden als Text (<em>character</em>) eingelesen. Das bedeutet, dass wir R nicht (so leicht) fragen können, welche verschiedenen Merkmalsausprägungen die Variable enthält. Zur Erinnerung: <strong>Merkmalsausprägungen</strong> sind die theoretisch möglichen Werte, die eine Variable annehmen kann. <strong>Merkmalswert</strong> ist dann der tatsächlich beobachtete Wert (die Beobachtung), den die Variable angenommen hat.</p>
+<p>Eine bessere Klasse für eine kategoriale Variable ist ein <strong>Faktor</strong> (<em>factor</em>). Bei einem Faktor werden die unterschiedlichen Merkmalsausprägungen (<em>levels</em>) explizit gespeichert. Wir wandeln daher die Text-Variable <code>geo</code> in einen Faktor um.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>car_numbers <span class="ot">&lt;-</span> car_numbers <span class="sc">%&gt;%</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">geo_factor =</span> <span class="fu">as_factor</span>(geo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -388,7 +389,7 @@ date (1): time
 </div>
 </div>
 </div>
-<p>Nun können wir R auch fragen, welche verschiedene Merkmalsausprägungen (<em>levels</em>) diese Variable enthält:</p>
+<p>Nun können wir R auch fragen, welche verschiedenen Merkmalsausprägungen (<em>levels</em>) diese Variable enthält:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(car_numbers<span class="sc">$</span>geo_factor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -452,7 +453,7 @@ date (1): time
 </div>
 </div>
 </div>
-<p>Nun geht es an die Darstellung. Im Kapitel <a href="03-ggplot.html"><span>Chapter&nbsp;3</span></a> haben Sie das <code>geom_bar()</code> kennengelernt. Es kann die Anzahl der Einträge in einer Variablen auszählen und diese als Balkendiagramm darstellen. Das möchten wir aber in unserem Fall nicht. Wir wollen die Anzahl der Autos darstellen, die in der Variablen <code>value</code> enthalten ist. In anderen Worten, wir wollen Werte und keine ausgezählten Merkmalsausprägungen (<em>counts</em>) darstellen. Das ist die Aufgabe des <code>geom_col()</code> (col steht für columns, also Säulen/Balken).</p>
+<p>Nun geht es an die Darstellung. Im Kapitel <a href="03-ggplot.html"><span>Chapter&nbsp;3</span></a> haben Sie das <code>geom_bar()</code> kennengelernt. Es kann die Anzahl der Einträge in einer Variablen auszählen und diese als Balkendiagramm darstellen. Das möchten wir aber in unserem Fall nicht. Wir wollen die Anzahl der Autos darstellen, die in der Variablen <code>value</code> enthalten ist. In anderen Worten, wir wollen die Merkmalswerte (Beobachtungen) selbst und und nicht deren Anzahl (<em>counts</em>) darstellen. Das ist die Aufgabe des <code>geom_col()</code> (col steht für columns, also Säulen/Balken).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> car_numbers, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> geo, <span class="at">y =</span> values, <span class="at">fill =</span> time_year)) <span class="sc">+</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -556,7 +557,7 @@ $ paid_late_fees                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 </div>
 <section id="häufigkeitstabelle" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="häufigkeitstabelle"><span class="header-section-number">5.2.1</span> Häufigkeitstabelle</h3>
-<p>Wir erstellen eine Häufigkeitstabelle der Variable <code>homeownership</code>. Dazu müssen wir die einzelnen Merkmalsausprägungen auszählen lassen. Das übernimmt die Funktion <code>count()</code>.</p>
+<p>Wir erstellen eine Häufigkeitstabelle der Variable <code>homeownership</code>. Dazu müssen wir die einzelnen Merkmalswerte auszählen lassen. Das übernimmt die Funktion <code>count()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>loans_full_schema <span class="sc">%&gt;%</span> </span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(homeownership)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -576,7 +577,7 @@ $ paid_late_fees                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">homeownership =</span> <span class="fu">tolower</span>(homeownership),</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">homeownership =</span> <span class="fu">fct_relevel</span>(homeownership, <span class="st">"rent"</span>, <span class="st">"mortgage"</span>, <span class="st">"own"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Sie sehen, dass man die beiden Änderungen in einem Aufruf zu <code>mutate()</code> durchführen darf. Zuerst macht die Funktion <code>tolower()</code> aus den Großbuchstaben Kleinbuchstaben, danach änder die Funktion <code>fct_relevel()</code> die Reihenfolge der Kategorien der Merkmalsausprägungen (<em>levles</em>). Jetzt entspricht das Ergebnis dem der Vorlesung.</p>
+<p>Sie sehen, dass man die beiden Änderungen in einem Aufruf zu <code>mutate()</code> durchführen darf. Zuerst macht die Funktion <code>tolower()</code> aus den Großbuchstaben Kleinbuchstaben, danach änder die Funktion <code>fct_relevel()</code> die Reihenfolge der Merkmalsausprägungen (<em>levles</em>). Jetzt entspricht das Ergebnis dem der Vorlesung.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>loans <span class="sc">%&gt;%</span> </span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(homeownership)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
