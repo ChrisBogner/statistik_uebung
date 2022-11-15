@@ -400,21 +400,21 @@ div.csl-indent {
 <h3 data-number="A.2.1" class="anchored" data-anchor-id="pinguine"><span class="header-section-number">A.2.1</span> Pinguine</h3>
 <ol type="1">
 <li>Laden Sie die Bibliotheken <code>tidyverse</code> und <code>palmerpenguins</code> mithilfe der Funktion <code>library()</code>.</li>
-<li>Laden Sie den Datensatz <code>penguins</code> mithilfe der Funtion <code>data()</code>.</li>
+<li>Laden Sie den Datensatz <code>penguins</code> mithilfe der Funktion <code>data()</code>.</li>
 <li>Sehen Sie sich den Datensatz an.</li>
 <li>Plotten Sie ein Streudiagramm der Variablen Flossenlänge <code>flipper_length_mm</code> auf der <span class="math inline">\(x\)</span>-Achse und der Variablen Körpergewicht <code>body_mass_g</code> auf der <span class="math inline">\(y\)</span>-Achse.</li>
 <li>Beschriften Sie die Grafik sinnvoll.</li>
 <li>Färben Sie die Punkte je nach Art unterschiedlich ein mithilfe der Variablen <code>species</code>.</li>
 </ol>
-<p>Sie sollten diegleiche (bis auf die Farbauswahl) Grafik erhalten, wie in der Vorlesung 🤓.</p>
+<p>Sie sollten die gleiche (bis auf die Farbauswahl) Grafik erhalten, wie in der Vorlesung 🤓.</p>
 </section>
 </section>
 <section id="daten-in-r-einlesen-und-aus-r-speichern" class="level2" data-number="A.3">
 <h2 data-number="A.3" class="anchored" data-anchor-id="daten-in-r-einlesen-und-aus-r-speichern"><span class="header-section-number">A.3</span> Daten in R einlesen und aus R speichern</h2>
 <section id="politbarometer-2021-einlesen-von-fremdformaten" class="level3" data-number="A.3.1">
 <h3 data-number="A.3.1" class="anchored" data-anchor-id="politbarometer-2021-einlesen-von-fremdformaten"><span class="header-section-number">A.3.1</span> Politbarometer 2021: Einlesen von Fremdformaten</h3>
-<p>Es gibt viele verschiedene Statistikpakete (z. B. SAS, SPSS, Stata), die mit grafischen Oberflächen arbeiten. Da die Analysen darin nicht <em>reproducible</em> sind (weil mit der Maus zusammengeklickt), empfehlen wir diese nicht. Nichtsdestotrotz, gibt es manchmal interessante Datensätze, die in den Formaten dieser Statistikpakete vorliegen. ACHTUNG: Diese Aufgabe ist anspruchsvoll!</p>
-<p>In dieser Übung lernen Sie das Paket <a href="https://haven.tidyverse.org/">haven</a> kennen, dass solche Formate einlesen kann. Heaven ist Teil von <code>tidyverse</code>, muss aber extra installiert und geladen werden.</p>
+<p>Es gibt viele verschiedene Statistikpakete (z. B. SAS, SPSS, Stata), die mit grafischen Oberflächen arbeiten. Da die Analysen darin nicht <em>reproducible</em> sind (weil mit der Maus zusammengeklickt), empfehlen wir diese nicht. Dennoch gibt es manchmal interessante Datensätze, die in den Formaten dieser Statistikpakete vorliegen. ACHTUNG: Diese Aufgabe ist anspruchsvoll!</p>
+<p>In dieser Übung lernen Sie das Paket <a href="https://haven.tidyverse.org/">haven</a> kennen, dass solche Formate einlesen kann. Haven ist Teil von <code>tidyverse</code>, muss aber extra installiert und geladen werden.</p>
 <ol type="1">
 <li>Laden Sie die Bibliotheken <code>tidyverse</code> und <code>haven</code>.</li>
 </ol>
@@ -422,7 +422,7 @@ div.csl-indent {
 <ol start="2" type="1">
 <li>Laden Sie unter “Downloads” (rechts oben) den Datensatz “ZA7856_v1-0-0.dta.zip Stata (Dataset) 1.9 MB” herunter. Dafür werden Sie sich einmalig (und kostenlos) anmelden müssen.</li>
 </ol>
-<p>Das ist ein komprimierter Datensatz des Statistikpakets Stata. Speichern Sie den Datensatz in Ihrem “Daten”-Ordner und entpacken Sie ihn dort. Es wird ein Ordner Namens ZA7856_v1-0-0.dta erstellt, in dem Sie die Datei “ZA7856_v1-0-0.dta” finden. Das ist der eigentliche Datensatz.</p>
+<p>Das ist ein komprimierter Datensatz des Statistikpakets Stata. Speichern Sie den Datensatz in Ihrem “Daten”-Ordner und entpacken Sie ihn dort. Es wird ein Ordner namens ZA7856_v1-0-0.dta erstellt, in dem Sie die Datei “ZA7856_v1-0-0.dta” finden. Das ist der eigentliche Datensatz.</p>
 <ol start="3" type="1">
 <li>Datensatz einlesen mit der Funktion read_dta(). Passen Sie den Pfad zur Datei an, da ich für die Übung eine andere Verzeichnisstruktur habe!</li>
 </ol>
@@ -468,7 +468,7 @@ div.csl-indent {
 <h2 data-number="A.4" class="anchored" data-anchor-id="exploration-von-kategorialen-daten"><span class="header-section-number">A.4</span> Exploration von kategorialen Daten</h2>
 <section id="politbarometer-2021-das-interesse-für-politik" class="level3" data-number="A.4.1">
 <h3 data-number="A.4.1" class="anchored" data-anchor-id="politbarometer-2021-das-interesse-für-politik"><span class="header-section-number">A.4.1</span> Politbarometer 2021: Das Interesse für Politik</h3>
-<p>Wir analysiere den Datensatz, den Sie in der vorherigen Übung geladen und vorbereitet haben.</p>
+<p>Wir analysieren den Datensatz, den Sie in der vorherigen Übung geladen und vorbereitet haben.</p>
 <ol type="1">
 <li>Laden Sie nun den kurzen Datensatz <code>gesis_short</code> mit der passenden Bibliothek ein. Sie müssen vorher natürlich diese Bibliothek mit <code>library()</code> laden.</li>
 </ol>
@@ -480,7 +480,7 @@ div.csl-indent {
 <li><p>Wir müssen nach dem Einlesen die kategorialen Variablen erneut in Faktoren umwandeln. Diese Information geht durch das Speichern mit <code>write_delim()</code> und das erneute Einlesen mit <code>read_delim()</code> verloren. Wandeln Sie die Variable <code>Bundesland</code> in einen Faktor um. Wenn Sie mit der Funktion <code>as_fcator()</code> arbeiten, ist die Reihenfolge der Merkmalsausprägungen (der unterschiedlichen Werte einer kategorialen Variablen) standardmäßig so, wie diese im Datensatz erscheinen. Das ist für die Bundesländer ausreichend.</p></li>
 <li><p>Wie viele Personen wurden pro Bundesland im Politbarometer im Jahr 2021 befragt?</p></li>
 <li><p>Wir wollen nun wissen, wie das Politikinteresse in den Bundesländern ausgeprägt ist. Dafür sehen wir uns die Antworten auf die Frage “Wie stark interessieren Sie sich für Politik, …”. Die Antworten sind in der Variablen <code>Polit_Interesse</code> enthalten. Wie haben die Befragten abgestimmt?</p></li>
-<li><p>Die Reihenfolge der Merkmalsausprägungen ist unlogisch. Das müssen wir ändern. Bei dieser Variablen gibt es eine logische Reihenfolge: Sehr stark, stark, etwas, kaum, gar nicht, KA. Letzteres steht für keine Angabe. Nutzen Sie den folgenden Code, um die Variable <code>Polit_interesse</code> in ein Faktor mit richtiger Reihenfolge der Merkmalsausprägungen umzuwandeln.</p></li>
+<li><p>Die Reihenfolge der Merkmalsausprägungen ist unlogisch. Das müssen wir ändern. Bei dieser Variablen gibt es eine logische Reihenfolge: Sehr stark, stark, etwas, kaum, gar nicht, KA. Letzteres steht für keine Angabe. Nutzen Sie den folgenden Code, um die Variable <code>Polit_interesse</code> in einen Faktor mit richtiger Reihenfolge der Merkmalsausprägungen umzuwandeln.</p></li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gesis_short <span class="ot">&lt;-</span> gesis_short <span class="sc">%&gt;%</span> </span>
@@ -490,7 +490,7 @@ div.csl-indent {
 <p>Wiederholen Sie nun die Aufgabe 5.</p>
 <ol start="7" type="1">
 <li><p>Vergleichen Sie die Antworten zwischen den Bundesländern. Ist das Interesse der Bürger ähnlich? Warum ist das schwer zu beantworten?</p></li>
-<li><p>Wir pirschen uns an die relativen Häifigkeiten heran. Was macht der nachfolgende Code. Sehen Sie gegebenenfalls in der Hilfe nach.</p></li>
+<li><p>Wir pirschen uns an die relativen Häufigkeiten heran. Was macht der nachfolgende Code. Sehen Sie gegebenenfalls in der Hilfe nach.</p></li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gesis_short <span class="sc">%&gt;%</span> </span>
@@ -506,9 +506,9 @@ div.csl-indent {
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>n) <span class="sc">%&gt;%</span> </span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Bundesland, <span class="at">values_from =</span> Anteil)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Zurück zu unseren Frage: Ist das Interesse der Bürger in allen Bundesländern ähnlich?</p>
+<p>Zurück zu unserer Frage: Ist das Interesse der Bürger in allen Bundesländern ähnlich?</p>
 <ol start="9" type="1">
-<li>Beantworten Sie die Frage nun auch graphisch, indem Sie einen Balkendiagramm plotten. Es soll so aussehen:</li>
+<li>Beantworten Sie die Frage jetzt auch grafisch, indem Sie ein Balkendiagramm plotten. Es soll so aussehen:</li>
 </ol>
 <div class="cell">
 <div class="cell-output-display">
