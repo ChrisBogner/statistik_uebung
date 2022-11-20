@@ -1,5 +1,6 @@
 body {
   font-size: 14px;
+  counter-reset: inst;
 }
 
 caption {
@@ -162,10 +163,6 @@ pre code {
 .exercises {
   clear: both;
   list-style: none;
-}
-
-.exercises ol {
-   counter-reset: inst;
 }
 
 .exercises ol {

@@ -23,9 +23,12 @@ book:
     - part: "EXPLORATIVE DATENANALYSE"
       chapters:
         - 05-explorative-kategorial.qmd
+    - part: "LABS: EIGENSTÄNDIGE ÜBUNGEN"
+      chapters: 
+        - 30-lab-02-intro-to-data.qmd
     - references.qmd
   appendices:
-    - 20-aufgabensammlung.qmd
+    - 100-aufgabensammlung.qmd
   page-navigation: true
   downloads: [pdf, epub]
   sidebar:

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-1.1.189">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
@@ -176,14 +181,9 @@ div.csl-indent {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">Literatur</a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Appendices</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">LABS: EIGENSTÄNDIGE ÜBUNGEN</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -191,7 +191,27 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20-aufgabensammlung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Aufgabensammlung</span></a>
+  <a href="./30-lab-02-intro-to-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Lab 02: Einführung in Daten</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Literatur</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./100-aufgabensammlung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Aufgabensammlung</span></a>
   </div>
 </li>
       </ul>
@@ -201,22 +221,22 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#warum-reproduzierbarkeit-in-der-forschung-wichtig-ist" id="toc-warum-reproduzierbarkeit-in-der-forschung-wichtig-ist" class="nav-link active" data-scroll-target="#warum-reproduzierbarkeit-in-der-forschung-wichtig-ist"> <span class="header-section-number">2.1</span> Warum Reproduzierbarkeit in der Forschung wichtig ist</a></li>
-  <li><a href="#literate-programming-idee-von-donald-knuth" id="toc-literate-programming-idee-von-donald-knuth" class="nav-link" data-scroll-target="#literate-programming-idee-von-donald-knuth"> <span class="header-section-number">2.2</span> <em>Literate Programming</em> Idee von Donald Knuth</a></li>
-  <li><a href="#reproduzierbare-berichte-mit-r-markdown" id="toc-reproduzierbare-berichte-mit-r-markdown" class="nav-link" data-scroll-target="#reproduzierbare-berichte-mit-r-markdown"> <span class="header-section-number">2.3</span> Reproduzierbare Berichte mit R Markdown</a></li>
-  <li><a href="#ein-neues-r-notebook-erstellen" id="toc-ein-neues-r-notebook-erstellen" class="nav-link" data-scroll-target="#ein-neues-r-notebook-erstellen"> <span class="header-section-number">2.4</span> Ein neues R Notebook erstellen</a></li>
-  <li><a href="#sec-header" id="toc-sec-header" class="nav-link" data-scroll-target="#sec-header"> <span class="header-section-number">2.5</span> Der Header eines Notebooks</a></li>
-  <li><a href="#wichtigste-regeln-für-reproduzierbarkeit" id="toc-wichtigste-regeln-für-reproduzierbarkeit" class="nav-link" data-scroll-target="#wichtigste-regeln-für-reproduzierbarkeit"> <span class="header-section-number">2.6</span> Wichtigste Regeln für Reproduzierbarkeit</a></li>
-  <li><a href="#lesestoff" id="toc-lesestoff" class="nav-link" data-scroll-target="#lesestoff"> <span class="header-section-number">2.7</span> Lesestoff</a></li>
-  <li><a href="#weiterführende-literatur" id="toc-weiterführende-literatur" class="nav-link" data-scroll-target="#weiterführende-literatur"> <span class="header-section-number">2.8</span> Weiterführende Literatur</a></li>
-  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"> <span class="header-section-number">2.9</span> Aufgaben</a>
+  <li><a href="#warum-reproduzierbarkeit-in-der-forschung-wichtig-ist" id="toc-warum-reproduzierbarkeit-in-der-forschung-wichtig-ist" class="nav-link active" data-scroll-target="#warum-reproduzierbarkeit-in-der-forschung-wichtig-ist"><span class="toc-section-number">2.1</span>  Warum Reproduzierbarkeit in der Forschung wichtig ist</a></li>
+  <li><a href="#literate-programming-idee-von-donald-knuth" id="toc-literate-programming-idee-von-donald-knuth" class="nav-link" data-scroll-target="#literate-programming-idee-von-donald-knuth"><span class="toc-section-number">2.2</span>  <em>Literate Programming</em> Idee von Donald Knuth</a></li>
+  <li><a href="#reproduzierbare-berichte-mit-r-markdown" id="toc-reproduzierbare-berichte-mit-r-markdown" class="nav-link" data-scroll-target="#reproduzierbare-berichte-mit-r-markdown"><span class="toc-section-number">2.3</span>  Reproduzierbare Berichte mit R Markdown</a></li>
+  <li><a href="#ein-neues-r-notebook-erstellen" id="toc-ein-neues-r-notebook-erstellen" class="nav-link" data-scroll-target="#ein-neues-r-notebook-erstellen"><span class="toc-section-number">2.4</span>  Ein neues R Notebook erstellen</a></li>
+  <li><a href="#sec-header" id="toc-sec-header" class="nav-link" data-scroll-target="#sec-header"><span class="toc-section-number">2.5</span>  Der Header eines Notebooks</a></li>
+  <li><a href="#wichtigste-regeln-für-reproduzierbarkeit" id="toc-wichtigste-regeln-für-reproduzierbarkeit" class="nav-link" data-scroll-target="#wichtigste-regeln-für-reproduzierbarkeit"><span class="toc-section-number">2.6</span>  Wichtigste Regeln für Reproduzierbarkeit</a></li>
+  <li><a href="#lesestoff" id="toc-lesestoff" class="nav-link" data-scroll-target="#lesestoff"><span class="toc-section-number">2.7</span>  Lesestoff</a></li>
+  <li><a href="#weiterführende-literatur" id="toc-weiterführende-literatur" class="nav-link" data-scroll-target="#weiterführende-literatur"><span class="toc-section-number">2.8</span>  Weiterführende Literatur</a></li>
+  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="toc-section-number">2.9</span>  Aufgaben</a>
   <ul class="collapse">
-  <li><a href="#erstes-notebook" id="toc-erstes-notebook" class="nav-link" data-scroll-target="#erstes-notebook"> <span class="header-section-number">2.9.1</span> Erstes Notebook</a></li>
-  <li><a href="#erste-schritte-als-notebook" id="toc-erste-schritte-als-notebook" class="nav-link" data-scroll-target="#erste-schritte-als-notebook"> <span class="header-section-number">2.9.2</span> Erste Schritte als Notebook</a></li>
+  <li><a href="#erstes-notebook" id="toc-erstes-notebook" class="nav-link" data-scroll-target="#erstes-notebook"><span class="toc-section-number">2.9.1</span>  Erstes Notebook</a></li>
+  <li><a href="#erste-schritte-als-notebook" id="toc-erste-schritte-als-notebook" class="nav-link" data-scroll-target="#erste-schritte-als-notebook"><span class="toc-section-number">2.9.2</span>  Erste Schritte als Notebook</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -269,7 +289,7 @@ div.csl-indent {
 <div id="fig-r-notebook" class="quarto-figure quarto-figure-left anchored">
 <figure class="figure">
 <p><img src="figures/r-notebook.png" alt="Screenshot zeigt, wie man eines neues R Notebook anlegt." height="500" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure 2.1: Neues R Notebook anlegen</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.1: Neues R Notebook anlegen</figcaption><p></p>
 </figure>
 </div>
 <p>Wenn Sie ein neues Notebook erstellen, enthält das Template etwas Code. Lesen Sie sich das ruhig noch einmal durch, da es ein paar hilfreiche Tastenkürzel und Tipps. Danach können Sie den Text unterhalb des Headers löschen.</p>
@@ -281,7 +301,7 @@ div.csl-indent {
 <div id="fig-rmarkdown-file" class="quarto-figure quarto-figure-left anchored">
 <figure class="figure">
 <p><img src="figures/new_chunk.png" class="img-fluid figure-img" alt="Screenshot zeigt, wie ein neuer R Chunk hinzufügt wird." width="600"></p>
-<p></p><figcaption class="figure-caption">Figure 2.2: Einen neuen R Chunk hinzufügen</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.2: Einen neuen R Chunk hinzufügen</figcaption><p></p>
 </figure>
 </div>
 <p>Text kann einfach unterhalb des Headers und <em>außerhalb der Chunks</em> getippt werden. <strong>Die wichtigsten Layoutelemente für den Text finden Sie <a href="https://rmarkdown.rstudio.com/authoring_basics.html">hier</a>.</strong> R Markdown unterstützt mathematische Notation in Latex-Stil. Eine Einführung in Latex würde an dieser Stelle aber zu weit führen.</p>
@@ -410,7 +430,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);

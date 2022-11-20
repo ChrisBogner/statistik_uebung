@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Übung zur Vorlesung Statistik und Datenanalyse - Appendix A — Aufgabensammlung</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="stat_style.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Appendix A — Aufgabensammlung</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Übung zur Vorlesung Statistik und Datenanalyse</a> 
+        <div class="sidebar-tools-main">
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Übung-zur-Vorlesung-Statistik-und-Datenanalyse.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Übung-zur-Vorlesung-Statistik-und-Datenanalyse.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Vorwort</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">EINFÜHRUNG IN R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-erste-schritte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Erste Schritte in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-rmarkdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Markdown für reproduzierbare Forschung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-ggplot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in die Darstellung von Daten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-einlesen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Daten in R einlesen und aus R speichern</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">EXPLORATIVE DATENANALYSE</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-explorative-kategorial.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploration von kategorialen Daten</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">LABS</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30-lab-02-intro-to-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploration von kategorialen Daten</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Literatur</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./100-aufgabensammlung.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Aufgabensammlung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#erste-schritte" id="toc-erste-schritte" class="nav-link active" data-scroll-target="#erste-schritte"><span class="toc-section-number">A.1</span>  Erste Schritte</a>
+  <ul class="collapse">
+  <li><a href="#morphometrische-messungen-an-vögeln" id="toc-morphometrische-messungen-an-vögeln" class="nav-link" data-scroll-target="#morphometrische-messungen-an-vögeln"><span class="toc-section-number">A.1.1</span>  Morphometrische Messungen an Vögeln</a></li>
+  </ul></li>
+  <li><a href="#einführung-in-die-darstellung-von-daten" id="toc-einführung-in-die-darstellung-von-daten" class="nav-link" data-scroll-target="#einführung-in-die-darstellung-von-daten"><span class="toc-section-number">A.2</span>  Einführung in die Darstellung von Daten</a>
+  <ul class="collapse">
+  <li><a href="#pinguine" id="toc-pinguine" class="nav-link" data-scroll-target="#pinguine"><span class="toc-section-number">A.2.1</span>  Pinguine</a></li>
+  </ul></li>
+  <li><a href="#daten-in-r-einlesen-und-aus-r-speichern" id="toc-daten-in-r-einlesen-und-aus-r-speichern" class="nav-link" data-scroll-target="#daten-in-r-einlesen-und-aus-r-speichern"><span class="toc-section-number">A.3</span>  Daten in R einlesen und aus R speichern</a>
+  <ul class="collapse">
+  <li><a href="#politbarometer-2021-einlesen-von-fremdformaten" id="toc-politbarometer-2021-einlesen-von-fremdformaten" class="nav-link" data-scroll-target="#politbarometer-2021-einlesen-von-fremdformaten"><span class="toc-section-number">A.3.1</span>  Politbarometer 2021: Einlesen von Fremdformaten</a></li>
+  </ul></li>
+  <li><a href="#exploration-von-kategorialen-daten" id="toc-exploration-von-kategorialen-daten" class="nav-link" data-scroll-target="#exploration-von-kategorialen-daten"><span class="toc-section-number">A.4</span>  Exploration von kategorialen Daten</a>
+  <ul class="collapse">
+  <li><a href="#politbarometer-2021-das-interesse-für-politik" id="toc-politbarometer-2021-das-interesse-für-politik" class="nav-link" data-scroll-target="#politbarometer-2021-das-interesse-für-politik"><span class="toc-section-number">A.4.1</span>  Politbarometer 2021: Das Interesse für Politik</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Appendix A — Aufgabensammlung</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="erste-schritte" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="erste-schritte"><span class="header-section-number">A.1</span> Erste Schritte</h2>
+<div class="cell">
+
+</div>
+<section id="morphometrische-messungen-an-vögeln" class="level3" data-number="A.1.1">
+<h3 data-number="A.1.1" class="anchored" data-anchor-id="morphometrische-messungen-an-vögeln"><span class="header-section-number">A.1.1</span> Morphometrische Messungen an Vögeln</h3>
+<p>In einer Studie wurden 1100 Spitzschwanzammer (<em>Ammodramus caudacutus</em>) vermessen. Wir nutzen einen Teil des Datensatzes <span class="citation" data-cites="Zuur2009">(<a href="references.html#ref-Zuur2009" role="doc-biblioref">Zuur, Ieno, and Meesters 2009</a>)</span>. Die gemessenen Variablen sind Fluegel, Fuss (Tarsus), Kopf, Gewicht. Leider git die Datenquelle die Messeinheiten nicht an. Die Daten sind wie folgt:</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table table-striped table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:right;"> Fluegel </th>
+   <th style="text-align:right;"> Fuss </th>
+   <th style="text-align:right;"> Kopf </th>
+   <th style="text-align:right;"> Gewicht </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;width: 10em; "> 59.0 </td>
+   <td style="text-align:right;width: 10em; "> 22.3 </td>
+   <td style="text-align:right;width: 10em; "> 31.2 </td>
+   <td style="text-align:right;width: 10em; "> 9.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;width: 10em; "> 55.0 </td>
+   <td style="text-align:right;width: 10em; "> 19.7 </td>
+   <td style="text-align:right;width: 10em; "> 30.4 </td>
+   <td style="text-align:right;width: 10em; "> 13.8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;width: 10em; "> 53.5 </td>
+   <td style="text-align:right;width: 10em; "> 20.8 </td>
+   <td style="text-align:right;width: 10em; "> 30.6 </td>
+   <td style="text-align:right;width: 10em; "> 14.8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;width: 10em; "> 55.0 </td>
+   <td style="text-align:right;width: 10em; "> 20.3 </td>
+   <td style="text-align:right;width: 10em; "> 30.3 </td>
+   <td style="text-align:right;width: 10em; "> 15.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;width: 10em; "> 52.5 </td>
+   <td style="text-align:right;width: 10em; "> 20.8 </td>
+   <td style="text-align:right;width: 10em; "> 30.3 </td>
+   <td style="text-align:right;width: 10em; "> 15.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;width: 10em; "> 57.5 </td>
+   <td style="text-align:right;width: 10em; "> 21.5 </td>
+   <td style="text-align:right;width: 10em; "> 30.8 </td>
+   <td style="text-align:right;width: 10em; "> 15.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;width: 10em; "> 53.0 </td>
+   <td style="text-align:right;width: 10em; "> 20.6 </td>
+   <td style="text-align:right;width: 10em; "> 32.5 </td>
+   <td style="text-align:right;width: 10em; "> 15.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;width: 10em; "> 55.0 </td>
+   <td style="text-align:right;width: 10em; "> 21.5 </td>
+   <td style="text-align:right;width: 10em; "> NA </td>
+   <td style="text-align:right;width: 10em; "> 15.7 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<ol type="1">
+<li>Erstellen Sie jede Variable einzeln mithilfe der Funktion <code>c()</code>.</li>
+<li>Wie viele Vögel sind in der Tabelle zu finden. Nutzen Sie dazu die Funktion <code>length()</code>. Sehen Sie in der Hilfe nach, wie man diese benutzt.</li>
+<li>Führen Sie alle Variablen zu einem einzelnen Datenobjekt, einem <code>tibble</code> zusammen mithilfe der Funktion <code>tibble()</code> aus dem R-Paket <code>tibble</code>.</li>
+</ol>
+</section>
+</section>
+<section id="einführung-in-die-darstellung-von-daten" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="einführung-in-die-darstellung-von-daten"><span class="header-section-number">A.2</span> Einführung in die Darstellung von Daten</h2>
+<section id="pinguine" class="level3" data-number="A.2.1">
+<h3 data-number="A.2.1" class="anchored" data-anchor-id="pinguine"><span class="header-section-number">A.2.1</span> Pinguine</h3>
+<ol type="1">
+<li>Laden Sie die Bibliotheken <code>tidyverse</code> und <code>palmerpenguins</code> mithilfe der Funktion <code>library()</code>.</li>
+<li>Laden Sie den Datensatz <code>penguins</code> mithilfe der Funktion <code>data()</code>.</li>
+<li>Sehen Sie sich den Datensatz an.</li>
+<li>Plotten Sie ein Streudiagramm der Variablen Flossenlänge <code>flipper_length_mm</code> auf der <span class="math inline">\(x\)</span>-Achse und der Variablen Körpergewicht <code>body_mass_g</code> auf der <span class="math inline">\(y\)</span>-Achse.</li>
+<li>Beschriften Sie die Grafik sinnvoll.</li>
+<li>Färben Sie die Punkte je nach Art unterschiedlich ein mithilfe der Variablen <code>species</code>.</li>
+</ol>
+<p>Sie sollten die gleiche (bis auf die Farbauswahl) Grafik erhalten, wie in der Vorlesung 🤓.</p>
+</section>
+</section>
+<section id="daten-in-r-einlesen-und-aus-r-speichern" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="daten-in-r-einlesen-und-aus-r-speichern"><span class="header-section-number">A.3</span> Daten in R einlesen und aus R speichern</h2>
+<section id="politbarometer-2021-einlesen-von-fremdformaten" class="level3" data-number="A.3.1">
+<h3 data-number="A.3.1" class="anchored" data-anchor-id="politbarometer-2021-einlesen-von-fremdformaten"><span class="header-section-number">A.3.1</span> Politbarometer 2021: Einlesen von Fremdformaten</h3>
+<p>Es gibt viele verschiedene Statistikpakete (z. B. SAS, SPSS, Stata), die mit grafischen Oberflächen arbeiten. Da die Analysen darin nicht <em>reproducible</em> sind (weil mit der Maus zusammengeklickt), empfehlen wir diese nicht. Dennoch gibt es manchmal interessante Datensätze, die in den Formaten dieser Statistikpakete vorliegen. ACHTUNG: Diese Aufgabe ist anspruchsvoll!</p>
+<p>In dieser Übung lernen Sie das Paket <a href="https://haven.tidyverse.org/">haven</a> kennen, dass solche Formate einlesen kann. Haven ist Teil von <code>tidyverse</code>, muss aber extra installiert und geladen werden.</p>
+<ol type="1">
+<li>Laden Sie die Bibliotheken <code>tidyverse</code> und <code>haven</code>.</li>
+</ol>
+<p>Wir beschäftigen uns mit dem Datensatz “Politbarometer 2021”. Die Politbarometer kennen Sie bestimmt aus dem ZDF. Das sind Telefonumfragen, die seit 1977 etwa monatlich von der Forschungsgruppe Wahlen für das ZDF durchgeführt werden. Wir sehen uns die Daten aus dem Jahr 2021 an. Sie sind für Lehre und Forschung frei. Sie müssen Sie jedoch selbst herunterladen, die Nutzungsbedingungen lesen und ihnen zustimmen. Die Daten gibt es hier: http://dx.doi.org/10.4232/1.13909.</p>
+<ol start="2" type="1">
+<li>Laden Sie unter “Downloads” (rechts oben) den Datensatz “ZA7856_v1-0-0.dta.zip Stata (Dataset) 1.9 MB” herunter. Dafür werden Sie sich einmalig (und kostenlos) anmelden müssen.</li>
+</ol>
+<p>Das ist ein komprimierter Datensatz des Statistikpakets Stata. Speichern Sie den Datensatz in Ihrem “Daten”-Ordner und entpacken Sie ihn dort. Es wird ein Ordner namens ZA7856_v1-0-0.dta erstellt, in dem Sie die Datei “ZA7856_v1-0-0.dta” finden. Das ist der eigentliche Datensatz.</p>
+<ol start="3" type="1">
+<li>Datensatz einlesen mit der Funktion read_dta(). Passen Sie den Pfad zur Datei an, da ich für die Übung eine andere Verzeichnisstruktur habe!</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>gesis <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">'Daten/ZA7856_v1-0-0.dta/ZA7856_v1-0-0.dta'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li><p>Wie viele Beobachtungen und Variablen enthält der Datensatz?</p></li>
+<li><p>Die Variablennamen sind nichtssagend. Um den Datensatz zu verstehen, laden Sie auf der GESIS-Seite das Codebook herunter (rechts oben bei Downloads). Die Variablennamen sind in der “Tabelle 1: Variablenkorrespondenzliste Politbarometer 2021” gelistet.</p></li>
+<li><p>Wir werden gemeinsam die Variablen richtig umbenennen und die kategorialen Variablen zu Faktoren ändern. Gehen Sie durch den Code Zeile für Zeile durch und erklären Sie, was dieser macht.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gesis_short <span class="ot">&lt;-</span> gesis <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Befragtennummer =</span> V2,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">Erhebungsmonat =</span> V4,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">Erhebungswoche =</span> V5,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Bundesland =</span> V6,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">Erhebungsgebiet =</span> V7,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">Einwohner =</span> V8,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">Polit_interesse =</span> V124) <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Erhebungsmonat =</span> <span class="fu">as_factor</span>(Erhebungsmonat),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">Erhebungswoche =</span> <span class="fu">as_factor</span>(Erhebungswoche),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">Bundesland =</span> <span class="fu">as_factor</span>(Bundesland),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">Erhebungsgebiet =</span> <span class="fu">as_factor</span>(Erhebungsgebiet),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">Einwohner =</span> <span class="fu">as_factor</span>(Einwohner),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">Polit_interesse =</span> <span class="fu">as_factor</span>(Polit_interesse)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Befragtennummer,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>         Erhebungsmonat,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>         Erhebungswoche,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>         Bundesland,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>         Erhebungsgebiet,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>         Einwohner,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>         Polit_interesse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="7" type="1">
+<li><p>Wie hat sich der Typ der kategorialen Variablen im Datensatz <code>gesis_short</code> gegenüber dem ursprünglichen Datensatz <code>gesis</code> verändert?</p></li>
+<li><p>Speichern Sie den neuen Datensatz <code>gesis_short</code> mit <code>write_delim()</code> ab.</p></li>
+</ol>
+</section>
+</section>
+<section id="exploration-von-kategorialen-daten" class="level2" data-number="A.4">
+<h2 data-number="A.4" class="anchored" data-anchor-id="exploration-von-kategorialen-daten"><span class="header-section-number">A.4</span> Exploration von kategorialen Daten</h2>
+<section id="politbarometer-2021-das-interesse-für-politik" class="level3" data-number="A.4.1">
+<h3 data-number="A.4.1" class="anchored" data-anchor-id="politbarometer-2021-das-interesse-für-politik"><span class="header-section-number">A.4.1</span> Politbarometer 2021: Das Interesse für Politik</h3>
+<p>Wir analysieren den Datensatz, den Sie in der vorherigen Übung geladen und vorbereitet haben.</p>
+<ol type="1">
+<li>Laden Sie nun den kurzen Datensatz <code>gesis_short</code> mit der passenden Bibliothek ein. Sie müssen vorher natürlich diese Bibliothek mit <code>library()</code> laden.</li>
+</ol>
+<div class="cell">
+
+</div>
+<ol start="2" type="1">
+<li><p>Untersuchen Sie den Datensatz nach dem Laden. Wie sind die kategorialen Variablen kodiert (chr odr fct)? Warum? Sehen Sie in der Hilfe von <code>read_delim</code> nach.</p></li>
+<li><p>Wir müssen nach dem Einlesen die kategorialen Variablen erneut in Faktoren umwandeln. Diese Information geht durch das Speichern mit <code>write_delim()</code> und das erneute Einlesen mit <code>read_delim()</code> verloren. Wandeln Sie die Variable <code>Bundesland</code> in einen Faktor um. Wenn Sie mit der Funktion <code>as_fcator()</code> arbeiten, ist die Reihenfolge der Merkmalsausprägungen (der unterschiedlichen Werte einer kategorialen Variablen) standardmäßig so, wie diese im Datensatz erscheinen. Das ist für die Bundesländer ausreichend.</p></li>
+<li><p>Wie viele Personen wurden pro Bundesland im Politbarometer im Jahr 2021 befragt?</p></li>
+<li><p>Wir wollen nun wissen, wie das Politikinteresse in den Bundesländern ausgeprägt ist. Dafür sehen wir uns die Antworten auf die Frage “Wie stark interessieren Sie sich für Politik, …”. Die Antworten sind in der Variablen <code>Polit_Interesse</code> enthalten. Wie haben die Befragten abgestimmt?</p></li>
+<li><p>Die Reihenfolge der Merkmalsausprägungen ist unlogisch. Das müssen wir ändern. Bei dieser Variablen gibt es eine logische Reihenfolge: Sehr stark, stark, etwas, kaum, gar nicht, KA. Letzteres steht für keine Angabe. Nutzen Sie den folgenden Code, um die Variable <code>Polit_interesse</code> in einen Faktor mit richtiger Reihenfolge der Merkmalsausprägungen umzuwandeln.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gesis_short <span class="ot">&lt;-</span> gesis_short <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(gesis_short <span class="ot">&lt;-</span> gesis_short <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Polit_interesse =</span> <span class="fu">factor</span>(Polit_interesse, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">'Sehr stark'</span>, <span class="st">'stark'</span>, <span class="st">'etwas'</span>, <span class="st">'kaum'</span>, <span class="st">'gar nicht'</span>, <span class="st">'KA'</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wiederholen Sie nun die Aufgabe 5.</p>
+<ol start="7" type="1">
+<li><p>Vergleichen Sie die Antworten zwischen den Bundesländern. Ist das Interesse der Bürger ähnlich? Warum ist das schwer zu beantworten?</p></li>
+<li><p>Wir pirschen uns an die relativen Häufigkeiten heran. Was macht der nachfolgende Code. Sehen Sie gegebenenfalls in der Hilfe nach.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gesis_short <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Bundesland, Polit_interesse) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Bundesland, <span class="at">values_from =</span> n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Der nächste Schritt ist es, die relativen Häufigkeiten (Anteile) für jedes Bundesland auszurechnen, um die obige Frage zu beantworten. Erklären Sie, was der nachfolgende Code macht:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>gesis_short <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Bundesland, Polit_interesse) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Bundesland) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Anteil =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>n) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Bundesland, <span class="at">values_from =</span> Anteil)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Zurück zu unserer Frage: Ist das Interesse der Bürger in allen Bundesländern ähnlich?</p>
+<ol start="9" type="1">
+<li>Beantworten Sie die Frage jetzt auch grafisch, indem Sie ein Balkendiagramm plotten. Es soll so aussehen:</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="100-aufgabensammlung_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Dafür können Sie folgende Code-Fragmente ergänzen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ___, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> ___, <span class="at">fill =</span> ___)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="fu">position_fill</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(___)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Was macht <code>geom_bar(position = position_fill(reverse = TRUE))</code>?</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-Zuur2009" class="csl-entry" role="doc-biblioentry">
+Zuur, A. F., E. Ieno, and E. Meesters. 2009. <em>A Beginner’s Guide to <span>R</span></em>. <span>Springer</span>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./references.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Literatur</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-1.1.189">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -53,7 +58,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -66,7 +71,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -242,14 +247,9 @@ div.csl-indent {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">Literatur</a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Appendices</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">LABS: EIGENSTÄNDIGE ÜBUNGEN</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -257,7 +257,27 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20-aufgabensammlung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Aufgabensammlung</span></a>
+  <a href="./30-lab-02-intro-to-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Lab 02: Einführung in Daten</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Literatur</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./100-aufgabensammlung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Aufgabensammlung</span></a>
   </div>
 </li>
       </ul>
@@ -267,28 +287,28 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#was-ist" id="toc-was-ist" class="nav-link active" data-scroll-target="#was-ist"> <span class="header-section-number">1.1</span> Was ist <svg aria-hidden="true" role="img" viewbox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:steelblue;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"></path></svg>?</a></li>
-  <li><a href="#was-ist-rstudio" id="toc-was-ist-rstudio" class="nav-link" data-scroll-target="#was-ist-rstudio"> <span class="header-section-number">1.2</span> Was ist RStudio?</a></li>
-  <li><a href="#lesestoff" id="toc-lesestoff" class="nav-link" data-scroll-target="#lesestoff"> <span class="header-section-number">1.3</span> Lesestoff</a></li>
-  <li><a href="#gemeinsame-aufgaben" id="toc-gemeinsame-aufgaben" class="nav-link" data-scroll-target="#gemeinsame-aufgaben"> <span class="header-section-number">1.4</span> Gemeinsame Aufgaben</a>
+  <li><a href="#was-ist" id="toc-was-ist" class="nav-link active" data-scroll-target="#was-ist"><span class="toc-section-number">1.1</span>  Was ist <svg aria-hidden="true" role="img" viewbox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:steelblue;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"></path></svg>?</a></li>
+  <li><a href="#was-ist-rstudio" id="toc-was-ist-rstudio" class="nav-link" data-scroll-target="#was-ist-rstudio"><span class="toc-section-number">1.2</span>  Was ist RStudio?</a></li>
+  <li><a href="#lesestoff" id="toc-lesestoff" class="nav-link" data-scroll-target="#lesestoff"><span class="toc-section-number">1.3</span>  Lesestoff</a></li>
+  <li><a href="#gemeinsame-aufgaben" id="toc-gemeinsame-aufgaben" class="nav-link" data-scroll-target="#gemeinsame-aufgaben"><span class="toc-section-number">1.4</span>  Gemeinsame Aufgaben</a>
   <ul class="collapse">
-  <li><a href="#ars-haushaltsbuch" id="toc-ars-haushaltsbuch" class="nav-link" data-scroll-target="#ars-haushaltsbuch"> <span class="header-section-number">1.4.1</span> Ars Haushaltsbuch</a></li>
-  <li><a href="#rob2" id="toc-rob2" class="nav-link" data-scroll-target="#rob2"> <span class="header-section-number">1.4.2</span> Fehlende Werte</a></li>
+  <li><a href="#ars-haushaltsbuch" id="toc-ars-haushaltsbuch" class="nav-link" data-scroll-target="#ars-haushaltsbuch"><span class="toc-section-number">1.4.1</span>  Ars Haushaltsbuch</a></li>
+  <li><a href="#rob2" id="toc-rob2" class="nav-link" data-scroll-target="#rob2"><span class="toc-section-number">1.4.2</span>  Fehlende Werte</a></li>
   </ul></li>
-  <li><a href="#hausaufgaben" id="toc-hausaufgaben" class="nav-link" data-scroll-target="#hausaufgaben"> <span class="header-section-number">1.5</span> Hausaufgaben</a>
+  <li><a href="#hausaufgaben" id="toc-hausaufgaben" class="nav-link" data-scroll-target="#hausaufgaben"><span class="toc-section-number">1.5</span>  Hausaufgaben</a>
   <ul class="collapse">
-  <li><a href="#r-als-taschenrechner" id="toc-r-als-taschenrechner" class="nav-link" data-scroll-target="#r-als-taschenrechner"> <span class="header-section-number">1.5.1</span> R als Taschenrechner</a></li>
-  <li><a href="#zuweisungen" id="toc-zuweisungen" class="nav-link" data-scroll-target="#zuweisungen"> <span class="header-section-number">1.5.2</span> Zuweisungen</a></li>
-  <li><a href="#funktionsaufruf" id="toc-funktionsaufruf" class="nav-link" data-scroll-target="#funktionsaufruf"> <span class="header-section-number">1.5.3</span> Funktionsaufruf</a></li>
-  <li><a href="#objekte-ansprechen" id="toc-objekte-ansprechen" class="nav-link" data-scroll-target="#objekte-ansprechen"> <span class="header-section-number">1.5.4</span> Objekte ansprechen</a></li>
-  <li><a href="#firstplot" id="toc-firstplot" class="nav-link" data-scroll-target="#firstplot"> <span class="header-section-number">1.5.5</span> Ihr erster Plot</a></li>
+  <li><a href="#r-als-taschenrechner" id="toc-r-als-taschenrechner" class="nav-link" data-scroll-target="#r-als-taschenrechner"><span class="toc-section-number">1.5.1</span>  R als Taschenrechner</a></li>
+  <li><a href="#zuweisungen" id="toc-zuweisungen" class="nav-link" data-scroll-target="#zuweisungen"><span class="toc-section-number">1.5.2</span>  Zuweisungen</a></li>
+  <li><a href="#funktionsaufruf" id="toc-funktionsaufruf" class="nav-link" data-scroll-target="#funktionsaufruf"><span class="toc-section-number">1.5.3</span>  Funktionsaufruf</a></li>
+  <li><a href="#objekte-ansprechen" id="toc-objekte-ansprechen" class="nav-link" data-scroll-target="#objekte-ansprechen"><span class="toc-section-number">1.5.4</span>  Objekte ansprechen</a></li>
+  <li><a href="#firstplot" id="toc-firstplot" class="nav-link" data-scroll-target="#firstplot"><span class="toc-section-number">1.5.5</span>  Ihr erster Plot</a></li>
   </ul></li>
-  <li><a href="#ihre-arbeit-einreichen" id="toc-ihre-arbeit-einreichen" class="nav-link" data-scroll-target="#ihre-arbeit-einreichen"> <span class="header-section-number">1.6</span> Ihre Arbeit einreichen</a></li>
-  <li><a href="#lesestoff-1" id="toc-lesestoff-1" class="nav-link" data-scroll-target="#lesestoff-1"> <span class="header-section-number">1.7</span> Lesestoff</a></li>
+  <li><a href="#ihre-arbeit-einreichen" id="toc-ihre-arbeit-einreichen" class="nav-link" data-scroll-target="#ihre-arbeit-einreichen"><span class="toc-section-number">1.6</span>  Ihre Arbeit einreichen</a></li>
+  <li><a href="#lesestoff-1" id="toc-lesestoff-1" class="nav-link" data-scroll-target="#lesestoff-1"><span class="toc-section-number">1.7</span>  Lesestoff</a></li>
   </ul>
 </nav>
     </div>
@@ -346,7 +366,7 @@ div.csl-indent {
 <div id="fig-rstudio" class="quarto-figure quarto-figure-left anchored">
 <figure class="figure">
 <p><img src="figures/RStudio.png" class="img-fluid figure-img" width="600"></p>
-<p></p><figcaption class="figure-caption">Figure 1.1: Aufbau von RStudio</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1.1: Aufbau von RStudio</figcaption><p></p>
 </figure>
 </div>
 <p>Sie sollten auch auf Ihrem eigenen Rechner einen Ordner für die Veranstaltung anlegen und darin jeweils einen Ordner für <strong>Folien</strong>, <strong>Daten</strong> und <strong>Notebooks</strong>.</p>
@@ -668,7 +688,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
