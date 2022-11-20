@@ -23,6 +23,7 @@ book:
     - part: "EXPLORATIVE DATENANALYSE"
       chapters:
         - 05-explorative-kategorial.qmd
+        - 06-explorative-numerisch.qmd
     - part: "LABS: EIGENSTÄNDIGE ÜBUNGEN"
       chapters: 
         - 30-lab-02-intro-to-data.qmd

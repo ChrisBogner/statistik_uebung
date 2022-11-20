@@ -48,9 +48,9 @@ kable(birds) %>%
 
 Sie sollten die gleiche (bis auf die Farbauswahl) Grafik erhalten, wie in der Vorlesung `r emo::ji('nerd')`.
 
-## Daten in R einlesen und aus R speichern
+## Daten in R einlesen und aus R speichern 
 
-### Politbarometer 2021: Einlesen von Fremdformaten
+### Politbarometer 2021: Einlesen von Fremdformaten {#sec-aufgabe-politbarometer-einlesen}
 Es gibt viele verschiedene Statistikpakete (z. B. SAS, SPSS, Stata), die mit grafischen Oberflächen arbeiten. Da die Analysen darin nicht *reproducible* sind (weil mit der Maus zusammengeklickt), empfehlen wir diese nicht. Dennoch gibt es manchmal interessante Datensätze, die in den Formaten dieser Statistikpakete vorliegen. ACHTUNG: Diese Aufgabe ist anspruchsvoll!
 
 In dieser Übung lernen Sie das Paket [haven](https://haven.tidyverse.org/) kennen, dass solche Formate einlesen kann. Haven ist Teil von `tidyverse`, muss aber extra installiert und geladen werden.
@@ -109,7 +109,7 @@ gesis_short <- gesis %>%
 
 ## Exploration von kategorialen Daten
 
-### Politbarometer 2021: Das Interesse für Politik
+### Politbarometer 2021: Das Interesse für Politik {#sec-aufgabe-politbarometer-exploration-kategorial}
 Wir analysieren den Datensatz, den Sie in der vorherigen Übung geladen und vorbereitet haben.
 
 1. Laden Sie nun den kurzen Datensatz `gesis_short` mit der passenden Bibliothek ein. Sie müssen vorher natürlich diese Bibliothek mit `library()` laden.
@@ -185,3 +185,16 @@ ggplot(data = ___, mapping = aes(y = ___, fill = ___)) +
 ```
 
 Was macht `geom_bar(position = position_fill(reverse = TRUE))`?
+
+## Exploration von numerischen Daten
+
+### Umweltdaten entlang der dänischen Küste
+
+Die Datei "Temperatur.csv" aus @Zuur2009a enthält Messungen von Temperatur, Salinität und Chlorophyll a an 31 Orten entlang der dänischen Küste. Der Datensatz kann [hier](https://highstat.com/index.php/a-beginner-s-guide-to-r) heruntergeladen werden. Sie bekommen ihn aber bereits über ILIAS gestellt. Die Daten stammen vom dänischen Institut RIKZ (Monitoringprogramm MWTL: Monitoring Waterstaatkundige Toestand des Lands). Die Messungen wurden zwischen 1990 und 2005 durchgeführt, mit einer Häufigkeit von 0--4 mal pro Monat je nach Jahreszeit.
+
+1. Lesen Sie den Datensatz "Temperatur.csv" (auf ILIAS) ein.
+1. Konvertieren Sie die Spalte Date in ein richtiges Datumsformat und plotten Sie die Temperaturen pro Station (`facet_wrap()`) als Zeitreihen.
+1. Berechnen Sie die Anzahl der Messwerte, Monatsmittelwerte der Temperatur für alle Stationen, sowie die Standardabweichungen. Tipp: innerhalb von `summarize()` müssen Sie `n = n()` schreiben, um die Anzahl der Messwerte zu erhalten.
+1. Stellen Sie die Monatsmittel der Temperatur als Linien dar. Tipp: Um die Monate mit ihren Namen darzustellen, nutzen Sie den folgenden Code `scale_x_discrete(limits = as_factor(1:12), labels = month.abb)`. Hängen Sie ihn mit einem `+` an. Was macht dieser Code?
+1. Beschriften Sie die Grafik sinnvoll.
+1. Fügen Sie die Standardabweichungen als Band hinzu.

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-1.1.189">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -53,7 +58,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -66,7 +71,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -88,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./06-explorative-numerisch.html" rel="next">
 <link href="./04-einlesen.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -221,6 +226,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./05-explorative-kategorial.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploration von kategorialen Daten</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-explorative-numerisch.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploration von numerischen Daten</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">LABS: EIGENSTÄNDIGE ÜBUNGEN</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30-lab-02-intro-to-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -230,15 +255,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Appendices</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20-aufgabensammlung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Aufgabensammlung</span></a>
+  <a href="./100-aufgabensammlung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Aufgabensammlung</span></a>
   </div>
 </li>
       </ul>
@@ -248,27 +273,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#mobilität-in-europa" id="toc-mobilität-in-europa" class="nav-link active" data-scroll-target="#mobilität-in-europa"> <span class="header-section-number">5.1</span> Mobilität in Europa</a>
+  <li><a href="#mobilität-in-europa" id="toc-mobilität-in-europa" class="nav-link active" data-scroll-target="#mobilität-in-europa"><span class="toc-section-number">5.1</span>  Mobilität in Europa</a>
   <ul class="collapse">
-  <li><a href="#kategoriale-variablen-als-faktoren" id="toc-kategoriale-variablen-als-faktoren" class="nav-link" data-scroll-target="#kategoriale-variablen-als-faktoren"> <span class="header-section-number">5.1.1</span> Kategoriale Variablen als Faktoren</a></li>
-  <li><a href="#sec-geom-col" id="toc-sec-geom-col" class="nav-link" data-scroll-target="#sec-geom-col"> <span class="header-section-number">5.1.2</span> Balkendiagramm mit <code>geom_col()</code></a></li>
+  <li><a href="#kategoriale-variablen-als-faktoren" id="toc-kategoriale-variablen-als-faktoren" class="nav-link" data-scroll-target="#kategoriale-variablen-als-faktoren"><span class="toc-section-number">5.1.1</span>  Kategoriale Variablen als Faktoren</a></li>
+  <li><a href="#sec-geom-col" id="toc-sec-geom-col" class="nav-link" data-scroll-target="#sec-geom-col"><span class="toc-section-number">5.1.2</span>  Balkendiagramm mit <code>geom_col()</code></a></li>
   </ul></li>
-  <li><a href="#lending-club-peer-to-peer-kredite" id="toc-lending-club-peer-to-peer-kredite" class="nav-link" data-scroll-target="#lending-club-peer-to-peer-kredite"> <span class="header-section-number">5.2</span> Lending Club – Peer-to-Peer-Kredite</a>
+  <li><a href="#lending-club-peer-to-peer-kredite" id="toc-lending-club-peer-to-peer-kredite" class="nav-link" data-scroll-target="#lending-club-peer-to-peer-kredite"><span class="toc-section-number">5.2</span>  Lending Club – Peer-to-Peer-Kredite</a>
   <ul class="collapse">
-  <li><a href="#häufigkeitstabelle" id="toc-häufigkeitstabelle" class="nav-link" data-scroll-target="#häufigkeitstabelle"> <span class="header-section-number">5.2.1</span> Häufigkeitstabelle</a></li>
-  <li><a href="#kontingenztabelle" id="toc-kontingenztabelle" class="nav-link" data-scroll-target="#kontingenztabelle"> <span class="header-section-number">5.2.2</span> Kontingenztabelle</a></li>
+  <li><a href="#häufigkeitstabelle" id="toc-häufigkeitstabelle" class="nav-link" data-scroll-target="#häufigkeitstabelle"><span class="toc-section-number">5.2.1</span>  Häufigkeitstabelle</a></li>
+  <li><a href="#kontingenztabelle" id="toc-kontingenztabelle" class="nav-link" data-scroll-target="#kontingenztabelle"><span class="toc-section-number">5.2.2</span>  Kontingenztabelle</a></li>
   </ul></li>
-  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"> <span class="header-section-number">5.3</span> Aufgaben</a>
+  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="toc-section-number">5.3</span>  Aufgaben</a>
   <ul class="collapse">
-  <li><a href="#grafik-beschriften" id="toc-grafik-beschriften" class="nav-link" data-scroll-target="#grafik-beschriften"> <span class="header-section-number">5.3.1</span> Grafik beschriften</a></li>
-  <li><a href="#aufgaben-der-funktion-theme" id="toc-aufgaben-der-funktion-theme" class="nav-link" data-scroll-target="#aufgaben-der-funktion-theme"> <span class="header-section-number">5.3.2</span> Aufgaben der Funktion <code>theme()</code></a></li>
-  <li><a href="#tutorium" id="toc-tutorium" class="nav-link" data-scroll-target="#tutorium"> <span class="header-section-number">5.3.3</span> Tutorium</a></li>
+  <li><a href="#grafik-beschriften" id="toc-grafik-beschriften" class="nav-link" data-scroll-target="#grafik-beschriften"><span class="toc-section-number">5.3.1</span>  Grafik beschriften</a></li>
+  <li><a href="#aufgaben-der-funktion-theme" id="toc-aufgaben-der-funktion-theme" class="nav-link" data-scroll-target="#aufgaben-der-funktion-theme"><span class="toc-section-number">5.3.2</span>  Aufgaben der Funktion <code>theme()</code></a></li>
+  <li><a href="#tutorium" id="toc-tutorium" class="nav-link" data-scroll-target="#tutorium"><span class="toc-section-number">5.3.3</span>  Tutorium</a></li>
   </ul></li>
-  <li><a href="#ihre-arbeit-einreichen" id="toc-ihre-arbeit-einreichen" class="nav-link" data-scroll-target="#ihre-arbeit-einreichen"> <span class="header-section-number">5.4</span> Ihre Arbeit einreichen</a></li>
+  <li><a href="#ihre-arbeit-einreichen" id="toc-ihre-arbeit-einreichen" class="nav-link" data-scroll-target="#ihre-arbeit-einreichen"><span class="toc-section-number">5.4</span>  Ihre Arbeit einreichen</a></li>
   </ul>
 </nav>
     </div>
@@ -453,7 +478,7 @@ date (1): time
 </div>
 </div>
 </div>
-<p>Nun geht es an die Darstellung. Im Kapitel <a href="03-ggplot.html"><span>Chapter&nbsp;3</span></a> haben Sie das <code>geom_bar()</code> kennengelernt. Es kann die Anzahl der Einträge in einer Variablen auszählen und diese als Balkendiagramm darstellen. Das möchten wir aber in unserem Fall nicht. Wir wollen die Anzahl der Autos darstellen, die in der Variablen <code>value</code> enthalten ist. In anderen Worten, wir wollen die Merkmalswerte (Beobachtungen) selbst und und nicht deren Anzahl (<em>counts</em>) darstellen. Das ist die Aufgabe des <code>geom_col()</code> (col steht für columns, also Säulen/Balken).</p>
+<p>Nun geht es an die Darstellung. Im Kapitel <span class="quarto-unresolved-ref">?sec-ggplot</span> haben Sie das <code>geom_bar()</code> kennengelernt. Es kann die Anzahl der Einträge in einer Variablen auszählen und diese als Balkendiagramm darstellen. Das möchten wir aber in unserem Fall nicht. Wir wollen die Anzahl der Autos darstellen, die in der Variablen <code>value</code> enthalten ist. In anderen Worten, wir wollen die Merkmalswerte (Beobachtungen) selbst und und nicht deren Anzahl (<em>counts</em>) darstellen. Das ist die Aufgabe des <code>geom_col()</code> (col steht für columns, also Säulen/Balken).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> car_numbers, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> geo, <span class="at">y =</span> values, <span class="at">fill =</span> time_year)) <span class="sc">+</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -743,7 +768,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
@@ -778,8 +804,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">Literatur</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./06-explorative-numerisch.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploration von numerischen Daten</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

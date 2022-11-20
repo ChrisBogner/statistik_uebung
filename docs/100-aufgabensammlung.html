@@ -246,11 +246,16 @@ div.csl-indent {
   <a href="./05-explorative-kategorial.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploration von kategorialen Daten</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-explorative-numerisch.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploration von numerischen Daten</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">LABS</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">LABS: EIGENSTÄNDIGE ÜBUNGEN</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -258,7 +263,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./30-lab-02-intro-to-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploration von kategorialen Daten</span></a>
+  <a href="./30-lab-02-intro-to-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></a>
   </div>
 </li>
       </ul>
@@ -302,11 +307,15 @@ div.csl-indent {
   </ul></li>
   <li><a href="#daten-in-r-einlesen-und-aus-r-speichern" id="toc-daten-in-r-einlesen-und-aus-r-speichern" class="nav-link" data-scroll-target="#daten-in-r-einlesen-und-aus-r-speichern"><span class="toc-section-number">A.3</span>  Daten in R einlesen und aus R speichern</a>
   <ul class="collapse">
-  <li><a href="#politbarometer-2021-einlesen-von-fremdformaten" id="toc-politbarometer-2021-einlesen-von-fremdformaten" class="nav-link" data-scroll-target="#politbarometer-2021-einlesen-von-fremdformaten"><span class="toc-section-number">A.3.1</span>  Politbarometer 2021: Einlesen von Fremdformaten</a></li>
+  <li><a href="#sec-aufgabe-politbarometer-einlesen" id="toc-sec-aufgabe-politbarometer-einlesen" class="nav-link" data-scroll-target="#sec-aufgabe-politbarometer-einlesen"><span class="toc-section-number">A.3.1</span>  Politbarometer 2021: Einlesen von Fremdformaten</a></li>
   </ul></li>
   <li><a href="#exploration-von-kategorialen-daten" id="toc-exploration-von-kategorialen-daten" class="nav-link" data-scroll-target="#exploration-von-kategorialen-daten"><span class="toc-section-number">A.4</span>  Exploration von kategorialen Daten</a>
   <ul class="collapse">
-  <li><a href="#politbarometer-2021-das-interesse-für-politik" id="toc-politbarometer-2021-das-interesse-für-politik" class="nav-link" data-scroll-target="#politbarometer-2021-das-interesse-für-politik"><span class="toc-section-number">A.4.1</span>  Politbarometer 2021: Das Interesse für Politik</a></li>
+  <li><a href="#sec-aufgabe-politbarometer-exploration-kategorial" id="toc-sec-aufgabe-politbarometer-exploration-kategorial" class="nav-link" data-scroll-target="#sec-aufgabe-politbarometer-exploration-kategorial"><span class="toc-section-number">A.4.1</span>  Politbarometer 2021: Das Interesse für Politik</a></li>
+  </ul></li>
+  <li><a href="#exploration-von-numerischen-daten" id="toc-exploration-von-numerischen-daten" class="nav-link" data-scroll-target="#exploration-von-numerischen-daten"><span class="toc-section-number">A.5</span>  Exploration von numerischen Daten</a>
+  <ul class="collapse">
+  <li><a href="#umweltdaten-entlang-der-dänischen-küste" id="toc-umweltdaten-entlang-der-dänischen-küste" class="nav-link" data-scroll-target="#umweltdaten-entlang-der-dänischen-küste"><span class="toc-section-number">A.5.1</span>  Umweltdaten entlang der dänischen Küste</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -337,7 +346,7 @@ div.csl-indent {
 </div>
 <section id="morphometrische-messungen-an-vögeln" class="level3" data-number="A.1.1">
 <h3 data-number="A.1.1" class="anchored" data-anchor-id="morphometrische-messungen-an-vögeln"><span class="header-section-number">A.1.1</span> Morphometrische Messungen an Vögeln</h3>
-<p>In einer Studie wurden 1100 Spitzschwanzammer (<em>Ammodramus caudacutus</em>) vermessen. Wir nutzen einen Teil des Datensatzes <span class="citation" data-cites="Zuur2009">(<a href="references.html#ref-Zuur2009" role="doc-biblioref">Zuur, Ieno, and Meesters 2009</a>)</span>. Die gemessenen Variablen sind Fluegel, Fuss (Tarsus), Kopf, Gewicht. Leider git die Datenquelle die Messeinheiten nicht an. Die Daten sind wie folgt:</p>
+<p>In einer Studie wurden 1100 Spitzschwanzammer (<em>Ammodramus caudacutus</em>) vermessen. Wir nutzen einen Teil des Datensatzes <span class="citation" data-cites="Zuur2009">(<a href="references.html#ref-Zuur2009" role="doc-biblioref">Zuur, Ieno, and Meesters 2009a</a>)</span>. Die gemessenen Variablen sind Fluegel, Fuss (Tarsus), Kopf, Gewicht. Leider git die Datenquelle die Messeinheiten nicht an. Die Daten sind wie folgt:</p>
 <div class="cell">
 
 </div>
@@ -431,8 +440,8 @@ div.csl-indent {
 </section>
 <section id="daten-in-r-einlesen-und-aus-r-speichern" class="level2" data-number="A.3">
 <h2 data-number="A.3" class="anchored" data-anchor-id="daten-in-r-einlesen-und-aus-r-speichern"><span class="header-section-number">A.3</span> Daten in R einlesen und aus R speichern</h2>
-<section id="politbarometer-2021-einlesen-von-fremdformaten" class="level3" data-number="A.3.1">
-<h3 data-number="A.3.1" class="anchored" data-anchor-id="politbarometer-2021-einlesen-von-fremdformaten"><span class="header-section-number">A.3.1</span> Politbarometer 2021: Einlesen von Fremdformaten</h3>
+<section id="sec-aufgabe-politbarometer-einlesen" class="level3" data-number="A.3.1">
+<h3 data-number="A.3.1" class="anchored" data-anchor-id="sec-aufgabe-politbarometer-einlesen"><span class="header-section-number">A.3.1</span> Politbarometer 2021: Einlesen von Fremdformaten</h3>
 <p>Es gibt viele verschiedene Statistikpakete (z. B. SAS, SPSS, Stata), die mit grafischen Oberflächen arbeiten. Da die Analysen darin nicht <em>reproducible</em> sind (weil mit der Maus zusammengeklickt), empfehlen wir diese nicht. Dennoch gibt es manchmal interessante Datensätze, die in den Formaten dieser Statistikpakete vorliegen. ACHTUNG: Diese Aufgabe ist anspruchsvoll!</p>
 <p>In dieser Übung lernen Sie das Paket <a href="https://haven.tidyverse.org/">haven</a> kennen, dass solche Formate einlesen kann. Haven ist Teil von <code>tidyverse</code>, muss aber extra installiert und geladen werden.</p>
 <ol type="1">
@@ -486,8 +495,8 @@ div.csl-indent {
 </section>
 <section id="exploration-von-kategorialen-daten" class="level2" data-number="A.4">
 <h2 data-number="A.4" class="anchored" data-anchor-id="exploration-von-kategorialen-daten"><span class="header-section-number">A.4</span> Exploration von kategorialen Daten</h2>
-<section id="politbarometer-2021-das-interesse-für-politik" class="level3" data-number="A.4.1">
-<h3 data-number="A.4.1" class="anchored" data-anchor-id="politbarometer-2021-das-interesse-für-politik"><span class="header-section-number">A.4.1</span> Politbarometer 2021: Das Interesse für Politik</h3>
+<section id="sec-aufgabe-politbarometer-exploration-kategorial" class="level3" data-number="A.4.1">
+<h3 data-number="A.4.1" class="anchored" data-anchor-id="sec-aufgabe-politbarometer-exploration-kategorial"><span class="header-section-number">A.4.1</span> Politbarometer 2021: Das Interesse für Politik</h3>
 <p>Wir analysieren den Datensatz, den Sie in der vorherigen Übung geladen und vorbereitet haben.</p>
 <ol type="1">
 <li>Laden Sie nun den kurzen Datensatz <code>gesis_short</code> mit der passenden Bibliothek ein. Sie müssen vorher natürlich diese Bibliothek mit <code>library()</code> laden.</li>
@@ -543,11 +552,29 @@ div.csl-indent {
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(___)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Was macht <code>geom_bar(position = position_fill(reverse = TRUE))</code>?</p>
+</section>
+</section>
+<section id="exploration-von-numerischen-daten" class="level2" data-number="A.5">
+<h2 data-number="A.5" class="anchored" data-anchor-id="exploration-von-numerischen-daten"><span class="header-section-number">A.5</span> Exploration von numerischen Daten</h2>
+<section id="umweltdaten-entlang-der-dänischen-küste" class="level3" data-number="A.5.1">
+<h3 data-number="A.5.1" class="anchored" data-anchor-id="umweltdaten-entlang-der-dänischen-küste"><span class="header-section-number">A.5.1</span> Umweltdaten entlang der dänischen Küste</h3>
+<p>Die Datei “Temperatur.csv” aus <span class="citation" data-cites="Zuur2009a">Zuur, Ieno, and Meesters (<a href="references.html#ref-Zuur2009a" role="doc-biblioref">2009b</a>)</span> enthält Messungen von Temperatur, Salinität und Chlorophyl a an 31 Orten entlang der dänischen Küste. Der Datensatz kann <a href="https://highstat.com/index.php/a-beginner-s-guide-to-r">hier</a> heruntergeladen werden. Die Daten stammen vom dänischen Institut RIKZ (Monitoringprogramm MWTL: Monitoring Waterstaatkundige Toestand des Lands). Die Messungen wurden zwischen 1990 und 2005 durchgeführt mit einer Häufigkeit von 0–4 mal pro Monat je nach Jahreszeit.</p>
+<ol type="1">
+<li>Lesen Sie den Datensatz “Temperatur.csv” ein.</li>
+<li>Konvertieren Sie die Spalte Date in ein richtiges Datumsformat und plotten Sie die Temperaturen pro Station (<code>facet_wrap()</code>) als Zeitreihen.</li>
+<li>Berechnen Sie die Anzahl der Messwerte, Monatsmittelwerte der Temperatur für alle Stationen, sowie die Standardabweichungen.</li>
+<li>Stellen Sie die Monatsmittel der Temperatur als Linien dar.</li>
+<li>Beschriften Sie die Grafik sinnvoll.</li>
+<li>Fügen Sie die Standardabweichungen als Band hinzu.</li>
+</ol>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
 <div id="ref-Zuur2009" class="csl-entry" role="doc-biblioentry">
-Zuur, A. F., E. Ieno, and E. Meesters. 2009. <em>A Beginner’s Guide to <span>R</span></em>. <span>Springer</span>.
+Zuur, A. F., E. Ieno, and E. Meesters. 2009a. <em>A Beginner’s Guide to <span>R</span></em>. <span>Springer</span>.
+</div>
+<div id="ref-Zuur2009a" class="csl-entry" role="doc-biblioentry">
+———. 2009b. <em>A Beginner’s Guide to <span>R</span></em>. <span>Springer</span>.
 </div>
 </div>
 </section>
