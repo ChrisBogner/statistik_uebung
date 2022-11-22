@@ -14,7 +14,7 @@ library(kableExtra)
 library(lubridate)
 ```
 
-`tidyverse` ist eine Sammlung von R-Pakete, die explizit für Datenanalyse entwickelt wurden (https://www.tidyverse.org/). `tidyverse` versucht durch gemeinsame Philosophie in Design, Grammatik und Datenstruktur die Datenanalyse zu erleichtern (https://design.tidyverse.org/). Auch wenn `tidyverse` auf den ersten Blick etwas fremd erscheint, es ist ein Teil von R, kein eigenes Universum. Es ist also völlig in Ordnung, R-Basisfunktionen mit Funktionen aus `tidyverse` zu mischen.
+`tidyverse` ist eine Sammlung von R-Paketen, die explizit für Datenanalyse entwickelt wurden (https://www.tidyverse.org/). `tidyverse` versucht durch gemeinsame Philosophie in Design, Grammatik und Datenstruktur die Datenanalyse zu erleichtern (https://design.tidyverse.org/). Auch wenn `tidyverse` auf den ersten Blick etwas fremd erscheint, es ist ein Teil von R, kein eigenes Universum. Es ist also völlig in Ordnung, R-Basisfunktionen mit Funktionen aus `tidyverse` zu mischen.
 
 Das wichtigste Einführungsbuch zu `tidyverse` ist sicherlich **R4DS**: "R for Data Science" [@r4ds], das Sie kostenlos online lesen können (https://r4ds.had.co.nz/).
 
@@ -124,7 +124,7 @@ Funktion | Bedeutung |
 `mutate()` | Erstelle neue Variablen als Funktionen vorhandener Variablen |
 `summarize()` | Fasse Daten zusammen |
 
-Wir möchten nur von einer bestimmten Station die Anzahl der Messwerte wissen möchten, dann filtern wir vorher.
+Wenn wir nur von einer bestimmten Station die Anzahl der Messwerte wissen möchten, dann filtern wir vorher.
 
 ```{r}
 temp_humid %>% 
@@ -197,7 +197,7 @@ temp_humid <- temp_humid %>%
   mutate(year = year(MESS_DATUM))
 ```
 
-Da wir die Durchschnittstemperatur für jede Station und jedes Jahr separat berechnen wollen, müssen wir unseren Datensatz nach den Stationen gruppieren. Durch die Gruppierung einstehen intern Gruppen, für die Berechnungen getrennt laufen werden. An den Daten selbst ändert sich nichts.
+Da wir die Durchschnittstemperatur für jede Station und jedes Jahr separat berechnen wollen, müssen wir unseren Datensatz nach den Stationen gruppieren. Durch die Gruppierung entstehen intern Gruppen, für die Berechnungen getrennt laufen werden. An den Daten selbst ändert sich nichts.
 
 Als zweiten Schritt nutzen wir dann die Funktion `summerise()`, die verschiedene statistische Zusammenfassungen der Daten berechnen kann. In diesem Fall möchten wir mithilfe der Funktion `mean()` den Mittelwert berechnen. Wir nennen den neu berechneten Datensatz `yearly_means`.
 ```{r}
@@ -214,7 +214,7 @@ yearly_means
 
 ### Monatliche Durchschnittstemperatur und ihre Variabilität
 
-Wie hoch war die monatliche Durchschnittstemperatur auf den verschiedenen Stationen und wie stark schwankte sie? Diese Frage können wir beantworten, indem wir Mittelwerte und Standardabweichungen für jeden Monat eines jeden Jahres und jede Station berechnen. Für die Berechnung erstellen wir eine weite Spalte mit dem Monat. Die Funktion `month()` gehört ebenfalls zur Bibliothek `lubridate` und extrahieren den Monat aus `MESS_DATUM`.
+Wie hoch war die monatliche Durchschnittstemperatur auf den verschiedenen Stationen und wie stark schwankte sie? Diese Frage können wir beantworten, indem wir Mittelwerte und Standardabweichungen für jeden Monat eines jeden Jahres und jede Station berechnen. Für die Berechnung erstellen wir eine weite Spalte mit dem Monat. Die Funktion `month()` gehört ebenfalls zur Bibliothek `lubridate` und extrahiert den Monat aus `MESS_DATUM`.
 
 ```{r}
 temp_humid <- temp_humid %>% 
@@ -270,7 +270,7 @@ ggplot(monthly_means, aes(x = year_month, y = mean_T, ymin = mean_T - sd_T, ymax
   geom_errorbar() +
   geom_point() +
   facet_wrap(~STATIONS_ID, nrow = 3) + 
-  labs(x = 'Zeti', y = 'Temperatur (°C)')
+  labs(x = 'Zeit', y = 'Temperatur (°C)')
 ```
 
 Oder, weil es gerade Spaß macht, als halb-transparentes Band `r emo::ji('sunglasses')`.
