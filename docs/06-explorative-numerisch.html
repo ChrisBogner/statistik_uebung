@@ -315,7 +315,8 @@ div.csl-indent {
   <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="toc-section-number">6.6</span>  Aufgaben</a>
   <ul class="collapse">
   <li><a href="#was-bedeutet-der-code" id="toc-was-bedeutet-der-code" class="nav-link" data-scroll-target="#was-bedeutet-der-code"><span class="toc-section-number">6.6.1</span>  Was bedeutet der Code?</a></li>
-  <li><a href="#politbarometer" id="toc-politbarometer" class="nav-link" data-scroll-target="#politbarometer"><span class="toc-section-number">6.6.2</span>  Politbarometer</a></li>
+  <li><a href="#welche-mittelwerte-machen-sinn" id="toc-welche-mittelwerte-machen-sinn" class="nav-link" data-scroll-target="#welche-mittelwerte-machen-sinn"><span class="toc-section-number">6.6.2</span>  Welche Mittelwerte machen Sinn?</a></li>
+  <li><a href="#politbarometer" id="toc-politbarometer" class="nav-link" data-scroll-target="#politbarometer"><span class="toc-section-number">6.6.3</span>  Politbarometer</a></li>
   </ul></li>
   <li><a href="#ihre-arbeit-einreichen" id="toc-ihre-arbeit-einreichen" class="nav-link" data-scroll-target="#ihre-arbeit-einreichen"><span class="toc-section-number">6.7</span>  Ihre Arbeit einreichen</a></li>
   </ul>
@@ -697,6 +698,7 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 </div>
 </div>
 </div>
+<p>Die Berechnung der Jahresmittelwerte ist sehr kritisch zu sehen. Nicht alle berechneten Werte machen Sinn. Diskutieren Sie in der Hausaufgabe warum.</p>
 </section>
 <section id="monatliche-durchschnittstemperatur-und-ihre-variabilität" class="level3" data-number="6.4.3">
 <h3 data-number="6.4.3" class="anchored" data-anchor-id="monatliche-durchschnittstemperatur-und-ihre-variabilität"><span class="header-section-number">6.4.3</span> Monatliche Durchschnittstemperatur und ihre Variabilität</h3>
@@ -825,8 +827,12 @@ using the `.groups` argument.</code></pre>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="politbarometer" class="level3" data-number="6.6.2">
-<h3 data-number="6.6.2" class="anchored" data-anchor-id="politbarometer"><span class="header-section-number">6.6.2</span> Politbarometer</h3>
+<section id="welche-mittelwerte-machen-sinn" class="level3" data-number="6.6.2">
+<h3 data-number="6.6.2" class="anchored" data-anchor-id="welche-mittelwerte-machen-sinn"><span class="header-section-number">6.6.2</span> Welche Mittelwerte machen Sinn?</h3>
+<p>Diskutieren Sie kritisch, welche mittleren Jahrestemperaturen Sinn machen und interpretiert werden können. Begründen Sie?</p>
+</section>
+<section id="politbarometer" class="level3" data-number="6.6.3">
+<h3 data-number="6.6.3" class="anchored" data-anchor-id="politbarometer"><span class="header-section-number">6.6.3</span> Politbarometer</h3>
 <p>Bearbeiten Sie die Aufgaben <a href="100-aufgabensammlung.html#sec-aufgabe-politbarometer-einlesen"><span>Section&nbsp;A.3.1</span></a> und <a href="100-aufgabensammlung.html#sec-aufgabe-politbarometer-exploration-kategorial"><span>Section&nbsp;A.4.1</span></a> aus der Aufgabensammlung.</p>
 </section>
 </section>

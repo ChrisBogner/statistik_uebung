@@ -211,6 +211,7 @@ Wir erhalten einen Datensatz, der pro Jahr und Station einen Mittelwert der Temp
 yearly_means
 ```
 
+Die Berechnung der Jahresmittelwerte ist sehr kritisch zu sehen. Nicht alle berechneten Werte machen Sinn. Diskutieren Sie in der Hausaufgabe warum.
 
 ### Monatliche Durchschnittstemperatur und ihre Variabilität
 
@@ -317,6 +318,8 @@ Was bedeuten die Parameter `ymin` und `ymax` im folgenden Code?
 ggplot(monthly_means, aes(x = year_month, y = mean_T, ymin = mean_T - sd_T, ymax = mean_T + sd_T))
 ```
 
+### Welche Mittelwerte machen Sinn?
+Diskutieren Sie kritisch, welche mittleren Jahrestemperaturen Sinn machen und interpretiert werden können. Begründen Sie?
 
 ### Politbarometer
 Bearbeiten Sie die Aufgaben @sec-aufgabe-politbarometer-einlesen und @sec-aufgabe-politbarometer-exploration-kategorial aus der Aufgabensammlung.
