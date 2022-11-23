@@ -319,7 +319,7 @@ ggplot(monthly_means, aes(x = year_month, y = mean_T, ymin = mean_T - sd_T, ymax
 ```
 
 ### Welche Mittelwerte machen Sinn?
-Diskutieren Sie kritisch, welche mittleren Jahrestemperaturen Sinn machen und interpretiert werden können. Begründen Sie?
+Diskutieren Sie kritisch, welche mittleren Jahrestemperaturen Sinn machen und interpretiert werden können. Begründen Sie.
 
 ### Politbarometer
 Bearbeiten Sie die Aufgaben @sec-aufgabe-politbarometer-einlesen und @sec-aufgabe-politbarometer-exploration-kategorial aus der Aufgabensammlung.
