@@ -218,7 +218,7 @@ nycflights %>%
 ```
 
 :::{.exercises}
-5. Angenommen, Sie mögen keine Verspätungen bei der Abreise und möchten Ihre Reise in einem Monat planen, der Ihre mögliche Verspätung bei der Abreise aus New York minimiert. Eine Möglichkeit ist, den Monat mit der geringsten mittleren Abflugverspätung zu wählen. Eine andere Möglichkeit ist, den Monat mit der geringsten mittleren Abflugverspätung zu wählen. Was sind die Vor- und Nachteile dieser beiden Möglichkeiten?
+5. Angenommen, Sie mögen keine Verspätungen bei der Abreise und möchten Ihre Reise in einem Monat planen, der Ihre mögliche Verspätung bei der Abreise aus New York minimiert. Eine Möglichkeit ist, den Monat mit dem geringsten Mittelwerten der Abflugverspätung zu wählen. Eine andere Möglichkeit ist, den Monat mit dem geringsten Median der Abflugverspätung zu wählen. Was sind die Vor- und Nachteile dieser beiden Möglichkeiten?
 :::
 
 ### Pünktliche Abflugrate für NYC-Flughäfen
