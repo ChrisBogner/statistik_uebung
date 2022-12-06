@@ -198,3 +198,22 @@ Die Datei "Temperatur.csv" aus @Zuur2009a enthält Messungen von Temperatur, Sal
 1. Stellen Sie die Monatsmittel der Temperatur als Linien dar. Tipp: Um die Monate mit ihren Namen darzustellen, nutzen Sie den folgenden Code `scale_x_discrete(limits = as_factor(1:12), labels = month.abb)`. Hängen Sie ihn mit einem `+` an. Was macht dieser Code?
 1. Beschriften Sie die Grafik sinnvoll.
 1. Fügen Sie die Standardabweichungen als Band hinzu.
+
+### Quantile
+Wir beschäftigen uns mit dem Datensatz `possum` im Paket `openintro`.
+
+1. Laden Sie die Biblothek und anschließend den Datensatz.
+
+1. Berechnen Sie 
+
+- Das 1. Quartil
+- Das 3. Quartil
+- Den Median
+
+Der Körper- und Kopflängen.
+
+2. Stellen Sie die Körper- und Kopflängen als Boxplots nebeneinander dar. Nutzen Sie dazu die Bibliothek `patchwork`.
+
+3. Stellen Sie die beiden Variablen als Streudiagramm dar (Körperlängen auf die $x$-Achse).
+
+4. Berechnen Sie den linearen Korrelationskoeffizienten mit der Funktion `cor()`.
