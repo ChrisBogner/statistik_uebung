@@ -24,6 +24,9 @@ book:
       chapters:
         - 05-explorative-kategorial.qmd
         - 06-explorative-numerisch.qmd
+    - part: "STATISTISCHE MODELLIERUNG"
+      chapters: 
+        - 07-lineare-regression.qmd
     - part: "LABS: EIGENSTÄNDIGE ÜBUNGEN"
       chapters: 
         - 30-lab-02-intro-to-data.qmd

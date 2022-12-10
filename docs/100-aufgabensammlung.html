@@ -316,6 +316,7 @@ div.csl-indent {
   <li><a href="#exploration-von-numerischen-daten" id="toc-exploration-von-numerischen-daten" class="nav-link" data-scroll-target="#exploration-von-numerischen-daten"><span class="toc-section-number">A.5</span>  Exploration von numerischen Daten</a>
   <ul class="collapse">
   <li><a href="#umweltdaten-entlang-der-dänischen-küste" id="toc-umweltdaten-entlang-der-dänischen-küste" class="nav-link" data-scroll-target="#umweltdaten-entlang-der-dänischen-küste"><span class="toc-section-number">A.5.1</span>  Umweltdaten entlang der dänischen Küste</a></li>
+  <li><a href="#quantile" id="toc-quantile" class="nav-link" data-scroll-target="#quantile"><span class="toc-section-number">A.5.2</span>  Quantile</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -566,6 +567,25 @@ div.csl-indent {
 <li>Stellen Sie die Monatsmittel der Temperatur als Linien dar. Tipp: Um die Monate mit ihren Namen darzustellen, nutzen Sie den folgenden Code <code>scale_x_discrete(limits = as_factor(1:12), labels = month.abb)</code>. Hängen Sie ihn mit einem <code>+</code> an. Was macht dieser Code?</li>
 <li>Beschriften Sie die Grafik sinnvoll.</li>
 <li>Fügen Sie die Standardabweichungen als Band hinzu.</li>
+</ol>
+</section>
+<section id="quantile" class="level3" data-number="A.5.2">
+<h3 data-number="A.5.2" class="anchored" data-anchor-id="quantile"><span class="header-section-number">A.5.2</span> Quantile</h3>
+<p>Wir beschäftigen uns mit dem Datensatz <code>possum</code> im Paket <code>openintro</code>.</p>
+<ol type="1">
+<li><p>Laden Sie die Biblothek und anschließend den Datensatz.</p></li>
+<li><p>Berechnen Sie</p></li>
+</ol>
+<ul>
+<li>Das 1. Quartil</li>
+<li>Das 3. Quartil</li>
+<li>Den Median</li>
+</ul>
+<p>Der Körper- und Kopflängen.</p>
+<ol start="2" type="1">
+<li><p>Stellen Sie die Körper- und Kopflängen als Boxplots nebeneinander dar. Nutzen Sie dazu die Bibliothek <code>patchwork</code>.</p></li>
+<li><p>Stellen Sie die beiden Variablen als Streudiagramm dar (Körperlängen auf die <span class="math inline">\(x\)</span>-Achse).</p></li>
+<li><p>Berechnen Sie den linearen Korrelationskoeffizienten mit der Funktion <code>cor()</code>.</p></li>
 </ol>
 
 
