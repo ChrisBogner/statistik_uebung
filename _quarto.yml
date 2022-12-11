@@ -26,7 +26,7 @@ book:
         - 06-explorative-numerisch.qmd
     - part: "STATISTISCHE MODELLIERUNG"
       chapters: 
-        - 07-lineare-regression.qmd
+        - 07-lineare-regression-ein-pred.qmd
     - part: "LABS: EIGENSTÄNDIGE ÜBUNGEN"
       chapters: 
         - 30-lab-02-intro-to-data.qmd

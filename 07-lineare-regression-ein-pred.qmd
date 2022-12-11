@@ -1,4 +1,4 @@
-# Lineare Regression {#regression}
+# Lineare Regression mit einer erklärenden Variablen {#regression}
 
 :::{.outcomes}
 - Allgemeinen Aufbau eines Regressionsmodells erklären.
@@ -28,7 +28,7 @@ Die lineare Regression untersucht also den **linearen Zusammenhang** zwischen de
 
 Die Zielvariable muss nicht immer stetig wie die Körpergröße sein. Sie kann binär, kategorial oder eine Zählvariable sein. Auch die erklärenden Variablen können stetig, binär oder kategorial sein. Das macht die Regressionsmodelle sehr divers. Wir werden uns im Wesentlichen mit numerischen Zielvariablen beschäftigen.
 
-## Lineare Regression mit einer erklärenden Variablen
+## Lineare Regression mit einer numerischen erklärenden Variablen
 Die Formel für die lineare Regression mit einer erklärenden Variablen haben Sie bereits in der Vorlesung kennengelernt:
 
 :::{.def}
