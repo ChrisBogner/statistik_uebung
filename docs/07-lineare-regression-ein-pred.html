@@ -352,7 +352,7 @@ div.csl-indent {
 <div class="outcomes">
 <ul>
 <li>Allgemeinen Aufbau eines Regressionsmodells erklären.</li>
-<li>Lineare Regression mit einer und mehreren erklärenden Variablen selbst in R durchführen.</li>
+<li>Lineare Regression mit einer erklärenden Variablen selbst in R durchführen.</li>
 <li>Parameter des linearen Regressionsmodells interpretieren.</li>
 </ul>
 </div>
@@ -429,7 +429,7 @@ div.csl-indent {
 </section>
 <section id="modellparameter" class="level3" data-number="7.3.2">
 <h3 data-number="7.3.2" class="anchored" data-anchor-id="modellparameter"><span class="header-section-number">7.3.2</span> Modellparameter</h3>
-<p>Die Modellergebnisse haben wir dem Objekt <code>mod</code> zugeordnet. Das enthält sowohl die Modellparameter als auch die Residuen und die angepassten Werte. Die Modellparameter sind der <span class="math inline">\(y\)</span>-Achsenabschnitt (engl. <em>intercept</em>) und die Steigun der Geraden. Die Funktion <code>tidy()</code>aus dem Paket <code>broom()</code> sorgt für ein schönes Layout der Tabelle:</p>
+<p>Die Modellergebnisse haben wir dem Objekt <code>mod</code> zugeordnet. Das enthält sowohl die Modellparameter als auch die Residuen und die angepassten Werte. Die Modellparameter sind der <span class="math inline">\(y\)</span>-Achsenabschnitt (engl. <em>intercept</em>) und die Steigung der Geraden. Die Funktion <code>tidy()</code>aus dem Paket <code>broom()</code> sorgt für ein schönes Layout der Tabelle:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mod <span class="sc">%&gt;%</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -447,7 +447,7 @@ div.csl-indent {
 <section id="residualplot" class="level3" data-number="7.3.3">
 <h3 data-number="7.3.3" class="anchored" data-anchor-id="residualplot"><span class="header-section-number">7.3.3</span> Residualplot</h3>
 <p>Als Nächstes müssen wir überprüfen, ob die Residuen in unserem Modell irgendwelche auffälligen Muster zeigen. Das wäre ein Hinweis darauf, dass wir entweder ein falsches Modell (z. B. linear statt nicht-linear) angepasst oder evtl. eine erklärende Variable nicht berücksichtigt haben.</p>
-<p>Die Residuen werden in einem sogen. <strong>Residualplot</strong> dargestellt. Dabei werde auf der <span class="math inline">\(x\)</span>-Achse die vom Modell angepassten Werte, d.&nbsp;h. die Werte auf der Geraden, dargestellt, und auf der <span class="math inline">\(y\)</span>-Achse die Residuen. Um den Aufruf zu <code>ggplot()</code> zu vereinfachen, speichern wir die Residuen und die angepassten Werte direkt im Datensatz <code>penguins</code> mithilfe von `mutate().</p>
+<p>Die Residuen werden in einem sogen. <strong>Residualplot</strong> dargestellt. Dabei werden auf der <span class="math inline">\(x\)</span>-Achse die vom Modell angepassten Werte, d.&nbsp;h. die Werte auf der Geraden, dargestellt, und auf der <span class="math inline">\(y\)</span>-Achse die Residuen. Um den Aufruf zu <code>ggplot()</code> zu vereinfachen, speichern wir die Residuen und die angepassten Werte direkt im Datensatz <code>penguins</code> mithilfe von `mutate().</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">residuals =</span> <span class="fu">residuals</span>(mod),</span>
@@ -498,7 +498,7 @@ div.csl-indent {
 <h2 data-number="7.4" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">7.4</span> Aufgaben</h2>
 <section id="vertiefung-des-linearen-modells" class="level3" data-number="7.4.1">
 <h3 data-number="7.4.1" class="anchored" data-anchor-id="vertiefung-des-linearen-modells"><span class="header-section-number">7.4.1</span> Vertiefung des linearen Modells</h3>
-<p>Arbeiten Sie das Tutorial <a href="https://openintro.shinyapps.io/ims-03-model-04/#section-a-linear-model-object">Regression modeling: 4 - Interpreting regression models</a> durch.</p>
+<p>Arbeiten Sie das Tutorial <a href="https://openintro.shinyapps.io/ims-03-model-04/">Regression modeling: 4 - Interpreting regression models</a> durch.</p>
 </section>
 <section id="vorhersagen" class="level3" data-number="7.4.2">
 <h3 data-number="7.4.2" class="anchored" data-anchor-id="vorhersagen"><span class="header-section-number">7.4.2</span> Vorhersagen</h3>

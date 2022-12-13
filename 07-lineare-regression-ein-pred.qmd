@@ -2,7 +2,7 @@
 
 :::{.outcomes}
 - Allgemeinen Aufbau eines Regressionsmodells erklären.
-- Lineare Regression mit einer und mehreren erklärenden Variablen selbst in R durchführen.
+- Lineare Regression mit einer erklärenden Variablen selbst in R durchführen.
 - Parameter des linearen Regressionsmodells interpretieren.
 :::
 
@@ -77,7 +77,7 @@ Der Parameter des Aufrufs ist wie folgt:
 - `na.action = na.exclude`: Die fehlenden Werte sollen für die Modellierung ignoriert werden.
 
 ### Modellparameter
-Die Modellergebnisse haben wir dem Objekt `mod` zugeordnet. Das enthält sowohl die Modellparameter als auch die Residuen und die angepassten Werte. Die Modellparameter sind der $y$-Achsenabschnitt (engl. *intercept*) und die Steigun der Geraden. Die Funktion `tidy()`aus dem Paket `broom()` sorgt für ein schönes Layout der Tabelle:
+Die Modellergebnisse haben wir dem Objekt `mod` zugeordnet. Das enthält sowohl die Modellparameter als auch die Residuen und die angepassten Werte. Die Modellparameter sind der $y$-Achsenabschnitt (engl. *intercept*) und die Steigung der Geraden. Die Funktion `tidy()`aus dem Paket `broom()` sorgt für ein schönes Layout der Tabelle:
 
 ```{r}
 mod %>% 
@@ -89,7 +89,7 @@ Der $y$-Achsenabschnitt ist also 136,7 mm und die Steigung 0,02 mm/g. Um die and
 ### Residualplot
 Als Nächstes müssen wir überprüfen, ob die Residuen in unserem Modell irgendwelche auffälligen Muster zeigen. Das wäre ein Hinweis darauf, dass wir entweder ein falsches Modell (z. B. linear statt nicht-linear) angepasst oder evtl. eine erklärende Variable nicht berücksichtigt haben.
 
-Die Residuen werden in einem sogen. **Residualplot** dargestellt. Dabei werde auf der $x$-Achse die vom Modell angepassten Werte, d. h. die Werte auf der Geraden, dargestellt, und auf der $y$-Achse die Residuen. Um den Aufruf zu `ggplot()` zu vereinfachen, speichern wir die Residuen und die angepassten Werte direkt im Datensatz `penguins` mithilfe von `mutate().
+Die Residuen werden in einem sogen. **Residualplot** dargestellt. Dabei werden auf der $x$-Achse die vom Modell angepassten Werte, d. h. die Werte auf der Geraden, dargestellt, und auf der $y$-Achse die Residuen. Um den Aufruf zu `ggplot()` zu vereinfachen, speichern wir die Residuen und die angepassten Werte direkt im Datensatz `penguins` mithilfe von `mutate().
 
 ```{r}
 penguins <- penguins %>% 
@@ -135,7 +135,7 @@ Die Steigung des linearen Modells beschreibt, um wie viel die durchschnittliche 
 ## Aufgaben
 
 ### Vertiefung des linearen Modells
-Arbeiten Sie das Tutorial [Regression modeling: 4 - Interpreting regression models](https://openintro.shinyapps.io/ims-03-model-04/#section-a-linear-model-object) durch.
+Arbeiten Sie das Tutorial [Regression modeling: 4 - Interpreting regression models](https://openintro.shinyapps.io/ims-03-model-04/) durch.
 
 ### Vorhersagen
 Nachdem Sie das Tutorial durchgearbeitet haben, nutzen Sie Ihr neues Wissen, und 
