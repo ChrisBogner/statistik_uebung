@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.189">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Übung zur Vorlesung Statistik und Datenanalyse - 8&nbsp; Lab 02: Pünktlichkeit von Flügen</title>
+<title>Übung zur Vorlesung Statistik und Datenanalyse - 9&nbsp; Lab 02: Pünktlichkeit von Flügen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,7 +94,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./references.html" rel="next">
-<link href="./07-lineare-regression-ein-pred.html" rel="prev">
+<link href="./09-tests-infer.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -138,7 +138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -250,7 +250,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">LABS: EIGENSTÄNDIGE ÜBUNGEN</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">STATISTISCHE INFERENZ</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -258,7 +258,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./30-lab-02-intro-to-data.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></a>
+  <a href="./09-tests-infer.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesentests mit Randomisierung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">LABS: EIGENSTÄNDIGE ÜBUNGEN</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30-lab-02-intro-to-data.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></a>
   </div>
 </li>
       </ul>
@@ -270,12 +285,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Appendices</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./100-aufgabensammlung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Aufgabensammlung</span></a>
@@ -292,22 +307,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#erste-schritte" id="toc-erste-schritte" class="nav-link active" data-scroll-target="#erste-schritte"><span class="toc-section-number">8.1</span>  Erste Schritte</a>
+  <li><a href="#erste-schritte" id="toc-erste-schritte" class="nav-link active" data-scroll-target="#erste-schritte"><span class="toc-section-number">9.1</span>  Erste Schritte</a>
   <ul class="collapse">
-  <li><a href="#pakete-laden" id="toc-pakete-laden" class="nav-link" data-scroll-target="#pakete-laden"><span class="toc-section-number">8.1.1</span>  Pakete laden</a></li>
-  <li><a href="#erstellen-eines-reproduzierbaren-berichts" id="toc-erstellen-eines-reproduzierbaren-berichts" class="nav-link" data-scroll-target="#erstellen-eines-reproduzierbaren-berichts"><span class="toc-section-number">8.1.2</span>  Erstellen eines reproduzierbaren Berichts</a></li>
-  <li><a href="#die-daten" id="toc-die-daten" class="nav-link" data-scroll-target="#die-daten"><span class="toc-section-number">8.1.3</span>  Die Daten</a></li>
+  <li><a href="#pakete-laden" id="toc-pakete-laden" class="nav-link" data-scroll-target="#pakete-laden"><span class="toc-section-number">9.1.1</span>  Pakete laden</a></li>
+  <li><a href="#erstellen-eines-reproduzierbaren-berichts" id="toc-erstellen-eines-reproduzierbaren-berichts" class="nav-link" data-scroll-target="#erstellen-eines-reproduzierbaren-berichts"><span class="toc-section-number">9.1.2</span>  Erstellen eines reproduzierbaren Berichts</a></li>
+  <li><a href="#die-daten" id="toc-die-daten" class="nav-link" data-scroll-target="#die-daten"><span class="toc-section-number">9.1.3</span>  Die Daten</a></li>
   </ul></li>
-  <li><a href="#analyse" id="toc-analyse" class="nav-link" data-scroll-target="#analyse"><span class="toc-section-number">8.2</span>  Analyse</a>
+  <li><a href="#analyse" id="toc-analyse" class="nav-link" data-scroll-target="#analyse"><span class="toc-section-number">9.2</span>  Analyse</a>
   <ul class="collapse">
-  <li><a href="#bericht" id="toc-bericht" class="nav-link" data-scroll-target="#bericht"><span class="toc-section-number">8.2.1</span>  Bericht</a></li>
-  <li><a href="#abflugverspätungen" id="toc-abflugverspätungen" class="nav-link" data-scroll-target="#abflugverspätungen"><span class="toc-section-number">8.2.2</span>  Abflugverspätungen</a></li>
+  <li><a href="#bericht" id="toc-bericht" class="nav-link" data-scroll-target="#bericht"><span class="toc-section-number">9.2.1</span>  Bericht</a></li>
+  <li><a href="#abflugverspätungen" id="toc-abflugverspätungen" class="nav-link" data-scroll-target="#abflugverspätungen"><span class="toc-section-number">9.2.2</span>  Abflugverspätungen</a></li>
   </ul></li>
-  <li><a href="#abflugverspätungen-nach-monaten" id="toc-abflugverspätungen-nach-monaten" class="nav-link" data-scroll-target="#abflugverspätungen-nach-monaten"><span class="toc-section-number">8.3</span>  Abflugverspätungen nach Monaten</a>
+  <li><a href="#abflugverspätungen-nach-monaten" id="toc-abflugverspätungen-nach-monaten" class="nav-link" data-scroll-target="#abflugverspätungen-nach-monaten"><span class="toc-section-number">9.3</span>  Abflugverspätungen nach Monaten</a>
   <ul class="collapse">
-  <li><a href="#pünktliche-abflugrate-für-nyc-flughäfen" id="toc-pünktliche-abflugrate-für-nyc-flughäfen" class="nav-link" data-scroll-target="#pünktliche-abflugrate-für-nyc-flughäfen"><span class="toc-section-number">8.3.1</span>  Pünktliche Abflugrate für NYC-Flughäfen</a></li>
+  <li><a href="#pünktliche-abflugrate-für-nyc-flughäfen" id="toc-pünktliche-abflugrate-für-nyc-flughäfen" class="nav-link" data-scroll-target="#pünktliche-abflugrate-für-nyc-flughäfen"><span class="toc-section-number">9.3.1</span>  Pünktliche Abflugrate für NYC-Flughäfen</a></li>
   </ul></li>
-  <li><a href="#weitere-übungen" id="toc-weitere-übungen" class="nav-link" data-scroll-target="#weitere-übungen"><span class="toc-section-number">8.4</span>  Weitere Übungen</a></li>
+  <li><a href="#weitere-übungen" id="toc-weitere-übungen" class="nav-link" data-scroll-target="#weitere-übungen"><span class="toc-section-number">9.4</span>  Weitere Übungen</a></li>
   </ul>
 </nav>
     </div>
@@ -316,7 +331,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-lab-02-intro-to-data" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></span></h1>
+<h1 class="title"><span id="sec-lab-02-intro-to-data" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></span></h1>
 </div>
 
 
@@ -324,6 +339,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -334,10 +350,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Das ist die deutsche Übersetzung des “OpenIntro Labs for R and tidyverse” <a href="http://openintrostat.github.io/oilabs-tidy/">2. Intro to data</a>. Es ist Teil des Buches von Çetinkaya-Rundel et al., <a href="https://openintro-ims.netlify.app/index.html">Introduction to Modern Statistics</a>, lizenziert unter CC-BY-SA 3.0. Übersetzt mit www.DeepL.com/Translator, bearbeitet und ergänzt von C. Bogner und L. Dedeke.</p>
 </div>
 <p>Manche definieren Statistik als das Gebiet, das sich darauf konzentriert, Informationen in Wissen zu verwandeln. Der erste Schritt in diesem Prozess ist die Zusammenfassung und Beschreibung der Rohinformationen - der Daten. In dieser Übung untersuchen wir Flüge, insbesondere eine Zufallsstichprobe von Inlandsflügen, die im Jahr 2013 von den drei großen Flughäfen in New York City abgeflogen sind. Wir werden einfache grafische und numerische Zusammenfassungen der Daten zu diesen Flügen erstellen und die Verspätungszeiten untersuchen. Da es sich um einen großen Datensatz handelt, werden Sie nebenbei auch die unverzichtbaren Fertigkeiten der Datenverarbeitung und -unterteilung erlernen.</p>
-<section id="erste-schritte" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="erste-schritte"><span class="header-section-number">8.1</span> Erste Schritte</h2>
-<section id="pakete-laden" class="level3" data-number="8.1.1">
-<h3 data-number="8.1.1" class="anchored" data-anchor-id="pakete-laden"><span class="header-section-number">8.1.1</span> Pakete laden</h3>
+<section id="erste-schritte" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="erste-schritte"><span class="header-section-number">9.1</span> Erste Schritte</h2>
+<section id="pakete-laden" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="pakete-laden"><span class="header-section-number">9.1.1</span> Pakete laden</h3>
 <p>In dieser Übung werden wir die Daten mithilfe der Paketsammlung <strong>tidyverse</strong> untersuchen und visualisieren. Die Daten befinden sich im Begleitpaket für OpenIntro-Übungen, <strong>openintro</strong>.</p>
 <p>Lassen Sie uns die Pakete laden.</p>
 <div class="cell">
@@ -345,14 +361,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="erstellen-eines-reproduzierbaren-berichts" class="level3" data-number="8.1.2">
-<h3 data-number="8.1.2" class="anchored" data-anchor-id="erstellen-eines-reproduzierbaren-berichts"><span class="header-section-number">8.1.2</span> Erstellen eines reproduzierbaren Berichts</h3>
+<section id="erstellen-eines-reproduzierbaren-berichts" class="level3" data-number="9.1.2">
+<h3 data-number="9.1.2" class="anchored" data-anchor-id="erstellen-eines-reproduzierbaren-berichts"><span class="header-section-number">9.1.2</span> Erstellen eines reproduzierbaren Berichts</h3>
 <p>Denken Sie daran, dass wir R Markdown verwenden werden, um reproduzierbare Berichte zu erstellen. Gehen Sie in RStudio zu New File -&gt; R Markdown… Wählen Sie dann <code>From Template</code> und wählen Sie dann <code>Lab Report for OpenIntro Statistics Labs</code> aus der Liste der Vorlagen. Oder verfahren Sie so, wie wir es in den Übungen gelernt haben New File -&gt; R Notebook… Beide Varianten sind in Ordnung. Wenn Sie die Variante mit R Markdown wählen, gibt es keinen Button “Preview”, sondern Sie müssen das Dokument “knitten” über den Button mit dem Wollknäuel.</p>
 <p>Sehen Sie sich das folgende Video an, in dem beschrieben wird, wie Sie mit der Erstellung dieser Berichte für dieses und alle zukünftigen Labs beginnen können:</p>
 <p><a href="https://www.youtube.com/watch?v=Pdc368lS2hk">Grundlegendes zu R Markdown mit einer OpenIntro-Übung</a> <iframe width="640" height="360" src="https://www.youtube.com/embed/Pdc368lS2hk" title="Basic R Markdown with an OpenIntro Lab (Lab Video 1)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
 </section>
-<section id="die-daten" class="level3" data-number="8.1.3">
-<h3 data-number="8.1.3" class="anchored" data-anchor-id="die-daten"><span class="header-section-number">8.1.3</span> Die Daten</h3>
+<section id="die-daten" class="level3" data-number="9.1.3">
+<h3 data-number="9.1.3" class="anchored" data-anchor-id="die-daten"><span class="header-section-number">9.1.3</span> Die Daten</h3>
 <p>Das <a href="https://www.bts.gov/">Bureau of Transportation Statistics</a> (BTS) ist eine Statistikbehörde, die zur Research and Innovative Technology Administration (RITA) gehört. Wie der Name schon sagt, sammelt das BTS Verkehrsdaten und stellt sie zur Verfügung, wie z. B. die Flugdaten, mit denen wir in diesem Labor arbeiten werden.</p>
 <p>Als Erstes werden wir uns den Datensatz <code>nycflights</code> ansehen. Geben Sie Folgendes in Ihre Konsole ein, um die Daten zu laden:</p>
 <div class="cell">
@@ -401,14 +417,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </section>
 </section>
-<section id="analyse" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="analyse"><span class="header-section-number">8.2</span> Analyse</h2>
-<section id="bericht" class="level3" data-number="8.2.1">
-<h3 data-number="8.2.1" class="anchored" data-anchor-id="bericht"><span class="header-section-number">8.2.1</span> Bericht</h3>
+<section id="analyse" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="analyse"><span class="header-section-number">9.2</span> Analyse</h2>
+<section id="bericht" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="bericht"><span class="header-section-number">9.2.1</span> Bericht</h3>
 <p>Um Ihre Analyse in einem reproduzierbaren Bericht festzuhalten, können Sie die allgemeine Vorlage für Berichte aus dem Paket <code>openintro</code> anpassen. Sehen Sie sich das Video oben an, um zu erfahren, wie das geht.</p>
 </section>
-<section id="abflugverspätungen" class="level3" data-number="8.2.2">
-<h3 data-number="8.2.2" class="anchored" data-anchor-id="abflugverspätungen"><span class="header-section-number">8.2.2</span> Abflugverspätungen</h3>
+<section id="abflugverspätungen" class="level3" data-number="9.2.2">
+<h3 data-number="9.2.2" class="anchored" data-anchor-id="abflugverspätungen"><span class="header-section-number">9.2.2</span> Abflugverspätungen</h3>
 <p>Beginnen wir damit, die Verteilung der Abflugverspätungen aller Flüge mit einem Histogramm zu untersuchen.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> nycflights, <span class="fu">aes</span>(<span class="at">x =</span> dep_delay)) <span class="sc">+</span></span>
@@ -501,8 +517,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="abflugverspätungen-nach-monaten" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="abflugverspätungen-nach-monaten"><span class="header-section-number">8.3</span> Abflugverspätungen nach Monaten</h2>
+<section id="abflugverspätungen-nach-monaten" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="abflugverspätungen-nach-monaten"><span class="header-section-number">9.3</span> Abflugverspätungen nach Monaten</h2>
 <p>In welchem Monat würden Sie die höchste durchschnittliche Verspätung bei Abflügen von einem New Yorker Flughafen erwarten?</p>
 <p>Lassen Sie uns überlegen, wie Sie diese Frage beantworten können:</p>
 <ul>
@@ -524,8 +540,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Angenommen, Sie mögen keine Verspätungen bei der Abreise und möchten Ihre Reise in einem Monat planen, der Ihre mögliche Verspätung bei der Abreise aus New York minimiert. Eine Möglichkeit ist, den Monat mit dem geringsten Mittelwerten der Abflugverspätung zu wählen. Eine andere Möglichkeit ist, den Monat mit dem geringsten Median der Abflugverspätung zu wählen. Was sind die Vor- und Nachteile dieser beiden Möglichkeiten?</li>
 </ol>
 </div>
-<section id="pünktliche-abflugrate-für-nyc-flughäfen" class="level3" data-number="8.3.1">
-<h3 data-number="8.3.1" class="anchored" data-anchor-id="pünktliche-abflugrate-für-nyc-flughäfen"><span class="header-section-number">8.3.1</span> Pünktliche Abflugrate für NYC-Flughäfen</h3>
+<section id="pünktliche-abflugrate-für-nyc-flughäfen" class="level3" data-number="9.3.1">
+<h3 data-number="9.3.1" class="anchored" data-anchor-id="pünktliche-abflugrate-für-nyc-flughäfen"><span class="header-section-number">9.3.1</span> Pünktliche Abflugrate für NYC-Flughäfen</h3>
 <p>Angenommen, Sie fliegen von New York City aus und möchten wissen, welcher der drei großen Flughäfen in New York City die beste Pünktlichkeitsrate bei abgehenden Flügen aufweist. Nehmen wir weiter an, dass für Sie ein Flug, der weniger als 5 Minuten Verspätung hat, grundsätzlich “pünktlich” (“on time”) ist. Sie betrachten jeden Flug, der mehr als 5 Minuten Verspätung hat, als “verspätet” (“delayed”).</p>
 <p>Um festzustellen, welcher Flughafen die beste Pünktlichkeitsquote hat, können Sie</p>
 <ul>
@@ -560,8 +576,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="weitere-übungen" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="weitere-übungen"><span class="header-section-number">8.4</span> Weitere Übungen</h2>
+<section id="weitere-übungen" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="weitere-übungen"><span class="header-section-number">9.4</span> Weitere Übungen</h2>
 <div class="exercises">
 <ol start="8" type="1">
 <li><p>Ändern Sie das Dataframe so, dass es eine neue Variable enthält, die die Durchschnittsgeschwindigkeit, <code>avg_speed</code>, die das Flugzeug bei jedem Flug zurückgelegt hat (in mph), angibt. <strong>Tipp</strong>: Die Durchschnittsgeschwindigkeit kann als Entfernung geteilt durch die Anzahl der Flugstunden berechnet werden, und beachten Sie, dass die Flugzeit <code>air_time</code> in Minuten angegeben wird.</p></li>
@@ -620,7 +636,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -656,31 +689,49 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./07-lineare-regression-ein-pred.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lineare Regression mit einer erklärenden Variablen</span></span>
+      <a href="./09-tests-infer.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesentests mit Randomisierung</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

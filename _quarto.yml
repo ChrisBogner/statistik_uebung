@@ -6,12 +6,7 @@ book:
   title: "Übung zur Vorlesung Statistik und Datenanalyse"
   author: "Christina Bogner"
   date: last-modified
-  lang: de
-  language:
-    de:
-      crossref-ch-prefix: "Kapitel "
-      crossref-tbl-title: 'Tabelle '
-      crossref-fig-title: 'Abbildung '
+  language: "de-DE"
   chapters: 
     - index.qmd
     - part: "EINFÜHRUNG IN R"
@@ -27,6 +22,9 @@ book:
     - part: "STATISTISCHE MODELLIERUNG"
       chapters: 
         - 07-lineare-regression-ein-pred.qmd
+    - part: "STATISTISCHE INFERENZ"
+      chapters: 
+        - 09-tests-infer.qmd
     - part: "LABS: EIGENSTÄNDIGE ÜBUNGEN"
       chapters: 
         - 30-lab-02-intro-to-data.qmd
@@ -40,7 +38,12 @@ book:
     background: light
     
 bibliography: '../statistik_und_datenanalyse/statistik_und_datenanalyse.bib'
-  
+
+language:
+  de:
+    crossref-fig-title: "Abbildung"
+    crossref-tbl-title: "Tabelle"
+
 format:
   html:
     theme: cosmo
