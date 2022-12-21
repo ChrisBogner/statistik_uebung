@@ -138,9 +138,11 @@ d_hat
 ```
 
 ### Schritt 2: Simulationsexperimente durchführen
-Um Daten unter der Nullhypothese, d. h. wenn die Nullhypothese gilt, zu produzieren, permutieren wir 10000 Mal die Variable `studienordnung`. Denn, wenn die Studiendauer nicht von der Studienordnung abhängt, dann sind diese beiden Variablen unabhängig. Das legt die Zeile `hypothesize(null = "independence")` fest.
+Um Daten unter der Nullhypothese, d. h. wenn die Nullhypothese gilt, zu produzieren, permutieren wir 10000 Mal die Variable `studienordnung`. Denn, wenn die Studiendauer nicht von der Studienordnung abhängt, dann sind diese beiden Variablen unabhängig. Das legt die Zeile `hypothesize(null = "independence")` fest. Damit wir alle dieselben Ergebnisse bekommen, setzen wir erneut set.seed().
 
 ```{r}
+set.seed(56)
+
 null_dist <- befragung %>%
   specify(studiendauer ~ studienordnung) %>%
   hypothesize(null = "independence") %>%
