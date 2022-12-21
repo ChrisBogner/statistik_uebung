@@ -51,7 +51,7 @@ studiendauer <- rnorm(n = pop_size, mean = 3.5, sd = 0.6)
 Wir setzen `geschlecht`, `wohnort`, `studiendauer`, `studienordnung` und `anreise` zu einer Datenmatrix (`tibble`) zusammen und nennen das Objekt `grundgesamtheit`.
 
 ```{r}
-grundgesamtheit <- tibble(geschlecht, wohnort, studiendauer, studienordnung, anreise)
+grundgesamtheit <- tibble(student_id, geschlecht, wohnort, studiendauer, studienordnung, anreise)
 ```
 
 ### Befragung simulieren
