@@ -138,7 +138,7 @@ d_hat
 ```
 
 ### Schritt 2: Simulationsexperimente durchführen
-Um Daten unter der Nullhypothese, d. h. wenn die Nullhypothese gilt, zu produzieren, permutieren wir 1000 Mal die Variable `studienordnung`. Denn, wenn die Studiendauer nicht von der Studienordnung abhängt, dann sind diese beiden Variablen unabhängig. Das legt die Zeile `hypothesize(null = "independence")` fest.
+Um Daten unter der Nullhypothese, d. h. wenn die Nullhypothese gilt, zu produzieren, permutieren wir 10000 Mal die Variable `studienordnung`. Denn, wenn die Studiendauer nicht von der Studienordnung abhängt, dann sind diese beiden Variablen unabhängig. Das legt die Zeile `hypothesize(null = "independence")` fest.
 
 ```{r}
 null_dist <- befragung %>%
@@ -149,23 +149,24 @@ null_dist <- befragung %>%
 ```
 
 ### Schritt 3: Ergebnisse darstellen
-Wir stellen die Verteilung der Teststatistiken unter der Nullhypothese als eine Verteilung dar und zeichnen zusätzlich ein, wo sich der $p$-Wert befindet. Dieser zeigt die Wahrscheinlichkeit, eine Teststatistik (in unserem Fall den Unterschied der Mittelwerte) so extrem oder noch extremer zu erhalten, als in den beobachteten Daten. Da unsere Alternativhypothese lautet, dass die Studiendauer sich verändert hat, betrachten wir extreme Werte sowohl bei der Verlängerung als auch bei der Verkürzung als Evidenz gegen die Nullhypothese und zugunsten der Alternativhypothese.
+Wir stellen die Verteilung der Teststatistiken unter der Nullhypothese als ein Histogramm dar und zeichnen zusätzlich ein, wo sich die beobachtete Teststatistik (d. h. der beobachtete Unterschied der Mittelwerte) befindet als vertikale rote Linie. Die schattierten Bereiche zeigen Teststatistiken aus den Permutationen, die so extrem oder noch extremer sind, als die beobachtete Teststatistik von `r as.numeric(d_hat)`. Da unsere Alternativhypothese lautet, dass sich die Studiendauer verändert hat, betrachten wir extreme Werte sowohl bei der Verlängerung als auch bei der Verkürzung der Studiendauer als Evidenz gegen die Nullhypothese und zugunsten der Alternativhypothese. Daher färben wird die Bereiche links und spiegelbildlich rechts der beobachteten Teststatistik ein.
 
 ```{r}
 visualize(null_dist) +
-  shade_p_value(obs_stat = d_hat, direction = "two_sided")
+  shade_p_value(obs_stat = d_hat, direction = "two-sided")
 ```
 
+
 ### Schritt 4: $p$-Wert berechnen und Schlussfolgerungen ziehen
-Der folgende Code berechnet den $p$-Wert.
+Der folgende Code berechnet den $p$-Wert. Der $p$-Wert gibt uns die Wahrscheinlichkeit an, eine Teststatistik (also die Differenz der Mittelwerte) so extrem oder noch extremer als `r as.numeric(d_hat)` zu beobachten, wenn die Nullhypothese tatsächlich korrekt ist. In anderen Worten, wenn wir in `infer` Daten generieren unter der Nullhypothese (d. h. übereinstimmend mit der Nullhypothese), dann kommt eine Differenz von `r as.numeric(d_hat)` oder noch größer und spiegelbildlich von `r -1* as.numeric(d_hat)` oder noch kleiner mit einer Wahrscheinlichkeit von $p$ vor. Um den $p$-Wert zu berechnen, rechnen wir den Anteil der eingefärbten Bereiche aus.
 
 ```{r}
 null_dist %>%
-  get_p_value(obs_stat = d_hat, direction = "two_sided")
+  get_p_value(obs_stat = d_hat, direction = "two-sided")
 ```
 
-Wir sehen also, dass in Differenzen zwischen den Mittelwerten von `r as.numeric(d_hat)` oder noch größer in `r null_dist %>%
-  get_p_value(obs_stat = d_hat, direction = "two_sided") %>% as.numeric() * 100`% der Fälle vorkommen, wenn die Nullhypothese gilt. Das ist also nichts Besonderes. Unser Signifikanzniveau ist $\alpha = 0.05$. Da $p > \alpha$, behalten wir die Nullhypothese bei. Es gibt also keinen Unterschied in der Studiendauer zwischen der alten und der neuen Studienordnung.
+Wir sehen also, dass Differenzen zwischen den Mittelwerten von `r as.numeric(d_hat)` oder noch größer oder und spiegelbildlich von `r -1* as.numeric(d_hat)` oder noch kleiner in `r null_dist %>%
+  get_p_value(obs_stat = d_hat, direction = "two_sided") %>% as.numeric() * 100`% der Fälle vorkommen, wenn die Nullhypothese gilt. So eine Differenz ist also nichts Besonderes. Unser Signifikanzniveau ist $\alpha = 0.05$. Da $p > \alpha$, behalten wir die Nullhypothese bei. Es gibt also keinen Unterschied in der Studiendauer zwischen der alten und der neuen Studienordnung.
 
 
 ## Aufgaben

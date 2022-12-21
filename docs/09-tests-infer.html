@@ -316,7 +316,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#hypothesentest-durchführen" id="toc-hypothesentest-durchführen" class="nav-link" data-scroll-target="#hypothesentest-durchführen"><span class="toc-section-number">8.3</span>  Hypothesentest durchführen</a>
   <ul class="collapse">
   <li><a href="#schritt-1-nullhypothese-und-alternativhypothese-festlegen" id="toc-schritt-1-nullhypothese-und-alternativhypothese-festlegen" class="nav-link" data-scroll-target="#schritt-1-nullhypothese-und-alternativhypothese-festlegen"><span class="toc-section-number">8.3.1</span>  Schritt 1: Nullhypothese und Alternativhypothese festlegen</a></li>
-  <li><a href="#schritt-2-simulationsexperiemente-durchführen" id="toc-schritt-2-simulationsexperiemente-durchführen" class="nav-link" data-scroll-target="#schritt-2-simulationsexperiemente-durchführen"><span class="toc-section-number">8.3.2</span>  Schritt 2: Simulationsexperiemente durchführen</a></li>
+  <li><a href="#schritt-2-simulationsexperimente-durchführen" id="toc-schritt-2-simulationsexperimente-durchführen" class="nav-link" data-scroll-target="#schritt-2-simulationsexperimente-durchführen"><span class="toc-section-number">8.3.2</span>  Schritt 2: Simulationsexperimente durchführen</a></li>
   <li><a href="#schritt-3-ergebnisse-darstellen" id="toc-schritt-3-ergebnisse-darstellen" class="nav-link" data-scroll-target="#schritt-3-ergebnisse-darstellen"><span class="toc-section-number">8.3.3</span>  Schritt 3: Ergebnisse darstellen</a></li>
   <li><a href="#schritt-4-p-wert-berechnen-und-schlussfolgerungen-ziehen" id="toc-schritt-4-p-wert-berechnen-und-schlussfolgerungen-ziehen" class="nav-link" data-scroll-target="#schritt-4-p-wert-berechnen-und-schlussfolgerungen-ziehen"><span class="toc-section-number">8.3.4</span>  Schritt 4: <span class="math inline">\(p\)</span>-Wert berechnen und Schlussfolgerungen ziehen</a></li>
   </ul></li>
@@ -400,7 +400,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>befragung <span class="ot">&lt;-</span> <span class="fu">rep_sample_n</span>(grundgesamtheit, <span class="at">size =</span> befragung_size, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">reps =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Wir berechnen den Mittelwert der Studiendauer jeweils für die alte und neue Studienordnung.</p>
+<p>Wir berechnen den Mittelwert der Studiendauer, jeweils für die alte und neue Studienordnung.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>stat_obs <span class="ot">&lt;-</span> befragung <span class="sc">%&gt;%</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(studienordnung) <span class="sc">%&gt;%</span> </span>
@@ -473,7 +473,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Nullhypothese H<span class="math inline">\(_0\)</span>: Die Studiendauer hat sich durch die Einführung der neuen Studienordnung nicht verändert. Sie ist gleich geblieben.</p></li>
 <li><p>Alternativhypothese H<span class="math inline">\(_A\)</span>: Die Studiendauer hat sich durch die Einführung der neuen Studienordnung verändert.</p></li>
 </ul>
-<p>Die Alternativhypothese ist unsere eigenlichte Forschugnsfrage. Da wir nicht wissen, in welche Richtung die Änderungen erfolgt sein könnte (Verlängerung oder Verkürzung der Studiendauer), formulieren wir eine sogenannte <strong>beidseiteige</strong> Alternativhypothese. Beidseitig heißt, dass Änderungen in beide Richtungen interessant sind.</p>
+<p>Die Alternativhypothese ist unsere eigentliche Forschungsfrage. Da wir nicht wissen, in welche Richtung die Änderungen erfolgt sein könnte (Verlängerung oder Verkürzung der Studiendauer), formulieren wir eine sogenannte <strong>beidseitige</strong> Alternativhypothese. Beidseitig heißt, dass Änderungen in beide Richtungen interessant sind.</p>
 <p>Wir berechnen zunächst die tatsächlich in den Daten (der Befragung) beobachtete Differenz zwischen den Studiendauern nach der alten und der neuen Studienordnung, also unsere <strong>Teststatistik</strong>. Die Differenz wird als <em>alt <span class="math inline">\(-\)</span> neu</em> berechnet. Die Funktion <code>observe()</code> im Paket <code>infer</code> berechnet diese Teststatistik.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>d_hat <span class="ot">&lt;-</span> befragung <span class="sc">%&gt;%</span> </span>
@@ -492,9 +492,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="schritt-2-simulationsexperiemente-durchführen" class="level3" data-number="8.3.2">
-<h3 data-number="8.3.2" class="anchored" data-anchor-id="schritt-2-simulationsexperiemente-durchführen"><span class="header-section-number">8.3.2</span> Schritt 2: Simulationsexperiemente durchführen</h3>
-<p>Um Daten unter der Nullhypothese, d.&nbsp;h. wenn die Nullhypothese gilt, zu produzieren, permutieren wir 1000 Mal die Variable <code>studienordnung</code>. Denn, wenn die Studiendauer nicht von der Studienordnung abhängt, dann sind diese beiden Variablen unabhängig. Das legt die Zeile <code>hypothesize(null = "independence")</code> fest.</p>
+<section id="schritt-2-simulationsexperimente-durchführen" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="schritt-2-simulationsexperimente-durchführen"><span class="header-section-number">8.3.2</span> Schritt 2: Simulationsexperimente durchführen</h3>
+<p>Um Daten unter der Nullhypothese, d.&nbsp;h. wenn die Nullhypothese gilt, zu produzieren, permutieren wir 10000 Mal die Variable <code>studienordnung</code>. Denn, wenn die Studiendauer nicht von der Studienordnung abhängt, dann sind diese beiden Variablen unabhängig. Das legt die Zeile <code>hypothesize(null = "independence")</code> fest.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>null_dist <span class="ot">&lt;-</span> befragung <span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(studiendauer <span class="sc">~</span> studienordnung) <span class="sc">%&gt;%</span></span>
@@ -505,10 +505,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="schritt-3-ergebnisse-darstellen" class="level3" data-number="8.3.3">
 <h3 data-number="8.3.3" class="anchored" data-anchor-id="schritt-3-ergebnisse-darstellen"><span class="header-section-number">8.3.3</span> Schritt 3: Ergebnisse darstellen</h3>
-<p>Wir stellen die Verteilung der Teststatistiken unter der Nullhypothese als eine Verteilung dar und zeichnen zusätzlich ein, wo sich der <span class="math inline">\(p\)</span>-Wert befindet. Dieser zeigt die Wahrscheinlichkeit, eine Teststatistik (in unserem Fall den Unterschied der Mittelwerte) so extrem oder noch extremer zu erhalten, als in den beobachteten Daten. Da unsere Alternativhypothese lautet, dass die Studiendaeur sich verändert hat, betrachten wir extreme Werte sowohl bei der Verlängerung als auch bei der Verkürzung als Evidenz gegen die Nullhypothese und zugunsten der Alterantivhypothese.</p>
+<p>Wir stellen die Verteilung der Teststatistiken unter der Nullhypothese als ein Histogramm dar und zeichnen zusätzlich ein, wo sich die beobachtete Teststatistik (d.&nbsp;h. der beobachtete Unterschied der Mittelwerte) befindet als vertikale rote Linie. Die schattierten Bereiche zeigen Teststatistiken aus den Permutationen, die so extrem oder noch extremer sind, als die beobachtete Teststatistik von 0.0323477. Da unsere Alternativhypothese lautet, dass sich die Studiendauer verändert hat, betrachten wir extreme Werte sowohl bei der Verlängerung als auch bei der Verkürzung der Studiendauer als Evidenz gegen die Nullhypothese und zugunsten der Alternativhypothese. Daher färben wird die Bereiche links und spiegelbildlich rechts der beobachteten Teststatistik ein.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">visualize</span>(null_dist) <span class="sc">+</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shade_p_value</span>(<span class="at">obs_stat =</span> d_hat, <span class="at">direction =</span> <span class="st">"two_sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shade_p_value</span>(<span class="at">obs_stat =</span> d_hat, <span class="at">direction =</span> <span class="st">"two-sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="09-tests-infer_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -516,10 +516,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="schritt-4-p-wert-berechnen-und-schlussfolgerungen-ziehen" class="level3" data-number="8.3.4">
 <h3 data-number="8.3.4" class="anchored" data-anchor-id="schritt-4-p-wert-berechnen-und-schlussfolgerungen-ziehen"><span class="header-section-number">8.3.4</span> Schritt 4: <span class="math inline">\(p\)</span>-Wert berechnen und Schlussfolgerungen ziehen</h3>
-<p>Der folgende Code berechnet den <span class="math inline">\(p\)</span>-Wert.</p>
+<p>Der folgende Code berechnet den <span class="math inline">\(p\)</span>-Wert. Der <span class="math inline">\(p\)</span>-Wert gibt uns die Wahrscheinlichkeit an, eine Teststatistik (also die Differenz der Mittelwerte) so extrem oder noch extremer als 0.0323477 zu beobachten, wenn die Nullhypothese tatsächlich korrekt ist. In anderen Worten, wenn wir in <code>infer</code> Daten generieren unter der Nullhypothese (d.&nbsp;h. übereinstimmend mit der Nullhypothese), dann kommt eine Differenz von 0.0323477 oder noch größer und spiegelbildlich von -0.0323477 oder noch kleiner mit einer Wahrscheinlichkeit von <span class="math inline">\(p\)</span> vor. Um den <span class="math inline">\(p\)</span>-Wert zu berechnen, rechnen wir den Anteil der eingefärbten Bereiche aus.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> d_hat, <span class="at">direction =</span> <span class="st">"two_sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> d_hat, <span class="at">direction =</span> <span class="st">"two-sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -529,7 +529,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>Wir sehen also, dass in Differenzen zwischen den Mittelwerten von 0.0323477 oder noch größer in 63.18% der Fälle vorkommen, wenn die Nullhypothese gilt. Das ist also nichts besonderes. Unser Signifikanzniveau ist <span class="math inline">\(\alpha = 0.05\)</span>. Da <span class="math inline">\(p &gt; \alpha\)</span>, behalten wir die Nullhypothese bei. Es gibt also keinen Unterschied in der Studiendauer zwischen der alten und der neuen Studienordnung.</p>
+<p>Wir sehen also, dass Differenzen zwischen den Mittelwerten von 0.0323477 oder noch größer in 63.18% der Fälle vorkommen, wenn die Nullhypothese gilt. Das ist also nichts Besonderes. Unser Signifikanzniveau ist <span class="math inline">\(\alpha = 0.05\)</span>. Da <span class="math inline">\(p &gt; \alpha\)</span>, behalten wir die Nullhypothese bei. Es gibt also keinen Unterschied in der Studiendauer zwischen der alten und der neuen Studienordnung.</p>
 </section>
 </section>
 <section id="aufgaben" class="level2" data-number="8.4">
