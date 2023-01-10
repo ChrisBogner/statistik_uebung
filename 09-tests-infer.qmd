@@ -1,4 +1,4 @@
-# Hypothesentests mit Randomisierung {#hypothsen-randomisierung}
+# Hypothesentests mit Randomisierung {#sec-hypothsen-randomisierung}
 
 :::{.outcomes}
 - Idee hinter randomisierten Tests erklären.

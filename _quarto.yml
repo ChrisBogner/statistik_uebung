@@ -25,6 +25,7 @@ book:
     - part: "STATISTISCHE INFERENZ"
       chapters: 
         - 09-tests-infer.qmd
+        - 10-konfidenzintervall-infer.qmd
     - part: "LABS: EIGENSTÄNDIGE ÜBUNGEN"
       chapters: 
         - 30-lab-02-intro-to-data.qmd

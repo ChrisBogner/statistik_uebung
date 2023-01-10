@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Übung zur Vorlesung Statistik und Datenanalyse - 8&nbsp; Hypothesentests mit Randomisierung</title>
+<title>Übung zur Vorlesung Statistik und Datenanalyse - 9&nbsp; Konfidenzintervalle mit Bootstrap</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,7 +94,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./30-lab-02-intro-to-data.html" rel="next">
-<link href="./07-lineare-regression-ein-pred.html" rel="prev">
+<link href="./09-tests-infer.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -138,7 +138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesentests mit Randomisierung</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Konfidenzintervalle mit Bootstrap</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -258,7 +258,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-tests-infer.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesentests mit Randomisierung</span></a>
+  <a href="./09-tests-infer.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesentests mit Randomisierung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-konfidenzintervall-infer.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Konfidenzintervalle mit Bootstrap</span></a>
   </div>
 </li>
       </ul>
@@ -273,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./30-lab-02-intro-to-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></a>
+  <a href="./30-lab-02-intro-to-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></a>
   </div>
 </li>
       </ul>
@@ -307,22 +312,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#studiendauer-in-werdeschlau" id="toc-studiendauer-in-werdeschlau" class="nav-link active" data-scroll-target="#studiendauer-in-werdeschlau"><span class="toc-section-number">8.1</span>  Studiendauer in Werdeschlau</a>
+  <li><a href="#variabilität-von-schätzungen" id="toc-variabilität-von-schätzungen" class="nav-link active" data-scroll-target="#variabilität-von-schätzungen"><span class="toc-section-number">9.1</span>  Variabilität von Schätzungen</a></li>
+  <li><a href="#studiendauer-in-werdeschlau" id="toc-studiendauer-in-werdeschlau" class="nav-link" data-scroll-target="#studiendauer-in-werdeschlau"><span class="toc-section-number">9.2</span>  Studiendauer in Werdeschlau</a>
   <ul class="collapse">
-  <li><a href="#simulation-der-grundgesamtheit" id="toc-simulation-der-grundgesamtheit" class="nav-link" data-scroll-target="#simulation-der-grundgesamtheit"><span class="toc-section-number">8.1.1</span>  Simulation der Grundgesamtheit</a></li>
-  <li><a href="#befragung-simulieren" id="toc-befragung-simulieren" class="nav-link" data-scroll-target="#befragung-simulieren"><span class="toc-section-number">8.1.2</span>  Befragung simulieren</a></li>
+  <li><a href="#simulation-der-grundgesamtheit-und-einer-befragung" id="toc-simulation-der-grundgesamtheit-und-einer-befragung" class="nav-link" data-scroll-target="#simulation-der-grundgesamtheit-und-einer-befragung"><span class="toc-section-number">9.2.1</span>  Simulation der Grundgesamtheit und einer Befragung</a></li>
   </ul></li>
-  <li><a href="#workflow-in-infer" id="toc-workflow-in-infer" class="nav-link" data-scroll-target="#workflow-in-infer"><span class="toc-section-number">8.2</span>  Workflow in <code>infer</code></a></li>
-  <li><a href="#hypothesentest-durchführen" id="toc-hypothesentest-durchführen" class="nav-link" data-scroll-target="#hypothesentest-durchführen"><span class="toc-section-number">8.3</span>  Hypothesentest durchführen</a>
+  <li><a href="#workflow-in-infer" id="toc-workflow-in-infer" class="nav-link" data-scroll-target="#workflow-in-infer"><span class="toc-section-number">9.3</span>  Workflow in <code>infer</code></a></li>
+  <li><a href="#konfidenzintervalle-berechnen-mit-infer" id="toc-konfidenzintervalle-berechnen-mit-infer" class="nav-link" data-scroll-target="#konfidenzintervalle-berechnen-mit-infer"><span class="toc-section-number">9.4</span>  Konfidenzintervalle berechnen mit <code>infer</code></a>
   <ul class="collapse">
-  <li><a href="#schritt-1-nullhypothese-und-alternativhypothese-festlegen" id="toc-schritt-1-nullhypothese-und-alternativhypothese-festlegen" class="nav-link" data-scroll-target="#schritt-1-nullhypothese-und-alternativhypothese-festlegen"><span class="toc-section-number">8.3.1</span>  Schritt 1: Nullhypothese und Alternativhypothese festlegen</a></li>
-  <li><a href="#schritt-2-simulationsexperimente-durchführen" id="toc-schritt-2-simulationsexperimente-durchführen" class="nav-link" data-scroll-target="#schritt-2-simulationsexperimente-durchführen"><span class="toc-section-number">8.3.2</span>  Schritt 2: Simulationsexperimente durchführen</a></li>
-  <li><a href="#schritt-3-ergebnisse-darstellen" id="toc-schritt-3-ergebnisse-darstellen" class="nav-link" data-scroll-target="#schritt-3-ergebnisse-darstellen"><span class="toc-section-number">8.3.3</span>  Schritt 3: Ergebnisse darstellen</a></li>
-  <li><a href="#schritt-4-p-wert-berechnen-und-schlussfolgerungen-ziehen" id="toc-schritt-4-p-wert-berechnen-und-schlussfolgerungen-ziehen" class="nav-link" data-scroll-target="#schritt-4-p-wert-berechnen-und-schlussfolgerungen-ziehen"><span class="toc-section-number">8.3.4</span>  Schritt 4: <span class="math inline">\(p\)</span>-Wert berechnen und Schlussfolgerungen ziehen</a></li>
+  <li><a href="#schritt-1-berechnen-der-statistik" id="toc-schritt-1-berechnen-der-statistik" class="nav-link" data-scroll-target="#schritt-1-berechnen-der-statistik"><span class="toc-section-number">9.4.1</span>  Schritt 1: Berechnen der Statistik</a></li>
+  <li><a href="#schritt-2-bootstrappen" id="toc-schritt-2-bootstrappen" class="nav-link" data-scroll-target="#schritt-2-bootstrappen"><span class="toc-section-number">9.4.2</span>  Schritt 2: Bootstrappen</a></li>
+  <li><a href="#schritt-3-ergebnisse-darstellen" id="toc-schritt-3-ergebnisse-darstellen" class="nav-link" data-scroll-target="#schritt-3-ergebnisse-darstellen"><span class="toc-section-number">9.4.3</span>  Schritt 3: Ergebnisse darstellen</a></li>
+  <li><a href="#schritt-4-schlussfolgerungen-ziehen" id="toc-schritt-4-schlussfolgerungen-ziehen" class="nav-link" data-scroll-target="#schritt-4-schlussfolgerungen-ziehen"><span class="toc-section-number">9.4.4</span>  Schritt 4: Schlussfolgerungen ziehen</a></li>
   </ul></li>
-  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="toc-section-number">8.4</span>  Aufgaben</a>
+  <li><a href="#kleine-zusammenfassung" id="toc-kleine-zusammenfassung" class="nav-link" data-scroll-target="#kleine-zusammenfassung"><span class="toc-section-number">9.5</span>  Kleine Zusammenfassung</a></li>
+  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="toc-section-number">9.6</span>  Aufgaben</a>
   <ul class="collapse">
-  <li><a href="#vertiefung-des-themas-zufall-und-variabilität" id="toc-vertiefung-des-themas-zufall-und-variabilität" class="nav-link" data-scroll-target="#vertiefung-des-themas-zufall-und-variabilität"><span class="toc-section-number">8.4.1</span>  Vertiefung des Themas Zufall und Variabilität</a></li>
+  <li><a href="#vertiefung-des-themas-parameterschätzung-und-konfidenzintervalle" id="toc-vertiefung-des-themas-parameterschätzung-und-konfidenzintervalle" class="nav-link" data-scroll-target="#vertiefung-des-themas-parameterschätzung-und-konfidenzintervalle"><span class="toc-section-number">9.6.1</span>  Vertiefung des Themas Parameterschätzung und Konfidenzintervalle</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -332,7 +338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-hypothsen-randomisierung" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesentests mit Randomisierung</span></span></h1>
+<h1 class="title"><span id="sec-konfidenz-bootstrap" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Konfidenzintervalle mit Bootstrap</span></span></h1>
 </div>
 
 
@@ -349,21 +355,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div class="outcomes">
 <ul>
-<li>Idee hinter randomisierten Tests erklären.</li>
-<li>Tests mit dem Paket <code>infer</code> durchführen.</li>
+<li>Idee hinter Bootstrapping erklären.</li>
+<li>Konfidenzintervalle mit dem Paket <code>infer</code> berechnen.</li>
+<li>Konfidenzintervalle interpretieren.</li>
 </ul>
 </div>
 <div class="cell">
 
 </div>
-<section id="studiendauer-in-werdeschlau" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="studiendauer-in-werdeschlau"><span class="header-section-number">8.1</span> Studiendauer in Werdeschlau</h2>
-<p>Wir beschäftigen uns mit einem fiktiven Beispiel.</p>
-<p>An der (kleinen) Universität Werdeschlau möchte man wissen, ob die vor einiger Zeit eingeführte Studienordnung die Studiendauer verändert hat. Dazu werden 300 Studierende zufällig über die Dauer ihres Studiums befragt. Zusätzlich werden noch andere Daten erhoben, aber mit diesen beschäftigen wir uns in einer andern Übung.</p>
-<section id="simulation-der-grundgesamtheit" class="level3" data-number="8.1.1">
-<h3 data-number="8.1.1" class="anchored" data-anchor-id="simulation-der-grundgesamtheit"><span class="header-section-number">8.1.1</span> Simulation der Grundgesamtheit</h3>
-<p>Bei statistischer Inferenz geht es unter anderem darum, die Begriffe Zufall und Variabilität zu quantifizieren. Um diese Konzepte zu verstehen, helfen Computerexperimente. Dafür erstellen wir uns unsere eigene Grundgesamtheit aller Studierenden an der Universität Werdeschlau. Das hat den Vorteil, dass wir viele verschiedene Befragungen durchführen können, die Variabilität der Antworten analysieren und dabei immer mit den <em>wahren Parametern</em> der Grundgesamtheit vergleichen können.</p>
-<p>Wir erstellen zunächst die Grundgesamtheit. Die Zeile <code>set.seed(123)</code> sorgt für reproduzierbare Ergebnisse.</p>
+<section id="variabilität-von-schätzungen" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="variabilität-von-schätzungen"><span class="header-section-number">9.1</span> Variabilität von Schätzungen</h2>
+<p>Im der Vorlesung und im <a href="09-tests-infer.html"><span>Chapter&nbsp;8</span></a> haben Sie erfahren, dass Statistiken aus zufällig gezogenen Stichproben, dem Zufall unterliegen. Sie sind <strong>Zufallsvariablen</strong>. Wenn wir Parameter der Grundgesamtheit schätzen (z. B. Mittelwert oder Anteil) oder in Experimenten die Effektstärke bestimmen möchten, dann ist es eher unwahrscheinlich, dass wir den wahren Parameter ganz genau treffen. Daher ist es sinnvoll, bei einer Schätzung einen Bereich von plausiblen Werten, das sogenannte <strong>Konfidenzintervall</strong> anzugeben.</p>
+</section>
+<section id="studiendauer-in-werdeschlau" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="studiendauer-in-werdeschlau"><span class="header-section-number">9.2</span> Studiendauer in Werdeschlau</h2>
+<p>Wir beschäftigen uns erneut mit unserem fiktiven Beispiel der Studierenden an der Universität Werdeschlau. Diesmal interessieren wir uns dafür für den Anteil der Studierenden, die auf dem Land wohnen.</p>
+<section id="simulation-der-grundgesamtheit-und-einer-befragung" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="simulation-der-grundgesamtheit-und-einer-befragung"><span class="header-section-number">9.2.1</span> Simulation der Grundgesamtheit und einer Befragung</h3>
+<p>Wir simulieren erneut unsere Grundgesamtheit.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -388,11 +397,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>grundgesamtheit <span class="ot">&lt;-</span> <span class="fu">tibble</span>(student_id, geschlecht, wohnort, studiendauer, studienordnung, anreise)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="befragung-simulieren" class="level3" data-number="8.1.2">
-<h3 data-number="8.1.2" class="anchored" data-anchor-id="befragung-simulieren"><span class="header-section-number">8.1.2</span> Befragung simulieren</h3>
-<p>In der Realität werden natürlich nicht alle 12000 Studierende befragt (wer hat schon so viele Kapazitäten?), sondern eine zufällige <strong>Stichprobe</strong> erhoben, also eine Teilmenge der Grundgesamtheit.</p>
-<p>Um unsere Stichprobe zu erstellen, ziehen wir 300 Studierende ohne Zurücklegen aus unserer Grundgesamtheit. Das entspricht einer einmaligen Befragung von 300 zufällig ausgewählten Studierenden.</p>
+<p>Wie im <a href="09-tests-infer.html"><span>Chapter&nbsp;8</span></a>, simulieren wir eine Befragung von 300 Studierenden, indem wir eine zufällige Stichprobe (ohne Zurücklegen) aus den 1200 Studierenden (Grundgesamtheit) auswählen.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">345</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -400,55 +405,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>befragung <span class="ot">&lt;-</span> <span class="fu">rep_sample_n</span>(grundgesamtheit, <span class="at">size =</span> befragung_size, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">reps =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Wir berechnen den Mittelwert der Studiendauer, jeweils für die alte und neue Studienordnung.</p>
+<p>Unsere Forschungsfrage lautet: Wie groß ist der Anteil der Studierenden, die auf dem Land wohnen. Wir möchten aus der eben gewonnen Stichprobe, die wahren Parameter (Anteil der Studierenden, die auf dem Land wohnen in der Grundgesamtheit), den wir mit <span class="math inline">\(p\)</span> bezeichnen <strong>schätzen</strong>.</p>
+<p>Die beste Schätzung für <span class="math inline">\(p\)</span> ist der Anteil der Studierenden, die auf dem Land wohnen, den wir in der Befragung, d.&nbsp;h. unsere zufällige Stichprobe beobachten. Diesen Anteil nennen wir <span class="math inline">\(\hat{p}\)</span> und die R Variable <code>p_hat</code>.</p>
+<p>Zunächst zählen wir einfach die Studierenden der verschiedenen Wohnorte.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>stat_obs <span class="ot">&lt;-</span> befragung <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(studienordnung) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">dauer =</span> <span class="fu">mean</span>(studiendauer))</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>stat_obs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>befragung <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(wohnort)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["studienordnung"],"name":[1],"type":["chr"],"align":["left"]},{"label":["dauer"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"alt","2":"3.392754"},{"1":"neu","2":"3.511118"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["replicate"],"name":[1],"type":["int"],"align":["right"]},{"label":["wohnort"],"name":[2],"type":["chr"],"align":["left"]},{"label":["n"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"land","3":"117"},{"1":"1","2":"stadt","3":"183"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
 </div>
-<p>Wie groß ist die Differenz der Mittelwerte?</p>
+<p>Wie verändern sich diese Zahlen, wenn wir zufälligerweise andere Studierende befragt hätten? Wir wählen neue Studierende aus und wiederholen die Berechnung des Mittelwerts der Studiendauer, ähnlich wie in <a href="09-tests-infer.html"><span>Chapter&nbsp;8</span></a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stat_obs<span class="sc">$</span>dauer[<span class="dv">1</span>] <span class="sc">-</span> stat_obs<span class="sc">$</span>dauer[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.1183631</code></pre>
-</div>
-</div>
-<p>Wie verändert sich die Differenz, wenn wir zufälligerweise andere Studierende befragt hätten? Wir wählen neue Studierende aus und wiederholen die Berechnung des Mittelwerts der Studiendauer.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">987</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>befragung <span class="ot">&lt;-</span> <span class="fu">rep_sample_n</span>(grundgesamtheit, <span class="at">size =</span> befragung_size, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">reps =</span> <span class="dv">1</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>stat_obs <span class="ot">&lt;-</span> befragung <span class="sc">%&gt;%</span> </span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(studienordnung) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">dauer =</span> <span class="fu">mean</span>(studiendauer))</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>stat_obs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">987</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>befragung <span class="ot">&lt;-</span> <span class="fu">rep_sample_n</span>(grundgesamtheit, <span class="at">size =</span> befragung_size, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">reps =</span> <span class="dv">1</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>befragung <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(wohnort)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["studienordnung"],"name":[1],"type":["chr"],"align":["left"]},{"label":["dauer"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"alt","2":"3.545039"},{"1":"neu","2":"3.512692"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["replicate"],"name":[1],"type":["int"],"align":["right"]},{"label":["wohnort"],"name":[2],"type":["chr"],"align":["left"]},{"label":["n"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"land","3":"133"},{"1":"1","2":"stadt","3":"167"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
 </div>
-<p>Für diese Gruppe der Befragten beträgt die Differenz der Mittelwerte 0.0323477.</p>
+<p>Der Anteil der Studierenden auf dem Land lässt sich wie folgt berechnen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p_hat <span class="ot">&lt;-</span> befragung <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(wohnort) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">prop =</span> <span class="fu">n</span>()<span class="sc">/</span>befragung_size)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>p_hat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["wohnort"],"name":[1],"type":["chr"],"align":["left"]},{"label":["prop"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"land","2":"0.4433333"},{"1":"stadt","2":"0.5566667"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Es wohnen also 44.3% auf dem Land und entsprechend 55.7% in der Stadt. Dass beide Anteile berechnet werden, soll uns hier nicht stören. Natürlich sind die beiden Anteile zusammengerechnet immer gleich 1.</p>
+<p>Erwartungsgemäß bringt jede Wiederholung der Befragung etwas andere Ergebnisse.</p>
 </section>
 </section>
-<section id="workflow-in-infer" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="workflow-in-infer"><span class="header-section-number">8.2</span> Workflow in <code>infer</code></h2>
-<p>Das Paket <code>infer</code> bietet ein einheitliches Framework für Hypothesentests (<a href="#fig-ht">Figure&nbsp;<span>8.1</span></a>). Es hat 4 Verben, die den oben beschriebenen Prozess der Hypothesentests vereinheitlichen und ein Verb für die Visualisierung der Ergebnisse:</p>
+<section id="workflow-in-infer" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="workflow-in-infer"><span class="header-section-number">9.3</span> Workflow in <code>infer</code></h2>
+<p>Das Paket <code>infer</code> bietet ein einheitliches Framework sowohl für Hypothesentests als auch für die Berechnung von Konfidenzintervallen (<a href="09-tests-infer.html#fig-ht">Figure&nbsp;<span>8.1</span></a>). Es hat 4 Verben, die den oben beschriebenen Prozess der Hypothesentests vereinheitlichen und ein Verb für die Visualisierung der Ergebnisse:</p>
 <ol type="1">
 <li><code>specify()</code> Variablen festlegen</li>
 <li><code>hypothesize()</code> Nullhypothese definieren</li>
@@ -456,89 +467,90 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>calculate()</code> Stichprobenverteilung (d.h. Verteilung der Teststatistik) berechnen</li>
 <li><code>visualize()</code> Stichprobenverteilung darstellen</li>
 </ol>
-<p>Mit <code>get_p_value</code> kann man den <span class="math inline">\(p\)</span>-Wert berechnen und mit <code>shade_p_value</code> diesen darstellen lassen.</p>
-<div id="fig-ht" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/ht-diagram.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;8.1: Allgemeines Vorgehen bei Hypothesentests (Quelle: https://infer.netlify.app/).</figcaption><p></p>
-</figure>
+<p>Für die Berechnung der Konfidenzintervalle brauchen wir keine Hypothese (also kein <code>hypothesize()</code>) und keine <span class="math inline">\(p\)</span>-Werte. Alle anderen Funktionen sind nach wie vor notwendig. Das Berechnen des Konfidenzintervalls übernimmt die Funktion <code>get_confidence_interval()</code>.</p>
+</section>
+<section id="konfidenzintervalle-berechnen-mit-infer" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="konfidenzintervalle-berechnen-mit-infer"><span class="header-section-number">9.4</span> Konfidenzintervalle berechnen mit <code>infer</code></h2>
+<section id="schritt-1-berechnen-der-statistik" class="level3" data-number="9.4.1">
+<h3 data-number="9.4.1" class="anchored" data-anchor-id="schritt-1-berechnen-der-statistik"><span class="header-section-number">9.4.1</span> Schritt 1: Berechnen der Statistik</h3>
+<p>Unsere Forschungsfrage lautet: Wie groß ist der Anteil der Studierenden, die auf dem Land wohnen. Wir möchten diesen Anteil durch unsere Befragung schätzen und ein Konfidenzintervall für die Schätzung angeben.</p>
+<p>Die Schätzung haben wir bereits:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>p_hat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["wohnort"],"name":[1],"type":["chr"],"align":["left"]},{"label":["prop"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"land","2":"0.4433333"},{"1":"stadt","2":"0.5566667"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
 </div>
 </section>
-<section id="hypothesentest-durchführen" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="hypothesentest-durchführen"><span class="header-section-number">8.3</span> Hypothesentest durchführen</h2>
-<section id="schritt-1-nullhypothese-und-alternativhypothese-festlegen" class="level3" data-number="8.3.1">
-<h3 data-number="8.3.1" class="anchored" data-anchor-id="schritt-1-nullhypothese-und-alternativhypothese-festlegen"><span class="header-section-number">8.3.1</span> Schritt 1: Nullhypothese und Alternativhypothese festlegen</h3>
-<p>Unsere Forschungsfrage lautet: Hat sich die Studiendauer durch die Einführung der neuen Studienordnung verändert? Daraus ergeben sich folgende Hypothesen:</p>
+<section id="schritt-2-bootstrappen" class="level3" data-number="9.4.2">
+<h3 data-number="9.4.2" class="anchored" data-anchor-id="schritt-2-bootstrappen"><span class="header-section-number">9.4.2</span> Schritt 2: Bootstrappen</h3>
+<p>Im nächsten Schritt ziehen wir aus unserer Stichprobe <code>befragung</code> mit Zurücklegen Bootstrap-Stichproben und berechnen für diese die Anteile der Wohnorte. Das sind unsere Bootstrap-Stichproben und die entsprechenden Statistiken. Wir können <code>infer</code> mitteilen, dass wir nur den Anteil der Landbewohner brauchen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">345</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>bootstrap_distribution <span class="ot">&lt;-</span> befragung <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> wohnort, <span class="at">success =</span> <span class="st">'land'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">10000</span>, <span class="at">type =</span> <span class="st">'bootstrap'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">'prop'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="schritt-3-ergebnisse-darstellen" class="level3" data-number="9.4.3">
+<h3 data-number="9.4.3" class="anchored" data-anchor-id="schritt-3-ergebnisse-darstellen"><span class="header-section-number">9.4.3</span> Schritt 3: Ergebnisse darstellen</h3>
+<p>Nun können wir auch das Konfidenzintervall für unsere Schätzung <span class="math inline">\(\hat{p}\)</span> berechnen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>percentile_ci <span class="ot">&lt;-</span> bootstrap_distribution <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_confidence_interval</span>(<span class="at">point_estimate =</span> p_hat<span class="sc">$</span>prop[<span class="dv">1</span>],</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">level =</span> <span class="fl">0.95</span>, <span class="at">type =</span> <span class="st">"percentile"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>percentile_ci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["lower_ci"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["upper_ci"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.39","2":"0.5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Die Verteilung der Anteile der Studierenden, die auf dem Land wohnen, in den Bootstrap-Stichproben stellen wir als Histogramm dar und markieren gleich das Konfidenzintervall.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">visualize</span>(bootstrap_distribution) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shade_confidence_interval</span>(percentile_ci) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> p_hat<span class="sc">$</span>prop[<span class="dv">1</span>], <span class="at">size =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">'red'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="10-konfidenzintervall-infer_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="schritt-4-schlussfolgerungen-ziehen" class="level3" data-number="9.4.4">
+<h3 data-number="9.4.4" class="anchored" data-anchor-id="schritt-4-schlussfolgerungen-ziehen"><span class="header-section-number">9.4.4</span> Schritt 4: Schlussfolgerungen ziehen</h3>
+<p>Wir können nun unsere Forschungsfrage beantworten:</p>
+<p>Wir schätzen den Anteil der Studierenden, die auf dem Land wohnen, auf 0.44, mit dem Konfidenzintervall von 0.39, 0.5.</p>
+</section>
+</section>
+<section id="kleine-zusammenfassung" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="kleine-zusammenfassung"><span class="header-section-number">9.5</span> Kleine Zusammenfassung</h2>
+<div class="alert">
 <ul>
-<li><p>Nullhypothese H<span class="math inline">\(_0\)</span>: Die Studiendauer hat sich durch die Einführung der neuen Studienordnung nicht verändert. Sie ist gleich geblieben.</p></li>
-<li><p>Alternativhypothese H<span class="math inline">\(_A\)</span>: Die Studiendauer hat sich durch die Einführung der neuen Studienordnung verändert.</p></li>
+<li><strong>Grundgesamtheit</strong>: alle Studierenden der Universität Werdeschlau</li>
+<li><strong>zufällige Stichprobe</strong>: eine zufällig ausgesuchte Gruppe von Studierenden</li>
+<li><strong>Parameter der Grundgesamtheit</strong>: z.B. der wahre Anteil von Studierenden, die in der Stadt oder auf dem Land leben</li>
+<li><strong>Schätzer</strong> für diesen Parameter der Grundgesamtheit: Anteil der Studierenden, die in der Stadt oder auf dem Land leben, berechnet aus der zufälligen Stichprobe. Da die Stichprobe zufällig ist, kann man davon ausgehen, dass sie repräsentativ für die Grundgesamtheit ist und der Schätzer unverzerrt (<em>unbiased</em>, d.h. ohne einen systematischen Fehler).</li>
+<li><strong>Inferenz</strong>: schließen auf die Grundgesamtheit darf man, wenn die Stichprobe zufällig erhoben wurde und repräsentativ für die Fragestellung ist.</li>
 </ul>
-<p>Die Alternativhypothese ist unsere eigentliche Forschungsfrage. Da wir nicht wissen, in welche Richtung die Änderungen erfolgt sein könnte (Verlängerung oder Verkürzung der Studiendauer), formulieren wir eine sogenannte <strong>beidseitige</strong> Alternativhypothese. Beidseitig heißt, dass Änderungen in beide Richtungen interessant sind.</p>
-<p>Wir berechnen zunächst die tatsächlich in den Daten (der Befragung) beobachtete Differenz zwischen den Studiendauern nach der alten und der neuen Studienordnung, also unsere <strong>Teststatistik</strong>. Die Differenz wird als <em>alt <span class="math inline">\(-\)</span> neu</em> berechnet. Die Funktion <code>observe()</code> im Paket <code>infer</code> berechnet diese Teststatistik.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>d_hat <span class="ot">&lt;-</span> befragung <span class="sc">%&gt;%</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observe</span>(<span class="at">formula =</span> studiendauer <span class="sc">~</span> studienordnung,</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">stat =</span> <span class="st">"diff in means"</span>, </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">order =</span> <span class="fu">c</span>(<span class="st">'alt'</span>, <span class="st">'neu'</span>))</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>d_hat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["stat"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.03234768"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
 </div>
-</div>
-</div>
+<p>Die Begriffe Statistik, Schätzer, Schätzfunktion und Stichprobenfunktion werden als Synonyme verwendet. Die Statistik ist ja auch eine Funktion, da sie mit einer Formel eine Zahl aus Daten (Stichprobe) berechnet. Sie fasst die Stichprobe also zusammen.</p>
 </section>
-<section id="schritt-2-simulationsexperimente-durchführen" class="level3" data-number="8.3.2">
-<h3 data-number="8.3.2" class="anchored" data-anchor-id="schritt-2-simulationsexperimente-durchführen"><span class="header-section-number">8.3.2</span> Schritt 2: Simulationsexperimente durchführen</h3>
-<p>Um Daten unter der Nullhypothese, d.&nbsp;h. wenn die Nullhypothese gilt, zu produzieren, permutieren wir 10000 Mal die Variable <code>studienordnung</code>. Denn, wenn die Studiendauer nicht von der Studienordnung abhängt, dann sind diese beiden Variablen unabhängig. Das legt die Zeile <code>hypothesize(null = "independence")</code> fest. Damit wir alle dieselben Ergebnisse bekommen, setzen wir erneut set.seed().</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">56</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>null_dist <span class="ot">&lt;-</span> befragung <span class="sc">%&gt;%</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(studiendauer <span class="sc">~</span> studienordnung) <span class="sc">%&gt;%</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">10000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">'alt'</span>, <span class="st">'neu'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="schritt-3-ergebnisse-darstellen" class="level3" data-number="8.3.3">
-<h3 data-number="8.3.3" class="anchored" data-anchor-id="schritt-3-ergebnisse-darstellen"><span class="header-section-number">8.3.3</span> Schritt 3: Ergebnisse darstellen</h3>
-<p>Wir stellen die Verteilung der Teststatistiken unter der Nullhypothese als ein Histogramm dar und zeichnen zusätzlich ein, wo sich die beobachtete Teststatistik (d.&nbsp;h. der beobachtete Unterschied der Mittelwerte) befindet als vertikale rote Linie. Die schattierten Bereiche zeigen Teststatistiken aus den Permutationen, die so extrem oder noch extremer sind, als die beobachtete Teststatistik von 0.0323477. Da unsere Alternativhypothese lautet, dass sich die Studiendauer verändert hat, betrachten wir extreme Werte sowohl bei der Verlängerung als auch bei der Verkürzung der Studiendauer als Evidenz gegen die Nullhypothese und zugunsten der Alternativhypothese. Daher färben wird die Bereiche links und spiegelbildlich rechts der beobachteten Teststatistik ein.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">visualize</span>(null_dist) <span class="sc">+</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shade_p_value</span>(<span class="at">obs_stat =</span> d_hat, <span class="at">direction =</span> <span class="st">"two-sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="09-tests-infer_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</section>
-<section id="schritt-4-p-wert-berechnen-und-schlussfolgerungen-ziehen" class="level3" data-number="8.3.4">
-<h3 data-number="8.3.4" class="anchored" data-anchor-id="schritt-4-p-wert-berechnen-und-schlussfolgerungen-ziehen"><span class="header-section-number">8.3.4</span> Schritt 4: <span class="math inline">\(p\)</span>-Wert berechnen und Schlussfolgerungen ziehen</h3>
-<p>Der folgende Code berechnet den <span class="math inline">\(p\)</span>-Wert. Der <span class="math inline">\(p\)</span>-Wert gibt uns die Wahrscheinlichkeit an, eine Teststatistik (also die Differenz der Mittelwerte) so extrem oder noch extremer als 0.0323477 zu beobachten, wenn die Nullhypothese tatsächlich korrekt ist. In anderen Worten, wenn wir in <code>infer</code> Daten generieren unter der Nullhypothese (d.&nbsp;h. übereinstimmend mit der Nullhypothese), dann kommt eine Differenz von 0.0323477 oder noch größer und spiegelbildlich von -0.0323477 oder noch kleiner mit einer Wahrscheinlichkeit von <span class="math inline">\(p\)</span> vor. Um den <span class="math inline">\(p\)</span>-Wert zu berechnen, rechnen wir den Anteil der eingefärbten Bereiche aus.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> d_hat, <span class="at">direction =</span> <span class="st">"two-sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["p_value"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.6192"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-</div>
-<p>Wir sehen also, dass Differenzen zwischen den Mittelwerten von 0.0323477 oder noch größer oder und spiegelbildlich von -0.0323477 oder noch kleiner in 61.92% der Fälle vorkommen, wenn die Nullhypothese gilt. So eine Differenz ist also nichts Besonderes. Unser Signifikanzniveau ist <span class="math inline">\(\alpha = 0.05\)</span>. Da <span class="math inline">\(p &gt; \alpha\)</span>, behalten wir die Nullhypothese bei. Es gibt also keinen Unterschied in der Studiendauer zwischen der alten und der neuen Studienordnung.</p>
-</section>
-</section>
-<section id="aufgaben" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">8.4</span> Aufgaben</h2>
-<section id="vertiefung-des-themas-zufall-und-variabilität" class="level3" data-number="8.4.1">
-<h3 data-number="8.4.1" class="anchored" data-anchor-id="vertiefung-des-themas-zufall-und-variabilität"><span class="header-section-number">8.4.1</span> Vertiefung des Themas Zufall und Variabilität</h3>
-<p>Arbeiten Sie das Tutorial <a href="https://openintro.shinyapps.io/ims-04-foundations-01/">Foundations of inference: 1 - Sampling Variability</a> durch.</p>
+<section id="aufgaben" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">9.6</span> Aufgaben</h2>
+<section id="vertiefung-des-themas-parameterschätzung-und-konfidenzintervalle" class="level3" data-number="9.6.1">
+<h3 data-number="9.6.1" class="anchored" data-anchor-id="vertiefung-des-themas-parameterschätzung-und-konfidenzintervalle"><span class="header-section-number">9.6.1</span> Vertiefung des Themas Parameterschätzung und Konfidenzintervalle</h3>
+<p>Arbeiten Sie das Tutorial <a href="https://openintro.shinyapps.io/ims-04-foundations-04">Foundations of inference: 4 - Parameters and confidence intervals</a> durch.</p>
 
 
 </section>
@@ -680,13 +692,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./07-lineare-regression-ein-pred.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lineare Regression mit einer erklärenden Variablen</span></span>
+      <a href="./09-tests-infer.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesentests mit Randomisierung</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./30-lab-02-intro-to-data.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

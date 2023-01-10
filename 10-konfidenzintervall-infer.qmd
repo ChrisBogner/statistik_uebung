@@ -1,0 +1,177 @@
+# Konfidenzintervalle mit Bootstrap {#sec-konfidenz-bootstrap}
+
+:::{.outcomes}
+- Idee hinter Bootstrapping erklären.
+- Konfidenzintervalle mit dem Paket `infer` berechnen.
+- Konfidenzintervalle interpretieren.
+:::
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library(tidyverse)
+library(kableExtra)
+library(openintro)
+library(infer)
+```
+
+## Variabilität von Schätzungen
+Im der Vorlesung und im @sec-hypothsen-randomisierung haben Sie erfahren, dass Statistiken aus zufällig gezogenen Stichproben, dem Zufall unterliegen. Sie sind **Zufallsvariablen**. Wenn wir Parameter der Grundgesamtheit schätzen (z. B. Mittelwert oder Anteil) oder in Experimenten die Effektstärke bestimmen möchten, dann ist es eher unwahrscheinlich, dass wir den wahren Parameter ganz genau treffen. Daher ist es sinnvoll, bei einer Schätzung einen Bereich von plausiblen Werten, das sogenannte **Konfidenzintervall** anzugeben.
+
+## Studiendauer in Werdeschlau
+
+Wir beschäftigen uns erneut mit unserem fiktiven Beispiel der Studierenden an der Universität Werdeschlau. Diesmal interessieren wir uns dafür für den Anteil der Studierenden, die auf dem Land wohnen.
+
+### Simulation der Grundgesamtheit und einer Befragung
+
+Wir simulieren erneut unsere Grundgesamtheit.
+
+```{r}
+set.seed(123)
+
+pop_size <- 12000
+student_id <- 1:pop_size
+  
+anreise <- c(runif(n = pop_size * 0.8, min = 5, max = 40),
+             runif(n = pop_size * 0.2, min = 60, max = 120))
+
+geschlecht <- sample(c('m', 'w'), size = pop_size, replace = TRUE)
+
+studienordnung <- sample(c('alt', 'neu'), size = pop_size, replace = TRUE)
+
+wohnort <- sapply(anreise, function(x) {
+  if(x < 30) 'stadt'
+  else 'land'
+})
+
+studiendauer <- rnorm(n = pop_size, mean = 3.5, sd = 0.6)
+```
+
+Wir setzen `geschlecht`, `wohnort`, `studiendauer`, `studienordnung` und `anreise` zu einer Datenmatrix (`tibble`) zusammen und nennen das Objekt `grundgesamtheit`.
+
+```{r}
+grundgesamtheit <- tibble(student_id, geschlecht, wohnort, studiendauer, studienordnung, anreise)
+```
+
+Wie im @sec-hypothsen-randomisierung, simulieren wir eine Befragung von 300 Studierenden, indem wir eine zufällige Stichprobe (ohne Zurücklegen) aus den 1200 Studierenden (Grundgesamtheit) auswählen.
+
+```{r}
+set.seed(345)
+
+befragung_size <- 300
+
+befragung <- rep_sample_n(grundgesamtheit, size = befragung_size, replace = FALSE, reps = 1)
+```
+
+Unsere Forschungsfrage lautet: Wie groß ist der Anteil der Studierenden, die auf dem Land wohnen. Wir möchten aus der eben gewonnen Stichprobe, die wahren Parameter (Anteil der Studierenden, die auf dem Land wohnen in der Grundgesamtheit), den wir mit $p$ bezeichnen **schätzen**.
+
+Die beste Schätzung für $p$ ist der Anteil der Studierenden, die auf dem Land wohnen, den wir in der Befragung, d. h. unsere zufällige Stichprobe beobachten. Diesen Anteil nennen wir $\hat{p}$ und die R Variable `p_hat`.
+
+Zunächst zählen wir einfach die Studierenden der verschiedenen Wohnorte.
+```{r}
+befragung %>% 
+  count(wohnort)
+```
+
+
+Wie verändern sich diese Zahlen, wenn wir zufälligerweise andere Studierende befragt hätten? Wir wählen neue Studierende aus und wiederholen die Berechnung des Mittelwerts der Studiendauer, ähnlich wie in @sec-hypothsen-randomisierung.
+
+```{r}
+set.seed(987)
+
+befragung <- rep_sample_n(grundgesamtheit, size = befragung_size, replace = FALSE, reps = 1)
+
+befragung %>% 
+  count(wohnort)
+```
+
+Der Anteil der Studierenden auf dem Land lässt sich wie folgt berechnen:
+```{r}
+p_hat <- befragung %>% 
+  group_by(wohnort) %>% 
+  summarise(prop = n()/befragung_size)
+
+p_hat
+```
+
+Es wohnen also 44.3% auf dem Land und entsprechend 55.7% in der Stadt. Dass beide Anteile berechnet werden, soll uns hier nicht stören. Natürlich sind die beiden Anteile zusammengerechnet immer gleich 1.
+
+Erwartungsgemäß bringt jede Wiederholung der Befragung etwas andere Ergebnisse.
+
+## Workflow in `infer`
+Das Paket `infer` bietet ein einheitliches Framework sowohl für Hypothesentests als auch für die Berechnung von Konfidenzintervallen (@fig-ht). Es hat 4 Verben, die den oben beschriebenen Prozess der Hypothesentests vereinheitlichen und ein Verb für die Visualisierung der Ergebnisse:
+
+1. `specify()` Variablen festlegen
+1. `hypothesize()` Nullhypothese definieren
+1. `generate()` Daten unter der Nullhypothese generieren
+1. `calculate()` Stichprobenverteilung (d.h. Verteilung der Teststatistik) berechnen
+1. `visualize()` Stichprobenverteilung darstellen
+
+Für die Berechnung der Konfidenzintervalle brauchen wir keine Hypothese (also kein `hypothesize()`) und keine $p$-Werte. Alle anderen Funktionen sind nach wie vor notwendig. Das Berechnen des Konfidenzintervalls übernimmt die Funktion `get_confidence_interval()`.
+
+
+## Konfidenzintervalle berechnen mit `infer`
+
+### Schritt 1: Berechnen der Statistik
+Unsere Forschungsfrage lautet: Wie groß ist der Anteil der Studierenden, die auf dem Land wohnen. Wir möchten diesen Anteil durch unsere Befragung schätzen und ein Konfidenzintervall für die Schätzung angeben.
+
+Die Schätzung haben wir bereits:
+
+```{r}
+p_hat
+```
+
+
+### Schritt 2: Bootstrappen
+Im nächsten Schritt ziehen wir aus unserer Stichprobe `befragung` mit Zurücklegen Bootstrap-Stichproben und berechnen für diese die Anteile der Wohnorte. Das sind unsere Bootstrap-Stichproben und die entsprechenden Statistiken. Wir können `infer` mitteilen, dass wir nur den Anteil der Landbewohner brauchen.
+
+```{r}
+set.seed(345)
+
+bootstrap_distribution <- befragung %>%
+  specify(response = wohnort, success = 'land') %>% 
+  generate(reps = 10000, type = 'bootstrap') %>% 
+  calculate(stat = 'prop')
+```
+
+### Schritt 3: Ergebnisse darstellen
+Nun können wir auch das Konfidenzintervall für unsere Schätzung $\hat{p}$ berechnen:
+```{r}
+percentile_ci <- bootstrap_distribution %>% 
+  get_confidence_interval(point_estimate = p_hat$prop[1],
+                          level = 0.95, type = "percentile")
+
+percentile_ci
+```
+
+Die Verteilung der Anteile der Studierenden, die auf dem Land wohnen, in den Bootstrap-Stichproben stellen wir als Histogramm dar und markieren gleich das Konfidenzintervall.
+
+```{r}
+visualize(bootstrap_distribution) +
+  shade_confidence_interval(percentile_ci) +
+  geom_vline(xintercept = p_hat$prop[1], size = 3, col = 'red')
+```
+
+### Schritt 4: Schlussfolgerungen ziehen
+Wir können nun unsere Forschungsfrage beantworten:
+
+Wir schätzen den Anteil der Studierenden, die auf dem Land wohnen, auf `r round(p_hat$prop[1] , 2)`, mit dem Konfidenzintervall von `r as.numeric(percentile_ci)`.
+
+## Kleine Zusammenfassung
+
+:::{.alert}
+- **Grundgesamtheit**: alle Studierenden der Universität Werdeschlau
+- **zufällige Stichprobe**: eine zufällig ausgesuchte Gruppe von Studierenden
+- **Parameter der Grundgesamtheit**: z.B. der wahre Anteil von Studierenden, die in der Stadt oder auf dem Land leben
+- **Schätzer** für diesen Parameter der Grundgesamtheit: Anteil der Studierenden, die in der Stadt oder auf dem Land leben, berechnet aus der zufälligen Stichprobe. Da die Stichprobe zufällig ist, kann man davon ausgehen, dass sie repräsentativ für die Grundgesamtheit ist und der Schätzer unverzerrt (*unbiased*, d.h. ohne einen systematischen Fehler).
+- **Inferenz**: schließen auf die Grundgesamtheit darf man, wenn die Stichprobe zufällig erhoben wurde und repräsentativ für die Fragestellung ist.
+:::
+
+Die Begriffe Statistik, Schätzer, Schätzfunktion und Stichprobenfunktion werden als Synonyme verwendet. Die Statistik ist ja auch eine Funktion, da sie mit einer Formel eine Zahl aus Daten (Stichprobe) berechnet. Sie fasst die Stichprobe also zusammen.
+
+
+## Aufgaben
+
+### Vertiefung des Themas Parameterschätzung und Konfidenzintervalle
+Arbeiten Sie das Tutorial [Foundations of inference: 4 - Parameters and confidence intervals](https://openintro.shinyapps.io/ims-04-foundations-04) durch.
