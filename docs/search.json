@@ -809,13 +809,27 @@
     "href": "100-aufgabensammlung.html#umgang-mit-der-normalverteilung",
     "title": "Appendix A — Aufgabensammlung",
     "section": "A.6 Umgang mit der Normalverteilung",
-    "text": "A.6 Umgang mit der Normalverteilung\n\nA.6.1 Simulieren von Daten aus einer Normalverteilung\n\nSimulieren Sie 1000 Werte aus der Standardnormalverteilung. Nutzen Sie dazu die Funktion rnorm() und stellen Sie die Daten als Histogramm dar. Tipp: Wandeln Sie die Daten in ein tibble um.\nDie Funktion dnorm berechnet den Wert der Warscheinlichkeitsdichte \\(f(x)\\), also einen Punkt auf der Glockenkurve. Berechnen Sie diesen Wert für \\(x = 0.3\\) für die Standardnormalverteilung.\nDie Funktion dnorm kann man dazu nutzen, um die theoretische Normalverteilung über die simulierten Daten aus Aufgabe 1 zu plotten. Nutzen Sie dazu die Funktionen geom_density() und geom_function(). Diese Aufgabe machen wir gemeinsam.\nÜberprüfen Sie, dass der Bereich \\(\\pm\\) 1.96 Standardabweichungen in einer Normalverteilung 95% der Werte enthält. Zeichnen Sie den Bereich richtig ein."
+    "text": "A.6 Umgang mit der Normalverteilung\n\nA.6.1 Simulieren von Daten aus einer Normalverteilung\n\nSimulieren Sie 1000 Werte aus der Standardnormalverteilung. Nutzen Sie dazu die Funktion rnorm() und stellen Sie die Daten als Histogramm dar. Tipp: Wandeln Sie die Daten in ein tibble um.\nDie Funktion dnorm berechnet den Wert der Wahrscheinlichkeitsdichte \\(f(x)\\), also einen Punkt auf der Glockenkurve. Berechnen Sie diesen Wert für \\(x = 0.3\\) für die Standardnormalverteilung.\nDie Funktion dnorm kann man dazu nutzen, um die theoretische Normalverteilung über die simulierten Daten aus Aufgabe 1 zu plotten. Nutzen Sie dazu die Funktionen geom_density() und geom_function(). Diese Aufgabe machen wir gemeinsam.\nÜberprüfen Sie, dass der Bereich \\(\\pm\\) 1.96 Standardabweichungen in einer Normalverteilung 95% der Werte enthält. Zeichnen Sie den Bereich richtig ein."
   },
   {
     "objectID": "100-aufgabensammlung.html#mittelwert-der-studiendauer-in-werdeschlau",
     "href": "100-aufgabensammlung.html#mittelwert-der-studiendauer-in-werdeschlau",
     "title": "Appendix A — Aufgabensammlung",
     "section": "A.7 Mittelwert der Studiendauer in Werdeschlau",
-    "text": "A.7 Mittelwert der Studiendauer in Werdeschlau\nDie Studentenvertretung in Werdeschlau möchte wissen, hoch im Schnitt die Studiendauer an der Uni Werdeschlau beträgt.\nFühren Sie eine Befragung von 100 zufällig ausgewählten Studierenden durch. Schätzen Sie aus diesen Daten die Studiendauer und geben Sie ein 95%-Konfidenzintervall an. Berechnen Sie dieses Konfidenzintervall\n\nmit Bootstrap\nmithilfe der Normalverteilung. Der Standardfehler des Mittelwerts sei 0.06 Jahre.\n\nVergleichen Sie die beiden Konfidenzintervalle.\n\n\n\n\nZuur, A. F., E. Ieno, and E. Meesters. 2009a. A Beginner’s Guide to R. Springer.\n\n\n———. 2009b. A Beginner’s Guide to R. Springer."
+    "text": "A.7 Mittelwert der Studiendauer in Werdeschlau\nDie Studentenvertretung in Werdeschlau möchte wissen, wie hoch im Schnitt die Studiendauer an der Uni Werdeschlau beträgt.\nFühren Sie eine Befragung von 100 zufällig ausgewählten Studierenden durch. Schätzen Sie aus diesen Daten die Studiendauer und geben Sie ein 95%-Konfidenzintervall an. Berechnen Sie dieses Konfidenzintervall\n\nmit Bootstrap\nmithilfe der Normalverteilung. Der Standardfehler des Mittelwerts sei 0.06 Jahre.\n\nVergleichen Sie die beiden Konfidenzintervalle."
+  },
+  {
+    "objectID": "100-aufgabensammlung.html#umgang-mit-der-t-verteilung",
+    "href": "100-aufgabensammlung.html#umgang-mit-der-t-verteilung",
+    "title": "Appendix A — Aufgabensammlung",
+    "section": "A.8 Umgang mit der \\(t\\)-Verteilung",
+    "text": "A.8 Umgang mit der \\(t\\)-Verteilung\n\nFinden Sie den kritischen Wert \\(t^*_{2}\\) für das 95%-Konfidenzintervall Nutzen Sie dazu die Funktion qt().\nPlotten Sie die dazugehörige Verteilung mit normTail() und markieren Sie den Bereich, der 95% aller Werte enthält.\nVergleichen Sie die mit dem kritischen Wert für eine \\(t\\)-Verteilung mit 18 Freiheitsgraden."
+  },
+  {
+    "objectID": "100-aufgabensammlung.html#mitttelwert-der-laufzeiten-beim-cherrys-blossom-race",
+    "href": "100-aufgabensammlung.html#mitttelwert-der-laufzeiten-beim-cherrys-blossom-race",
+    "title": "Appendix A — Aufgabensammlung",
+    "section": "A.9 Mitttelwert der Laufzeiten beim Cherrys Blossom Race",
+    "text": "A.9 Mitttelwert der Laufzeiten beim Cherrys Blossom Race\nBeim Cherrys Blossom Race laufen die Teilnehmer ein 10-Meilen Rennen. Wie hoch ist die mittlere Laufzeit (mit 95%-Konfidenzintervall) im Jahr 2017? Der Datensatz run17 enthält die Daten.\n\nFiltern Sie zuerst nach event == '10 Mile', da der Datensatz mehrere Rennen enthält (Hilfe lesen!).\nZiehen Sie eine Zufallsstichprobe von 100 Läufern und rechnen Sie die Laufzeit net_sec in Minuten um.\nÜberprüfen Sie die Anforderungen an die Daten. Welches Modell dürfen Sie nutzen?\nBerechnen Sie die Punktschätzung und das Konfidenzintervall.\n\n\n\n\n\nZuur, A. F., E. Ieno, and E. Meesters. 2009a. A Beginner’s Guide to R. Springer.\n\n\n———. 2009b. A Beginner’s Guide to R. Springer."
   }
 ]

@@ -358,6 +358,8 @@ div.csl-indent {
   <li><a href="#simulieren-von-daten-aus-einer-normalverteilung" id="toc-simulieren-von-daten-aus-einer-normalverteilung" class="nav-link" data-scroll-target="#simulieren-von-daten-aus-einer-normalverteilung"><span class="toc-section-number">A.6.1</span>  Simulieren von Daten aus einer Normalverteilung</a></li>
   </ul></li>
   <li><a href="#mittelwert-der-studiendauer-in-werdeschlau" id="toc-mittelwert-der-studiendauer-in-werdeschlau" class="nav-link" data-scroll-target="#mittelwert-der-studiendauer-in-werdeschlau"><span class="toc-section-number">A.7</span>  Mittelwert der Studiendauer in Werdeschlau</a></li>
+  <li><a href="#umgang-mit-der-t-verteilung" id="toc-umgang-mit-der-t-verteilung" class="nav-link" data-scroll-target="#umgang-mit-der-t-verteilung"><span class="toc-section-number">A.8</span>  Umgang mit der <span class="math inline">\(t\)</span>-Verteilung</a></li>
+  <li><a href="#mitttelwert-der-laufzeiten-beim-cherrys-blossom-race" id="toc-mitttelwert-der-laufzeiten-beim-cherrys-blossom-race" class="nav-link" data-scroll-target="#mitttelwert-der-laufzeiten-beim-cherrys-blossom-race"><span class="toc-section-number">A.9</span>  Mitttelwert der Laufzeiten beim Cherrys Blossom Race</a></li>
   </ul>
 </nav>
     </div>
@@ -636,7 +638,7 @@ div.csl-indent {
 <h3 data-number="A.6.1" class="anchored" data-anchor-id="simulieren-von-daten-aus-einer-normalverteilung"><span class="header-section-number">A.6.1</span> Simulieren von Daten aus einer Normalverteilung</h3>
 <ol type="1">
 <li><p>Simulieren Sie 1000 Werte aus der Standardnormalverteilung. Nutzen Sie dazu die Funktion <code>rnorm()</code> und stellen Sie die Daten als Histogramm dar. Tipp: Wandeln Sie die Daten in ein <code>tibble</code> um.</p></li>
-<li><p>Die Funktion <code>dnorm</code> berechnet den Wert der Warscheinlichkeitsdichte <span class="math inline">\(f(x)\)</span>, also einen Punkt auf der Glockenkurve. Berechnen Sie diesen Wert für <span class="math inline">\(x = 0.3\)</span> für die Standardnormalverteilung.</p></li>
+<li><p>Die Funktion <code>dnorm</code> berechnet den Wert der Wahrscheinlichkeitsdichte <span class="math inline">\(f(x)\)</span>, also einen Punkt auf der Glockenkurve. Berechnen Sie diesen Wert für <span class="math inline">\(x = 0.3\)</span> für die Standardnormalverteilung.</p></li>
 <li><p>Die Funktion <code>dnorm</code> kann man dazu nutzen, um die theoretische Normalverteilung über die simulierten Daten aus Aufgabe 1 zu plotten. Nutzen Sie dazu die Funktionen <code>geom_density()</code> und <code>geom_function()</code>. Diese Aufgabe machen wir gemeinsam.</p></li>
 <li><p>Überprüfen Sie, dass der Bereich <span class="math inline">\(\pm\)</span> 1.96 Standardabweichungen in einer Normalverteilung 95% der Werte enthält. Zeichnen Sie den Bereich richtig ein.</p></li>
 </ol>
@@ -644,13 +646,31 @@ div.csl-indent {
 </section>
 <section id="mittelwert-der-studiendauer-in-werdeschlau" class="level2" data-number="A.7">
 <h2 data-number="A.7" class="anchored" data-anchor-id="mittelwert-der-studiendauer-in-werdeschlau"><span class="header-section-number">A.7</span> Mittelwert der Studiendauer in Werdeschlau</h2>
-<p>Die Studentenvertretung in Werdeschlau möchte wissen, hoch im Schnitt die Studiendauer an der Uni Werdeschlau beträgt.</p>
+<p>Die Studentenvertretung in Werdeschlau möchte wissen, wie hoch im Schnitt die Studiendauer an der Uni Werdeschlau beträgt.</p>
 <p>Führen Sie eine Befragung von 100 zufällig ausgewählten Studierenden durch. Schätzen Sie aus diesen Daten die Studiendauer und geben Sie ein 95%-Konfidenzintervall an. Berechnen Sie dieses Konfidenzintervall</p>
 <ol type="a">
 <li>mit Bootstrap</li>
 <li>mithilfe der Normalverteilung. Der Standardfehler des Mittelwerts sei 0.06 Jahre.</li>
 </ol>
 <p>Vergleichen Sie die beiden Konfidenzintervalle.</p>
+</section>
+<section id="umgang-mit-der-t-verteilung" class="level2" data-number="A.8">
+<h2 data-number="A.8" class="anchored" data-anchor-id="umgang-mit-der-t-verteilung"><span class="header-section-number">A.8</span> Umgang mit der <span class="math inline">\(t\)</span>-Verteilung</h2>
+<ol type="1">
+<li><p>Finden Sie den kritischen Wert <span class="math inline">\(t^*_{2}\)</span> für das 95%-Konfidenzintervall Nutzen Sie dazu die Funktion <code>qt()</code>.</p></li>
+<li><p>Plotten Sie die dazugehörige Verteilung mit <code>normTail()</code> und markieren Sie den Bereich, der 95% aller Werte enthält.</p></li>
+<li><p>Vergleichen Sie die mit dem kritischen Wert für eine <span class="math inline">\(t\)</span>-Verteilung mit 18 Freiheitsgraden.</p></li>
+</ol>
+</section>
+<section id="mitttelwert-der-laufzeiten-beim-cherrys-blossom-race" class="level2" data-number="A.9">
+<h2 data-number="A.9" class="anchored" data-anchor-id="mitttelwert-der-laufzeiten-beim-cherrys-blossom-race"><span class="header-section-number">A.9</span> Mitttelwert der Laufzeiten beim Cherrys Blossom Race</h2>
+<p>Beim Cherrys Blossom Race laufen die Teilnehmer ein 10-Meilen Rennen. Wie hoch ist die mittlere Laufzeit (mit 95%-Konfidenzintervall) im Jahr 2017? Der Datensatz <code>run17</code> enthält die Daten.</p>
+<ol type="1">
+<li>Filtern Sie zuerst nach <code>event == '10 Mile'</code>, da der Datensatz mehrere Rennen enthält (Hilfe lesen!).</li>
+<li>Ziehen Sie eine Zufallsstichprobe von 100 Läufern und rechnen Sie die Laufzeit <code>net_sec</code> in Minuten um.</li>
+<li>Überprüfen Sie die Anforderungen an die Daten. Welches Modell dürfen Sie nutzen?</li>
+<li>Berechnen Sie die Punktschätzung und das Konfidenzintervall.</li>
+</ol>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">

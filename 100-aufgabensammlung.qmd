@@ -223,14 +223,14 @@ Der Körper- und Kopflängen.
 ### Simulieren von Daten aus einer Normalverteilung
 1. Simulieren Sie 1000 Werte aus der Standardnormalverteilung. Nutzen Sie dazu die Funktion `rnorm()` und stellen Sie die Daten als Histogramm dar.  Tipp: Wandeln Sie die Daten in ein `tibble` um.
 
-2. Die Funktion `dnorm` berechnet den Wert der Warscheinlichkeitsdichte $f(x)$, also einen Punkt auf der Glockenkurve. Berechnen Sie diesen Wert für $x = 0.3$ für die Standardnormalverteilung.
+2. Die Funktion `dnorm` berechnet den Wert der Wahrscheinlichkeitsdichte $f(x)$, also einen Punkt auf der Glockenkurve. Berechnen Sie diesen Wert für $x = 0.3$ für die Standardnormalverteilung.
 
 3. Die Funktion `dnorm` kann man dazu nutzen, um die theoretische Normalverteilung über die simulierten Daten aus Aufgabe 1 zu plotten. Nutzen Sie dazu die Funktionen `geom_density()` und `geom_function()`. Diese Aufgabe machen wir gemeinsam.
 
 4. Überprüfen Sie, dass der Bereich $\pm$ 1.96 Standardabweichungen in einer Normalverteilung 95% der Werte enthält. Zeichnen Sie den Bereich richtig ein. 
 
 ## Mittelwert der Studiendauer in Werdeschlau
-Die Studentenvertretung in Werdeschlau möchte wissen, hoch im Schnitt die Studiendauer an der Uni Werdeschlau beträgt.
+Die Studentenvertretung in Werdeschlau möchte wissen, wie hoch im Schnitt die Studiendauer an der Uni Werdeschlau beträgt.
 
 Führen Sie eine Befragung von 100 zufällig ausgewählten Studierenden durch. Schätzen Sie aus diesen Daten die Studiendauer und geben Sie ein 95%-Konfidenzintervall an. Berechnen Sie dieses Konfidenzintervall
 
@@ -238,3 +238,19 @@ a. mit Bootstrap
 b. mithilfe der Normalverteilung. Der Standardfehler des Mittelwerts sei 0.06 Jahre.
 
 Vergleichen Sie die beiden Konfidenzintervalle.
+
+## Umgang mit der $t$-Verteilung
+1. Finden Sie den kritischen Wert $t^*_{2}$ für das 95%-Konfidenzintervall Nutzen Sie dazu die Funktion `qt()`.
+
+2. Plotten Sie die dazugehörige Verteilung mit `normTail()` und markieren Sie den Bereich, der 95% aller Werte enthält.
+
+3. Vergleichen Sie die mit dem kritischen Wert für eine $t$-Verteilung mit 18 Freiheitsgraden.
+
+## Mitttelwert der Laufzeiten beim Cherrys Blossom Race
+Beim Cherrys Blossom Race laufen die Teilnehmer ein 10-Meilen Rennen. Wie hoch ist die mittlere Laufzeit (mit 95%-Konfidenzintervall) im Jahr 2017? Der Datensatz `run17` enthält die Daten.
+
+1. Filtern Sie zuerst nach `event == '10 Mile'`, da der Datensatz mehrere Rennen enthält (Hilfe lesen!).
+2. Ziehen Sie eine Zufallsstichprobe von 100 Läufern und rechnen Sie die Laufzeit `net_sec` in Minuten um.
+3. Überprüfen Sie die Anforderungen an die Daten. Welches Modell dürfen Sie nutzen?
+4. Berechnen Sie die Punktschätzung und das Konfidenzintervall.
+
