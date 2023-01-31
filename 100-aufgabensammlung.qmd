@@ -254,3 +254,19 @@ Beim Cherrys Blossom Race laufen die Teilnehmer ein 10-Meilen Rennen. Wie hoch i
 3. Überprüfen Sie die Anforderungen an die Daten. Welches Modell dürfen Sie nutzen?
 4. Berechnen Sie die Punktschätzung und das Konfidenzintervall.
 
+
+## Mitttelwert der Laufzeiten beim Cherrys Blossom Race -- mit `infer`
+
+Lösen Sie die obige Aufgabe mit dem Paket `infer`.
+
+## $$-Test für den Mittelwert
+
+Wird der typische US-Läufer mit der Zeit schneller oder langsamer? Wir betrachten diese Frage im Kontext des Cherrys Blossom Race, einem 10-Meilen-Lauf in Washington, DC, der jedes Frühjahr stattfindet. Die Durchschnittszeit aller Läufer, die den Kirschblütenlauf im Jahr 2016 beendeten, betrug 93.29 Minuten (93 Minuten und etwa 17 Sekunden). Anhand der Daten von 100 Teilnehmern des Kirschblütenlaufs 2017 möchten wir feststellen, ob die Läufer bei diesem Lauf schneller oder langsamer werden, oder ob es keine Veränderungen gibt.
+
+Lösen Sie die Aufgabe mit `infer`.
+
+
+### Bodenverdichtung {#verdichtung}
+Schwere landwirtschaftliche Maschinen können beim Bearbeiten des Bodens zu Bodenverdichtung führen. In einem randomisierten Design wurden zufällig Parzellen auf einem sonst homogenen Feld mit einer schweren Maschine bearbeitet (`compacted`). Auf allen Parzellen wurde danach die Lagerungsdichte bestimmt. Aus langjährigen Messungen ist ist der Mittelwert des unverdichteten Bodens bekannt und beträgt 1.3 [g/cm³]. Die Lagerungsdichte (auch Trockenrohdichte) ist ein Maß für Bodenstruktur und gibt das Verhältnis der Trockenmasse eines Bodens zu seinem Volumen. Sie wird häufig in [g/cm³] gemessen und kann als ein Indikator für Bodenverdichtung genutzt werden. Eine Erhöhung der Lagerungsdichte ist ein Indikator für Verdichtung. Der Datensatz ist in der Datei "bd_compaction_simple.csv" gespeichert.
+
+1. Überprüfen Sie, ob sich die Lagerungsdichte auf den bearbeiteten Feldern erhöht hat. 
