@@ -259,7 +259,7 @@ Beim Cherrys Blossom Race laufen die Teilnehmer ein 10-Meilen Rennen. Wie hoch i
 
 Lösen Sie die obige Aufgabe mit dem Paket `infer`.
 
-## $$-Test für den Mittelwert
+## $t$-Test für den Mittelwert
 
 Wird der typische US-Läufer mit der Zeit schneller oder langsamer? Wir betrachten diese Frage im Kontext des Cherrys Blossom Race, einem 10-Meilen-Lauf in Washington, DC, der jedes Frühjahr stattfindet. Die Durchschnittszeit aller Läufer, die den Kirschblütenlauf im Jahr 2016 beendeten, betrug 93.29 Minuten (93 Minuten und etwa 17 Sekunden). Anhand der Daten von 100 Teilnehmern des Kirschblütenlaufs 2017 möchten wir feststellen, ob die Läufer bei diesem Lauf schneller oder langsamer werden, oder ob es keine Veränderungen gibt.
 
