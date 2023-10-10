@@ -38,7 +38,7 @@ book:
     style: docked
     background: light
     
-bibliography: '../statistik_und_datenanalyse/statistik_und_datenanalyse.bib'
+bibliography: 'statistik_und_datenanalyse.bib'
 
 language:
   de:

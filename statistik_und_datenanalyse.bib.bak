@@ -108,14 +108,13 @@ url = {https://bookdown.org/yihui/rmarkdown/}
 }
 
 
-@Book{Wickham2020,
-  author     = {Wickham, Hadley},
-  title      = {ggplot2: {{Elegant Graphics}} for {{Data Analysis}}},
-  year       = {2020},
-  edition    = {3rd, in progress},
-  abstract   = {Master ggplot2 and the rich grammar that underlies it.},
+@book{Wickham2020,
+  title = {ggplot2: {{Elegant Graphics}} for {{Data Analysis}}},
   shorttitle = {ggplot2},
-  url        = {https://ggplot2-book.org/},
+  author = {Wickham, Hadley},
+  year = {2020},
+  edition = {3rd, in progress},
+  abstract = {Master ggplot2 and the rich grammar that underlies it.}
 }
 
 

@@ -7,8 +7,6 @@ In dieser Veranstaltung werden wir folgende Werkzeuge verwenden:
 
 **Campuswire**: die Chatplattform dient der allgemeinen Kommunikation und der Selbstorganisation des Lernens. Verwenden Sie diese, um Fragen mit Ihren Kommilitonen\*innen und mir zu diskutieren. Sie sollten eine Einladungsmail zu Campuswire erhalten haben.
 
-**Zoom**: die Videokonferenz-Software bleibt unser Notfall-Werkzeug, falls keine Präsenz möglich ist.
-
 ## Lernergebnisse (intended learning outcomes) {-}
 
 :::{.outcomes}
@@ -30,7 +28,7 @@ In dieser Veranstaltung werden wir folgende Werkzeuge verwenden:
 
 ## Was mir im Umgang miteinander wichtig ist {-}
 
-- Pünktlichkeit bei Präsenz- und Zoomsitzungen
+- Pünktlichkeit in der Vorlesung und den Übungen
 - Gute Vorbereitung durch Erledigen der Hausaufgaben
 - Respektieren anderer Meinungen
 - Offenheit gegenüber neuen Sichtweisen, Themen und Methoden
