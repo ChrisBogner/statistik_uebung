@@ -15,7 +15,7 @@ library(kableExtra)
 
 ## Aufbau eines Darstellungsbefehls
 
-Das Paket `ggplot2` ist ein sehr mächtiges Visualisierungswerkzeug. Der Name steht für "the grammar of graphics". Das bedeutet, dass man mithilfe von verschiedenen Funktion in `ggplot2` seine Grafik Schritt für Schritt aufbaut, wie einen (grammatikalisch korrekten) Satz. In aller Kürze bedeutet das:
+Das Paket `ggplot2` ist ein sehr mächtiges Visualisierungswerkzeug. Der Name steht für "the grammar of graphics". Das bedeutet, dass man mithilfe von verschiedenen Funktionen in `ggplot2` seine Grafik Schritt für Schritt aufbaut, wie einen (grammatikalisch korrekten) Satz. In aller Kürze bedeutet das:
 
 > Eine statistische Grafik ist eine Zuordnung (`mapping`) von Variablen in einem Datensatz (`data`) zu (ästhetischen) Attributen (`aes`) von geometrischen Objekten (`geom`).
 
@@ -23,14 +23,14 @@ Wir müssen also für die Darstellung von Daten R Folgendes mitteilen:
 
 1. `data`: der Datensatz, der die Variablen enthält, die wir darstellen möchten.
 
-1. `aes`: (ästhetische) Attribute für die geometrischen Objekte, die dargestellt werden sollen. Diese Attribute sind, z.B. die x und y Koordinaten, Farbe, Form und Größe der geometrischen Objekte
+1. `aes`: (ästhetische) Attribute für die geometrischen Objekte, die dargestellt werden sollen. Diese Attribute sind, z. B. die $x$- und $y$-Koordinaten, Farbe, Form und Größe der geometrischen Objekte.
 
-1. `geom`: geometrische Objekte, die dargestellt werden sollen, z.B. Punkte, Linien, Boxen, Balken/Säulen etc.
+1. `geom`: geometrische Objekte, die dargestellt werden sollen, z. B. Punkte, Linien, Boxen, Balken/Säulen etc.
 
 Wir laden zunächst die nötigen Bibliotheken.
 ```{r}
 #| message: false
-library(ggplot2)
+library(tidyverse)
 library(gapminder)
 ```
 
@@ -59,9 +59,9 @@ In Worten könnte man es vielleicht wie folgt umschreiben:
 
 1. Nimm den Datensatz `gapminder2007` (`data = gapminder2007`)  und 
 
-1. ordne folgende Attribute zu:
-    a. auf die x-Achse die Variable `gdpPercap` (`x = gdpPercap`) (Bruttoinlandsprodukt)
-    a. auf die y-Achse die Variable `lifeExp` (`y = lifeExp`) (Lebenserwartung)
+1. Ordne folgende Attribute zu:
+    a. auf die $x$-Achse die Variable `gdpPercap` (`x = gdpPercap`) (Bruttoinlandsprodukt)
+    a. auf die $y$-Achse die Variable `lifeExp` (`y = lifeExp`) (Lebenserwartung)
     a. färbe ein mithilfe der Variablen `continent` (`color = continent`).
 
 2. Stelle das Ganze als geometrisches Objekt *Punkte* dar (`geom_point()`)
@@ -84,7 +84,7 @@ ggplot(data = gapminder2007,
 
 
 ## Weitere geoms
-Das `geom_point()` produziert ein Streudiagramm auch XY-Diagramm (*scatter plot*). Weiter wichtige Grafiktypen sind
+Das `geom_point()` produziert ein Streudiagramm, auch XY-Diagramm (*scatter plot*). Weiter wichtige Grafiktypen sind:
 
 - `geom_line()`: Linien
 - `geom_bar()`: Balken
@@ -150,3 +150,4 @@ Bis auf die Grafik in @sec-line fehlen bei den Grafiken oben ordentliche Achsenb
 - Speichern Sie Ihr Notebook ab.
 - Laden Sie Ihre .Rmd Datei in ILIAS hoch. **Beachten Sie die Frist!**
 - Sie erhalten die Musterlösung nach dem Hochladen.
+

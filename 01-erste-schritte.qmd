@@ -22,7 +22,7 @@ library(kableExtra)
 ## Was ist `r fontawesome::fa("r-project", fill = "steelblue")`?
 R ist eine Programmiersprache für Datenanalyse und statistische Modellierung. Es ist frei verfügbar (*open source software*) und neben Python einer der am meisten benutzten Programmiersprachen zur Datenanalyse und -visualisierung. R wurde von Ross Ihaka und Robert Gentleman 1996 veröffentlicht [@Ihaka1996]. Es gibt für R eine Vielzahl von Zusatzpaketen, die die Funktionalität und die Einsatzmöglichkeiten enorm erweitern.
 
-Sie können R für Ihren Computer auf der offiziellen R-Seite https://www.r-project.org/ herunterladen und installieren. Eine kurze Anleitung finden Sie auf ILIAS, zusammen mit der Liste der Pakete, die wir in diesm Kurs brachen werden. Zusätzlich können Sie sich [hier](https://www.youtube.com/watch?v=kygOqp_zijk&list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o&t=14s) ein Video zur Installation ansehen. 
+Sie können R für Ihren Computer auf der offiziellen R-Seite https://www.r-project.org/ herunterladen und installieren. Eine kurze Anleitung finden Sie auf ILIAS, zusammen mit der Liste der Pakete, die wir in diesem Kurs brachen werden. Zusätzlich können Sie sich [hier](https://www.youtube.com/watch?v=kygOqp_zijk&list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o&t=14s) ein Video zur Installation ansehen. 
 
 Auf der offiziellen R-Seite finden Sie auch zusätzliche Pakete, und zwar unter CRAN (*The Comprehensive R Archive Network*). Manche Pakete sind auf den CRAN-Seiten thematische in sogen. [CRAN Task Views](http://cran.r-project.org/web/views/) gegliedert. Für den Umweltbereich sind folgende Paketsammlungen besonders relevant:
 
@@ -31,10 +31,10 @@ Auf der offiziellen R-Seite finden Sie auch zusätzliche Pakete, und zwar unter 
 - Spatial: Analyse von räumlichen Daten
 - TimeSeries: Zeitreihenanalyse
 
-Zu Beginn des Kurses werden wir jedoch nicht auf Ihren lokalen Rechnern arbeiten, sondern auf den bereits eingerichteten Uni-Rechnern in den EDV-Räumen. Daher biete ich zu diesem frühen Zeitpunkt im Kurs keine Unterstützung bei der Installation von R auf Ihren Privatrechnern. Für die ganz Ungeduldigen, gibt es hier eine kurze [Einleitung zur Installation](https://www.youtube.com/watch?v=kygOqp_zijk&list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o&t=14s).
+Zu Beginn des Kurses werden wir jedoch nicht auf Ihren lokalen Rechnern arbeiten, sondern auf den bereits eingerichteten Uni-Rechnern in den EDV-Räumen. Daher biete ich zu diesem frühen Zeitpunkt im Kurs keine Unterstützung bei der Installation von R auf Ihren Privatrechnern. Für die ganz Ungeduldigen gibt es hier eine kurze [Einleitung zur Installation](https://www.youtube.com/watch?v=kygOqp_zijk&list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o&t=14s).
 
 ## Was ist RStudio?
-RStudio Desktop ist eine Entwicklungsumgebung für R. **Wichtig**: RStudio wird erst nach R installiert und macht ohne R keinen Sinn. Sie können die *open source* Version kostenlos für Ihren Rechner [hier](https://rstudio.com/products/rstudio/#rstudio-desktop) herunterladen, falls Sie sich entscheiden, (später) R auf Ihrem Rechner zu installieren. Es gibt eine live Einführung in RStudio im Kurs. Zusätzlich können Sie hier ein [Video](https://www.youtube.com/watch?v=r5wOhFVWXUE&list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o) dazu ansehen.
+RStudio Desktop ist eine Entwicklungsumgebung für R. **Wichtig**: RStudio wird erst nach R installiert und ergibt ohne R keinen Sinn. Sie können die *open source* Version kostenlos für Ihren Rechner [hier](https://rstudio.com/products/rstudio/#rstudio-desktop) herunterladen, falls Sie sich entscheiden, (später) R auf Ihrem Rechner zu installieren. Es gibt eine live Einführung in RStudio im Kurs. Zusätzlich können Sie hier ein [Video](https://www.youtube.com/watch?v=r5wOhFVWXUE&list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o) dazu ansehen.
 
 Die Oberfläche von RStudio ist in vier Bereiche unterteilt (@fig-rstudio).
 
@@ -104,7 +104,7 @@ knitr::kable(tab,
 ## Hausaufgaben
 ### R als Taschenrechner
 
-R ist ein großer Taschenrechner mit vielen bereits definierten Funktionen. Es gelten die üblichen Rechenregeln wie z.B. Punkt-vor-Strich und die Klammern.
+R ist ein großer Taschenrechner mit vielen bereits definierten Funktionen. Es gelten die üblichen Rechenregeln wie z. B. Punkt-vor-Strich und die Klammern.
 
 - Schreiben Sie den Code, der 2 und 10 addiert
 
@@ -130,7 +130,7 @@ x
 ```
 
 
-Zuweisungen können in R entweder mit dem `=` erfolgen oder mit `<-`. Beide Varianten sind gleichwertig. Dabei ist allerdings Pfeilrichtung entscheidend! `x <- 42` bedeutet: Die rechte Seite (Zahl 42) wird dem Objekt `x` zugeordnet. Wenn man die Pfeilrichtung umdreht, macht die Zuweisung keinen Sinn und man erhält eine Fehlermeldung.
+Zuweisungen können in R entweder mit dem `=` erfolgen oder mit `<-`. Beide Varianten sind gleichwertig. Dabei ist allerdings die Pfeilrichtung entscheidend! `x <- 42` bedeutet: Die rechte Seite (Zahl 42) wird dem Objekt `x` zugeordnet. Wenn man die Pfeilrichtung umdreht, ergibt die Zuweisung keinen Sinn und man erhält eine Fehlermeldung.
 
 ```{r "2_assignment_long"}
 #| error: true
@@ -148,7 +148,7 @@ Objektnamen können (fast) frei gewählt werden. Sie müssen mit einem Buchstabe
 
 - Erstellen Sie ein Objekt namens `mein_objekt` und weisen Sie ihm das Ergebnis der Berechnung $23^{2}$ zu. Eine Potenz berechnen Sie mit `^`.
 
-Eine Zuweisung kann auch kompliziertere Anweisungen enthalten. Hier erstellen wir z.B. einen Vektor mithilfe der Funktion `c` (*concatenate*) und weisen das Ergebnis dem Objekt `my_a` zu.
+Eine Zuweisung kann auch kompliziertere Anweisungen enthalten. Hier erstellen wir z. B. einen Vektor mithilfe der Funktion `c` (*concatenate*) und weisen das Ergebnis dem Objekt `my_a` zu.
 
 ```{r "2_3"}
 #| results: hide
@@ -157,7 +157,7 @@ my_a <- c(32, 54, 1.2, 398)
 
 
 ### Funktionsaufruf
-In R gibt es eine Vielzahl von vordefinierten Funktionen. Ein Funktionsaufruf hat immer die gleiche Form: *mach_das(damit)* oder *mach_das(damit, und_mit_dieser_einstellung)*. Z.B. wird die Summe auf einem Objekt `mein_objekt` mit `sum(mein_objekt)` berechnet.
+In R gibt es eine Vielzahl von vordefinierten Funktionen. Ein Funktionsaufruf hat immer die gleiche Form: *mach_das(damit)* oder *mach_das(damit, und_mit_dieser_einstellung)*. Z. B. wird die Summe auf einem Objekt `mein_objekt` mit `sum(mein_objekt)` berechnet.
 
 - Erstellen Sie einen Vektor mit den Zahlen 32, 54, 1,2 und 398 und weisen Sie ihn der Variablen `my_a` zu.
 - Berechnen Sie die summe von `my_a`. 
@@ -173,7 +173,7 @@ Häufig wollen wir für unsere Daten den Mittelwert berechnen.
 
 ### Objekte ansprechen
 
-Um das "Innenleben" der Objekte in R anzusprechen, gibt es verschieden Möglichkeiten. In diesem Tutorial konzentrieren wir uns auf Vektoren. Um die einzelnen Komponenten im Vektor anzusprechen, benutzt man eckige Klammern `[ ]`. Um eine bestimmte Komponente zu adressieren (anzusprechen), schreibt man die Platznummer der Komponente in die Klammer. Wenn man im Vektor `my_c`, z.B. die dritte Komponente extrahieren möchte, dann schreibt man `my_c[3]`
+Um das "Innenleben" der Objekte in R anzusprechen, gibt es verschiedene Möglichkeiten. In diesem Tutorial konzentrieren wir uns auf Vektoren. Um die einzelnen Komponenten im Vektor anzusprechen, benutzt man eckige Klammern `[ ]`. Um eine bestimmte Komponente zu adressieren (anzusprechen), schreibt man die Platznummer der Komponente in die Klammer. Wenn man im Vektor `my_c`, z. B. die dritte Komponente extrahieren möchte, dann schreibt man `my_c[3]`
 
 ```{r "a_3"}
 #| results: hide
@@ -236,8 +236,9 @@ ggplot(gapminder2007, aes(x = gdpPercap, y = lifeExp, color = continent, size = 
 <br>
 
 :::{.alert}
-Beachten Sie die Deadline für das Hochladen der Hausaufgaben!
+Beachten Sie die Frist für das Hochladen der Hausaufgaben!
 :::
 
 ## Lesestoff
 r4ds, Kapitel 4 [@r4ds]
+

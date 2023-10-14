@@ -6,7 +6,7 @@ book:
   title: "Übung zur Vorlesung Statistik und Datenanalyse"
   author: "Christina Bogner"
   date: last-modified
-  language: "de-DE"
+  language: "de"
   chapters: 
     - index.qmd
     - part: "EINFÜHRUNG IN R"
@@ -40,10 +40,7 @@ book:
     
 bibliography: 'statistik_und_datenanalyse.bib'
 
-language:
-  de:
-    crossref-fig-title: "Abbildung"
-    crossref-tbl-title: "Tabelle"
+language: _language-de.yml
 
 format:
   html:
