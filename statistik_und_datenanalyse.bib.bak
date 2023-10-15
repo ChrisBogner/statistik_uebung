@@ -310,12 +310,13 @@ url = {https://bookdown.org/yihui/rmarkdown/}
 
 
 
-@book{IMS2021,
-	title = {Introduction to Modern Statistics},
-	author = {{Çetinkaya-Rundel}, Mine and Hardin, Johanna},
-	url = {https://openintro-ims.netlify.app/},
-	note = {Citation Key: IMS2021},
-	langid = {en}
+@Book{IMS2021,
+  author = {{Çetinkaya-Rundel}, Mine and Hardin, Johanna},
+  title  = {Introduction to Modern Statistics},
+  year   = {2021},
+  note   = {Citation Key: IMS2021},
+  langid = {en},
+  url    = {https://openintro-ims.netlify.app/},
 }
 
 @Book{r4ds,
