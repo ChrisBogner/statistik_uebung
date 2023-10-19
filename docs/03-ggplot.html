@@ -374,19 +374,19 @@ div.csl-indent {
 </div>
 <section id="aufbau-eines-darstellungsbefehls" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="aufbau-eines-darstellungsbefehls"><span class="header-section-number">3.1</span> Aufbau eines Darstellungsbefehls</h2>
-<p>Das Paket <code>ggplot2</code> ist ein sehr mächtiges Visualisierungswerkzeug. Der Name steht für “the grammar of graphics”. Das bedeutet, dass man mithilfe von verschiedenen Funktion in <code>ggplot2</code> seine Grafik Schritt für Schritt aufbaut, wie einen (grammatikalisch korrekten) Satz. In aller Kürze bedeutet das:</p>
+<p>Das Paket <code>ggplot2</code> ist ein sehr mächtiges Visualisierungswerkzeug. Der Name steht für “the grammar of graphics”. Das bedeutet, dass man mithilfe von verschiedenen Funktionen in <code>ggplot2</code> seine Grafik Schritt für Schritt aufbaut, wie einen (grammatikalisch korrekten) Satz. In aller Kürze bedeutet das:</p>
 <blockquote class="blockquote">
 <p>Eine statistische Grafik ist eine Zuordnung (<code>mapping</code>) von Variablen in einem Datensatz (<code>data</code>) zu (ästhetischen) Attributen (<code>aes</code>) von geometrischen Objekten (<code>geom</code>).</p>
 </blockquote>
 <p>Wir müssen also für die Darstellung von Daten R Folgendes mitteilen:</p>
 <ol type="1">
 <li><p><code>data</code>: der Datensatz, der die Variablen enthält, die wir darstellen möchten.</p></li>
-<li><p><code>aes</code>: (ästhetische) Attribute für die geometrischen Objekte, die dargestellt werden sollen. Diese Attribute sind, z.B. die x und y Koordinaten, Farbe, Form und Größe der geometrischen Objekte</p></li>
-<li><p><code>geom</code>: geometrische Objekte, die dargestellt werden sollen, z.B. Punkte, Linien, Boxen, Balken/Säulen etc.</p></li>
+<li><p><code>aes</code>: (ästhetische) Attribute für die geometrischen Objekte, die dargestellt werden sollen. Diese Attribute sind, z. B. die <span class="math inline">\(x\)</span>- und <span class="math inline">\(y\)</span>-Koordinaten, Farbe, Form und Größe der geometrischen Objekte.</p></li>
+<li><p><code>geom</code>: geometrische Objekte, die dargestellt werden sollen, z. B. Punkte, Linien, Boxen, Balken/Säulen etc.</p></li>
 </ol>
 <p>Wir laden zunächst die nötigen Bibliotheken.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Anschließend filtern wir den Datensatz <code>gapminder</code>, um nur die Daten aus dem Jahr 2007 zu behalten. Der Code <code>filter(year == 2007)</code> bedeutet, dass wir nur die Zeilen aus dem Datensatz behalten wollen, in denen in der Variable <code>year</code> 2007 steht.</p>
@@ -421,10 +421,10 @@ div.csl-indent {
 <p>In Worten könnte man es vielleicht wie folgt umschreiben:</p>
 <ol type="1">
 <li><p>Nimm den Datensatz <code>gapminder2007</code> (<code>data = gapminder2007</code>) und</p></li>
-<li><p>ordne folgende Attribute zu:</p>
+<li><p>Ordne folgende Attribute zu:</p>
 <ol type="a">
-<li>auf die x-Achse die Variable <code>gdpPercap</code> (<code>x = gdpPercap</code>) (Bruttoinlandsprodukt)</li>
-<li>auf die y-Achse die Variable <code>lifeExp</code> (<code>y = lifeExp</code>) (Lebenserwartung)</li>
+<li>auf die <span class="math inline">\(x\)</span>-Achse die Variable <code>gdpPercap</code> (<code>x = gdpPercap</code>) (Bruttoinlandsprodukt)</li>
+<li>auf die <span class="math inline">\(y\)</span>-Achse die Variable <code>lifeExp</code> (<code>y = lifeExp</code>) (Lebenserwartung)</li>
 <li>färbe ein mithilfe der Variablen <code>continent</code> (<code>color = continent</code>).</li>
 </ol></li>
 <li><p>Stelle das Ganze als geometrisches Objekt <em>Punkte</em> dar (<code>geom_point()</code>)</p></li>
@@ -447,7 +447,7 @@ div.csl-indent {
 </section>
 <section id="weitere-geoms" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="weitere-geoms"><span class="header-section-number">3.3</span> Weitere geoms</h2>
-<p>Das <code>geom_point()</code> produziert ein Streudiagramm auch XY-Diagramm (<em>scatter plot</em>). Weiter wichtige Grafiktypen sind</p>
+<p>Das <code>geom_point()</code> produziert ein Streudiagramm, auch XY-Diagramm (<em>scatter plot</em>). Weiter wichtige Grafiktypen sind:</p>
 <ul>
 <li><code>geom_line()</code>: Linien</li>
 <li><code>geom_bar()</code>: Balken</li>
