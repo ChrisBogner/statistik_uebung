@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.191">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Übung zur Vorlesung Statistik und Datenanalyse - 10&nbsp; Lab 01: Einführung in R und RStudio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./30-lab-02-intro-to-data.html" rel="next">
+<link href="./10-konfidenzintervall-infer.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken"
+  }
+}</script>
+
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="stat_style.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Lab 01: Einführung in R und RStudio</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Übung zur Vorlesung Statistik und Datenanalyse</a> 
+        <div class="sidebar-tools-main">
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Übung-zur-Vorlesung-Statistik-und-Datenanalyse.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Übung-zur-Vorlesung-Statistik-und-Datenanalyse.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Vorwort</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">EINFÜHRUNG IN R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-erste-schritte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Erste Schritte in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-rmarkdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Markdown für reproduzierbare Forschung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-ggplot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in die Darstellung von Daten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-einlesen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Daten in R einlesen und aus R speichern</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">EXPLORATIVE DATENANALYSE</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-explorative-kategorial.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploration von kategorialen Daten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-explorative-numerisch.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploration von numerischen Daten</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">STATISTISCHE MODELLIERUNG</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-lineare-regression-ein-pred.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lineare Regression mit einer erklärenden Variablen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">STATISTISCHE INFERENZ</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-tests-infer.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesentests mit Randomisierung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-konfidenzintervall-infer.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Konfidenzintervalle mit Bootstrap</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">LABS: EIGENSTÄNDIGE ÜBUNGEN</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-lab-01-intro-to-r.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Lab 01: Einführung in R und RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30-lab-02-intro-to-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Literatur</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">Anhang</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./100-aufgabensammlung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Aufgabensammlung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#die-entwicklungsumgebung-rstudio" id="toc-die-entwicklungsumgebung-rstudio" class="nav-link active" data-scroll-target="#die-entwicklungsumgebung-rstudio"><span class="toc-section-number">10.1</span>  Die Entwicklungsumgebung RStudio</a>
+  <ul class="collapse">
+  <li><a href="#r-pakete" id="toc-r-pakete" class="nav-link" data-scroll-target="#r-pakete"><span class="toc-section-number">10.1.1</span>  R-Pakete</a></li>
+  <li><a href="#erstellen-eines-reproduzierbaren-berichts" id="toc-erstellen-eines-reproduzierbaren-berichts" class="nav-link" data-scroll-target="#erstellen-eines-reproduzierbaren-berichts"><span class="toc-section-number">10.1.2</span>  Erstellen eines reproduzierbaren Berichts</a></li>
+  </ul></li>
+  <li><a href="#taufaufzeichnungen-von-dr.-arbuthnot" id="toc-taufaufzeichnungen-von-dr.-arbuthnot" class="nav-link" data-scroll-target="#taufaufzeichnungen-von-dr.-arbuthnot"><span class="toc-section-number">10.2</span>  Taufaufzeichnungen von Dr.&nbsp;Arbuthnot</a></li>
+  <li><a href="#explorative-analyse" id="toc-explorative-analyse" class="nav-link" data-scroll-target="#explorative-analyse"><span class="toc-section-number">10.3</span>  Explorative Analyse</a>
+  <ul class="collapse">
+  <li><a href="#datenvisualisierung" id="toc-datenvisualisierung" class="nav-link" data-scroll-target="#datenvisualisierung"><span class="toc-section-number">10.3.1</span>  Datenvisualisierung</a></li>
+  <li><a href="#r-als-großer-taschenrechner" id="toc-r-als-großer-taschenrechner" class="nav-link" data-scroll-target="#r-als-großer-taschenrechner"><span class="toc-section-number">10.3.2</span>  R als großer Taschenrechner</a></li>
+  <li><a href="#hinzufügen-einer-neuen-variable-zum-dataframe" id="toc-hinzufügen-einer-neuen-variable-zum-dataframe" class="nav-link" data-scroll-target="#hinzufügen-einer-neuen-variable-zum-dataframe"><span class="toc-section-number">10.3.3</span>  Hinzufügen einer neuen Variable zum Dataframe</a></li>
+  </ul></li>
+  <li><a href="#mehr-übungen" id="toc-mehr-übungen" class="nav-link" data-scroll-target="#mehr-übungen"><span class="toc-section-number">10.4</span>  Mehr Übungen</a></li>
+  <li><a href="#ressourcen-zum-erlernen-von-r-und-zum-arbeiten-in-rstudio" id="toc-ressourcen-zum-erlernen-von-r-und-zum-arbeiten-in-rstudio" class="nav-link" data-scroll-target="#ressourcen-zum-erlernen-von-r-und-zum-arbeiten-in-rstudio"><span class="toc-section-number">10.5</span>  Ressourcen zum Erlernen von R und zum Arbeiten in RStudio</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-lab-01-intro-to-r" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Lab 01: Einführung in R und RStudio</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="info">
+<p>Das ist die deutsche Übersetzung des “OpenIntro Labs for R and tidyverse” <a href="http://openintrostat.github.io/oilabs-tidy/01_intro_to_r/intro_to_r.html">1. Intro to R</a>. Es ist Teil des Buches von Çetinkaya-Rundel et al., <a href="https://openintro-ims.netlify.app/index.html">Introduction to Modern Statistics</a>, lizenziert unter CC-BY-SA 3.0. Übersetzt mit www.DeepL.com/Translator, bearbeitet und ergänzt von C. Bogner.</p>
+</div>
+<section id="die-entwicklungsumgebung-rstudio" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="die-entwicklungsumgebung-rstudio"><span class="header-section-number">10.1</span> Die Entwicklungsumgebung RStudio</h2>
+<p>Ziel dieser Übung ist es, Sie mit R und RStudio vertraut zu machen, die Sie im Laufe des Kurses sowohl zum Erlernen der im Kurs besprochenen statistischen Konzepte als auch zur Analyse realer Daten und zum Ziehen fundierter Schlussfolgerungen verwenden werden. Der Unterschied zwischen R und RStudio ist folgender: R ist der Name der Programmiersprache selbst und RStudio ist eine praktische Schnittstelle für die Arbeit mit R. Genauer nennt man die Software RStudio eine integrierte Entwicklungsumgebung (IDE, von englisch <em>integrated development environment</em>).</p>
+<p>Im Laufe der Übungen werden Sie ermutigt, über das hinauszugehen, was die Übungen vorgeben; die Bereitschaft zum Experimentieren wird Sie zu einem/einer viel besseren Programmierer*in machen! Bevor wir jedoch so weit sind, müssen Sie einige Grundkenntnisse in R erwerben. Zuerst werden wir die grundlegenden Bausteine von R und RStudio erkunden: die Entwicklungsumgebung RStudio, das Laden von Daten und grundlegende Befehle für die Arbeit mit Daten in R.</p>
+<p>Fahren Sie fort und starten Sie RStudio. Sie sollten ein Fenster sehen, das wie in <a href="#fig-r-interface-2023">Abbildung&nbsp;<span>10.1</span></a> aussieht.</p>
+<div id="fig-r-interface-2023" class="quarto-figure quarto-figure-left anchored">
+<figure class="figure">
+<p><img src="figures/r-interface-2023.png" class="img-fluid figure-img" width="600"></p>
+<p></p><figcaption class="figure-caption">Abbildung&nbsp;10.1: Die Entwicklungsumgebung RStudio</figcaption><p></p>
+</figure>
+</div>
+<p>Das Panel unten links ist der Ort, an dem R arbeitet. Dieser Bereich wird <em>Konsole</em> genannt. Jedes Mal, wenn Sie RStudio starten, erscheint oben in der Konsole derselbe Text, der Ihnen die Version von R angibt, die Sie gerade ausführen. Unterhalb dieser Information befindet sich die <em>Eingabeaufforderung</em>, die durch das Symbol <code>&gt;</code> gekennzeichnet ist. Wie der Name schon sagt, ist dieser Prompt eigentlich eine Aufforderung: eine Aufforderung zu einem Befehl. Ursprünglich ging es bei der Interaktion mit R nur darum, Befehle einzugeben und die Ausgabe zu interpretieren. Diese Befehle und ihre Syntax haben sich im Laufe der Jahrzehnte (im wahrsten Sinne des Wortes) weiterentwickelt und bieten nun eine für viele Benutzer recht natürliche Möglichkeit, auf Daten zuzugreifen und statistische Berechnungen zu organisieren, zu beschreiben und aufzurufen.</p>
+<p>Das Feld oben rechts enthält Ihre Arbeitsumgebung (<em>Environment</em>) sowie eine Aufzeichnung (<em>History</em>) der Befehle, die Sie zuvor eingegeben haben.</p>
+<p>Das Feld unten rechts enthält Registerkarten zum Durchsuchen der <em>Files</em> (Dateien) in Ihrem Projektordner, zum Zugriff auf <em>Help</em> (Hilfedateien) für R-Funktionen, zum Installieren und Verwalten von <em>Packages</em> (R-Paketen) und für <em>Plots</em> (Visualisierungen). Standardmäßig werden alle von Ihnen erstellten Datenvisualisierungen direkt unter dem Code angezeigt, mit dem Sie sie erstellt haben. Wenn Sie möchten, dass Ihre Darstellungen auf der Registerkarte <em>Plots</em> erscheinen, müssen Sie Ihre globalen Optionen ändern.</p>
+<section id="r-pakete" class="level3" data-number="10.1.1">
+<h3 data-number="10.1.1" class="anchored" data-anchor-id="r-pakete"><span class="header-section-number">10.1.1</span> R-Pakete</h3>
+<p>R ist eine Open-Source-Programmiersprache, was bedeutet, dass Benutzer Pakete beisteuern können, die uns das Leben leichter machen, und wir können sie kostenlos nutzen. Für diese Übung und viele andere in der Zukunft werden wir die folgenden Pakete verwenden:</p>
+<ul>
+<li>Das <strong>tidyverse</strong> “Dach”-Paket, das eine Reihe von vielen verschiedenen R-Paketen enthält: für Datenverarbeitung und Datenvisualisierung</li>
+<li>Das <strong>openintro</strong> R-Paket: für Daten und benutzerdefinierte Funktionen mit den OpenIntro-Ressourcen</li>
+</ul>
+<p>Klicken Sie in der unteren rechten Ecke auf die Registerkarte <em>Packages</em>. Geben Sie den Namen jedes dieser Pakete (tidyverse, openintro) in das Suchfeld ein, um zu sehen, ob sie installiert wurden. Wenn diese Pakete bei der Eingabe ihres Namens nicht angezeigt werden, installieren Sie sie, indem Sie die folgenden zwei Codezeilen kopieren und einfügen oder in die Konsole eingeben. Achten Sie darauf, dass Sie nach jeder Codezeile die Eingabetaste drücken. Achtung, bitte denken Sie an die Anführungszeichen um den Namen des R-Pakets!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"openintro"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nachdem Sie Enter/Return gedrückt haben, beginnt ein Textstrom, der den Prozess beschreibt, den R durchläuft, um das Paket von dem Ort zu installieren, den Sie bei der Installation von R ausgewählt haben. Wenn Sie bei der Installation von R nicht aufgefordert wurden, einen Server für das Herunterladen von Paketen auszuwählen, kann RStudio Sie auffordern, einen Server auszuwählen, von dem das Paket heruntergeladen werden soll; jeder von ihnen wird funktionieren.</p>
+<p>Sie müssen Pakete nur einmal <em>installieren</em>, aber Sie müssen sie jedes Mal <em>laden</em>, wenn Sie RStudio neu starten. Wir laden die Pakete mit der Funktion <code>library</code>. Kopieren Sie die folgenden zwei Zeilen und fügen Sie sie in einen neuen Chunk ein. Um die Pakete tidyverse und openintro in Ihre Arbeitsumgebung zu laden, führen Sie den Code aus.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Sie können den obigen Code ausführen, indem Sie:</p>
+<ul>
+<li>den Cursor auf die Zeile setzen und <code>Strg-Enter</code> oder <code>Cmd-Enter</code> drücken</li>
+<li>den Cursor auf die Zeile setzen und die Schaltfläche “Run” in der oberen rechten Ecke der R Markdown-Datei drücken, oder</li>
+<li>durch Klicken auf den grünen Pfeil in der oberen rechten Ecke des Codeabschnitts.</li>
+</ul>
+<p>Wir haben uns für das tidyverse-Paket entschieden, weil es aus einer Reihe von Paketen besteht, die für verschiedene Aspekte der Arbeit mit Daten erforderlich sind, vom Laden von Daten über die Verarbeitung von Daten bis hin zur Visualisierung und Analyse von Daten. Außerdem haben diese Pakete eine gemeinsame Philosophie und sind so konzipiert, dass sie zusammenarbeiten. Sie können mehr über die Pakete im tidyverse unter <a href="http://tidyverse.org/">tidyverse.org</a> erfahren.</p>
+</section>
+<section id="erstellen-eines-reproduzierbaren-berichts" class="level3" data-number="10.1.2">
+<h3 data-number="10.1.2" class="anchored" data-anchor-id="erstellen-eines-reproduzierbaren-berichts"><span class="header-section-number">10.1.2</span> Erstellen eines reproduzierbaren Berichts</h3>
+<p>Wir werden R Markdown verwenden, um reproduzierbare Berichte zu erstellen. Wie und warum Sie das machen sollen, haben Sie bereits in Kapitel <span class="quarto-unresolved-ref">?sec-erste-schritte</span> gelernt.</p>
+</section>
+</section>
+<section id="taufaufzeichnungen-von-dr.-arbuthnot" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="taufaufzeichnungen-von-dr.-arbuthnot"><span class="header-section-number">10.2</span> Taufaufzeichnungen von Dr.&nbsp;Arbuthnot</h2>
+<p>Wir laden den Datensatz <code>arbuthnot</code> aus dem Paket <code>openintro</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(arbuthnot)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Die einzige Codezeile in diesem Codechunk weist R an, einige Daten zu laden: die Arbuthnot-Taufzahlen für Jungen und Mädchen. Sie sollten sehen, dass die Registerkarte <em>Environment</em> in der oberen rechten Ecke des RStudio-Fensters nun einen Datensatz namens “Arbuthnot” mit 82 Beobachtungen für 3 Variablen auflistet. Wenn Sie mit R arbeiten, werden Sie Objekte für eine Vielzahl von Zwecken erstellen. Manchmal laden Sie die Objekte in Ihren Arbeitsbereich, indem Sie ein Paket laden, wie wir es hier getan haben, aber manchmal erstellen Sie selbst Objekte als Nebenprodukt eines Berechnungsprozesses, für eine Analyse, die Sie durchgeführt haben, oder für eine Visualisierung, die Sie erstellt haben. Wie Sie Daten aus einer Textdatei einlesen, erfahren Sie in Kapitel <a href="04-einlesen.html"><span>Kapitel&nbsp;4</span></a>.</p>
+<p>Der Arbuthnot-Datensatz geht auf die Arbeit von Dr.&nbsp;John Arbuthnot zurück, einem Arzt, Schriftsteller und Mathematiker aus dem 18. Jahrhundert. Er interessierte sich für das Verhältnis zwischen neugeborenen Jungen und neugeborenen Mädchen und sammelte daher die Taufeinträge für in London geborene Kinder für jedes Jahr zwischen 1629 und 1710. Auch hier können wir die Daten anzeigen, indem wir den unten stehenden Code ausführen oder den Namen des Datensatzes in die Konsole eingeben. Achten Sie auf die Schreibweise und Großschreibung! R unterscheidet Groß- und Kleinschreibung. Wenn Sie also versehentlich “Arbuthnot” eingeben, meldet R, dass das Objekt nicht gefunden werden kann.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>arbuthnot</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["year"],"name":[1],"type":["int"],"align":["right"]},{"label":["boys"],"name":[2],"type":["int"],"align":["right"]},{"label":["girls"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"1629","2":"5218","3":"4683"},{"1":"1630","2":"4858","3":"4457"},{"1":"1631","2":"4422","3":"4102"},{"1":"1632","2":"4994","3":"4590"},{"1":"1633","2":"5158","3":"4839"},{"1":"1634","2":"5035","3":"4820"},{"1":"1635","2":"5106","3":"4928"},{"1":"1636","2":"4917","3":"4605"},{"1":"1637","2":"4703","3":"4457"},{"1":"1638","2":"5359","3":"4952"},{"1":"1639","2":"5366","3":"4784"},{"1":"1640","2":"5518","3":"5332"},{"1":"1641","2":"5470","3":"5200"},{"1":"1642","2":"5460","3":"4910"},{"1":"1643","2":"4793","3":"4617"},{"1":"1644","2":"4107","3":"3997"},{"1":"1645","2":"4047","3":"3919"},{"1":"1646","2":"3768","3":"3395"},{"1":"1647","2":"3796","3":"3536"},{"1":"1648","2":"3363","3":"3181"},{"1":"1649","2":"3079","3":"2746"},{"1":"1650","2":"2890","3":"2722"},{"1":"1651","2":"3231","3":"2840"},{"1":"1652","2":"3220","3":"2908"},{"1":"1653","2":"3196","3":"2959"},{"1":"1654","2":"3441","3":"3179"},{"1":"1655","2":"3655","3":"3349"},{"1":"1656","2":"3668","3":"3382"},{"1":"1657","2":"3396","3":"3289"},{"1":"1658","2":"3157","3":"3013"},{"1":"1659","2":"3209","3":"2781"},{"1":"1660","2":"3724","3":"3247"},{"1":"1661","2":"4748","3":"4107"},{"1":"1662","2":"5216","3":"4803"},{"1":"1663","2":"5411","3":"4881"},{"1":"1664","2":"6041","3":"5681"},{"1":"1665","2":"5114","3":"4858"},{"1":"1666","2":"4678","3":"4319"},{"1":"1667","2":"5616","3":"5322"},{"1":"1668","2":"6073","3":"5560"},{"1":"1669","2":"6506","3":"5829"},{"1":"1670","2":"6278","3":"5719"},{"1":"1671","2":"6449","3":"6061"},{"1":"1672","2":"6443","3":"6120"},{"1":"1673","2":"6073","3":"5822"},{"1":"1674","2":"6113","3":"5738"},{"1":"1675","2":"6058","3":"5717"},{"1":"1676","2":"6552","3":"5847"},{"1":"1677","2":"6423","3":"6203"},{"1":"1678","2":"6568","3":"6033"},{"1":"1679","2":"6247","3":"6041"},{"1":"1680","2":"6548","3":"6299"},{"1":"1681","2":"6822","3":"6533"},{"1":"1682","2":"6909","3":"6744"},{"1":"1683","2":"7577","3":"7158"},{"1":"1684","2":"7575","3":"7127"},{"1":"1685","2":"7484","3":"7246"},{"1":"1686","2":"7575","3":"7119"},{"1":"1687","2":"7737","3":"7214"},{"1":"1688","2":"7487","3":"7101"},{"1":"1689","2":"7604","3":"7167"},{"1":"1690","2":"7909","3":"7302"},{"1":"1691","2":"7662","3":"7392"},{"1":"1692","2":"7602","3":"7316"},{"1":"1693","2":"7676","3":"7483"},{"1":"1694","2":"6985","3":"6647"},{"1":"1695","2":"7263","3":"6713"},{"1":"1696","2":"7632","3":"7229"},{"1":"1697","2":"8062","3":"7767"},{"1":"1698","2":"8426","3":"7626"},{"1":"1699","2":"7911","3":"7452"},{"1":"1700","2":"7578","3":"7061"},{"1":"1701","2":"8102","3":"7514"},{"1":"1702","2":"8031","3":"7656"},{"1":"1703","2":"7765","3":"7683"},{"1":"1704","2":"6113","3":"5738"},{"1":"1705","2":"8366","3":"7779"},{"1":"1706","2":"7952","3":"7417"},{"1":"1707","2":"8379","3":"7687"},{"1":"1708","2":"8239","3":"7623"},{"1":"1709","2":"7840","3":"7380"},{"1":"1710","2":"7640","3":"7288"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Der Befehl <code>arbuthnot</code> (also der Name des Datensatzes) zeigt die Daten für uns an. Sie können im R Markdown durch den Datensatz blättern, wenn sie unter dem Datensatz auf “Next” klicken. Alternativ können Sie den Datensatz im Datenbetrachter (im Lesemodus) ansehen. Auf der Registerkarte <em>Environment</em> (im oberen rechten Bereich) werden die Objekte in Ihrer Umgebung aufgelistet. Wenn Sie auf den Namen <code>arbuthnot</code> klicken, öffnet sich ein <em>Data Viewer</em> Reiter neben Ihrer R Markdown Datei, der eine alternative Anzeige des Datensatzes bietet. Diese Anzeige sollte sich ähnlich anfühlen wie die Anzeige von Daten in Excel, wo Sie durch den Datensatz blättern können, um ihn zu prüfen. Im Gegensatz zu Excel können Sie die Daten auf dieser Registerkarte jedoch nicht bearbeiten. Wenn Sie mit der Ansicht der Daten fertig sind, können Sie diese Registerkarte schließen, indem Sie auf das “x” in der oberen linken Ecke klicken.</p>
+<p>Wenn Sie sich die Daten ansehen, sollten Sie vier Zahlenspalten und 82 Zeilen sehen. Jede Zeile steht für ein anderes Jahr, in dem Arbuthnot Daten gesammelt hat. Der erste Eintrag in jeder Zeile ist die Zeilennummer (ein Index, mit dem wir bei Bedarf auf die Daten einzelner Jahre zugreifen können), der zweite ist das Jahr, und der dritte und vierte sind die Anzahl der in diesem Jahr getauften Jungen bzw. Mädchen.</p>
+<p>Beachten Sie, dass die Zeilennummern in der ersten Spalte nicht zu den Daten von Arbuthnot gehören. R fügt diese Zeilennummern als Teil des Ausdrucks hinzu, damit Sie visuelle Vergleiche anstellen können. Man kann sie sich als den Index vorstellen, den man auf der linken Seite eines Tabellenblatts sieht. In der Tat ist der Vergleich der Daten mit einer Tabellenkalkulation im Allgemeinen hilfreich. R hat die Daten von Arbuthnot in einem Objekt gespeichert, das einer Tabellenkalkulation oder einer Tabelle ähnelt und das R einen <em>Dataframe</em> nennt.</p>
+<p>Sie können die Dimensionen dieses Dataframes sowie die Namen der Variablen und die ersten paar Beobachtungen sehen, indem Sie den Namen des Datensatzes aufrufen oder alternative in die Funktion <code>glimpse()</code> einfügen, wie unten gezeigt:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(arbuthnot)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 82
+Columns: 3
+$ year  &lt;int&gt; 1629, 1630, 1631, 1632, 1633, 1634, 1635, 1636, 1637, 1638, 1639…
+$ boys  &lt;int&gt; 5218, 4858, 4422, 4994, 5158, 5035, 5106, 4917, 4703, 5359, 5366…
+$ girls &lt;int&gt; 4683, 4457, 4102, 4590, 4839, 4820, 4928, 4605, 4457, 4952, 4784…</code></pre>
+</div>
+</div>
+<p>Wir können sehen, dass es 82 Beobachtungen und 3 Variablen in diesem Datensatz gibt. Die Namen der Variablen sind <code>year</code>, <code>boys</code> und <code>girls</code>. An dieser Stelle werden Sie vielleicht bemerken, dass viele der Befehle in R sehr wie Funktionen aus dem Mathematikunterricht aussehen; das heißt, der Aufruf von R-Befehlen bedeutet, dass man einer Funktion eine Anzahl von Eingaben (die sogenannten Argumente) gibt, die die Funktion verwendet, um eine Ausgabe zu erzeugen. Der Befehl <code>glimpse()</code> zum Beispiel nimmt ein einziges Argument, den Namen eines Dataframes, und erzeugt eine Anzeige des Datensatzes als Ausgabe.</p>
+</section>
+<section id="explorative-analyse" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="explorative-analyse"><span class="header-section-number">10.3</span> Explorative Analyse</h2>
+<p>Beginnen wir damit, die Daten ein wenig genauer zu untersuchen. Wir können auf die Daten in einer einzelnen Spalte eines Dataframes zugreifen, indem wir die Spalte mit einem “$” extrahieren. Der folgende Code extrahiert die Spalte <code>boys</code> aus dem Dataframe “Arbuthnot”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>arbuthnot<span class="sc">$</span>boys</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 5218 4858 4422 4994 5158 5035 5106 4917 4703 5359 5366 5518 5470 5460 4793
+[16] 4107 4047 3768 3796 3363 3079 2890 3231 3220 3196 3441 3655 3668 3396 3157
+[31] 3209 3724 4748 5216 5411 6041 5114 4678 5616 6073 6506 6278 6449 6443 6073
+[46] 6113 6058 6552 6423 6568 6247 6548 6822 6909 7577 7575 7484 7575 7737 7487
+[61] 7604 7909 7662 7602 7676 6985 7263 7632 8062 8426 7911 7578 8102 8031 7765
+[76] 6113 8366 7952 8379 8239 7840 7640</code></pre>
+</div>
+</div>
+<p>Dieser Befehl zeigt nur die Anzahl der Jungen an, die jedes Jahr getauft werden. R interpretiert das “$” so, dass es sagt: “Gehe zu dem Dataframe, der vor mir kommt, und finde die Variable, die nach mir kommt.”</p>
+<div class="exercises">
+<ol type="1">
+<li>Welchen Befehl würden Sie verwenden, um nur die Anzahl der getauften Mädchen zu extrahieren? Probieren Sie es in der Konsole aus!</li>
+</ol>
+</div>
+<p>Beachten Sie, dass die Art und Weise, wie R diese Daten ausgibt, unterschiedlich ist. Als wir uns den kompletten Dataframes angesehen haben, sahen wir 82 Zeilen, eine in jeder Zeile der Anzeige. Diese Daten wurden aus dem Dataframe extrahiert, sodass sie nicht mehr in einer Tabelle mit anderen Variablen strukturiert sind. Stattdessen werden diese Daten direkt nacheinander angezeigt. Objekte, die auf diese Weise ausgedruckt werden, nennt man <em>Vektoren</em>; ähnlich wie die Vektoren, die Sie aus dem Mathematikunterricht kennen, stellen Vektoren eine Liste von Zahlen dar. R hat Zahlen in [Klammern] auf der linken Seite des Ausdrucks hinzugefügt, um die Position jedes Eintrags innerhalb des Vektors anzugeben. Zum Beispiel folgt 5218 auf <code>[1]</code>, was bedeutet, dass <code>5218</code> der erste Eintrag im Vektor ist. Wenn “43” am Anfang einer Zeile angezeigt wird, bedeutet dies, dass die erste Zahl in dieser Zeile dem 43. Eintrag in diesem Vektor entspricht.</p>
+<section id="datenvisualisierung" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="datenvisualisierung"><span class="header-section-number">10.3.1</span> Datenvisualisierung</h3>
+<p>R verfügt über einige leistungsstarke Funktionen zur Erstellung von Grafiken. Mit dem folgenden Code können wir eine einfache Darstellung der Anzahl der getauften Mädchen pro Jahr erstellen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> arbuthnot, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> girls)) <span class="sc">+</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="25-lab-01-intro-to-r_files/figure-html/plot-girls-vs-year-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>In diesem Code verwenden wir die Funktion <code>ggplot()</code>, um ein Diagramm zu erstellen. Wenn Sie diesen Codeabschnitt ausführen, wird ein Diagramm unterhalb des Codeabschnitts angezeigt. Das R Markdown-Dokument zeigt die Darstellung unterhalb des Codes an, mit dem sie erzeugt wurde.</p>
+<p>Der obige Befehl sieht ebenfalls wie eine mathematische Funktion aus. Diesmal benötigt die Funktion jedoch mehrere Eingaben (Argumente), die durch Kommata getrennt sind.</p>
+<p>Mit <code>ggplot()</code>:</p>
+<ul>
+<li>Das erste Argument ist immer der Name des Datensatzes, den Sie zum Plotten verwenden möchten.</li>
+<li>Als Nächstes geben Sie die Variablen aus dem Datensatz an, die den verschiedenen ästhetischen Elementen der Darstellung, wie der <span class="math inline">\(x\)</span>- und der <span class="math inline">\(y\)</span>-Achse, zugeordnet werden sollen.</li>
+</ul>
+<p>Diese Befehle erstellen ein leeres Diagramm mit den Variablen, die Sie den <span class="math inline">\(x\)</span>- und <span class="math inline">\(y\)</span>-Achsen zugewiesen haben. Als Nächstes müssen Sie <code>ggplot()</code> mitteilen, welche Art von Visualisierung Sie der leeren Vorlage hinzufügen möchten. Sie fügen eine weitere Ebene zu <code>ggplot()</code> hinzu, indem Sie:</p>
+<ul>
+<li>ein “+” am Ende der Zeile hinzufügen, um anzuzeigen, dass Sie eine Ebene hinzufügen</li>
+<li>dann das <code>geom</code>etrische Objekt angeben, das zur Erstellung des Plots verwendet werden soll.</li>
+</ul>
+<p>Da wir ein Streudiagramm erstellen wollen, verwenden wir <code>geom_point()</code>. Damit wird <code>ggplot()</code> mitgeteilt, dass jeder Datenpunkt durch einen Punkt im Diagramm dargestellt werden soll. Wenn Sie das obige Diagramm mit einem Liniendiagramm anstelle eines Streudiagramms darstellen wollten, würden Sie <code>geom_point()</code> durch <code>geom_line()</code> ersetzen. Dies weist <code>ggplot()</code> an, eine Linie von jeder Beobachtung zur nächsten Beobachtung zu zeichnen (sequenziell).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> arbuthnot, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> girls)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="25-lab-01-intro-to-r_files/figure-html/plot-girls-vs-year-line-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Verwenden Sie das Diagramm, um die folgende Frage zu beantworten:</p>
+<div class="exercises">
+<ol type="1">
+<li>Gibt es einen offensichtlichen Trend in der Zahl der getauften Mädchen im Laufe der Jahre? Wie würden Sie ihn beschreiben? Um sicherzustellen, dass Ihr Bericht umfassend ist, sollten Sie den Code, der zur Erstellung der Grafik erforderlich ist, sowie Ihre schriftliche Interpretation beifügen.</li>
+</ol>
+</div>
+<p>Sie fragen sich vielleicht, woher Sie die Syntax für die Funktion <code>ggplot()</code> kennen sollen. Zum Glück dokumentiert R alle seine Funktionen ausführlich. Um zu erfahren, was eine Funktion tut und wie man sie benutzt (z.B. die Argumente der Funktion), geben Sie einfach ein Fragezeichen gefolgt von dem Namen der Funktion, die Sie interessiert, in die Konsole ein. Geben Sie Folgendes in Ihre Konsole ein:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>?ggplot</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Beachten Sie, dass die Hilfedatei in den Vordergrund rückt und die Darstellung im unteren rechten Bereich ersetzt. Sie können zwischen den Registerkarten hin- und herschalten, indem Sie auf ihre Namen klicken.</p>
+</section>
+<section id="r-als-großer-taschenrechner" class="level3" data-number="10.3.2">
+<h3 data-number="10.3.2" class="anchored" data-anchor-id="r-als-großer-taschenrechner"><span class="header-section-number">10.3.2</span> R als großer Taschenrechner</h3>
+<p>Nehmen wir nun an, wir möchten die Gesamtzahl der Taufen darstellen. Um dies zu berechnen, könnten wir R als einen großen Taschenrechner verwenden. Dazu können wir mathematische Ausdrücke wie die folgende Berechnung in die Konsole eintippen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5218</span> <span class="sc">+</span> <span class="dv">4683</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9901</code></pre>
+</div>
+</div>
+<p>Diese Berechnung würde uns die Gesamtzahl der Taufen im Jahr 1629 liefern. Wir könnten diese Berechnung dann für jedes Jahr einmal wiederholen. Das würde wahrscheinlich eine Weile dauern, aber zum Glück gibt es einen schnelleren Weg! Wenn wir den Vektor der Taufen für Jungen zu dem der Mädchen addieren, kann R jede dieser Summen gleichzeitig berechnen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>arbuthnot<span class="sc">$</span>boys <span class="sc">+</span> arbuthnot<span class="sc">$</span>girls</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  9901  9315  8524  9584  9997  9855 10034  9522  9160 10311 10150 10850
+[13] 10670 10370  9410  8104  7966  7163  7332  6544  5825  5612  6071  6128
+[25]  6155  6620  7004  7050  6685  6170  5990  6971  8855 10019 10292 11722
+[37]  9972  8997 10938 11633 12335 11997 12510 12563 11895 11851 11775 12399
+[49] 12626 12601 12288 12847 13355 13653 14735 14702 14730 14694 14951 14588
+[61] 14771 15211 15054 14918 15159 13632 13976 14861 15829 16052 15363 14639
+[73] 15616 15687 15448 11851 16145 15369 16066 15862 15220 14928</code></pre>
+</div>
+</div>
+<p>Was Sie sehen, ist eine Liste von 82 Zahlen. Diese Zahlen erscheinen als Liste, weil wir mit Vektoren und nicht mit einem Dataframe arbeiten. Jede Zahl steht für die Summe der Anzahl der Jungen und Mädchen, die in diesem Jahr getauft wurden. Sie können einen Blick auf die ersten Zeilen der Spalten <code>boys</code> und <code>girls</code> werfen, um zu sehen, ob die Berechnung richtig ist.</p>
+</section>
+<section id="hinzufügen-einer-neuen-variable-zum-dataframe" class="level3" data-number="10.3.3">
+<h3 data-number="10.3.3" class="anchored" data-anchor-id="hinzufügen-einer-neuen-variable-zum-dataframe"><span class="header-section-number">10.3.3</span> Hinzufügen einer neuen Variable zum Dataframe</h3>
+<p>Wir möchten diesen neuen Vektor der Gesamtzahl der Taufen verwenden, um einige Diagramme zu erstellen, daher möchten wir ihn als permanente Spalte in unserem Dataframe speichern. Dies können wir mit dem folgenden Code tun:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>arbuthnot <span class="ot">&lt;-</span> arbuthnot <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total =</span> boys <span class="sc">+</span> girls)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Dieser Code besteht aus vielen neuen Teilen, die wir nun aufschlüsseln wollen. In der ersten Zeile tun wir zwei Dinge: (1) wir fügen eine neue Spalte <code>total</code> zu diesem aktualisierten Dataframe hinzu, und (2) wir überschreiben das vorhandenen Dataframe mit einem aktualisierten Dataframe, das die neue Spalte <code>total</code> enthält. Wir können diese beiden Schritte mit dem Operator <strong>piping</strong> (<code>%&gt;%</code>) miteinander verknüpfen. Der Piping-Operator nimmt die Ausgabe des vorherigen Ausdrucks und leitet sie in das erste Argument des nächsten Ausdrucks ein.</p>
+<p>Um unsere Analogie mit mathematischen Funktionen fortzusetzen, ist <code>x %&gt;% f(y)</code> gleichbedeutend mit <code>f(x, y)</code>. Die Verbindung von <code>arbuthnot</code> und <code>mutate(total = boys + girls)</code> mit dem Pipe-Operator ist dasselbe wie die Eingabe von <code>mutate(arbuthnot, total = boys + girls)</code>, wobei <code>arbuthnot</code> das erste Argument der Funktion <code>mutate()</code> wird.</p>
+<div class="info">
+<p><strong>Eine Anmerkung zum Piping:</strong> Beachten Sie, dass wir diese beiden Codezeilen wie folgt lesen können:</p>
+<p><em>“Nehmen Sie den Datensatz”arbuthnot” und <strong>pipen</strong> Sie ihn in die Funktion “mutate”. Verändern Sie (</em>mutate<em>) den <code>arbuthnot</code>-Datensatz, indem Sie eine neue Variable namens <code>total</code> erstellen, die die Summe der Variablen namens <code>boys</code> und <code>girls</code> ist. Weisen Sie dann den resultierenden Datensatz dem Objekt mit dem Namen <code>arbuthnot</code> zu, d.h. überschreiben Sie den alten <code>arbuthnot</code>-Datensatz mit dem neuen, der die neue Variable enthält.”</em></p>
+<p>Dies ist gleichbedeutend mit dem Durchgehen jeder Zeile und dem Aufsummieren der Anzahl der Jungen und Mädchen für dieses Jahr und dem Aufzeichnen dieses Wertes in einer neuen Spalte mit dem Namen <code>total</code>.</p>
+</div>
+<div>
+<p><strong>Wo ist die neue Variable?</strong> Wenn Sie Änderungen an Variablen in Ihrem Datensatz vornehmen, rufen Sie ihn erneut durch die Eingabe des Datensatznamens. Die neue Variable wird am Ende des Datensatzes hinzugefügt.</p>
+</div>
+<p>Sie werden sehen, dass es jetzt eine neue Spalte namens <code>total</code> gibt, die an das Dataframe angeheftet wurde. Das spezielle Symbol <code>&lt;-</code> führt eine <em>Zuweisung</em> durch, indem es die Ausgabe der Piping-Operationen nimmt und sie in einem Objekt in Ihrer Umgebung speichert. In diesem Fall haben Sie bereits ein Objekt mit dem Namen <code>arbuthnot</code> in Ihrer Umgebung, also aktualisiert dieser Befehl diesen Datensatz mit der neuen mutierten Spalte.</p>
+<p>Mit dem folgenden Code können Sie ein Liniendiagramm der Gesamtzahl der Taufen pro Jahr erstellen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> arbuthnot, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> total)) <span class="sc">+</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="25-lab-01-intro-to-r_files/figure-html/plot-total-vs-year-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>In ähnlicher Weise kann man, wenn man die Gesamtzahl der Taufen für Jungen und Mädchen im Jahr 1629 kennt, das Verhältnis zwischen der Zahl der Jungen und der Zahl der getauften Mädchen mit dem folgenden Code berechnen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5218</span> <span class="sc">/</span> <span class="dv">4683</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.114243</code></pre>
+</div>
+</div>
+<p>Alternativ könnten Sie dieses Verhältnis für jedes Jahr berechnen, indem Sie auf die vollständigen Spalten <code>boys</code> und <code>girls</code> einwirken und diese Berechnungen dann in einer neuen Variablen mit dem Namen <code>boy_to_girl_ratio</code> speichern:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>arbuthnot <span class="ot">&lt;-</span> arbuthnot <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">boy_to_girl_ratio =</span> boys <span class="sc">/</span> girls)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Sie können auch den Anteil der Neugeborenen im Jahr 1629, die Jungen sind, mit dem folgenden Code berechnen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5218</span> <span class="sc">/</span> (<span class="dv">5218</span> <span class="sc">+</span> <span class="dv">4683</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5270175</code></pre>
+</div>
+</div>
+<p>Sie können diesen Wert auch für alle Jahre gleichzeitig berechnen und ihn als neue Variable mit dem Namen <code>boy_ratio</code> zum Datensatz hinzufügen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>arbuthnot <span class="ot">&lt;-</span> arbuthnot <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">boy_ratio =</span> boys <span class="sc">/</span> total)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Beachte, dass wir nicht durch <code>boys + girls</code> dividieren, sondern die Variable <code>total</code> verwenden, die wir zuvor in unseren Berechnungen erstellt haben!</p>
+<div class="exercises">
+<ol start="3" type="1">
+<li>Erstellen Sie nun eine Grafik des Anteils der geborenen Jungen über die Zeit. Was sehen Sie?</li>
+</ol>
+</div>
+<div>
+<p><strong>Tipp:</strong> Wenn Sie die Pfeiltasten nach oben und unten in der Konsole benutzen, können Sie durch Ihre vorherigen Befehle blättern, Ihre sogenannte Befehlshistorie. Sie können auch auf Ihre Befehlshistorie zugreifen, indem Sie auf die Registerkarte “History” in der oberen rechten Leiste klicken. Dies kann Ihnen in Zukunft viel Tipparbeit ersparen.</p>
+</div>
+<p>Zusätzlich zu den einfachen mathematischen Operatoren wie Subtraktion und Division können Sie R auffordern, Vergleiche durchzuführen, z. B. größer als, <code>&gt;</code>, kleiner als, <code>&lt;</code>, und Gleichheit, <code>==</code>. Mit dem folgenden Code können wir unter anderem eine neue Variable namens <code>more_boys</code> erstellen, die uns sagt, ob die Anzahl der Geburten von Jungen die der Mädchen in jedem Jahr übersteigt:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>arbuthnot <span class="ot">&lt;-</span> arbuthnot <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">more_boys =</span> boys <span class="sc">&gt;</span> girls)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Dieser Befehl fügt dem Dataframe <code>arbuthnot</code> eine neue Variable hinzu, die entweder den Wert <code>TRUE</code> enthält, wenn es in diesem Jahr mehr Jungen als Mädchen gab, oder <code>FALSE</code>, wenn dies nicht der Fall war (die Antwort mag Sie überraschen). Diese Variable enthält eine andere Art von Daten als die, die wir bisher kennengelernt haben. Alle anderen Spalten im Dataframe <code>arbuthnot</code> haben numerische Werte (das Jahr, die Anzahl der Jungen und Mädchen). Hier haben wir R gebeten, <em>logische</em> Daten zu erstellen, also Daten, deren Werte entweder <code>TRUE</code> oder <code>FALSE</code> sind. Im Allgemeinen werden bei der Datenanalyse viele verschiedene Datentypen verwendet, und ein Grund für die Verwendung von R ist, dass es in der Lage ist, viele dieser Datentypen darzustellen und mit ihnen zu rechnen.</p>
+</section>
+</section>
+<section id="mehr-übungen" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="mehr-übungen"><span class="header-section-number">10.4</span> Mehr Übungen</h2>
+<p>Auf den vorangegangenen Seiten haben Sie einige der Anzeigen und vorläufigen Analysen von Arbuthnots Taufdaten nachgebildet. Ihre Aufgabe besteht darin, diese Schritte zu wiederholen, allerdings für die heutigen Geburtsdaten in den Vereinigten Staaten. Die Daten sind in einem Datenrahmen mit dem Namen <code>present</code> gespeichert.</p>
+<p>Um die Minimal- und Maximalwerte der Spalten zu ermitteln, können Sie die Funktionen <code>min()</code> und <code>max()</code> innerhalb eines <code>summarize()</code>-Aufrufs verwenden, über den Sie im Verlaufe des Kurses mehr erfahren werden.</p>
+<p>Hier ist ein Beispiel dafür, wie man die minimale und maximale Anzahl der Geburten von Jungen in einem Jahr ermitteln kann:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>arbuthnot <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">min =</span> <span class="fu">min</span>(boys),</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">max =</span> <span class="fu">max</span>(boys)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>            )</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["min"],"name":[1],"type":["int"],"align":["right"]},{"label":["max"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"2890","2":"8426"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Beantworten Sie die folgenden Fragen mit dem Datensatz <code>present</code>:</p>
+<div class="exercises">
+<ol type="1">
+<li><p>Welche Jahre sind in diesem Datensatz enthalten? Welche Dimensionen hat das Dataframe? Wie lauten die Namen der Variablen (Spalten)?</p></li>
+<li><p>Wie lassen sich diese Zählungen mit denen von Arbuthnot vergleichen? Sind sie von ähnlicher Größenordnung?</p></li>
+<li><p>Erstellen Sie ein Diagramm, das den Anteil der geborenen Jungen im Laufe der Zeit darstellt. Was sehen Sie? Trifft Arbuthnots Beobachtung, dass Jungen in größerem Umfang als Mädchen geboren werden, in den Vereinigten Staaten zu? Fügen Sie die Grafik in Ihre Antwort ein. <em>Hinweis:</em> Sie sollten in der Lage sein, Ihren Code aus der obigen Aufgabe wiederzuverwenden, ersetzen Sie einfach den Namen des Dataframes.</p></li>
+<li><p>In welchem Jahr gab es die höchste Gesamtzahl an Geburten in den Vereinigten Staaten? <em>Tipp:</em> Berechnen Sie zunächst die Gesamtzahlen und speichern Sie sie als neue Variable. Sortieren Sie dann Ihren Datensatz in absteigender Reihenfolge nach der Spalte <code>total</code>. Sie können dies interaktiv in der Datenanzeige tun, indem Sie auf die Pfeile neben den Variablennamen klicken. Um das sortierte Ergebnis in Ihren Bericht aufzunehmen, müssen Sie zwei neue Funktionen verwenden. Zuerst verwenden wir <code>arrange()</code>, um die Variable zu sortieren. Dann können wir die Daten mit einer anderen Funktion, <code>desc()</code>, in absteigender Reihenfolge anordnen. Der Beispielcode ist unten angegeben.</p></li>
+</ol>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>present <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Diese Daten stammen aus Berichten der Centers for Disease Control. Sie können mehr über sie erfahren, indem Sie die Hilfedatei mit dem Befehl <code>?present</code> aufrufen.</p>
+</section>
+<section id="ressourcen-zum-erlernen-von-r-und-zum-arbeiten-in-rstudio" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="ressourcen-zum-erlernen-von-r-und-zum-arbeiten-in-rstudio"><span class="header-section-number">10.5</span> Ressourcen zum Erlernen von R und zum Arbeiten in RStudio</h2>
+<p>Das war eine kurze Einführung in R und RStudio, aber wir werden Ihnen im weiteren Verlauf des Kurses weitere Funktionen und ein umfassenderes Gefühl für die Sprache vermitteln.</p>
+<p>In diesem Kurs werden wir die R-Pakete aus dem <strong>tidyverse</strong> verwenden. Das Buch [R For Data Science] (https://r4ds.hadley.nz/) von Wickham et al.&nbsp;ist eine fantastische Quelle für die Datenanalyse in R mit tidyverse. Wenn Sie nach R-Code suchen, stellen Sie sicher, dass Sie auch diese Paketnamen in Ihre Suchanfrage aufnehmen. Suchen Sie zum Beispiel nicht nach “scatterplot in R”, sondern nach “scatterplot in R with the tidyverse”.</p>
+<p>Diese Unterlagen können sich im Laufe des Semesters als nützlich erweisen:</p>
+<ul>
+<li><a href="https://github.com/rstudio/cheatsheets/raw/main/rmarkdown-2.0.pdf">RMarkdown Cheatsheet</a></li>
+<li><a href="https://github.com/rstudio/cheatsheets/raw/main/data-transformation.pdf">Cheatsheet zur Datentransformation</a></li>
+<li><a href="https://github.com/rstudio/cheatsheets/raw/main/data-visualization-2.1.pdf">Cheatsheet zur Datenvisualisierung</a></li>
+</ul>
+<p>Beachten Sie, dass einige der Codes auf diesen Cheatsheets für diesen Kurs zu fortgeschritten sein könnten. Der Großteil davon wird jedoch im Laufe des Semesters nützlich sein.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./10-konfidenzintervall-infer.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Konfidenzintervalle mit Bootstrap</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./30-lab-02-intro-to-data.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

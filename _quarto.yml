@@ -28,6 +28,7 @@ book:
         - 10-konfidenzintervall-infer.qmd
     - part: "LABS: EIGENSTÄNDIGE ÜBUNGEN"
       chapters: 
+        - 25-lab-01-intro-to-r.qmd
         - 30-lab-02-intro-to-data.qmd
     - references.qmd
   appendices:

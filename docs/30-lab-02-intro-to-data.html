@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.3.191">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Übung zur Vorlesung Statistik und Datenanalyse - 10&nbsp; Lab 02: Pünktlichkeit von Flügen</title>
+<title>Übung zur Vorlesung Statistik und Datenanalyse - 11&nbsp; Lab 02: Pünktlichkeit von Flügen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,7 +94,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./references.html" rel="next">
-<link href="./10-konfidenzintervall-infer.html" rel="prev">
+<link href="./25-lab-01-intro-to-r.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -112,15 +112,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "type": "textbox",
   "limit": 20,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken"
   }
 }</script>
 
@@ -138,7 +138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -278,7 +278,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./30-lab-02-intro-to-data.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></a>
+  <a href="./25-lab-01-intro-to-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Lab 01: Einführung in R und RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30-lab-02-intro-to-data.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></a>
   </div>
 </li>
       </ul>
@@ -290,7 +295,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">Appendices</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">Anhang</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -309,25 +314,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#erste-schritte" id="toc-erste-schritte" class="nav-link active" data-scroll-target="#erste-schritte"><span class="toc-section-number">10.1</span>  Erste Schritte</a>
+  <li><a href="#erste-schritte" id="toc-erste-schritte" class="nav-link active" data-scroll-target="#erste-schritte"><span class="toc-section-number">11.1</span>  Erste Schritte</a>
   <ul class="collapse">
-  <li><a href="#pakete-laden" id="toc-pakete-laden" class="nav-link" data-scroll-target="#pakete-laden"><span class="toc-section-number">10.1.1</span>  Pakete laden</a></li>
-  <li><a href="#erstellen-eines-reproduzierbaren-berichts" id="toc-erstellen-eines-reproduzierbaren-berichts" class="nav-link" data-scroll-target="#erstellen-eines-reproduzierbaren-berichts"><span class="toc-section-number">10.1.2</span>  Erstellen eines reproduzierbaren Berichts</a></li>
-  <li><a href="#die-daten" id="toc-die-daten" class="nav-link" data-scroll-target="#die-daten"><span class="toc-section-number">10.1.3</span>  Die Daten</a></li>
+  <li><a href="#pakete-laden" id="toc-pakete-laden" class="nav-link" data-scroll-target="#pakete-laden"><span class="toc-section-number">11.1.1</span>  Pakete laden</a></li>
+  <li><a href="#erstellen-eines-reproduzierbaren-berichts" id="toc-erstellen-eines-reproduzierbaren-berichts" class="nav-link" data-scroll-target="#erstellen-eines-reproduzierbaren-berichts"><span class="toc-section-number">11.1.2</span>  Erstellen eines reproduzierbaren Berichts</a></li>
+  <li><a href="#die-daten" id="toc-die-daten" class="nav-link" data-scroll-target="#die-daten"><span class="toc-section-number">11.1.3</span>  Die Daten</a></li>
   </ul></li>
-  <li><a href="#analyse" id="toc-analyse" class="nav-link" data-scroll-target="#analyse"><span class="toc-section-number">10.2</span>  Analyse</a>
+  <li><a href="#analyse" id="toc-analyse" class="nav-link" data-scroll-target="#analyse"><span class="toc-section-number">11.2</span>  Analyse</a>
   <ul class="collapse">
-  <li><a href="#bericht" id="toc-bericht" class="nav-link" data-scroll-target="#bericht"><span class="toc-section-number">10.2.1</span>  Bericht</a></li>
-  <li><a href="#abflugverspätungen" id="toc-abflugverspätungen" class="nav-link" data-scroll-target="#abflugverspätungen"><span class="toc-section-number">10.2.2</span>  Abflugverspätungen</a></li>
+  <li><a href="#bericht" id="toc-bericht" class="nav-link" data-scroll-target="#bericht"><span class="toc-section-number">11.2.1</span>  Bericht</a></li>
+  <li><a href="#abflugverspätungen" id="toc-abflugverspätungen" class="nav-link" data-scroll-target="#abflugverspätungen"><span class="toc-section-number">11.2.2</span>  Abflugverspätungen</a></li>
   </ul></li>
-  <li><a href="#abflugverspätungen-nach-monaten" id="toc-abflugverspätungen-nach-monaten" class="nav-link" data-scroll-target="#abflugverspätungen-nach-monaten"><span class="toc-section-number">10.3</span>  Abflugverspätungen nach Monaten</a>
+  <li><a href="#abflugverspätungen-nach-monaten" id="toc-abflugverspätungen-nach-monaten" class="nav-link" data-scroll-target="#abflugverspätungen-nach-monaten"><span class="toc-section-number">11.3</span>  Abflugverspätungen nach Monaten</a>
   <ul class="collapse">
-  <li><a href="#pünktliche-abflugrate-für-nyc-flughäfen" id="toc-pünktliche-abflugrate-für-nyc-flughäfen" class="nav-link" data-scroll-target="#pünktliche-abflugrate-für-nyc-flughäfen"><span class="toc-section-number">10.3.1</span>  Pünktliche Abflugrate für NYC-Flughäfen</a></li>
+  <li><a href="#pünktliche-abflugrate-für-nyc-flughäfen" id="toc-pünktliche-abflugrate-für-nyc-flughäfen" class="nav-link" data-scroll-target="#pünktliche-abflugrate-für-nyc-flughäfen"><span class="toc-section-number">11.3.1</span>  Pünktliche Abflugrate für NYC-Flughäfen</a></li>
   </ul></li>
-  <li><a href="#weitere-übungen" id="toc-weitere-übungen" class="nav-link" data-scroll-target="#weitere-übungen"><span class="toc-section-number">10.4</span>  Weitere Übungen</a></li>
+  <li><a href="#weitere-übungen" id="toc-weitere-übungen" class="nav-link" data-scroll-target="#weitere-übungen"><span class="toc-section-number">11.4</span>  Weitere Übungen</a></li>
   </ul>
 </nav>
     </div>
@@ -336,7 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-lab-02-intro-to-data" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></span></h1>
+<h1 class="title"><span id="sec-lab-02-intro-to-data" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></span></h1>
 </div>
 
 
@@ -355,38 +360,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Das ist die deutsche Übersetzung des “OpenIntro Labs for R and tidyverse” <a href="http://openintrostat.github.io/oilabs-tidy/">2. Intro to data</a>. Es ist Teil des Buches von Çetinkaya-Rundel et al., <a href="https://openintro-ims.netlify.app/index.html">Introduction to Modern Statistics</a>, lizenziert unter CC-BY-SA 3.0. Übersetzt mit www.DeepL.com/Translator, bearbeitet und ergänzt von C. Bogner und L. Dedeke.</p>
 </div>
 <p>Manche definieren Statistik als das Gebiet, das sich darauf konzentriert, Informationen in Wissen zu verwandeln. Der erste Schritt in diesem Prozess ist die Zusammenfassung und Beschreibung der Rohinformationen - der Daten. In dieser Übung untersuchen wir Flüge, insbesondere eine Zufallsstichprobe von Inlandsflügen, die im Jahr 2013 von den drei großen Flughäfen in New York City abgeflogen sind. Wir werden einfache grafische und numerische Zusammenfassungen der Daten zu diesen Flügen erstellen und die Verspätungszeiten untersuchen. Da es sich um einen großen Datensatz handelt, werden Sie nebenbei auch die unverzichtbaren Fertigkeiten der Datenverarbeitung und -unterteilung erlernen.</p>
-<section id="erste-schritte" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="erste-schritte"><span class="header-section-number">10.1</span> Erste Schritte</h2>
-<section id="pakete-laden" class="level3" data-number="10.1.1">
-<h3 data-number="10.1.1" class="anchored" data-anchor-id="pakete-laden"><span class="header-section-number">10.1.1</span> Pakete laden</h3>
+<section id="erste-schritte" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="erste-schritte"><span class="header-section-number">11.1</span> Erste Schritte</h2>
+<section id="pakete-laden" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="pakete-laden"><span class="header-section-number">11.1.1</span> Pakete laden</h3>
 <p>In dieser Übung werden wir die Daten mithilfe der Paketsammlung <strong>tidyverse</strong> untersuchen und visualisieren. Die Daten befinden sich im Begleitpaket für OpenIntro-Übungen, <strong>openintro</strong>.</p>
 <p>Lassen Sie uns die Pakete laden.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="erstellen-eines-reproduzierbaren-berichts" class="level3" data-number="10.1.2">
-<h3 data-number="10.1.2" class="anchored" data-anchor-id="erstellen-eines-reproduzierbaren-berichts"><span class="header-section-number">10.1.2</span> Erstellen eines reproduzierbaren Berichts</h3>
+<section id="erstellen-eines-reproduzierbaren-berichts" class="level3" data-number="11.1.2">
+<h3 data-number="11.1.2" class="anchored" data-anchor-id="erstellen-eines-reproduzierbaren-berichts"><span class="header-section-number">11.1.2</span> Erstellen eines reproduzierbaren Berichts</h3>
 <p>Denken Sie daran, dass wir R Markdown verwenden werden, um reproduzierbare Berichte zu erstellen. Gehen Sie in RStudio zu New File -&gt; R Markdown… Wählen Sie dann <code>From Template</code> und wählen Sie dann <code>Lab Report for OpenIntro Statistics Labs</code> aus der Liste der Vorlagen. Oder verfahren Sie so, wie wir es in den Übungen gelernt haben New File -&gt; R Notebook… Beide Varianten sind in Ordnung. Wenn Sie die Variante mit R Markdown wählen, gibt es keinen Button “Preview”, sondern Sie müssen das Dokument “knitten” über den Button mit dem Wollknäuel.</p>
 <p>Sehen Sie sich das folgende Video an, in dem beschrieben wird, wie Sie mit der Erstellung dieser Berichte für dieses und alle zukünftigen Labs beginnen können:</p>
 <p><a href="https://www.youtube.com/watch?v=Pdc368lS2hk">Grundlegendes zu R Markdown mit einer OpenIntro-Übung</a> <iframe width="640" height="360" src="https://www.youtube.com/embed/Pdc368lS2hk" title="Basic R Markdown with an OpenIntro Lab (Lab Video 1)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
 </section>
-<section id="die-daten" class="level3" data-number="10.1.3">
-<h3 data-number="10.1.3" class="anchored" data-anchor-id="die-daten"><span class="header-section-number">10.1.3</span> Die Daten</h3>
+<section id="die-daten" class="level3" data-number="11.1.3">
+<h3 data-number="11.1.3" class="anchored" data-anchor-id="die-daten"><span class="header-section-number">11.1.3</span> Die Daten</h3>
 <p>Das <a href="https://www.bts.gov/">Bureau of Transportation Statistics</a> (BTS) ist eine Statistikbehörde, die zur Research and Innovative Technology Administration (RITA) gehört. Wie der Name schon sagt, sammelt das BTS Verkehrsdaten und stellt sie zur Verfügung, wie z. B. die Flugdaten, mit denen wir in diesem Labor arbeiten werden.</p>
 <p>Als Erstes werden wir uns den Datensatz <code>nycflights</code> ansehen. Geben Sie Folgendes in Ihre Konsole ein, um die Daten zu laden:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(nycflights)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(nycflights)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Der Datensatz <code>nycflights</code>, der in Ihrem Arbeitsbereich angezeigt wird, ist eine Datenmatrix oder Datentabelle, wobei jede Zeile eine Beobachtung und jede Spalte eine Variable darstellt. In R wird dieses Datenformat als Dataframe bezeichnet, ein Begriff, der in den Übungen immer wieder verwendet wird. Bei diesem Datensatz ist jede Beobachtung ein einzelner Flug.</p>
 <p>Um die Namen der Variablen anzuzeigen, geben Sie den Befehl</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(nycflights)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(nycflights)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Dies gibt die Namen der Variablen in diesem Datenrahmen zurück. Das <strong>Codebuch</strong> (Beschreibung der Variablen) kann über die Hilfedatei abgerufen werden:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>?nycflights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>?nycflights</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Eine der Variablen bezieht sich auf die Fluggesellschaft des Fluges, die nach folgendem System kodiert wird.</p>
 <ul>
@@ -412,7 +417,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Denken Sie daran, dass Sie die Funktion <code>glipmse()</code> nutzen können, um einen Überblick über die Daten zu erhalten und somit deren Inhalt besser zu verstehen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(nycflights)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(nycflights)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Der Datensatz <code>nycflights</code> ist eine riesige Fundgrube an Informationen. Lassen Sie uns über einige Fragen nachdenken, die wir mit diesen Daten beantworten wollen:</p>
 <ul>
@@ -422,28 +427,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </section>
 </section>
-<section id="analyse" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="analyse"><span class="header-section-number">10.2</span> Analyse</h2>
-<section id="bericht" class="level3" data-number="10.2.1">
-<h3 data-number="10.2.1" class="anchored" data-anchor-id="bericht"><span class="header-section-number">10.2.1</span> Bericht</h3>
+<section id="analyse" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="analyse"><span class="header-section-number">11.2</span> Analyse</h2>
+<section id="bericht" class="level3" data-number="11.2.1">
+<h3 data-number="11.2.1" class="anchored" data-anchor-id="bericht"><span class="header-section-number">11.2.1</span> Bericht</h3>
 <p>Um Ihre Analyse in einem reproduzierbaren Bericht festzuhalten, können Sie die allgemeine Vorlage für Berichte aus dem Paket <code>openintro</code> anpassen. Sehen Sie sich das Video oben an, um zu erfahren, wie das geht.</p>
 </section>
-<section id="abflugverspätungen" class="level3" data-number="10.2.2">
-<h3 data-number="10.2.2" class="anchored" data-anchor-id="abflugverspätungen"><span class="header-section-number">10.2.2</span> Abflugverspätungen</h3>
+<section id="abflugverspätungen" class="level3" data-number="11.2.2">
+<h3 data-number="11.2.2" class="anchored" data-anchor-id="abflugverspätungen"><span class="header-section-number">11.2.2</span> Abflugverspätungen</h3>
 <p>Beginnen wir damit, die Verteilung der Abflugverspätungen aller Flüge mit einem Histogramm zu untersuchen.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> nycflights, <span class="fu">aes</span>(<span class="at">x =</span> dep_delay)) <span class="sc">+</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Mit dieser Funktion wird die Variable <code>dep_delay</code> aus dem Dataframe <code>nycflights</code> auf der <span class="math inline">\(x\)</span>-Achse dargestellt. Sie definiert auch ein <code>geom</code> (kurz für geometrisches Objekt), das die Art der Darstellung beschreibt, die Sie erzeugen werden.</p>
 <p>Histogramme eignen sich im Allgemeinen sehr gut, um die Form der Verteilung einer einzelnen numerischen Variablen zu sehen, aber diese Form kann sich ändern, je nachdem, wie die Daten auf die verschiedenen Bins aufgeteilt sind. Sie können die zu verwendende Bin-Breite einfach festlegen:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> nycflights, <span class="fu">aes</span>(<span class="at">x =</span> dep_delay)) <span class="sc">+</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">15</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> nycflights, <span class="fu">aes</span>(<span class="at">x =</span> dep_delay)) <span class="sc">+</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">150</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">150</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="exercises">
 <ol type="1">
@@ -455,7 +460,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>lax_flights <span class="ot">&lt;-</span> nycflights <span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dest <span class="sc">==</span> <span class="st">"LAX"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> lax_flights, <span class="fu">aes</span>(<span class="at">x =</span> dep_delay)) <span class="sc">+</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Lassen Sie uns diese beiden Befehle entschlüsseln (OK, es sieht vielleicht nach vier Zeilen aus, aber die ersten beiden physischen Codezeilen sind tatsächlich Teil desselben Befehls. Es ist üblich, nach <code>%&gt;%</code> einen Zeilenumbruch einzufügen, um die Lesbarkeit zu verbessern).</p>
 <ul>
@@ -480,7 +485,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>lax_flights <span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_dd   =</span> <span class="fu">mean</span>(dep_delay), </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_dd =</span> <span class="fu">median</span>(dep_delay), </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">n         =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">n         =</span> <span class="fu">n</span>())</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Beachten Sie, dass Sie in der Funktion <code>summarise()</code> eine Liste mit drei verschiedenen numerischen Zusammenfassungen erstellt haben, an denen Sie interessiert waren. Die Namen dieser Elemente sind benutzerdefiniert, wie <code>mean_dd</code>, <code>median_dd</code>, <code>n</code>, und Sie können diese Namen nach Belieben anpassen (verwenden Sie nur keine Leerzeichen in Ihren Namen). Für die Berechnung dieser zusammenfassenden Statistiken müssen Sie auch die Funktionsaufrufe kennen. Beachten Sie, dass <code>n()</code> den Stichprobenumfang angibt.</p>
 <div class="info">
@@ -499,7 +504,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Sie können auch nach mehreren Kriterien filtern. Angenommen, Sie sind an Flügen nach San Francisco (SFO) im Februar interessiert:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sfo_feb_flights <span class="ot">&lt;-</span> nycflights <span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dest <span class="sc">==</span> <span class="st">"SFO"</span>, month <span class="sc">==</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dest <span class="sc">==</span> <span class="st">"SFO"</span>, month <span class="sc">==</span> <span class="dv">2</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Beachten Sie, dass Sie die Bedingungen durch Kommas trennen können, wenn Sie Flüge sowohl nach SFO als auch im Februar suchen. Wenn Sie entweder an Flügen nach SFO oder an Flügen im Februar interessiert sind, können Sie das | anstelle des Kommas verwenden.</p>
 <div class="exercises">
@@ -512,7 +517,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sfo_feb_flights <span class="sc">%&gt;%</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(origin) <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">median_dd =</span> <span class="fu">median</span>(dep_delay), <span class="at">iqr_dd =</span> <span class="fu">IQR</span>(dep_delay), <span class="at">n_flights =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">median_dd =</span> <span class="fu">median</span>(dep_delay), <span class="at">iqr_dd =</span> <span class="fu">IQR</span>(dep_delay), <span class="at">n_flights =</span> <span class="fu">n</span>())</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Hier haben wir die Daten zunächst nach Herkunft gruppiert und dann die zusammenfassenden Statistiken berechnet.</p>
 <div class="exercises">
@@ -522,8 +527,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="abflugverspätungen-nach-monaten" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="abflugverspätungen-nach-monaten"><span class="header-section-number">10.3</span> Abflugverspätungen nach Monaten</h2>
+<section id="abflugverspätungen-nach-monaten" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="abflugverspätungen-nach-monaten"><span class="header-section-number">11.3</span> Abflugverspätungen nach Monaten</h2>
 <p>In welchem Monat würden Sie die höchste durchschnittliche Verspätung bei Abflügen von einem New Yorker Flughafen erwarten?</p>
 <p>Lassen Sie uns überlegen, wie Sie diese Frage beantworten können:</p>
 <ul>
@@ -538,15 +543,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>nycflights <span class="sc">%&gt;%</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_dd =</span> <span class="fu">mean</span>(dep_delay)) <span class="sc">%&gt;%</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_dd))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_dd))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="exercises">
 <ol start="5" type="1">
 <li>Angenommen, Sie mögen keine Verspätungen bei der Abreise und möchten Ihre Reise in einem Monat planen, der Ihre mögliche Verspätung bei der Abreise aus New York minimiert. Eine Möglichkeit ist, den Monat mit dem geringsten Mittelwerten der Abflugverspätung zu wählen. Eine andere Möglichkeit ist, den Monat mit dem geringsten Median der Abflugverspätung zu wählen. Was sind die Vor- und Nachteile dieser beiden Möglichkeiten?</li>
 </ol>
 </div>
-<section id="pünktliche-abflugrate-für-nyc-flughäfen" class="level3" data-number="10.3.1">
-<h3 data-number="10.3.1" class="anchored" data-anchor-id="pünktliche-abflugrate-für-nyc-flughäfen"><span class="header-section-number">10.3.1</span> Pünktliche Abflugrate für NYC-Flughäfen</h3>
+<section id="pünktliche-abflugrate-für-nyc-flughäfen" class="level3" data-number="11.3.1">
+<h3 data-number="11.3.1" class="anchored" data-anchor-id="pünktliche-abflugrate-für-nyc-flughäfen"><span class="header-section-number">11.3.1</span> Pünktliche Abflugrate für NYC-Flughäfen</h3>
 <p>Angenommen, Sie fliegen von New York City aus und möchten wissen, welcher der drei großen Flughäfen in New York City die beste Pünktlichkeitsrate bei abgehenden Flügen aufweist. Nehmen wir weiter an, dass für Sie ein Flug, der weniger als 5 Minuten Verspätung hat, grundsätzlich “pünktlich” (“on time”) ist. Sie betrachten jeden Flug, der mehr als 5 Minuten Verspätung hat, als “verspätet” (“delayed”).</p>
 <p>Um festzustellen, welcher Flughafen die beste Pünktlichkeitsquote hat, können Sie</p>
 <ul>
@@ -558,7 +563,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Beginnen wir mit der Klassifizierung der einzelnen Flüge als “on time” oder “delayed”, indem wir mit der Funktion <code>mutate()</code> eine neue Variable erstellen.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>nycflights <span class="ot">&lt;-</span> nycflights <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dep_type =</span> <span class="fu">ifelse</span>(dep_delay <span class="sc">&lt;</span> <span class="dv">5</span>, <span class="st">"on time"</span>, <span class="st">"delayed"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dep_type =</span> <span class="fu">ifelse</span>(dep_delay <span class="sc">&lt;</span> <span class="dv">5</span>, <span class="st">"on time"</span>, <span class="st">"delayed"</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Das erste Argument in der Funktion <code>mutate()</code> ist der Name der neuen Variable, die wir erstellen wollen, in diesem Fall <code>dep_type</code>. Wenn <code>dep_delay &lt; 5</code> ist, klassifizieren wir den Flug als “on time”, wenn nicht, als “delayed”, d.&nbsp;h. wenn der Flug 5 oder mehr Minuten verspätet ist.</p>
 <p>Beachten Sie, dass wir auch das Dataframe <code>nycflights</code> mit der neuen Version dieses Dataframes überschreiben, der die neue Variable <code>dep_type</code> enthält.</p>
@@ -567,7 +572,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>nycflights <span class="sc">%&gt;%</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(origin) <span class="sc">%&gt;%</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">ot_dep_rate =</span> <span class="fu">sum</span>(dep_type <span class="sc">==</span> <span class="st">"on time"</span>) <span class="sc">/</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(ot_dep_rate))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(ot_dep_rate))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="exercises">
 <ol start="6" type="1">
@@ -577,12 +582,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Sie können auch die Verteilung der pünktlichen Abflugrate auf die drei Flughäfen mithilfe eines Balkendiagramms visualisieren.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> nycflights, <span class="fu">aes</span>(<span class="at">x =</span> origin, <span class="at">fill =</span> dep_type)) <span class="sc">+</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="weitere-übungen" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="weitere-übungen"><span class="header-section-number">10.4</span> Weitere Übungen</h2>
+<section id="weitere-übungen" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="weitere-übungen"><span class="header-section-number">11.4</span> Weitere Übungen</h2>
 <div class="exercises">
 <ol start="8" type="1">
 <li><p>Ändern Sie das Dataframe so, dass es eine neue Variable enthält, die die Durchschnittsgeschwindigkeit, <code>avg_speed</code>, die das Flugzeug bei jedem Flug zurückgelegt hat (in mph), angibt. <strong>Tipp</strong>: Die Durchschnittsgeschwindigkeit kann als Entfernung geteilt durch die Anzahl der Flugstunden berechnet werden, und beachten Sie, dass die Flugzeit <code>air_time</code> in Minuten angegeben wird.</p></li>
@@ -640,12 +645,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Kopiert");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Kopiert");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -694,6 +699,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -735,8 +826,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./10-konfidenzintervall-infer.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Konfidenzintervalle mit Bootstrap</span></span>
+      <a href="./25-lab-01-intro-to-r.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Lab 01: Einführung in R und RStudio</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

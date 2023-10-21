@@ -213,14 +213,14 @@ gapminder2007 <- gapminder %>%
 ggplot(gapminder2007, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +
   geom_point() +
   scale_x_log10() +
-  labs(x = 'Bruttoinlandsprodukt pro Einwohner ($, inflationsbereinigt)', 
+  labs(x = 'Bruttoinlandsprodukt pro Einwohner (US$, inflationsbereinigt)', 
        y = 'Lebenserwartung bei der Geburt (Jahre)',
        title = 'Daten von Gapminder für das Jahr 2007',
        caption = 'http://www.gapminder.org/data/')
   
 ```
 
-- Welche Daten sind in diesem Datensatz enthalten? Nutzen Sie die Hilfe, i.e. `?gapminder`.
+- Welche Daten sind in diesem Datensatz enthalten? Nutzen Sie die Hilfe, i. e. `?gapminder`.
 - Was stellen die Farben in der Abbildung dar?
 - Was wird durch die Symbolgröße dargestellt?
 - Wie würden Sie den Zusammenhang zwischen den Variablen `Bruttoinlandsprodukt pro Einwohner ($, inflationsbereinigt)` und `Lebenserwartung bei der Geburt (Jahre)` beschreiben?

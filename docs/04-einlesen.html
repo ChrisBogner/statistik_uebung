@@ -296,7 +296,12 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./30-lab-02-intro-to-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></a>
+  <a href="./25-lab-01-intro-to-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Lab 01: Einführung in R und RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30-lab-02-intro-to-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></a>
   </div>
 </li>
       </ul>
@@ -337,8 +342,9 @@ div.csl-indent {
   <li><a href="#daten-aus-r-speichern" id="toc-daten-aus-r-speichern" class="nav-link" data-scroll-target="#daten-aus-r-speichern"><span class="toc-section-number">4.5</span>  Daten aus R speichern</a></li>
   <li><a href="#lesestoff" id="toc-lesestoff" class="nav-link" data-scroll-target="#lesestoff"><span class="toc-section-number">4.6</span>  Lesestoff</a></li>
   <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="toc-section-number">4.7</span>  Aufgaben</a></li>
-  <li><a href="#die-umfrage-aus-der-ersten-sitzung" id="toc-die-umfrage-aus-der-ersten-sitzung" class="nav-link" data-scroll-target="#die-umfrage-aus-der-ersten-sitzung"><span class="toc-section-number">4.8</span>  Die Umfrage aus der ersten Sitzung</a></li>
-  <li><a href="#ihre-arbeit-einreichen" id="toc-ihre-arbeit-einreichen" class="nav-link" data-scroll-target="#ihre-arbeit-einreichen"><span class="toc-section-number">4.9</span>  Ihre Arbeit einreichen</a></li>
+  <li><a href="#die-umfrage-aus-der-vorlesung" id="toc-die-umfrage-aus-der-vorlesung" class="nav-link" data-scroll-target="#die-umfrage-aus-der-vorlesung"><span class="toc-section-number">4.8</span>  Die Umfrage aus der Vorlesung</a></li>
+  <li><a href="#lab-01" id="toc-lab-01" class="nav-link" data-scroll-target="#lab-01"><span class="toc-section-number">4.9</span>  Lab 01</a></li>
+  <li><a href="#ihre-arbeit-einreichen" id="toc-ihre-arbeit-einreichen" class="nav-link" data-scroll-target="#ihre-arbeit-einreichen"><span class="toc-section-number">4.10</span>  Ihre Arbeit einreichen</a></li>
   </ul>
 </nav>
     </div>
@@ -379,7 +385,7 @@ div.csl-indent {
 <p>Wir gehen davon aus, dass die Daten im Ordner <code>Daten</code> gespeichert sind. Falls Ihre Daten an einem anderen Ort abgelegt sind, müssen Sie den Pfad beim Einlesen entsprechend anpassen.</p>
 <p>Um die Daten zu laden, gibt es in der Bibliothek <code>readr</code> verschiedene Funktionen, die alle mit <code>read_</code> beginnen. Die allgemeinste davon ist <code>read_delim</code>. Darin kann man explizit einstellen, mit welchem Zeichen (z. B. Komma, Strichpunkt etc.) die einzelnen Spalten in der zu importierenden Datei getrennt sind. In der Datei, die wir einlesen, ist das Trennungszeichen <code>;</code>. Das müssen Sie aber bei jeder Datei, die Sie einlesen, nachsehen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>car_numbers <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="at">file =</span> <span class="st">'Daten/autos_2022-11-06.csv'</span>, <span class="at">delim =</span> <span class="st">';'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>car_numbers <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="at">file =</span> <span class="st">'Daten/autos_2023-10-08.csv'</span>, <span class="at">delim =</span> <span class="st">';'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 76 Columns: 4
 ── Column specification ────────────────────────────────────────────────────────
@@ -392,14 +398,14 @@ date (1): time
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 </div>
-<p>Ein kurzer Blick auf den Datensatz, den Sie aus der ersten Sitzung der Vorlesung erkennen sollten 😄. Es sind die Daten zur <strong>Mobilität in Europa</strong> aus <a href="https://ec.europa.eu/eurostat/databrowser/view/road_eqs_carhab/default/bar?lang=en">eurostat</a>, heruntergeladen am 06.11.2022 und vorgefiltert. Die Daten beinhalten die Anzhal der “Personenkraftwagen je 1 000 Einwohner”, online Datencode: ROAD_EQS_CARHAB.</p>
+<p>Ein kurzer Blick auf den Datensatz, den Sie aus der ersten Sitzung der Vorlesung erkennen sollten 😄. Es sind die Daten zur <strong>Mobilität in Europa</strong> aus <a href="https://ec.europa.eu/eurostat/databrowser/view/road_eqs_carhab/default/bar?lang=en">eurostat</a>, heruntergeladen am 08.10.2023 und vorgefiltert. Die Daten beinhalten die Anzhal der “Personenkraftwagen je 1 000 Einwohner”, online Datencode: ROAD_EQS_CARHAB.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>car_numbers</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["geo"],"name":[1],"type":["chr"],"align":["left"]},{"label":["time"],"name":[2],"type":["date"],"align":["right"]},{"label":["unit"],"name":[3],"type":["chr"],"align":["left"]},{"label":["values"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Albania","2":"2018-01-01","3":"Number","4":"161"},{"1":"Albania","2":"2020-01-01","3":"Number","4":"191"},{"1":"Austria","2":"2018-01-01","3":"Number","4":"562"},{"1":"Austria","2":"2020-01-01","3":"Number","4":"570"},{"1":"Belgium","2":"2018-01-01","3":"Number","4":"511"},{"1":"Belgium","2":"2020-01-01","3":"Number","4":"510"},{"1":"Bulgaria","2":"2018-01-01","3":"Number","4":"396"},{"1":"Bulgaria","2":"2020-01-01","3":"Number","4":"414"},{"1":"Croatia","2":"2018-01-01","3":"Number","4":"409"},{"1":"Croatia","2":"2020-01-01","3":"Number","4":"433"},{"1":"Cyprus","2":"2018-01-01","3":"Number","4":"629"},{"1":"Cyprus","2":"2020-01-01","3":"Number","4":"645"},{"1":"Czechia","2":"2018-01-01","3":"Number","4":"540"},{"1":"Czechia","2":"2020-01-01","3":"Number","4":"565"},{"1":"Denmark","2":"2018-01-01","3":"Number","4":"447"},{"1":"Denmark","2":"2020-01-01","3":"Number","4":"466"},{"1":"Estonia","2":"2018-01-01","3":"Number","4":"563"},{"1":"Estonia","2":"2020-01-01","3":"Number","4":"608"},{"1":"Finland","2":"2018-01-01","3":"Number","4":"629"},{"1":"Finland","2":"2020-01-01","3":"Number","4":"652"},{"1":"France","2":"2018-01-01","3":"Number","4":"569"},{"1":"France","2":"2020-01-01","3":"Number","4":"567"},{"1":"Germany","2":"2018-01-01","3":"Number","4":"567"},{"1":"Germany","2":"2020-01-01","3":"Number","4":"580"},{"1":"Greece","2":"2018-01-01","3":"Number","4":"493"},{"1":"Greece","2":"2020-01-01","3":"Number","4":"514"},{"1":"Hungary","2":"2018-01-01","3":"Number","4":"373"},{"1":"Hungary","2":"2020-01-01","3":"Number","4":"403"},{"1":"Iceland","2":"2018-01-01","3":"Number","4":"749"},{"1":"Iceland","2":"2020-01-01","3":"Number","4":"731"},{"1":"Ireland","2":"2018-01-01","3":"Number","4":"445"},{"1":"Ireland","2":"2020-01-01","3":"Number","4":"458"},{"1":"Italy","2":"2018-01-01","3":"Number","4":"652"},{"1":"Italy","2":"2020-01-01","3":"Number","4":"670"},{"1":"Kosovo","2":"2018-01-01","3":"Number","4":"143"},{"1":"Kosovo","2":"2020-01-01","3":"NA","4":"NA"},{"1":"Latvia","2":"2018-01-01","3":"Number","4":"369"},{"1":"Latvia","2":"2020-01-01","3":"Number","4":"390"},{"1":"Liechtenstein","2":"2018-01-01","3":"Number","4":"780"},{"1":"Liechtenstein","2":"2020-01-01","3":"Number","4":"779"},{"1":"Lithuania","2":"2018-01-01","3":"Number","4":"512"},{"1":"Lithuania","2":"2020-01-01","3":"Number","4":"560"},{"1":"Luxembourg","2":"2018-01-01","3":"Number","4":"676"},{"1":"Luxembourg","2":"2020-01-01","3":"Number","4":"682"},{"1":"Malta","2":"2018-01-01","3":"Number","4":"608"},{"1":"Malta","2":"2020-01-01","3":"Number","4":"597"},{"1":"Montenegro","2":"2018-01-01","3":"Number","4":"332"},{"1":"Montenegro","2":"2020-01-01","3":"Number","4":"338"},{"1":"Netherlands","2":"2018-01-01","3":"Number","4":"494"},{"1":"Netherlands","2":"2020-01-01","3":"Number","4":"503"},{"1":"North Macedonia","2":"2018-01-01","3":"Number","4":"200"},{"1":"North Macedonia","2":"2020-01-01","3":"Number","4":"207"},{"1":"Norway","2":"2018-01-01","3":"Number","4":"516"},{"1":"Norway","2":"2020-01-01","3":"Number","4":"544"},{"1":"Poland","2":"2018-01-01","3":"Number","4":"617"},{"1":"Poland","2":"2020-01-01","3":"Number","4":"664"},{"1":"Portugal","2":"2018-01-01","3":"Number","4":"514"},{"1":"Portugal","2":"2020-01-01","3":"Number","4":"540"},{"1":"Romania","2":"2018-01-01","3":"Number","4":"332"},{"1":"Romania","2":"2020-01-01","3":"Number","4":"379"},{"1":"Serbia","2":"2018-01-01","3":"NA","4":"NA"},{"1":"Serbia","2":"2020-01-01","3":"Number","4":"315"},{"1":"Slovakia","2":"2018-01-01","3":"Number","4":"426"},{"1":"Slovakia","2":"2020-01-01","3":"Number","4":"447"},{"1":"Slovenia","2":"2018-01-01","3":"Number","4":"549"},{"1":"Slovenia","2":"2020-01-01","3":"Number","4":"555"},{"1":"Spain","2":"2018-01-01","3":"Number","4":"513"},{"1":"Spain","2":"2020-01-01","3":"Number","4":"521"},{"1":"Sweden","2":"2018-01-01","3":"Number","4":"476"},{"1":"Sweden","2":"2020-01-01","3":"Number","4":"476"},{"1":"Switzerland","2":"2018-01-01","3":"Number","4":"539"},{"1":"Switzerland","2":"2020-01-01","3":"Number","4":"537"},{"1":"Türkiye","2":"2018-01-01","3":"Number","4":"151"},{"1":"Türkiye","2":"2020-01-01","3":"Number","4":"157"},{"1":"United Kingdom","2":"2018-01-01","3":"Number","4":"473"},{"1":"United Kingdom","2":"2020-01-01","3":"NA","4":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["geo"],"name":[1],"type":["chr"],"align":["left"]},{"label":["time"],"name":[2],"type":["date"],"align":["right"]},{"label":["unit"],"name":[3],"type":["chr"],"align":["left"]},{"label":["values"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Albania","2":"2018-01-01","3":"Number","4":"161"},{"1":"Albania","2":"2021-01-01","3":"Number","4":"210"},{"1":"Austria","2":"2018-01-01","3":"Number","4":"562"},{"1":"Austria","2":"2021-01-01","3":"Number","4":"572"},{"1":"Belgium","2":"2018-01-01","3":"Number","4":"511"},{"1":"Belgium","2":"2021-01-01","3":"Number","4":"510"},{"1":"Bosnia and Herzegovina","2":"2018-01-01","3":"Number","4":"240"},{"1":"Bosnia and Herzegovina","2":"2021-01-01","3":"Number","4":"256"},{"1":"Bulgaria","2":"2018-01-01","3":"Number","4":"396"},{"1":"Bulgaria","2":"2021-01-01","3":"Number","4":"414"},{"1":"Croatia","2":"2018-01-01","3":"Number","4":"409"},{"1":"Croatia","2":"2021-01-01","3":"Number","4":"465"},{"1":"Cyprus","2":"2018-01-01","3":"Number","4":"629"},{"1":"Cyprus","2":"2021-01-01","3":"Number","4":"655"},{"1":"Czechia","2":"2018-01-01","3":"Number","4":"540"},{"1":"Czechia","2":"2021-01-01","3":"Number","4":"579"},{"1":"Denmark","2":"2018-01-01","3":"Number","4":"447"},{"1":"Denmark","2":"2021-01-01","3":"Number","4":"475"},{"1":"Estonia","2":"2018-01-01","3":"Number","4":"563"},{"1":"Estonia","2":"2021-01-01","3":"Number","4":"620"},{"1":"Finland","2":"2018-01-01","3":"Number","4":"629"},{"1":"Finland","2":"2021-01-01","3":"Number","4":"656"},{"1":"France","2":"2018-01-01","3":"Number","4":"569"},{"1":"France","2":"2021-01-01","3":"Number","4":"571"},{"1":"Germany","2":"2018-01-01","3":"Number","4":"567"},{"1":"Germany","2":"2021-01-01","3":"Number","4":"583"},{"1":"Greece","2":"2018-01-01","3":"Number","4":"493"},{"1":"Greece","2":"2021-01-01","3":"Number","4":"536"},{"1":"Hungary","2":"2018-01-01","3":"Number","4":"373"},{"1":"Hungary","2":"2021-01-01","3":"Number","4":"415"},{"1":"Iceland","2":"2018-01-01","3":"Number","4":"749"},{"1":"Iceland","2":"2021-01-01","3":"Number","4":"768"},{"1":"Ireland","2":"2018-01-01","3":"Number","4":"445"},{"1":"Ireland","2":"2021-01-01","3":"Number","4":"456"},{"1":"Italy","2":"2018-01-01","3":"Number","4":"652"},{"1":"Italy","2":"2021-01-01","3":"Number","4":"675"},{"1":"Kosovo","2":"2018-01-01","3":"Number","4":"143"},{"1":"Kosovo","2":"2021-01-01","3":"Number","4":"181"},{"1":"Latvia","2":"2018-01-01","3":"Number","4":"369"},{"1":"Latvia","2":"2021-01-01","3":"Number","4":"404"},{"1":"Liechtenstein","2":"2018-01-01","3":"Number","4":"780"},{"1":"Liechtenstein","2":"2021-01-01","3":"Number","4":"777"},{"1":"Lithuania","2":"2018-01-01","3":"Number","4":"512"},{"1":"Lithuania","2":"2021-01-01","3":"Number","4":"574"},{"1":"Luxembourg","2":"2018-01-01","3":"Number","4":"676"},{"1":"Luxembourg","2":"2021-01-01","3":"Number","4":"681"},{"1":"Malta","2":"2018-01-01","3":"Number","4":"608"},{"1":"Malta","2":"2021-01-01","3":"Number","4":"601"},{"1":"Montenegro","2":"2018-01-01","3":"Number","4":"332"},{"1":"Montenegro","2":"2021-01-01","3":"Number","4":"358"},{"1":"Netherlands","2":"2018-01-01","3":"Number","4":"489"},{"1":"Netherlands","2":"2021-01-01","3":"Number","4":"502"},{"1":"North Macedonia","2":"2018-01-01","3":"Number","4":"200"},{"1":"North Macedonia","2":"2021-01-01","3":"Number","4":"260"},{"1":"Norway","2":"2018-01-01","3":"Number","4":"516"},{"1":"Norway","2":"2021-01-01","3":"Number","4":"554"},{"1":"Poland","2":"2018-01-01","3":"Number","4":"617"},{"1":"Poland","2":"2021-01-01","3":"Number","4":"687"},{"1":"Portugal","2":"2018-01-01","3":"Number","4":"514"},{"1":"Portugal","2":"2021-01-01","3":"Number","4":"544"},{"1":"Romania","2":"2018-01-01","3":"Number","4":"332"},{"1":"Romania","2":"2021-01-01","3":"Number","4":"400"},{"1":"Slovakia","2":"2018-01-01","3":"Number","4":"426"},{"1":"Slovakia","2":"2021-01-01","3":"Number","4":"459"},{"1":"Slovenia","2":"2018-01-01","3":"Number","4":"549"},{"1":"Slovenia","2":"2021-01-01","3":"Number","4":"564"},{"1":"Spain","2":"2018-01-01","3":"Number","4":"513"},{"1":"Spain","2":"2021-01-01","3":"Number","4":"525"},{"1":"Sweden","2":"2018-01-01","3":"Number","4":"476"},{"1":"Sweden","2":"2021-01-01","3":"Number","4":"477"},{"1":"Switzerland","2":"2018-01-01","3":"Number","4":"546"},{"1":"Switzerland","2":"2021-01-01","3":"Number","4":"546"},{"1":"Türkiye","2":"2018-01-01","3":"Number","4":"151"},{"1":"Türkiye","2":"2021-01-01","3":"Number","4":"163"},{"1":"United Kingdom","2":"2018-01-01","3":"Number","4":"473"},{"1":"United Kingdom","2":"2021-01-01","3":"Number","4":"476"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -412,25 +418,32 @@ date (1): time
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>car_numbers<span class="sc">$</span>geo</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "Albania"         "Albania"         "Austria"         "Austria"        
- [5] "Belgium"         "Belgium"         "Bulgaria"        "Bulgaria"       
- [9] "Croatia"         "Croatia"         "Cyprus"          "Cyprus"         
-[13] "Czechia"         "Czechia"         "Denmark"         "Denmark"        
-[17] "Estonia"         "Estonia"         "Finland"         "Finland"        
-[21] "France"          "France"          "Germany"         "Germany"        
-[25] "Greece"          "Greece"          "Hungary"         "Hungary"        
-[29] "Iceland"         "Iceland"         "Ireland"         "Ireland"        
-[33] "Italy"           "Italy"           "Kosovo"          "Kosovo"         
-[37] "Latvia"          "Latvia"          "Liechtenstein"   "Liechtenstein"  
-[41] "Lithuania"       "Lithuania"       "Luxembourg"      "Luxembourg"     
-[45] "Malta"           "Malta"           "Montenegro"      "Montenegro"     
-[49] "Netherlands"     "Netherlands"     "North Macedonia" "North Macedonia"
-[53] "Norway"          "Norway"          "Poland"          "Poland"         
-[57] "Portugal"        "Portugal"        "Romania"         "Romania"        
-[61] "Serbia"          "Serbia"          "Slovakia"        "Slovakia"       
-[65] "Slovenia"        "Slovenia"        "Spain"           "Spain"          
-[69] "Sweden"          "Sweden"          "Switzerland"     "Switzerland"    
-[73] "Türkiye"         "Türkiye"         "United Kingdom"  "United Kingdom" </code></pre>
+<pre><code> [1] "Albania"                "Albania"                "Austria"               
+ [4] "Austria"                "Belgium"                "Belgium"               
+ [7] "Bosnia and Herzegovina" "Bosnia and Herzegovina" "Bulgaria"              
+[10] "Bulgaria"               "Croatia"                "Croatia"               
+[13] "Cyprus"                 "Cyprus"                 "Czechia"               
+[16] "Czechia"                "Denmark"                "Denmark"               
+[19] "Estonia"                "Estonia"                "Finland"               
+[22] "Finland"                "France"                 "France"                
+[25] "Germany"                "Germany"                "Greece"                
+[28] "Greece"                 "Hungary"                "Hungary"               
+[31] "Iceland"                "Iceland"                "Ireland"               
+[34] "Ireland"                "Italy"                  "Italy"                 
+[37] "Kosovo"                 "Kosovo"                 "Latvia"                
+[40] "Latvia"                 "Liechtenstein"          "Liechtenstein"         
+[43] "Lithuania"              "Lithuania"              "Luxembourg"            
+[46] "Luxembourg"             "Malta"                  "Malta"                 
+[49] "Montenegro"             "Montenegro"             "Netherlands"           
+[52] "Netherlands"            "North Macedonia"        "North Macedonia"       
+[55] "Norway"                 "Norway"                 "Poland"                
+[58] "Poland"                 "Portugal"               "Portugal"              
+[61] "Romania"                "Romania"                "Slovakia"              
+[64] "Slovakia"               "Slovenia"               "Slovenia"              
+[67] "Spain"                  "Spain"                  "Sweden"                
+[70] "Sweden"                 "Switzerland"            "Switzerland"           
+[73] "Türkiye"                "Türkiye"                "United Kingdom"        
+[76] "United Kingdom"        </code></pre>
 </div>
 </div>
 <p>Sie sehen, dass die Darstellung jetzt anders aussieht, weil eine einzelne Variable ein Vektor ist und kein <code>tibble</code>. Vektoren werden (durchnummeriert) ausgegeben und wir sehen alle 76 Einträge (Länder) nacheinander in der Reihenfolge ihres Erscheinens in der Variablen <code>geo</code>.</p>
@@ -456,7 +469,7 @@ date (1): time
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["geo"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"Albania"},{"1":"Albania"},{"1":"Austria"},{"1":"Austria"},{"1":"Belgium"},{"1":"Belgium"},{"1":"Bulgaria"},{"1":"Bulgaria"},{"1":"Croatia"},{"1":"Croatia"},{"1":"Cyprus"},{"1":"Cyprus"},{"1":"Czechia"},{"1":"Czechia"},{"1":"Denmark"},{"1":"Denmark"},{"1":"Estonia"},{"1":"Estonia"},{"1":"Finland"},{"1":"Finland"},{"1":"France"},{"1":"France"},{"1":"Germany"},{"1":"Germany"},{"1":"Greece"},{"1":"Greece"},{"1":"Hungary"},{"1":"Hungary"},{"1":"Iceland"},{"1":"Iceland"},{"1":"Ireland"},{"1":"Ireland"},{"1":"Italy"},{"1":"Italy"},{"1":"Kosovo"},{"1":"Kosovo"},{"1":"Latvia"},{"1":"Latvia"},{"1":"Liechtenstein"},{"1":"Liechtenstein"},{"1":"Lithuania"},{"1":"Lithuania"},{"1":"Luxembourg"},{"1":"Luxembourg"},{"1":"Malta"},{"1":"Malta"},{"1":"Montenegro"},{"1":"Montenegro"},{"1":"Netherlands"},{"1":"Netherlands"},{"1":"North Macedonia"},{"1":"North Macedonia"},{"1":"Norway"},{"1":"Norway"},{"1":"Poland"},{"1":"Poland"},{"1":"Portugal"},{"1":"Portugal"},{"1":"Romania"},{"1":"Romania"},{"1":"Serbia"},{"1":"Serbia"},{"1":"Slovakia"},{"1":"Slovakia"},{"1":"Slovenia"},{"1":"Slovenia"},{"1":"Spain"},{"1":"Spain"},{"1":"Sweden"},{"1":"Sweden"},{"1":"Switzerland"},{"1":"Switzerland"},{"1":"Türkiye"},{"1":"Türkiye"},{"1":"United Kingdom"},{"1":"United Kingdom"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["geo"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"Albania"},{"1":"Albania"},{"1":"Austria"},{"1":"Austria"},{"1":"Belgium"},{"1":"Belgium"},{"1":"Bosnia and Herzegovina"},{"1":"Bosnia and Herzegovina"},{"1":"Bulgaria"},{"1":"Bulgaria"},{"1":"Croatia"},{"1":"Croatia"},{"1":"Cyprus"},{"1":"Cyprus"},{"1":"Czechia"},{"1":"Czechia"},{"1":"Denmark"},{"1":"Denmark"},{"1":"Estonia"},{"1":"Estonia"},{"1":"Finland"},{"1":"Finland"},{"1":"France"},{"1":"France"},{"1":"Germany"},{"1":"Germany"},{"1":"Greece"},{"1":"Greece"},{"1":"Hungary"},{"1":"Hungary"},{"1":"Iceland"},{"1":"Iceland"},{"1":"Ireland"},{"1":"Ireland"},{"1":"Italy"},{"1":"Italy"},{"1":"Kosovo"},{"1":"Kosovo"},{"1":"Latvia"},{"1":"Latvia"},{"1":"Liechtenstein"},{"1":"Liechtenstein"},{"1":"Lithuania"},{"1":"Lithuania"},{"1":"Luxembourg"},{"1":"Luxembourg"},{"1":"Malta"},{"1":"Malta"},{"1":"Montenegro"},{"1":"Montenegro"},{"1":"Netherlands"},{"1":"Netherlands"},{"1":"North Macedonia"},{"1":"North Macedonia"},{"1":"Norway"},{"1":"Norway"},{"1":"Poland"},{"1":"Poland"},{"1":"Portugal"},{"1":"Portugal"},{"1":"Romania"},{"1":"Romania"},{"1":"Slovakia"},{"1":"Slovakia"},{"1":"Slovenia"},{"1":"Slovenia"},{"1":"Spain"},{"1":"Spain"},{"1":"Sweden"},{"1":"Sweden"},{"1":"Switzerland"},{"1":"Switzerland"},{"1":"Türkiye"},{"1":"Türkiye"},{"1":"United Kingdom"},{"1":"United Kingdom"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -497,13 +510,13 @@ date (1): time
 <section id="aufgaben" class="level2" data-number="4.7">
 <h2 data-number="4.7" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">4.7</span> Aufgaben</h2>
 </section>
-<section id="die-umfrage-aus-der-ersten-sitzung" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="die-umfrage-aus-der-ersten-sitzung"><span class="header-section-number">4.8</span> Die Umfrage aus der ersten Sitzung</h2>
-<p>Lesen Sie die Datei ‘Umfrage_2022_kurz.csv’ ein. Sie enthält die Umfrageergebnisse aus der ersten Session der Vorlesung zur Frage ‘Haben Sie schon mal einen Statistikkurs besucht?’</p>
+<section id="die-umfrage-aus-der-vorlesung" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="die-umfrage-aus-der-vorlesung"><span class="header-section-number">4.8</span> Die Umfrage aus der Vorlesung</h2>
+<p>Lesen Sie die Datei ‘Umfrage_2023_kurz.csv’ ein (sie ist auf ILIAS zu finden). Sie enthält die Umfrageergebnisse aus der ersten Session der Vorlesung zur Frage ‘Haben Sie schon mal einen Statistikkurs besucht?’</p>
 <ol type="1">
 <li>Wie viele Einträge enthält der Datensatz?</li>
 <li>Wie viele Variablen enthält der Datensatz?</li>
-<li>Sind die Variablen numerisch oder kategorial?</li>
+<li>Sind die Variablen numerisch oder kategorial? Wurden die Variablen auch so von R eingelesen?</li>
 <li>Erklären Sie jede Variable. Welche Information enthält sie?</li>
 <li>Stellen Sie die Antworten auf die Frage als Balkendiagramm dar. Es soll wie folgt aussehen:</li>
 </ol>
@@ -516,8 +529,12 @@ date (1): time
 <li>Wie viele Teilnehmende haben bereits einen Statistikkurs besucht (ungefähr)?</li>
 </ol>
 </section>
-<section id="ihre-arbeit-einreichen" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="ihre-arbeit-einreichen"><span class="header-section-number">4.9</span> Ihre Arbeit einreichen</h2>
+<section id="lab-01" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="lab-01"><span class="header-section-number">4.9</span> Lab 01</h2>
+<p>Bearbeiten Sie selbständig das Lab 01: <a href="25-lab-01-intro-to-r.html"><span>Kapitel&nbsp;10</span></a></p>
+</section>
+<section id="ihre-arbeit-einreichen" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="ihre-arbeit-einreichen"><span class="header-section-number">4.10</span> Ihre Arbeit einreichen</h2>
 <ul>
 <li>Speichern Sie Ihr Notebook ab.</li>
 <li>Laden Sie Ihre .Rmd Datei in ILIAS hoch. <strong>Beachten Sie die Frist!</strong></li>
