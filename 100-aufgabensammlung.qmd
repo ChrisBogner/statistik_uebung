@@ -171,8 +171,8 @@ Zurück zu unserer Frage: Ist das Interesse der Bürger in allen Bundesländern 
 #| echo: false
 ggplot(data = gesis_short, mapping = aes(y = Bundesland, fill = Polit_interesse)) +
   geom_bar(position = position_fill(reverse = TRUE)) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
-  labs(x = 'Anteile', y = 'Bundesland', fill = 'Politisches Interesse')
+  labs(x = 'Anteile', y = 'Bundesland', fill = 'Politisches Interesse') +
+  theme_minimal()
 ```
 
 Dafür können Sie folgende Code-Fragmente ergänzen:
@@ -180,8 +180,8 @@ Dafür können Sie folgende Code-Fragmente ergänzen:
 #| eval: false
 ggplot(data = ___, mapping = aes(y = ___, fill = ___)) +
   geom_bar(position = position_fill(reverse = TRUE)) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
-  labs(___)
+  labs(___) +
+  theme_minimal()
 ```
 
 Was macht `geom_bar(position = position_fill(reverse = TRUE))`?
