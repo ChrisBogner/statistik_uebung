@@ -364,8 +364,8 @@ div.csl-indent {
   </ul></li>
   <li><a href="#mittelwert-der-studiendauer-in-werdeschlau" id="toc-mittelwert-der-studiendauer-in-werdeschlau" class="nav-link" data-scroll-target="#mittelwert-der-studiendauer-in-werdeschlau"><span class="toc-section-number">A.7</span>  Mittelwert der Studiendauer in Werdeschlau</a></li>
   <li><a href="#umgang-mit-der-t-verteilung" id="toc-umgang-mit-der-t-verteilung" class="nav-link" data-scroll-target="#umgang-mit-der-t-verteilung"><span class="toc-section-number">A.8</span>  Umgang mit der <span class="math inline">\(t\)</span>-Verteilung</a></li>
-  <li><a href="#mitttelwert-der-laufzeiten-beim-cherrys-blossom-race" id="toc-mitttelwert-der-laufzeiten-beim-cherrys-blossom-race" class="nav-link" data-scroll-target="#mitttelwert-der-laufzeiten-beim-cherrys-blossom-race"><span class="toc-section-number">A.9</span>  Mitttelwert der Laufzeiten beim Cherrys Blossom Race</a></li>
-  <li><a href="#mitttelwert-der-laufzeiten-beim-cherrys-blossom-race-mit-infer" id="toc-mitttelwert-der-laufzeiten-beim-cherrys-blossom-race-mit-infer" class="nav-link" data-scroll-target="#mitttelwert-der-laufzeiten-beim-cherrys-blossom-race-mit-infer"><span class="toc-section-number">A.10</span>  Mitttelwert der Laufzeiten beim Cherrys Blossom Race – mit <code>infer</code></a></li>
+  <li><a href="#mittelwert-der-laufzeiten-beim-cherrys-blossom-race" id="toc-mittelwert-der-laufzeiten-beim-cherrys-blossom-race" class="nav-link" data-scroll-target="#mittelwert-der-laufzeiten-beim-cherrys-blossom-race"><span class="toc-section-number">A.9</span>  Mittelwert der Laufzeiten beim Cherrys Blossom Race</a></li>
+  <li><a href="#mittelwert-der-laufzeiten-beim-cherrys-blossom-race-mit-infer" id="toc-mittelwert-der-laufzeiten-beim-cherrys-blossom-race-mit-infer" class="nav-link" data-scroll-target="#mittelwert-der-laufzeiten-beim-cherrys-blossom-race-mit-infer"><span class="toc-section-number">A.10</span>  Mittelwert der Laufzeiten beim Cherrys Blossom Race – mit <code>infer</code></a></li>
   <li><a href="#t-test-für-den-mittelwert" id="toc-t-test-für-den-mittelwert" class="nav-link" data-scroll-target="#t-test-für-den-mittelwert"><span class="toc-section-number">A.11</span>  <span class="math inline">\(t\)</span>-Test für den Mittelwert</a>
   <ul class="collapse">
   <li><a href="#verdichtung" id="toc-verdichtung" class="nav-link" data-scroll-target="#verdichtung"><span class="toc-section-number">A.11.1</span>  Bodenverdichtung</a></li>
@@ -397,7 +397,7 @@ div.csl-indent {
 <h2 data-number="A.1" class="anchored" data-anchor-id="erste-schritte"><span class="header-section-number">A.1</span> Erste Schritte</h2>
 <section id="morphometrische-messungen-an-vögeln" class="level3" data-number="A.1.1">
 <h3 data-number="A.1.1" class="anchored" data-anchor-id="morphometrische-messungen-an-vögeln"><span class="header-section-number">A.1.1</span> Morphometrische Messungen an Vögeln</h3>
-<p>In einer Studie wurden 1100 Spitzschwanzammer (<em>Ammodramus caudacutus</em>) vermessen. Wir nutzen einen Teil des Datensatzes <span class="citation" data-cites="Zuur2009">(<a href="references.html#ref-Zuur2009" role="doc-biblioref"><strong>Zuur2009?</strong></a>)</span>. Die gemessenen Variablen sind Fluegel, Fuss (Tarsus), Kopf, Gewicht. Leider git die Datenquelle die Messeinheiten nicht an. Die Daten sind wie folgt:</p>
+<p>In einer Studie wurden 1100 Spitzschwanzammer (<em>Ammodramus caudacutus</em>) vermessen. Wir nutzen einen Teil des Datensatzes <span class="citation" data-cites="Zuur2009">(<a href="references.html#ref-Zuur2009" role="doc-biblioref">Zuur, Ieno, and Meesters 2009</a>)</span>. Die gemessenen Variablen sind Fluegel, Fuss (Tarsus), Kopf, Gewicht. Leider gibt die Datenquelle die Messeinheiten nicht an. Die Daten sind wie folgt:</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table table-striped table-condensed table-sm">
@@ -491,17 +491,17 @@ div.csl-indent {
 <section id="sec-aufgabe-politbarometer-einlesen" class="level3" data-number="A.3.1">
 <h3 data-number="A.3.1" class="anchored" data-anchor-id="sec-aufgabe-politbarometer-einlesen"><span class="header-section-number">A.3.1</span> Politbarometer 2021: Einlesen von Fremdformaten</h3>
 <p>Es gibt viele verschiedene Statistikpakete (z. B. SAS, SPSS, Stata), die mit grafischen Oberflächen arbeiten. Da die Analysen darin nicht <em>reproducible</em> sind (weil mit der Maus zusammengeklickt), empfehlen wir diese nicht. Dennoch gibt es manchmal interessante Datensätze, die in den Formaten dieser Statistikpakete vorliegen. ACHTUNG: Diese Aufgabe ist anspruchsvoll!</p>
-<p>In dieser Übung lernen Sie das Paket <a href="https://haven.tidyverse.org/">haven</a> kennen, dass solche Formate einlesen kann. Haven ist Teil von <code>tidyverse</code>, muss aber extra installiert und geladen werden.</p>
+<p>In dieser Übung lernen Sie das Paket <a href="https://haven.tidyverse.org/">haven</a> kennen, das solche Formate einlesen kann. Haven ist Teil von <code>tidyverse</code>, muss aber extra installiert und geladen werden.</p>
 <ol type="1">
 <li>Laden Sie die Bibliotheken <code>tidyverse</code> und <code>haven</code>.</li>
 </ol>
-<p>Wir beschäftigen uns mit dem Datensatz “Politbarometer 2021”. Die Politbarometer kennen Sie bestimmt aus dem ZDF. Das sind Telefonumfragen, die seit 1977 etwa monatlich von der Forschungsgruppe Wahlen für das ZDF durchgeführt werden. Wir sehen uns die Daten aus dem Jahr 2021 an. Sie sind für Lehre und Forschung frei. Sie müssen Sie jedoch selbst herunterladen, die Nutzungsbedingungen lesen und ihnen zustimmen. Die Daten gibt es hier: http://dx.doi.org/10.4232/1.13909.</p>
+<p>Wir beschäftigen uns mit dem Datensatz “Politbarometer 2021”. Das Politbarometer kennen Sie bestimmt aus dem ZDF. Das sind Telefonumfragen, die seit 1977 etwa monatlich von der Forschungsgruppe Wahlen für das ZDF durchgeführt werden. Wir sehen uns die Daten aus dem Jahr 2021 an. Sie sind für Lehre und Forschung frei. Sie müssen sie jedoch selbst herunterladen, die Nutzungsbedingungen lesen und ihnen zustimmen. Die Daten gibt es hier: http://dx.doi.org/10.4232/1.13909.</p>
 <ol start="2" type="1">
-<li>Laden Sie unter “Downloads” (rechts oben) den Datensatz “ZA7856_v1-0-0.dta.zip Stata (Dataset) 1.9 MB” herunter. Dafür werden Sie sich einmalig (und kostenlos) anmelden müssen.</li>
+<li>Laden Sie unter “Downloads/Datasets” (rechts oben) den Datensatz “ZA7856_v1-0-0.dta.zip Stata (Dataset) 1.9 MB” herunter. Dafür werden Sie sich einmalig (und kostenlos) anmelden müssen.</li>
 </ol>
 <p>Das ist ein komprimierter Datensatz des Statistikpakets Stata. Speichern Sie den Datensatz in Ihrem “Daten”-Ordner und entpacken Sie ihn dort. Es wird ein Ordner namens ZA7856_v1-0-0.dta erstellt, in dem Sie die Datei “ZA7856_v1-0-0.dta” finden. Das ist der eigentliche Datensatz.</p>
 <ol start="3" type="1">
-<li>Datensatz einlesen mit der Funktion read_dta(). Passen Sie den Pfad zur Datei an, da ich für die Übung eine andere Verzeichnisstruktur habe!</li>
+<li>Den Datensatz einlesen mit der Funktion read_dta(). Passen Sie den Pfad zur Datei an, da ich für die Übung eine andere Verzeichnisstruktur habe!</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>gesis <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">'Daten/ZA7856_v1-0-0.dta/ZA7856_v1-0-0.dta'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -509,7 +509,7 @@ div.csl-indent {
 <ol start="4" type="1">
 <li><p>Wie viele Beobachtungen und Variablen enthält der Datensatz?</p></li>
 <li><p>Die Variablennamen sind nichtssagend. Um den Datensatz zu verstehen, laden Sie auf der GESIS-Seite das Codebook herunter (rechts oben bei Downloads). Die Variablennamen sind in der “Tabelle 1: Variablenkorrespondenzliste Politbarometer 2021” gelistet.</p></li>
-<li><p>Wir werden gemeinsam die Variablen richtig umbenennen und die kategorialen Variablen zu Faktoren ändern. Gehen Sie durch den Code Zeile für Zeile durch und erklären Sie, was dieser macht.</p></li>
+<li><p>Wir werden gemeinsam die Variablen richtig umbenennen und die kategorialen Variablen zu Faktoren ändern. Gehen Sie durch den Code Zeile für Zeile durch, und erklären Sie, was dieser macht.</p></li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gesis_short <span class="ot">&lt;-</span> gesis <span class="sc">%&gt;%</span> </span>
@@ -564,7 +564,7 @@ div.csl-indent {
 <p>Wiederholen Sie nun die Aufgabe 5.</p>
 <ol start="7" type="1">
 <li><p>Vergleichen Sie die Antworten zwischen den Bundesländern. Ist das Interesse der Bürger ähnlich? Warum ist das schwer zu beantworten?</p></li>
-<li><p>Wir pirschen uns an die relativen Häufigkeiten heran. Was macht der nachfolgende Code. Sehen Sie gegebenenfalls in der Hilfe nach.</p></li>
+<li><p>Wir pirschen uns an die relativen Häufigkeiten heran. Was macht der nachfolgende Code? Sehen Sie gegebenenfalls in der Hilfe nach.</p></li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gesis_short <span class="sc">%&gt;%</span> </span>
@@ -603,12 +603,12 @@ div.csl-indent {
 <h2 data-number="A.5" class="anchored" data-anchor-id="exploration-von-numerischen-daten"><span class="header-section-number">A.5</span> Exploration von numerischen Daten</h2>
 <section id="umweltdaten-entlang-der-dänischen-küste" class="level3" data-number="A.5.1">
 <h3 data-number="A.5.1" class="anchored" data-anchor-id="umweltdaten-entlang-der-dänischen-küste"><span class="header-section-number">A.5.1</span> Umweltdaten entlang der dänischen Küste</h3>
-<p>Die Datei “Temperatur.csv” aus <span class="citation" data-cites="Zuur2009a">Zuur, Ieno, and Meesters (<a href="references.html#ref-Zuur2009a" role="doc-biblioref">2009</a>)</span> enthält Messungen von Temperatur, Salinität und Chlorophyll a an 31 Orten entlang der dänischen Küste. Der Datensatz kann <a href="https://highstat.com/index.php/a-beginner-s-guide-to-r">hier</a> heruntergeladen werden. Sie bekommen ihn aber bereits über ILIAS gestellt. Die Daten stammen vom dänischen Institut RIKZ (Monitoringprogramm MWTL: Monitoring Waterstaatkundige Toestand des Lands). Die Messungen wurden zwischen 1990 und 2005 durchgeführt, mit einer Häufigkeit von 0–4 mal pro Monat je nach Jahreszeit.</p>
+<p>Die Datei “Temperatur.csv” aus <span class="citation" data-cites="Zuur2009a">(<a href="references.html#ref-Zuur2009a" role="doc-biblioref"><strong>Zuur2009a?</strong></a>)</span> enthält Messungen von Temperatur, Salinität und Chlorophyll a an 31 Orten entlang der dänischen Küste. Der Datensatz kann <a href="https://highstat.com/index.php/a-beginner-s-guide-to-r">hier</a> heruntergeladen werden. Sie bekommen ihn aber bereits über ILIAS gestellt. Die Daten stammen vom dänischen Institut RIKZ (Monitoringprogramm MWTL: Monitoring Waterstaatkundige Toestand des Lands). Die Messungen wurden zwischen 1990 und 2005 durchgeführt, mit einer Häufigkeit von 0–4 Mal pro Monat je nach Jahreszeit.</p>
 <ol type="1">
 <li>Lesen Sie den Datensatz “Temperatur.csv” (auf ILIAS) ein.</li>
 <li>Konvertieren Sie die Spalte Date in ein richtiges Datumsformat und plotten Sie die Temperaturen pro Station (<code>facet_wrap()</code>) als Zeitreihen.</li>
 <li>Berechnen Sie die Anzahl der Messwerte, Monatsmittelwerte der Temperatur für alle Stationen, sowie die Standardabweichungen. Tipp: innerhalb von <code>summarize()</code> müssen Sie <code>n = n()</code> schreiben, um die Anzahl der Messwerte zu erhalten.</li>
-<li>Stellen Sie die Monatsmittel der Temperatur als Linien dar. Tipp: Um die Monate mit ihren Namen darzustellen, nutzen Sie den folgenden Code <code>scale_x_discrete(limits = as_factor(1:12), labels = month.abb)</code>. Hängen Sie ihn mit einem <code>+</code> an. Was macht dieser Code?</li>
+<li>Stellen Sie die Monatsmittel der Temperatur als Linien dar. Tipp: Um die Montasnamen darzustellen, nutzen Sie den folgenden Code <code>scale_x_discrete(limits = as_factor(1:12), labels = month.abb)</code>. Hängen Sie ihn mit einem <code>+</code> an. Was macht dieser Code?</li>
 <li>Beschriften Sie die Grafik sinnvoll.</li>
 <li>Fügen Sie die Standardabweichungen als Band hinzu.</li>
 </ol>
@@ -617,7 +617,7 @@ div.csl-indent {
 <h3 data-number="A.5.2" class="anchored" data-anchor-id="quantile"><span class="header-section-number">A.5.2</span> Quantile</h3>
 <p>Wir beschäftigen uns mit dem Datensatz <code>possum</code> im Paket <code>openintro</code>.</p>
 <ol type="1">
-<li><p>Laden Sie die Biblothek und anschließend den Datensatz.</p></li>
+<li><p>Laden Sie die Bibliothek und anschließend den Datensatz.</p></li>
 <li><p>Berechnen Sie</p></li>
 </ol>
 <ul>
@@ -647,8 +647,8 @@ div.csl-indent {
 </section>
 <section id="mittelwert-der-studiendauer-in-werdeschlau" class="level2" data-number="A.7">
 <h2 data-number="A.7" class="anchored" data-anchor-id="mittelwert-der-studiendauer-in-werdeschlau"><span class="header-section-number">A.7</span> Mittelwert der Studiendauer in Werdeschlau</h2>
-<p>Die Studentenvertretung in Werdeschlau möchte wissen, wie hoch im Schnitt die Studiendauer an der Uni Werdeschlau beträgt.</p>
-<p>Führen Sie eine Befragung von 100 zufällig ausgewählten Studierenden durch. Schätzen Sie aus diesen Daten die Studiendauer und geben Sie ein 95%-Konfidenzintervall an. Berechnen Sie dieses Konfidenzintervall</p>
+<p>Die Studierendenvertretung in Werdeschlau möchte wissen, wie hoch im Schnitt die Studiendauer an der Uni Werdeschlau beträgt.</p>
+<p>Führen Sie eine Befragung von 100 zufällig ausgewählten Studierenden durch. Schätzen Sie aus diesen Daten die Studiendauer und geben Sie ein 95%-Konfidenzintervall an. Berechnen Sie dieses Konfidenzintervall.</p>
 <ol type="a">
 <li>mit Bootstrap</li>
 <li>mithilfe der Normalverteilung. Der Standardfehler des Mittelwerts sei 0.06 Jahre.</li>
@@ -658,14 +658,14 @@ div.csl-indent {
 <section id="umgang-mit-der-t-verteilung" class="level2" data-number="A.8">
 <h2 data-number="A.8" class="anchored" data-anchor-id="umgang-mit-der-t-verteilung"><span class="header-section-number">A.8</span> Umgang mit der <span class="math inline">\(t\)</span>-Verteilung</h2>
 <ol type="1">
-<li><p>Finden Sie den kritischen Wert <span class="math inline">\(t^*_{2}\)</span> für das 95%-Konfidenzintervall Nutzen Sie dazu die Funktion <code>qt()</code>.</p></li>
+<li><p>Finden Sie den kritischen Wert <span class="math inline">\(t^*_{2}\)</span> für das 95%-Konfidenzintervall. Nutzen Sie dazu die Funktion <code>qt()</code>.</p></li>
 <li><p>Plotten Sie die dazugehörige Verteilung mit <code>normTail()</code> und markieren Sie den Bereich, der 95% aller Werte enthält.</p></li>
 <li><p>Vergleichen Sie die mit dem kritischen Wert für eine <span class="math inline">\(t\)</span>-Verteilung mit 18 Freiheitsgraden.</p></li>
 </ol>
 </section>
-<section id="mitttelwert-der-laufzeiten-beim-cherrys-blossom-race" class="level2" data-number="A.9">
-<h2 data-number="A.9" class="anchored" data-anchor-id="mitttelwert-der-laufzeiten-beim-cherrys-blossom-race"><span class="header-section-number">A.9</span> Mitttelwert der Laufzeiten beim Cherrys Blossom Race</h2>
-<p>Beim Cherrys Blossom Race laufen die Teilnehmer ein 10-Meilen Rennen. Wie hoch ist die mittlere Laufzeit (mit 95%-Konfidenzintervall) im Jahr 2017? Der Datensatz <code>run17</code> enthält die Daten.</p>
+<section id="mittelwert-der-laufzeiten-beim-cherrys-blossom-race" class="level2" data-number="A.9">
+<h2 data-number="A.9" class="anchored" data-anchor-id="mittelwert-der-laufzeiten-beim-cherrys-blossom-race"><span class="header-section-number">A.9</span> Mittelwert der Laufzeiten beim Cherrys Blossom Race</h2>
+<p>Beim Cherrys Blossom Race laufen die Teilnehmer ein 10-Meilen-Rennen. Wie hoch ist die mittlere Laufzeit (mit 95%-Konfidenzintervall) im Jahr 2017? Der Datensatz <code>run17</code> enthält die Daten.</p>
 <ol type="1">
 <li>Filtern Sie zuerst nach <code>event == '10 Mile'</code>, da der Datensatz mehrere Rennen enthält (Hilfe lesen!).</li>
 <li>Ziehen Sie eine Zufallsstichprobe von 100 Läufern und rechnen Sie die Laufzeit <code>net_sec</code> in Minuten um.</li>
@@ -673,8 +673,8 @@ div.csl-indent {
 <li>Berechnen Sie die Punktschätzung und das Konfidenzintervall.</li>
 </ol>
 </section>
-<section id="mitttelwert-der-laufzeiten-beim-cherrys-blossom-race-mit-infer" class="level2" data-number="A.10">
-<h2 data-number="A.10" class="anchored" data-anchor-id="mitttelwert-der-laufzeiten-beim-cherrys-blossom-race-mit-infer"><span class="header-section-number">A.10</span> Mitttelwert der Laufzeiten beim Cherrys Blossom Race – mit <code>infer</code></h2>
+<section id="mittelwert-der-laufzeiten-beim-cherrys-blossom-race-mit-infer" class="level2" data-number="A.10">
+<h2 data-number="A.10" class="anchored" data-anchor-id="mittelwert-der-laufzeiten-beim-cherrys-blossom-race-mit-infer"><span class="header-section-number">A.10</span> Mittelwert der Laufzeiten beim Cherrys Blossom Race – mit <code>infer</code></h2>
 <p>Lösen Sie die obige Aufgabe mit dem Paket <code>infer</code>.</p>
 </section>
 <section id="t-test-für-den-mittelwert" class="level2" data-number="A.11">
@@ -683,15 +683,15 @@ div.csl-indent {
 <p>Lösen Sie die Aufgabe mit <code>infer</code>.</p>
 <section id="verdichtung" class="level3" data-number="A.11.1">
 <h3 data-number="A.11.1" class="anchored" data-anchor-id="verdichtung"><span class="header-section-number">A.11.1</span> Bodenverdichtung</h3>
-<p>Schwere landwirtschaftliche Maschinen können beim Bearbeiten des Bodens zu Bodenverdichtung führen. In einem randomisierten Design wurden zufällig Parzellen auf einem sonst homogenen Feld mit einer schweren Maschine bearbeitet (<code>compacted</code>). Auf allen Parzellen wurde danach die Lagerungsdichte bestimmt. Aus langjährigen Messungen ist ist der Mittelwert des unverdichteten Bodens bekannt und beträgt 1.3 [g/cm³]. Die Lagerungsdichte (auch Trockenrohdichte) ist ein Maß für Bodenstruktur und gibt das Verhältnis der Trockenmasse eines Bodens zu seinem Volumen. Sie wird häufig in [g/cm³] gemessen und kann als ein Indikator für Bodenverdichtung genutzt werden. Eine Erhöhung der Lagerungsdichte ist ein Indikator für Verdichtung. Der Datensatz ist in der Datei “bd_compaction_simple.csv” gespeichert.</p>
+<p>Schwere landwirtschaftliche Maschinen können beim Bearbeiten des Bodens zu Bodenverdichtung führen. In einem randomisierten Design wurden zufällig Parzellen auf einem sonst homogenen Feld mit einer schweren Maschine bearbeitet (<code>compacted</code>). Auf allen Parzellen wurde danach die Lagerungsdichte bestimmt. Aus langjährigen Messungen ist der Mittelwert des unverdichteten Bodens bekannt und beträgt 1.3 [g/cm³]. Die Lagerungsdichte (auch Trockenrohdichte) ist ein Maß für Bodenstruktur und gibt das Verhältnis der Trockenmasse eines Bodens zu seinem Volumen. Sie wird häufig in [g/cm³] gemessen und kann als ein Indikator für Bodenverdichtung genutzt werden. Eine Erhöhung der Lagerungsdichte ist ein Indikator für Verdichtung. Der Datensatz ist in der Datei “bd_compaction_simple.csv” gespeichert.</p>
 <ol type="1">
 <li>Überprüfen Sie, ob sich die Lagerungsdichte auf den bearbeiteten Feldern erhöht hat.</li>
 </ol>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-Zuur2009a" class="csl-entry" role="doc-biblioentry">
-Zuur, A. F., E. Ieno, and E. Meesters. 2009. <em>A Beginner’s Guide to <span>R</span></em>. <span>Springer</span>.
+<div id="ref-Zuur2009" class="csl-entry" role="doc-biblioentry">
+Zuur, A. F., E. Ieno, and E. Meesters. 2009. <em>A Beginner’s Guide to r</em>. Springer. <a href="http://link.springer.com/book/10.1007%2F978-0-387-93837-0">http://link.springer.com/book/10.1007%2F978-0-387-93837-0</a>.
 </div>
 </div>
 </section>

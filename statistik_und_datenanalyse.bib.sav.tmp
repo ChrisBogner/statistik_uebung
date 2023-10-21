@@ -43,18 +43,6 @@
 }
 
 
-
-@book{Zuur2009a,
-  title = {A Beginner's Guide to {{R}}},
-  author = {Zuur, A. F. and Ieno, E. and Meesters, E.},
-  year = {2009},
-  publisher = {{Springer}},
-  file = {/media/Daten/Chrissies Dateien/Literatur/Buecher/A BeginnerS Guide To R.pdf},
-  owner = {Chris},
-  timestamp = {2011.04.28}
-}
-
-
 @Book{Xie2016,
     title = {bookdown: Authoring Books and Technical Documents with {R} Markdown},
     author = {Yihui Xie},
@@ -230,4 +218,13 @@ url = {https://bookdown.org/yihui/rmarkdown/}
   publisher = {{Taylor \& Francis}},
   issn = {0003-1305},
   doi = {10.1080/00031305.2016.1154108},
-  annotation = {\_eprint: https://doi.org/10.1080/00031305.20
+  annotation = {\_eprint: https://doi.org/10.1080/00031305.2016.1154108},
+  file = {/media/Daten/Chrissies Dateien/Literatur/Zotero/storage/G5QAWHDC/Wasserstein and Lazar - 2016 - The ASA Statement on p-Values Context, Process, a.pdf},
+  journal = {The American Statistician},
+  number = {2}
+}
+
+
+
+@article{Ho2019,
+  title = {Moving beyond {{P}} Values: Data A
