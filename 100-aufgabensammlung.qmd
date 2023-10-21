@@ -10,7 +10,7 @@ library(kableExtra)
 ```
 
 ### Morphometrische Messungen an Vögeln
-In einer Studie wurden 1100 Spitzschwanzammer (*Ammodramus caudacutus*) vermessen. Wir nutzen einen Teil des Datensatzes [@Zuur2009]. Die gemessenen Variablen sind Fluegel, Fuss (Tarsus), Kopf, Gewicht. Leider git die Datenquelle die Messeinheiten nicht an. Die Daten sind wie folgt:
+In einer Studie wurden 1100 Spitzschwanzammer (*Ammodramus caudacutus*) vermessen. Wir nutzen einen Teil des Datensatzes [@Zuur2009]. Die gemessenen Variablen sind Fluegel, Fuss (Tarsus), Kopf, Gewicht. Leider gibt die Datenquelle die Messeinheiten nicht an. Die Daten sind wie folgt:
 
 
 ```{r}
@@ -53,17 +53,17 @@ Sie sollten die gleiche (bis auf die Farbauswahl) Grafik erhalten, wie in der Vo
 ### Politbarometer 2021: Einlesen von Fremdformaten {#sec-aufgabe-politbarometer-einlesen}
 Es gibt viele verschiedene Statistikpakete (z. B. SAS, SPSS, Stata), die mit grafischen Oberflächen arbeiten. Da die Analysen darin nicht *reproducible* sind (weil mit der Maus zusammengeklickt), empfehlen wir diese nicht. Dennoch gibt es manchmal interessante Datensätze, die in den Formaten dieser Statistikpakete vorliegen. ACHTUNG: Diese Aufgabe ist anspruchsvoll!
 
-In dieser Übung lernen Sie das Paket [haven](https://haven.tidyverse.org/) kennen, dass solche Formate einlesen kann. Haven ist Teil von `tidyverse`, muss aber extra installiert und geladen werden.
+In dieser Übung lernen Sie das Paket [haven](https://haven.tidyverse.org/) kennen, das solche Formate einlesen kann. Haven ist Teil von `tidyverse`, muss aber extra installiert und geladen werden.
 
 1. Laden Sie die Bibliotheken `tidyverse` und `haven`.
 
-Wir beschäftigen uns mit dem Datensatz "Politbarometer 2021". Die Politbarometer kennen Sie bestimmt aus dem ZDF. Das sind Telefonumfragen, die seit 1977 etwa monatlich von der Forschungsgruppe Wahlen für das ZDF durchgeführt werden. Wir sehen uns die Daten aus dem Jahr 2021 an. Sie sind für Lehre und Forschung frei. Sie müssen Sie jedoch selbst herunterladen, die Nutzungsbedingungen lesen und ihnen zustimmen. Die Daten gibt es hier: http://dx.doi.org/10.4232/1.13909.
+Wir beschäftigen uns mit dem Datensatz "Politbarometer 2021". Das Politbarometer kennen Sie bestimmt aus dem ZDF. Das sind Telefonumfragen, die seit 1977 etwa monatlich von der Forschungsgruppe Wahlen für das ZDF durchgeführt werden. Wir sehen uns die Daten aus dem Jahr 2021 an. Sie sind für Lehre und Forschung frei. Sie müssen sie jedoch selbst herunterladen, die Nutzungsbedingungen lesen und ihnen zustimmen. Die Daten gibt es hier: http://dx.doi.org/10.4232/1.13909.
 
-2. Laden Sie unter "Downloads" (rechts oben) den Datensatz "ZA7856_v1-0-0.dta.zip Stata (Dataset) 1.9 MB" herunter. Dafür werden Sie sich einmalig (und kostenlos) anmelden müssen.
+2. Laden Sie unter "Downloads/Datasets" (rechts oben) den Datensatz "ZA7856_v1-0-0.dta.zip Stata (Dataset) 1.9 MB" herunter. Dafür werden Sie sich einmalig (und kostenlos) anmelden müssen.
 
 Das ist ein komprimierter Datensatz des Statistikpakets Stata. Speichern Sie den Datensatz in Ihrem "Daten"-Ordner und entpacken Sie ihn dort. Es wird ein Ordner namens ZA7856_v1-0-0.dta erstellt, in dem Sie die Datei "ZA7856_v1-0-0.dta" finden. Das ist der eigentliche Datensatz.
 
-3. Datensatz einlesen mit der Funktion read_dta(). Passen Sie den Pfad zur Datei an, da ich für die Übung eine andere Verzeichnisstruktur habe!
+3. Den Datensatz einlesen mit der Funktion read_dta(). Passen Sie den Pfad zur Datei an, da ich für die Übung eine andere Verzeichnisstruktur habe!
 ```{r}
 #| eval: false
 gesis <- read_dta('Daten/ZA7856_v1-0-0.dta/ZA7856_v1-0-0.dta')
@@ -75,7 +75,7 @@ gesis <- read_dta('Daten/ZA7856_v1-0-0.dta/ZA7856_v1-0-0.dta')
 
 5. Die Variablennamen sind nichtssagend. Um den Datensatz zu verstehen, laden Sie auf der GESIS-Seite das Codebook herunter (rechts oben bei Downloads). Die Variablennamen sind in der "Tabelle 1: Variablenkorrespondenzliste Politbarometer 2021" gelistet.
 
-6. Wir werden gemeinsam die Variablen richtig umbenennen und die kategorialen Variablen zu Faktoren ändern. Gehen Sie durch den Code Zeile für Zeile durch und erklären Sie, was dieser macht.
+6. Wir werden gemeinsam die Variablen richtig umbenennen und die kategorialen Variablen zu Faktoren ändern. Gehen Sie durch den Code Zeile für Zeile durch, und erklären Sie, was dieser macht.
 
 ```{r}
 #| eval: false
@@ -145,7 +145,7 @@ Wiederholen Sie nun die Aufgabe 5.
 
 7. Vergleichen Sie die Antworten zwischen den Bundesländern. Ist das Interesse der Bürger ähnlich? Warum ist das schwer zu beantworten?
 
-8. Wir pirschen uns an die relativen Häufigkeiten heran. Was macht der nachfolgende Code. Sehen Sie gegebenenfalls in der Hilfe nach.
+8. Wir pirschen uns an die relativen Häufigkeiten heran. Was macht der nachfolgende Code? Sehen Sie gegebenenfalls in der Hilfe nach.
 ```{r}
 #| eval: false
 gesis_short %>% 
@@ -190,19 +190,19 @@ Was macht `geom_bar(position = position_fill(reverse = TRUE))`?
 
 ### Umweltdaten entlang der dänischen Küste
 
-Die Datei "Temperatur.csv" aus @Zuur2009a enthält Messungen von Temperatur, Salinität und Chlorophyll a an 31 Orten entlang der dänischen Küste. Der Datensatz kann [hier](https://highstat.com/index.php/a-beginner-s-guide-to-r) heruntergeladen werden. Sie bekommen ihn aber bereits über ILIAS gestellt. Die Daten stammen vom dänischen Institut RIKZ (Monitoringprogramm MWTL: Monitoring Waterstaatkundige Toestand des Lands). Die Messungen wurden zwischen 1990 und 2005 durchgeführt, mit einer Häufigkeit von 0--4 mal pro Monat je nach Jahreszeit.
+Die Datei "Temperatur.csv" aus @Zuur2009a enthält Messungen von Temperatur, Salinität und Chlorophyll a an 31 Orten entlang der dänischen Küste. Der Datensatz kann [hier](https://highstat.com/index.php/a-beginner-s-guide-to-r) heruntergeladen werden. Sie bekommen ihn aber bereits über ILIAS gestellt. Die Daten stammen vom dänischen Institut RIKZ (Monitoringprogramm MWTL: Monitoring Waterstaatkundige Toestand des Lands). Die Messungen wurden zwischen 1990 und 2005 durchgeführt, mit einer Häufigkeit von 0--4 Mal pro Monat je nach Jahreszeit.
 
 1. Lesen Sie den Datensatz "Temperatur.csv" (auf ILIAS) ein.
 1. Konvertieren Sie die Spalte Date in ein richtiges Datumsformat und plotten Sie die Temperaturen pro Station (`facet_wrap()`) als Zeitreihen.
 1. Berechnen Sie die Anzahl der Messwerte, Monatsmittelwerte der Temperatur für alle Stationen, sowie die Standardabweichungen. Tipp: innerhalb von `summarize()` müssen Sie `n = n()` schreiben, um die Anzahl der Messwerte zu erhalten.
-1. Stellen Sie die Monatsmittel der Temperatur als Linien dar. Tipp: Um die Monate mit ihren Namen darzustellen, nutzen Sie den folgenden Code `scale_x_discrete(limits = as_factor(1:12), labels = month.abb)`. Hängen Sie ihn mit einem `+` an. Was macht dieser Code?
+1. Stellen Sie die Monatsmittel der Temperatur als Linien dar. Tipp: Um die Montasnamen darzustellen, nutzen Sie den folgenden Code `scale_x_discrete(limits = as_factor(1:12), labels = month.abb)`. Hängen Sie ihn mit einem `+` an. Was macht dieser Code?
 1. Beschriften Sie die Grafik sinnvoll.
 1. Fügen Sie die Standardabweichungen als Band hinzu.
 
 ### Quantile
 Wir beschäftigen uns mit dem Datensatz `possum` im Paket `openintro`.
 
-1. Laden Sie die Biblothek und anschließend den Datensatz.
+1. Laden Sie die Bibliothek und anschließend den Datensatz.
 
 1. Berechnen Sie 
 
@@ -230,9 +230,9 @@ Der Körper- und Kopflängen.
 4. Überprüfen Sie, dass der Bereich $\pm$ 1.96 Standardabweichungen in einer Normalverteilung 95% der Werte enthält. Zeichnen Sie den Bereich richtig ein. 
 
 ## Mittelwert der Studiendauer in Werdeschlau
-Die Studentenvertretung in Werdeschlau möchte wissen, wie hoch im Schnitt die Studiendauer an der Uni Werdeschlau beträgt.
+Die Studierendenvertretung in Werdeschlau möchte wissen, wie hoch im Schnitt die Studiendauer an der Uni Werdeschlau beträgt.
 
-Führen Sie eine Befragung von 100 zufällig ausgewählten Studierenden durch. Schätzen Sie aus diesen Daten die Studiendauer und geben Sie ein 95%-Konfidenzintervall an. Berechnen Sie dieses Konfidenzintervall
+Führen Sie eine Befragung von 100 zufällig ausgewählten Studierenden durch. Schätzen Sie aus diesen Daten die Studiendauer und geben Sie ein 95%-Konfidenzintervall an. Berechnen Sie dieses Konfidenzintervall.
 
 a. mit Bootstrap
 b. mithilfe der Normalverteilung. Der Standardfehler des Mittelwerts sei 0.06 Jahre.
@@ -240,14 +240,14 @@ b. mithilfe der Normalverteilung. Der Standardfehler des Mittelwerts sei 0.06 Ja
 Vergleichen Sie die beiden Konfidenzintervalle.
 
 ## Umgang mit der $t$-Verteilung
-1. Finden Sie den kritischen Wert $t^*_{2}$ für das 95%-Konfidenzintervall Nutzen Sie dazu die Funktion `qt()`.
+1. Finden Sie den kritischen Wert $t^*_{2}$ für das 95%-Konfidenzintervall. Nutzen Sie dazu die Funktion `qt()`.
 
 2. Plotten Sie die dazugehörige Verteilung mit `normTail()` und markieren Sie den Bereich, der 95% aller Werte enthält.
 
 3. Vergleichen Sie die mit dem kritischen Wert für eine $t$-Verteilung mit 18 Freiheitsgraden.
 
-## Mitttelwert der Laufzeiten beim Cherrys Blossom Race
-Beim Cherrys Blossom Race laufen die Teilnehmer ein 10-Meilen Rennen. Wie hoch ist die mittlere Laufzeit (mit 95%-Konfidenzintervall) im Jahr 2017? Der Datensatz `run17` enthält die Daten.
+## Mittelwert der Laufzeiten beim Cherrys Blossom Race
+Beim Cherrys Blossom Race laufen die Teilnehmer ein 10-Meilen-Rennen. Wie hoch ist die mittlere Laufzeit (mit 95%-Konfidenzintervall) im Jahr 2017? Der Datensatz `run17` enthält die Daten.
 
 1. Filtern Sie zuerst nach `event == '10 Mile'`, da der Datensatz mehrere Rennen enthält (Hilfe lesen!).
 2. Ziehen Sie eine Zufallsstichprobe von 100 Läufern und rechnen Sie die Laufzeit `net_sec` in Minuten um.
@@ -255,7 +255,7 @@ Beim Cherrys Blossom Race laufen die Teilnehmer ein 10-Meilen Rennen. Wie hoch i
 4. Berechnen Sie die Punktschätzung und das Konfidenzintervall.
 
 
-## Mitttelwert der Laufzeiten beim Cherrys Blossom Race -- mit `infer`
+## Mittelwert der Laufzeiten beim Cherrys Blossom Race -- mit `infer`
 
 Lösen Sie die obige Aufgabe mit dem Paket `infer`.
 
@@ -267,6 +267,6 @@ Lösen Sie die Aufgabe mit `infer`.
 
 
 ### Bodenverdichtung {#verdichtung}
-Schwere landwirtschaftliche Maschinen können beim Bearbeiten des Bodens zu Bodenverdichtung führen. In einem randomisierten Design wurden zufällig Parzellen auf einem sonst homogenen Feld mit einer schweren Maschine bearbeitet (`compacted`). Auf allen Parzellen wurde danach die Lagerungsdichte bestimmt. Aus langjährigen Messungen ist ist der Mittelwert des unverdichteten Bodens bekannt und beträgt 1.3 [g/cm³]. Die Lagerungsdichte (auch Trockenrohdichte) ist ein Maß für Bodenstruktur und gibt das Verhältnis der Trockenmasse eines Bodens zu seinem Volumen. Sie wird häufig in [g/cm³] gemessen und kann als ein Indikator für Bodenverdichtung genutzt werden. Eine Erhöhung der Lagerungsdichte ist ein Indikator für Verdichtung. Der Datensatz ist in der Datei "bd_compaction_simple.csv" gespeichert.
+Schwere landwirtschaftliche Maschinen können beim Bearbeiten des Bodens zu Bodenverdichtung führen. In einem randomisierten Design wurden zufällig Parzellen auf einem sonst homogenen Feld mit einer schweren Maschine bearbeitet (`compacted`). Auf allen Parzellen wurde danach die Lagerungsdichte bestimmt. Aus langjährigen Messungen ist der Mittelwert des unverdichteten Bodens bekannt und beträgt 1.3 [g/cm³]. Die Lagerungsdichte (auch Trockenrohdichte) ist ein Maß für Bodenstruktur und gibt das Verhältnis der Trockenmasse eines Bodens zu seinem Volumen. Sie wird häufig in [g/cm³] gemessen und kann als ein Indikator für Bodenverdichtung genutzt werden. Eine Erhöhung der Lagerungsdichte ist ein Indikator für Verdichtung. Der Datensatz ist in der Datei "bd_compaction_simple.csv" gespeichert.
 
 1. Überprüfen Sie, ob sich die Lagerungsdichte auf den bearbeiteten Feldern erhöht hat. 
