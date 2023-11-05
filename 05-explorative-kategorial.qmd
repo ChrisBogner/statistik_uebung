@@ -28,7 +28,9 @@ library(tidyverse)
 Das Einlesen eines Datensatzes aus einer Textdatei haben Sie ja bereits im letzten Kapitel gelernt.
 
 ```{r}
-car_numbers <- read_delim(file = 'Daten/autos_2022-11-06.csv', delim = ';')
+#| warning: false
+#| message: false
+car_numbers <- read_delim(file = 'Daten/autos_2023-10-08.csv', delim = ';')
 ```
 ### Kategoriale Variablen als Faktoren
 Wir sehen uns das `tibble` etwas genauer an.
@@ -128,7 +130,7 @@ In diesem Fall erstellt `mutate()` keine neue Variable, sondern überschreibt (v
 car_numbers
 ```
 
-Nun geht es an die Darstellung. Im Kapitel @sec-ggplot haben Sie das `geom_bar()` kennengelernt. Es kann die Anzahl der Einträge in einer Variablen auszählen und diese als Balkendiagramm darstellen. Das möchten wir aber in unserem Fall nicht. Wir wollen die Anzahl der Autos darstellen, die in der Variablen `value` enthalten ist. In anderen Worten, wir wollen die Merkmalswerte (Beobachtungen) selbst und und nicht deren Anzahl (*counts*) darstellen. Das ist die Aufgabe des `geom_col()` (col steht für columns, also Säulen/Balken).
+Nun geht es an die Darstellung. Im @sec-ggplot haben Sie das `geom_bar()` kennengelernt. Es kann die Anzahl der Einträge in einer Variablen auszählen und diese als Balkendiagramm darstellen. Das möchten wir aber in unserem Fall nicht. Wir wollen die Anzahl der Autos darstellen, die in der Variablen `value` enthalten ist. In anderen Worten, wir wollen die Merkmalswerte (Beobachtungen) selbst und und nicht deren Anzahl (*counts*) darstellen. Das ist die Aufgabe des `geom_col()` (col steht für columns, also Säulen/Balken).
 ```{r}
 #| warning: false
 #| message: false
@@ -162,7 +164,7 @@ library(openintro)
 data(loans_full_schema)
 
 # Datensatz ansehen
-glimpse(loans_full_schema)
+loans_full_schema
 ```
 
 ### Häufigkeitstabelle
@@ -235,7 +237,7 @@ Beschriften Sie die finale Grafik aus @sec-geom-col so, dass sie wie dort anfang
 3. Finden Sie heraus, was `hjust` und `vjust` tun. Probieren Sie die Werte 0, 0.5 und 1 aus. Wie ändert sich die Position der Ländernamen?
 
 ### Tutorium 
-Bearbeiten Sie das Tutorium "Einführung in Daten: 1 - Die Sprache der Daten". Sie können entweder die deutsche Übersetzung oder das englische Original bearbeiten. Das Tutorium muss nicht hochgeladen werden.
+Bearbeiten Sie das Tutorium "Explorative Datenanalyse: 1 - Erkundung kategorischer Daten". Sie können entweder die deutsche Übersetzung oder das [englische Original](https://openintro.shinyapps.io/ims-02-explore-01/) bearbeiten. Das Tutorium muss nicht hochgeladen werden.
 
 ## Ihre Arbeit einreichen
 - Speichern Sie Ihr Notebook ab.
