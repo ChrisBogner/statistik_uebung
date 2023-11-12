@@ -49,7 +49,7 @@ library(tidyverse)
 ```
 
 
-Sie kennen bereits die Funktion `read_delim()` zum Einlesen von Textdateien. Die Funktion ist die allgemeinste Funktion der `read_*` Familie aus `readr` in `tidyverse`; `read_csv()` und `read_csv2()` sind jeweils für komma- und strichpunkt-getrennte Datensätze gedacht. In der Basisinstallation von R (also außerhalb von `tidyverse`) gibt die sehr umfangreiche Funktion `read.table()`, die ebenfalls zum Einlesen von Textdateien verwendet wird. Man könnte berechtigterweise fragen, warum neue Funktion (`read_*`) für etwas erfinden, was es schon gibt. Die Autoren von `tidyverse` versprechen Konsistenz und Geschwindigkeit. Ersteres war schon immer ein Problem von R, da es nicht von Computerspezialisten, sondern von Anwendern erfunden wurde. Daher ist eine Vereinheitlichung durch `tidyverse` mehr als willkommen. Und Geschwindigkeit ist spätestens bei größeren Datensätzen ein wichtiger Punkt.
+Sie kennen bereits die Funktion `read_delim()` zum Einlesen von Textdateien. Die Funktion ist die allgemeinste Funktion der `read_*` Familie aus `readr` in `tidyverse`; `read_csv()` und `read_csv2()` sind jeweils für Komma- und Strichpunkt-getrennte Datensätze gedacht. In der Basisinstallation von R (also außerhalb von `tidyverse`) gibt die sehr umfangreiche Funktion `read.table()`, die ebenfalls zum Einlesen von Textdateien verwendet wird. Man könnte berechtigterweise fragen, warum neue Funktion (`read_*`) für etwas erfinden, was es schon gibt. Die Autoren von `tidyverse` versprechen Konsistenz und Geschwindigkeit. Ersteres war schon immer ein Problem von R, da es nicht von Computerspezialisten, sondern von Anwendern erfunden wurde. Daher ist eine Vereinheitlichung durch `tidyverse` mehr als willkommen. Und Geschwindigkeit ist spätestens bei größeren Datensätzen ein wichtiger Punkt.
 
 Wir sehen uns Daten des Deutschen Wetterdienstes an, die ich am 24. Mai 2020 heruntergeladen habe (https://www.dwd.de/DE/leistungen/klimadatendeutschland/klimadatendeutschland.html). Der Datensatz enthält Stundenwerte für relative Luftfeuchte (%) und Lufttemperatur (°C) von drei Wetterstationen, nämlich Hof, Frankfurt und Köln-Bonn. Die Daten sind in der Datei "Drei_Stationen.csv" gespeichert.
 
@@ -117,7 +117,7 @@ temp_humid %>%
 Die Zeichenkombination `%>%` heißt Pipe-Operator (*pipe*) und wird als 'und dann' gelesen (*then*). Diesen Operator haben wir bereits im letzten Kapitel verwendet. Der Ausdruck `temp_humid %>% count(STATIONS_ID)` heißt also: nimm das Objekt `temp_humid`, und zähle dann die Anzahl der verschiedenen Merkmalsausprägungen zusammen. Der Pipe-Operator ist die Kernphilosophie von `tidyverse` und wird Ihnen überall begegnen. Der Operator stammt aus dem Paket `magrittr` (https://magrittr.tidyverse.org/). Seine Hauptaufgabe ist es, den Code übersichtlicher und besser lesbar zu machen (vielleicht nicht gleich zu Beginn der Lernkurve, aber schon bald `r emo::ji('sunglasses')`).
 
 ## Die Grammatik der Datenmanipulation -- `dplyr`
-Die Funktion `count()` gehört zum Paket `dplyr`, das für Datentransformationen zuständig ist. Es ist mal wieder eine Grammatik. Dieses Paket enthält 5 Grundfunktionen (alle nach Verben benannt, damit man gleich weiß, was frau tut `r emo::ji('smile')`):
+Die Funktion `count()` gehört zum Paket `dplyr`, das für Datentransformationen zuständig ist. Es ist abermals eine Grammatik. Dieses Paket enthält 5 Grundfunktionen (alle nach Verben benannt, damit man gleich weiß, was frau tut `r emo::ji('smile')`):
 
 Funktion | Bedeutung |
 :-----------|:-----------|
@@ -135,9 +135,9 @@ temp_humid %>%
   count(STATIONS_ID)
 ```
 
-Beim Filtern läuft eine logische Abfrage. D. h. es wird bei jeden Eintrag in `STATION_ID` nachgesehen, ob da der Wert 2667 steht. Wenn da 2667 steht, dann gibt `==` ein `TRUE` zurück, wenn da etwas anderes steht, dann gibt `==` ein `FALSE` zurück. Und die Funktion `filter()` behält nur die Zeilen, bei denen `==` ein `TRUE` zurückgegeben hat.
+Beim Filtern läuft eine logische Abfrage. D. h. es wird bei jedem Eintrag in `STATION_ID` nachgesehen, ob da der Wert 2667 steht. Wenn da 2667 steht, dann gibt `==` ein `TRUE` zurück, wenn da etwas anderes steht, dann gibt `==` ein `FALSE` zurück. Und die Funktion `filter()` behält nur die Zeilen, bei denen `==` ein `TRUE` zurückgegeben hat.
 
-Weiter wichtige logische und relationale Operatoren finden Sie hier in der Hilfe zu `filter()`. Hier ein paar einfache Beispiele
+Weiter wichtige logische und relationale Operatoren finden Sie hier in der Hilfe zu `filter()`. Hier ein paar einfache Beispiele:
 
 Operator | Bedeutung |
 :-----------|:-----------|
@@ -177,7 +177,7 @@ ggplot(data = temp_humid, aes(x = MESS_DATUM, y = TT_TU, color = as_factor(STATI
   labs(x = 'Zeit', y = 'Temperatur (°C)', color = 'Stationen')
 ```
 
-Beachten Sie, dass wir die Variable zum Einfärben,  nämlich`STATIONS_ID`, direkt in `ggplot()` in eine kategoriale Variable umgewandelt haben. Sonst werden die Farben als Farbeverlauf statt drei unterschiedliche Farben, dargestellt.
+Beachten Sie, dass wir die Variable zum Einfärben,  nämlich`STATIONS_ID`, direkt in `ggplot()` in eine kategoriale Variable umgewandelt haben. Sonst werden die Farben als Farbverlauf statt drei unterschiedliche Farben, dargestellt.
 
 Da man erwarten kann, dass sich der Temperaturverlauf innerhalb Deutschlands nicht so stark unterscheidet, überdecken sich die Zeitreihen. Das ist für die Darstellung ungünstig. Daher wäre es besser, wenn wir die Zeitreihen in getrennte Grafiken je Station plotten würden. Dafür gibt es eine neue Funktion aus dem Paket `ggplot2`, nämlich `facet_wrap()`. Sie kann eine Grafik mithilfe einer kategorialen Variablen in Teilgrafiken aufteilen.
 
@@ -218,7 +218,7 @@ Wir erhalten einen Datensatz, der pro Jahr und Station einen Mittelwert der Temp
 yearly_means
 ```
 
-Die Berechnung der Jahresmittelwerte ist sehr kritisch zu sehen. Nicht alle berechneten Werte machen Sinn. Diskutieren Sie in der Hausaufgabe warum.
+Die Berechnung der Jahresmittelwerte ist sehr kritisch zu sehen. Nicht alle berechneten Werte ergeben Sinn. Diskutieren Sie in der Hausaufgabe warum.
 
 ### Monatliche Durchschnittstemperatur und ihre Variabilität
 
@@ -256,7 +256,7 @@ monthly_means <- ungroup(monthly_means)
 ```
 
 
-Um die monatlichen Daten als Zeitreihen zu plotten, brauchen wir noch eine Variable mit dem dazugehörigen Datum. Die Funktion `parse_date_time()` kann aus *character* richtige Datums- und Zeitobjekte erstellen. Sie ist allgemeiner als die oben verwendete `ymd_h()` Funktion, da man hier das Format explizit angeben kann. In unserem Fall ist das Format 'ym' für Jahr und Monat.
+Um die monatlichen Daten als Zeitreihen zu plotten, benötigen wir noch eine Variable mit dem dazugehörigen Datum. Die Funktion `parse_date_time()` kann aus *character* richtige Datums- und Zeitobjekte erstellen. Sie ist allgemeiner als die oben verwendete `ymd_h()` Funktion, da man hier das Format explizit angeben kann. In unserem Fall ist das Format 'ym' für Jahr und Monat.
 
 ```{r}
 monthly_means <- monthly_means %>%
@@ -265,7 +265,7 @@ monthly_means <- monthly_means %>%
 monthly_means
 ```
 
-Der Code `paste0(year, month)` "klebt" die Daten in der Variablen `year` und `month` zusammen. Das ist nötig, da die Funktion `parse_date_time()` einen zusammenhängenden Text als Input erwartet und keine zwei getrennten Spalten. Da das Datum außer dem Jahr und dem Monat noch einen Tag braucht, hat `parse_date_time()` automatisch den Ersten eines jeden Monats genommen. Beim Erstellen von korrekten Zeitangaben kommt es auch auf die Zeitzone an. Wir sind in Deutschland, da gilt die mitteleuropäische Zeit (engl. *central European time*, CET). Die Zeitzone ist für unsere Daten zwar nicht wirklich relevant, da wir hier Monatsdaten darstellen. Ich würde sie aber trotzdem richtig setzten, da die Standardeinstellung der Funktion `parse_date_time(tz = "UTC")` lautet und für Deutschland falsch ist.
+Der Code `paste0(year, month)` "klebt" die Daten in der Variablen `year` und `month` zusammen. Das ist nötig, da die Funktion `parse_date_time()` einen zusammenhängenden Text als Input erwartet und keine zwei getrennten Spalten. Da das Datum außer dem Jahr und dem Monat noch einen Tag benötigt, hat `parse_date_time()` automatisch den Ersten eines jeden Monats genommen. Beim Erstellen von korrekten Zeitangaben kommt es auch auf die Zeitzone an. Wir sind in Deutschland, da gilt die mitteleuropäische Zeit (engl. *central European time*, CET). Die Zeitzone ist für unsere Daten zwar nicht wirklich relevant, da wir hier Monatsdaten darstellen. Ich würde sie aber trotzdem richtig setzen, da die Standardeinstellung der Funktion `parse_date_time(tz = "UTC")` lautet und für Deutschland falsch ist.
 
 ```{r}
 #| out-width: "90%"
@@ -315,7 +315,7 @@ ggplot(monthly_means, aes(x = year_month, y = mean_T, ymin = mean_T - sd_T, ymax
 
 ## Weiterführende Literatur und Videos
 
-- R4DS @r4ds: Kapitel 5 "Data transformation"
+- R4DS @r4ds: Kapitel 3 "Data transformation"
 
 - Eine [live Analyse](https://www.youtube.com/watch?v=go5Au01Jrvs) des Hauptautors von `tidyverse`, Hadley Wickham. Empfehlenswert, auch wenn er viel zu schnell tippt `r emo::ji('smile')`.
 
@@ -328,8 +328,8 @@ Was bedeuten die Parameter `ymin` und `ymax` im folgenden Code?
 ggplot(monthly_means, aes(x = year_month, y = mean_T, ymin = mean_T - sd_T, ymax = mean_T + sd_T))
 ```
 
-### Welche Mittelwerte machen Sinn?
-Diskutieren Sie kritisch, für welche Zeitabschnitte in unseren Daten die Berechnung der Jahresmitteltemperatur sinnvoll ist und interpretiert werden kann Begründen Sie.
+### Welche Mittelwerte sind sinnvoll?
+Diskutieren Sie kritisch, für welche Zeitabschnitte in unseren Daten die Berechnung der Jahresmitteltemperatur sinnvoll ist und interpretiert werden kann. Begründen Sie.
 
 ### Politbarometer
 Bearbeiten Sie die Aufgaben @sec-aufgabe-politbarometer-einlesen und @sec-aufgabe-politbarometer-exploration-kategorial aus der Aufgabensammlung.

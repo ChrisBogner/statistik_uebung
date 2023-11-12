@@ -355,7 +355,7 @@ div.csl-indent {
   <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="toc-section-number">6.6</span>  Aufgaben</a>
   <ul class="collapse">
   <li><a href="#was-bedeutet-der-code" id="toc-was-bedeutet-der-code" class="nav-link" data-scroll-target="#was-bedeutet-der-code"><span class="toc-section-number">6.6.1</span>  Was bedeutet der Code?</a></li>
-  <li><a href="#welche-mittelwerte-machen-sinn" id="toc-welche-mittelwerte-machen-sinn" class="nav-link" data-scroll-target="#welche-mittelwerte-machen-sinn"><span class="toc-section-number">6.6.2</span>  Welche Mittelwerte machen Sinn?</a></li>
+  <li><a href="#welche-mittelwerte-sind-sinnvoll" id="toc-welche-mittelwerte-sind-sinnvoll" class="nav-link" data-scroll-target="#welche-mittelwerte-sind-sinnvoll"><span class="toc-section-number">6.6.2</span>  Welche Mittelwerte sind sinnvoll?</a></li>
   <li><a href="#politbarometer" id="toc-politbarometer" class="nav-link" data-scroll-target="#politbarometer"><span class="toc-section-number">6.6.3</span>  Politbarometer</a></li>
   </ul></li>
   <li><a href="#ihre-arbeit-einreichen" id="toc-ihre-arbeit-einreichen" class="nav-link" data-scroll-target="#ihre-arbeit-einreichen"><span class="toc-section-number">6.7</span>  Ihre Arbeit einreichen</a></li>
@@ -446,7 +446,7 @@ div.csl-indent {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Sie kennen bereits die Funktion <code>read_delim()</code> zum Einlesen von Textdateien. Die Funktion ist die allgemeinste Funktion der <code>read_*</code> Familie aus <code>readr</code> in <code>tidyverse</code>; <code>read_csv()</code> und <code>read_csv2()</code> sind jeweils für komma- und strichpunkt-getrennte Datensätze gedacht. In der Basisinstallation von R (also außerhalb von <code>tidyverse</code>) gibt die sehr umfangreiche Funktion <code>read.table()</code>, die ebenfalls zum Einlesen von Textdateien verwendet wird. Man könnte berechtigterweise fragen, warum neue Funktion (<code>read_*</code>) für etwas erfinden, was es schon gibt. Die Autoren von <code>tidyverse</code> versprechen Konsistenz und Geschwindigkeit. Ersteres war schon immer ein Problem von R, da es nicht von Computerspezialisten, sondern von Anwendern erfunden wurde. Daher ist eine Vereinheitlichung durch <code>tidyverse</code> mehr als willkommen. Und Geschwindigkeit ist spätestens bei größeren Datensätzen ein wichtiger Punkt.</p>
+<p>Sie kennen bereits die Funktion <code>read_delim()</code> zum Einlesen von Textdateien. Die Funktion ist die allgemeinste Funktion der <code>read_*</code> Familie aus <code>readr</code> in <code>tidyverse</code>; <code>read_csv()</code> und <code>read_csv2()</code> sind jeweils für Komma- und Strichpunkt-getrennte Datensätze gedacht. In der Basisinstallation von R (also außerhalb von <code>tidyverse</code>) gibt die sehr umfangreiche Funktion <code>read.table()</code>, die ebenfalls zum Einlesen von Textdateien verwendet wird. Man könnte berechtigterweise fragen, warum neue Funktion (<code>read_*</code>) für etwas erfinden, was es schon gibt. Die Autoren von <code>tidyverse</code> versprechen Konsistenz und Geschwindigkeit. Ersteres war schon immer ein Problem von R, da es nicht von Computerspezialisten, sondern von Anwendern erfunden wurde. Daher ist eine Vereinheitlichung durch <code>tidyverse</code> mehr als willkommen. Und Geschwindigkeit ist spätestens bei größeren Datensätzen ein wichtiger Punkt.</p>
 <p>Wir sehen uns Daten des Deutschen Wetterdienstes an, die ich am 24. Mai 2020 heruntergeladen habe (https://www.dwd.de/DE/leistungen/klimadatendeutschland/klimadatendeutschland.html). Der Datensatz enthält Stundenwerte für relative Luftfeuchte (%) und Lufttemperatur (°C) von drei Wetterstationen, nämlich Hof, Frankfurt und Köln-Bonn. Die Daten sind in der Datei “Drei_Stationen.csv” gespeichert.</p>
 <p>Beim Einlesen zeigt Ihnen <code>read_delim()</code> bereits, welche Spalten und welche Datentypen es erkennt, mit <code>trim_ws = T</code> werden Leerzeichen aus Spalten entfernt, weil die Daten sonst falsch eingelesen werden.</p>
 <div class="cell">
@@ -557,7 +557,7 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 </section>
 <section id="die-grammatik-der-datenmanipulation-dplyr" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="die-grammatik-der-datenmanipulation-dplyr"><span class="header-section-number">6.4</span> Die Grammatik der Datenmanipulation – <code>dplyr</code></h2>
-<p>Die Funktion <code>count()</code> gehört zum Paket <code>dplyr</code>, das für Datentransformationen zuständig ist. Es ist mal wieder eine Grammatik. Dieses Paket enthält 5 Grundfunktionen (alle nach Verben benannt, damit man gleich weiß, was frau tut 😄):</p>
+<p>Die Funktion <code>count()</code> gehört zum Paket <code>dplyr</code>, das für Datentransformationen zuständig ist. Es ist abermals eine Grammatik. Dieses Paket enthält 5 Grundfunktionen (alle nach Verben benannt, damit man gleich weiß, was frau tut 😄):</p>
 <table class="table">
 <colgroup>
 <col style="width: 50%">
@@ -606,8 +606,8 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 </div>
 </div>
 </div>
-<p>Beim Filtern läuft eine logische Abfrage. D. h. es wird bei jeden Eintrag in <code>STATION_ID</code> nachgesehen, ob da der Wert 2667 steht. Wenn da 2667 steht, dann gibt <code>==</code> ein <code>TRUE</code> zurück, wenn da etwas anderes steht, dann gibt <code>==</code> ein <code>FALSE</code> zurück. Und die Funktion <code>filter()</code> behält nur die Zeilen, bei denen <code>==</code> ein <code>TRUE</code> zurückgegeben hat.</p>
-<p>Weiter wichtige logische und relationale Operatoren finden Sie hier in der Hilfe zu <code>filter()</code>. Hier ein paar einfache Beispiele</p>
+<p>Beim Filtern läuft eine logische Abfrage. D. h. es wird bei jedem Eintrag in <code>STATION_ID</code> nachgesehen, ob da der Wert 2667 steht. Wenn da 2667 steht, dann gibt <code>==</code> ein <code>TRUE</code> zurück, wenn da etwas anderes steht, dann gibt <code>==</code> ein <code>FALSE</code> zurück. Und die Funktion <code>filter()</code> behält nur die Zeilen, bei denen <code>==</code> ein <code>TRUE</code> zurückgegeben hat.</p>
+<p>Weiter wichtige logische und relationale Operatoren finden Sie hier in der Hilfe zu <code>filter()</code>. Hier ein paar einfache Beispiele:</p>
 <table class="table">
 <colgroup>
 <col style="width: 50%">
@@ -683,7 +683,7 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 <p><img src="06-explorative-numerisch_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" style="width:90.0%"></p>
 </div>
 </div>
-<p>Beachten Sie, dass wir die Variable zum Einfärben, nämlich<code>STATIONS_ID</code>, direkt in <code>ggplot()</code> in eine kategoriale Variable umgewandelt haben. Sonst werden die Farben als Farbeverlauf statt drei unterschiedliche Farben, dargestellt.</p>
+<p>Beachten Sie, dass wir die Variable zum Einfärben, nämlich<code>STATIONS_ID</code>, direkt in <code>ggplot()</code> in eine kategoriale Variable umgewandelt haben. Sonst werden die Farben als Farbverlauf statt drei unterschiedliche Farben, dargestellt.</p>
 <p>Da man erwarten kann, dass sich der Temperaturverlauf innerhalb Deutschlands nicht so stark unterscheidet, überdecken sich die Zeitreihen. Das ist für die Darstellung ungünstig. Daher wäre es besser, wenn wir die Zeitreihen in getrennte Grafiken je Station plotten würden. Dafür gibt es eine neue Funktion aus dem Paket <code>ggplot2</code>, nämlich <code>facet_wrap()</code>. Sie kann eine Grafik mithilfe einer kategorialen Variablen in Teilgrafiken aufteilen.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> temp_humid, <span class="fu">aes</span>(<span class="at">x =</span> MESS_DATUM, <span class="at">y =</span> TT_TU)) <span class="sc">+</span> </span>
@@ -722,7 +722,7 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 </div>
 </div>
 </div>
-<p>Die Berechnung der Jahresmittelwerte ist sehr kritisch zu sehen. Nicht alle berechneten Werte machen Sinn. Diskutieren Sie in der Hausaufgabe warum.</p>
+<p>Die Berechnung der Jahresmittelwerte ist sehr kritisch zu sehen. Nicht alle berechneten Werte ergeben Sinn. Diskutieren Sie in der Hausaufgabe warum.</p>
 </section>
 <section id="monatliche-durchschnittstemperatur-und-ihre-variabilität" class="level3" data-number="6.4.3">
 <h3 data-number="6.4.3" class="anchored" data-anchor-id="monatliche-durchschnittstemperatur-und-ihre-variabilität"><span class="header-section-number">6.4.3</span> Monatliche Durchschnittstemperatur und ihre Variabilität</h3>
@@ -763,7 +763,7 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>monthly_means <span class="ot">&lt;-</span> <span class="fu">ungroup</span>(monthly_means)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Um die monatlichen Daten als Zeitreihen zu plotten, brauchen wir noch eine Variable mit dem dazugehörigen Datum. Die Funktion <code>parse_date_time()</code> kann aus <em>character</em> richtige Datums- und Zeitobjekte erstellen. Sie ist allgemeiner als die oben verwendete <code>ymd_h()</code> Funktion, da man hier das Format explizit angeben kann. In unserem Fall ist das Format ‘ym’ für Jahr und Monat.</p>
+<p>Um die monatlichen Daten als Zeitreihen zu plotten, benötigen wir noch eine Variable mit dem dazugehörigen Datum. Die Funktion <code>parse_date_time()</code> kann aus <em>character</em> richtige Datums- und Zeitobjekte erstellen. Sie ist allgemeiner als die oben verwendete <code>ymd_h()</code> Funktion, da man hier das Format explizit angeben kann. In unserem Fall ist das Format ‘ym’ für Jahr und Monat.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>monthly_means <span class="ot">&lt;-</span> monthly_means <span class="sc">%&gt;%</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_month =</span> <span class="fu">parse_date_time</span>(<span class="fu">paste0</span>(year, month), <span class="at">orders =</span> <span class="st">'ym'</span>, <span class="at">tz =</span> <span class="st">'CET'</span>))</span>
@@ -778,7 +778,7 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 </div>
 </div>
 </div>
-<p>Der Code <code>paste0(year, month)</code> “klebt” die Daten in der Variablen <code>year</code> und <code>month</code> zusammen. Das ist nötig, da die Funktion <code>parse_date_time()</code> einen zusammenhängenden Text als Input erwartet und keine zwei getrennten Spalten. Da das Datum außer dem Jahr und dem Monat noch einen Tag braucht, hat <code>parse_date_time()</code> automatisch den Ersten eines jeden Monats genommen. Beim Erstellen von korrekten Zeitangaben kommt es auch auf die Zeitzone an. Wir sind in Deutschland, da gilt die mitteleuropäische Zeit (engl. <em>central European time</em>, CET). Die Zeitzone ist für unsere Daten zwar nicht wirklich relevant, da wir hier Monatsdaten darstellen. Ich würde sie aber trotzdem richtig setzten, da die Standardeinstellung der Funktion <code>parse_date_time(tz = "UTC")</code> lautet und für Deutschland falsch ist.</p>
+<p>Der Code <code>paste0(year, month)</code> “klebt” die Daten in der Variablen <code>year</code> und <code>month</code> zusammen. Das ist nötig, da die Funktion <code>parse_date_time()</code> einen zusammenhängenden Text als Input erwartet und keine zwei getrennten Spalten. Da das Datum außer dem Jahr und dem Monat noch einen Tag benötigt, hat <code>parse_date_time()</code> automatisch den Ersten eines jeden Monats genommen. Beim Erstellen von korrekten Zeitangaben kommt es auch auf die Zeitzone an. Wir sind in Deutschland, da gilt die mitteleuropäische Zeit (engl. <em>central European time</em>, CET). Die Zeitzone ist für unsere Daten zwar nicht wirklich relevant, da wir hier Monatsdaten darstellen. Ich würde sie aber trotzdem richtig setzen, da die Standardeinstellung der Funktion <code>parse_date_time(tz = "UTC")</code> lautet und für Deutschland falsch ist.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">col =</span> <span class="fu">factor</span>(STATIONS_ID))) <span class="sc">+</span> </span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
@@ -835,7 +835,7 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 <section id="weiterführende-literatur-und-videos" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="weiterführende-literatur-und-videos"><span class="header-section-number">6.5</span> Weiterführende Literatur und Videos</h2>
 <ul>
-<li><p>R4DS <span class="citation" data-cites="r4ds">Wickham, Çetinkaya-Rundel, and Grolemund (<a href="references.html#ref-r4ds" role="doc-biblioref">2023</a>)</span>: Kapitel 5 “Data transformation”</p></li>
+<li><p>R4DS <span class="citation" data-cites="r4ds">Wickham, Çetinkaya-Rundel, and Grolemund (<a href="references.html#ref-r4ds" role="doc-biblioref">2023</a>)</span>: Kapitel 3 “Data transformation”</p></li>
 <li><p>Eine <a href="https://www.youtube.com/watch?v=go5Au01Jrvs">live Analyse</a> des Hauptautors von <code>tidyverse</code>, Hadley Wickham. Empfehlenswert, auch wenn er viel zu schnell tippt 😄.</p></li>
 </ul>
 </section>
@@ -848,9 +848,9 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="welche-mittelwerte-machen-sinn" class="level3" data-number="6.6.2">
-<h3 data-number="6.6.2" class="anchored" data-anchor-id="welche-mittelwerte-machen-sinn"><span class="header-section-number">6.6.2</span> Welche Mittelwerte machen Sinn?</h3>
-<p>Diskutieren Sie kritisch, für welche Zeitabschnitte in unseren Daten die Berechnung der Jahresmitteltemperatur sinnvoll ist und interpretiert werden kann Begründen Sie.</p>
+<section id="welche-mittelwerte-sind-sinnvoll" class="level3" data-number="6.6.2">
+<h3 data-number="6.6.2" class="anchored" data-anchor-id="welche-mittelwerte-sind-sinnvoll"><span class="header-section-number">6.6.2</span> Welche Mittelwerte sind sinnvoll?</h3>
+<p>Diskutieren Sie kritisch, für welche Zeitabschnitte in unseren Daten die Berechnung der Jahresmitteltemperatur sinnvoll ist und interpretiert werden kann. Begründen Sie.</p>
 </section>
 <section id="politbarometer" class="level3" data-number="6.6.3">
 <h3 data-number="6.6.3" class="anchored" data-anchor-id="politbarometer"><span class="header-section-number">6.6.3</span> Politbarometer</h3>
