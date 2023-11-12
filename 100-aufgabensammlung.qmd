@@ -190,7 +190,7 @@ Was macht `geom_bar(position = position_fill(reverse = TRUE))`?
 
 ### Umweltdaten entlang der dänischen Küste
 
-Die Datei "Temperatur.csv" aus @Zuur2009a enthält Messungen von Temperatur, Salinität und Chlorophyll a an 31 Orten entlang der dänischen Küste. Der Datensatz kann [hier](https://highstat.com/index.php/a-beginner-s-guide-to-r) heruntergeladen werden. Sie bekommen ihn aber bereits über ILIAS gestellt. Die Daten stammen vom dänischen Institut RIKZ (Monitoringprogramm MWTL: Monitoring Waterstaatkundige Toestand des Lands). Die Messungen wurden zwischen 1990 und 2005 durchgeführt, mit einer Häufigkeit von 0--4 Mal pro Monat je nach Jahreszeit.
+Die Datei "Temperatur.csv" aus @Zuur2009 enthält Messungen von Temperatur, Salinität und Chlorophyll a an 31 Orten entlang der dänischen Küste. Der Datensatz kann [hier](https://highstat.com/index.php/a-beginner-s-guide-to-r) heruntergeladen werden. Sie bekommen ihn aber bereits über ILIAS gestellt. Die Daten stammen vom dänischen Institut RIKZ (Monitoringprogramm MWTL: Monitoring Waterstaatkundige Toestand des Lands). Die Messungen wurden zwischen 1990 und 2005 durchgeführt, mit einer Häufigkeit von 0--4 Mal pro Monat je nach Jahreszeit.
 
 1. Lesen Sie den Datensatz "Temperatur.csv" (auf ILIAS) ein.
 1. Konvertieren Sie die Spalte Date in ein richtiges Datumsformat und plotten Sie die Temperaturen pro Station (`facet_wrap()`) als Zeitreihen.

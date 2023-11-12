@@ -760,12 +760,9 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>monthly_means <span class="ot">&lt;-</span> temp_humid <span class="sc">%&gt;%</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(STATIONS_ID, year, month) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_T =</span> <span class="fu">mean</span>(TT_TU), <span class="at">sd_T =</span> <span class="fu">sd</span>(TT_TU))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'STATIONS_ID', 'year'. You can override
-using the `.groups` argument.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>monthly_means</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_T =</span> <span class="fu">mean</span>(TT_TU), <span class="at">sd_T =</span> <span class="fu">sd</span>(TT_TU))</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>monthly_means</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -778,14 +775,14 @@ using the `.groups` argument.</code></pre>
 <p>Die Variable, die die Standardabweichung enthält, haben wir <code>sd_T</code> genannt.</p>
 <p>Das Dataframe <code>monthly_means</code> ist ein gruppiertes <code>tibble</code>. Das ist für die meisten Anwendungen nicht von Belang. Insbesondere ändert es nicht die Daten selbst, sondern nur die interne Organisation des <code>tibble</code>. Manchmal stört die Gruppierung jedoch beim Rechnen mit dem Datensatz und wir lösen sie wieder auf.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>monthly_means <span class="ot">&lt;-</span> <span class="fu">ungroup</span>(monthly_means)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>monthly_means <span class="ot">&lt;-</span> <span class="fu">ungroup</span>(monthly_means)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Um die monatlichen Daten als Zeitreihen zu plotten, brauchen wir noch eine Variable mit dem dazugehörigen Datum. Die Funktion <code>parse_date_time()</code> kann aus <em>character</em> richtige Datums- und Zeitobjekte erstellen. Sie ist allgemeiner als die oben verwendete <code>ymd_h()</code> Funktion, da man hier das Format explizit angeben kann. In unserem Fall ist das Format ‘ym’ für Jahr und Monat.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>monthly_means <span class="ot">&lt;-</span> monthly_means <span class="sc">%&gt;%</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_month =</span> <span class="fu">parse_date_time</span>(<span class="fu">paste0</span>(year, month), <span class="at">orders =</span> <span class="st">'ym'</span>, <span class="at">tz =</span> <span class="st">'CET'</span>))</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>monthly_means</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>monthly_means <span class="ot">&lt;-</span> monthly_means <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_month =</span> <span class="fu">parse_date_time</span>(<span class="fu">paste0</span>(year, month), <span class="at">orders =</span> <span class="st">'ym'</span>, <span class="at">tz =</span> <span class="st">'CET'</span>))</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>monthly_means</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -797,38 +794,38 @@ using the `.groups` argument.</code></pre>
 </div>
 <p>Der Code <code>paste0(year, month)</code> “klebt” die Daten in der Variablen <code>year</code> und <code>month</code> zusammen. Das ist nötig, da die Funktion <code>parse_date_time()</code> einen zusammenhängenden Text als Input erwartet und keine zwei getrennten Spalten. Da das Datum außer dem Jahr und dem Monat noch einen Tag braucht, hat <code>parse_date_time()</code> automatisch den Ersten eines jeden Monats genommen. Beim Erstellen von korrekten Zeitangaben kommt es auch auf die Zeitzone an. Wir sind in Deutschland, da gilt die mitteleuropäische Zeit (engl. <em>central European time</em>, CET). Die Zeitzone ist für unsere Daten zwar nicht wirklich relevant, da wir hier Monatsdaten darstellen. Ich würde sie aber trotzdem richtig setzten, da die Standardeinstellung der Funktion <code>parse_date_time(tz = "UTC")</code> lautet und für Deutschland falsch ist.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">col =</span> <span class="fu">factor</span>(STATIONS_ID))) <span class="sc">+</span> </span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>, <span class="at">color =</span> <span class="st">'Messstation'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">col =</span> <span class="fu">factor</span>(STATIONS_ID))) <span class="sc">+</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>, <span class="at">color =</span> <span class="st">'Messstation'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="06-explorative-numerisch_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" style="width:90.0%"></p>
 </div>
 </div>
 <p>Alternativ können wir die Mittelwerte mit den Standardabweichungen darstellen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T)) <span class="sc">+</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>() <span class="sc">+</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>STATIONS_ID, <span class="at">nrow =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T)) <span class="sc">+</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>() <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>STATIONS_ID, <span class="at">nrow =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="06-explorative-numerisch_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" style="width:90.0%"></p>
 </div>
 </div>
 <p>Oder, weil es gerade Spaß macht, als halb-transparentes Band 😎.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T)) <span class="sc">+</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>STATIONS_ID, <span class="at">nrow =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T)) <span class="sc">+</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>STATIONS_ID, <span class="at">nrow =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="06-explorative-numerisch_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" style="width:90.0%"></p>
 </div>
 </div>
 <p>Ein letzter Trick. Die Überschriften für die Teilgrafiken sind ungeschickt, da man die IDs als Mensch einfach nicht zuordnen kann. Weiter oben haben wir einen benannten Vektor definiert, der die Klarnamen enthält.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>station_ids</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>station_ids</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       2261        1420        2667 
       "Hof" "Frankfurt"     "Koeln" </code></pre>
@@ -836,11 +833,11 @@ using the `.groups` argument.</code></pre>
 </div>
 <p>Diesen Vektor nutzen wir als Titel.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T)) <span class="sc">+</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>STATIONS_ID, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">labeller =</span> <span class="fu">labeller</span>(<span class="at">STATIONS_ID =</span> station_ids)) <span class="sc">+</span> </span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T)) <span class="sc">+</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>STATIONS_ID, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">labeller =</span> <span class="fu">labeller</span>(<span class="at">STATIONS_ID =</span> station_ids)) <span class="sc">+</span> </span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="06-explorative-numerisch_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" style="width:90.0%"></p>
 </div>
@@ -862,12 +859,12 @@ using the `.groups` argument.</code></pre>
 <h3 data-number="6.6.1" class="anchored" data-anchor-id="was-bedeutet-der-code"><span class="header-section-number">6.6.1</span> Was bedeutet der Code?</h3>
 <p>Was bedeuten die Parameter <code>ymin</code> und <code>ymax</code> im folgenden Code?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="welche-mittelwerte-machen-sinn" class="level3" data-number="6.6.2">
 <h3 data-number="6.6.2" class="anchored" data-anchor-id="welche-mittelwerte-machen-sinn"><span class="header-section-number">6.6.2</span> Welche Mittelwerte machen Sinn?</h3>
-<p>Diskutieren Sie kritisch, welche mittleren Jahrestemperaturen Sinn machen und interpretiert werden können. Begründen Sie.</p>
+<p>Diskutieren Sie kritisch, für welche Zeitabschnitte in unseren Daten die Berechnung der Jahresmitteltemperatur sinnvoll ist und interpretiert werden kann Begründen Sie.</p>
 </section>
 <section id="politbarometer" class="level3" data-number="6.6.3">
 <h3 data-number="6.6.3" class="anchored" data-anchor-id="politbarometer"><span class="header-section-number">6.6.3</span> Politbarometer</h3>

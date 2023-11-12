@@ -227,4 +227,169 @@ url = {https://bookdown.org/yihui/rmarkdown/}
 
 
 @article{Ho2019,
-  title = {Moving beyond {{P}} Values: Data A
+  title = {Moving beyond {{P}} Values: Data Analysis with Estimation Graphics},
+  shorttitle = {Moving beyond {{P}} Values},
+  author = {Ho, Joses and Tumkaya, Tayfun and Aryal, Sameer and Choi, Hyungwon and {Claridge-Chang}, Adam},
+  year = {2019},
+  month = jul,
+  volume = {16},
+  pages = {565--566},
+  publisher = {{Nature Publishing Group}},
+  issn = {1548-7105},
+  doi = {10.1038/s41592-019-0470-3},
+  copyright = {2019 The Author(s), under exclusive licence to Springer Nature America, Inc.},
+  file = {/media/Daten/Chrissies Dateien/Literatur/Zotero/storage/9C8CL6JA/41592_2019_470_MOESM1_ESM.pdf;/media/Daten/Chrissies Dateien/Literatur/Zotero/storage/F2G5DSQ2/Ho et al. - 2019 - Moving beyond P values data analysis with estimat.pdf},
+  journal = {Nature Methods},
+  language = {en},
+  number = {7}
+}
+
+
+
+@article{Gardner1986,
+  title = {Confidence Intervals Rather than {{P}} Values: Estimation Rather than Hypothesis Testing.},
+  shorttitle = {Confidence Intervals Rather than {{P}} Values},
+  author = {Gardner, M J and Altman, D G},
+  year = {1986},
+  month = mar,
+  volume = {292},
+  pages = {746--750},
+  issn = {0267-0623},
+  journal = {British Medical Journal (Clinical research ed.)},
+  number = {6522},
+  pmcid = {PMC1339793},
+  pmid = {3082422}
+}
+
+
+
+@book{Fahrmeir2009,
+  ids = {Fahrmeir2009a},
+  title = {Regression},
+  author = {Fahrmeir, L. and Kneib, T. and Lang, S.},
+  year = {2009},
+  publisher = {{Springer}},
+  url = {http://link.springer.com/book/10.1007/978-3-642-01837-4}
+}
+
+
+@InCollection{Sikkink2007,
+  author     = {Sikkink, P. G. and Zuur, A. F. and Ieno, E. N. and Smith, G. M.},
+  booktitle  = {Analysing {{Ecological Data}}},
+  publisher  = {{Springer}},
+  title      = {Monitoring for Change: {{Using}} Generalised Least Squares, Non-Metric Multidimensional Scaling, and the {{Mantel}} Test on Western {{Montana}} Grasslands},
+  year       = {2007},
+  address    = {{New York, NY}},
+  editor     = {Zuur, Alain F. and Ieno, Elena N. and Smith, Graham M.},
+  isbn       = {978-0-387-45972-1},
+  pages      = {463--484},
+  series     = {Statistics for {{Biology}} and {{Health}}},
+  doi        = {10.1007/978-0-387-45972-1_26},
+  keywords   = {Explanatory Variable, Generalise Little Square, Linear Regression Model, Mantel Test, Variance Inflation Factor},
+  language   = {en},
+  shorttitle = {Monitoring for Change},
+}
+
+
+
+
+
+
+
+
+
+@Book{IMS2021,
+  author = {{Çetinkaya-Rundel}, Mine and Hardin, Johanna},
+  title  = {Introduction to Modern Statistics},
+  year   = {2021},
+  note   = {Citation Key: IMS2021},
+  langid = {en},
+  url    = {https://openintro-ims.netlify.app/},
+}
+
+@Book{r4ds,
+  author = {Wickham, Hadley and {\c C}etinkaya-Rundel, Mine and Grolemund, Garrett},
+  title  = {R for {{Data Science}} (2e)},
+  year   = {2023},
+  url    = {https://r4ds.hadley.nz/},
+}
+
+@Book{Mittag2017,
+  author    = {Mittag, Hans-Joachim},
+  publisher = {{Springer Berlin Heidelberg}},
+  title     = {{Statistik}},
+  year      = {2017},
+  address   = {{Berlin, Heidelberg}},
+  isbn      = {978-3-662-55320-6 978-3-662-55321-3},
+  series    = {{Springer-Lehrbuch}},
+  doi       = {10.1007/978-3-662-55321-3},
+  file      = {/media/Daten/Chrissies Dateien/Literatur/Buecher/Statistik_Mittag.pdf},
+  langid    = {ngerman},
+  urldate   = {2020-04-14},
+}
+
+@Article{Gorman2014,
+  author    = {Gorman, Kristen B. and Williams, Tony D. and Fraser, William R.},
+  journal   = {PLOS ONE},
+  title     = {Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus Pygoscelis)},
+  year      = {2014},
+  month     = mar,
+  number    = {3},
+  pages     = {1--14},
+  volume    = {9},
+  abstract  = {Background Sexual segregation in vertebrate foraging niche is often associated with sexual size dimorphism (SSD), i.e., ecological sexual dimorphism. Although foraging behavior of male and female seabirds can vary markedly, differences in isotopic (carbon, {$\delta$}13C and nitrogen, {$\delta$}15N) foraging niche are generally more pronounced within sexually dimorphic species and during phases when competition for food is greater. We examined ecological sexual dimorphism among sympatric nesting Pygoscelis penguins asking whether environmental variability is associated with differences in male and female pre-breeding foraging niche. We predicted that all Pygoscelis species would forage sex-specifically, and that higher quality winter habitat, i.e., higher or lower sea ice coverage for a given species, would be associated with a more similar foraging niche among the sexes. Results P2/P8 primers reliably amplified DNA of all species. On average, male Pygoscelis penguins are structurally larger than female conspecifics. However, chinstrap penguins were more sexually dimorphic in culmen and flipper features than Ad\'elie and gentoo penguins. Ad\'elies and gentoos were more sexually dimorphic in body mass than chinstraps. Only male and female chinstraps and gentoos occupied separate {$\delta$}15N foraging niches. Strong year effects in {$\delta$}15N signatures were documented for all three species, however, only for Ad\'elies, did yearly variation in {$\delta$}15N signatures tightly correlate with winter sea ice conditions. There was no evidence that variation in sex-specific foraging niche interacted with yearly winter habitat quality. Conclusion Chinstraps were most sexually size dimorphic followed by gentoos and Ad\'elies. Pre-breeding sex-specific foraging niche was associated with overall SSD indices across species; male chinstrap and gentoo penguins were enriched in {$\delta$}15N relative to females. Our results highlight previously unknown trophic pathways that link Pygoscelis penguins with variation in Southern Ocean sea ice suggesting that each sex within a species should respond similarly in pre-breeding trophic foraging to changes in future winter habitat.},
+  doi       = {10.1371/journal.pone.0090081},
+  publisher = {{Public Library of Science}},
+}
+
+@Article{Matthews2000,
+  author   = {Matthews, Robert},
+  journal  = {Teaching Statistics},
+  title    = {Storks {{Deliver Babies}} ( {\emph{p}} = 0.008)},
+  year     = {2000},
+  issn     = {0141-982X, 1467-9639},
+  month    = jun,
+  number   = {2},
+  pages    = {36--38},
+  volume   = {22},
+  abstract = {This article shows that a highly statistically signi\textcent cant correlation exists between stork populations and human birth rates across Europe. While storks may not deliver babies, unthinking interpretation of correlation and p-values can certainly deliver unreliable conclusions.},
+  doi      = {10.1111/1467-9639.00013},
+  file     = {/media/Daten/Chrissies Dateien/Literatur/Zotero/storage/BU8B5XM6/Matthews - 2000 - Storks Deliver Babies ( p = 0.008).pdf},
+  langid   = {english},
+  urldate  = {2023-10-15},
+}
+
+@Book{Zuur2009,
+  author    = {Zuur, A. F. and Ieno, E. and Meesters, E.},
+  publisher = {Springer},
+  title     = {A beginner's guide to R},
+  year      = {2009},
+  owner     = {Chris},
+  timestamp = {2011.04.28},
+  url       = {http://link.springer.com/book/10.1007%2F978-0-387-93837-0},
+}
+
+@Book{James2021,
+  author     = {James, Gareth and Witten, Daniela and Hastie, Trevor and Tibshirani, Robert},
+  publisher  = {{Springer US}},
+  title      = {An {{Introduction}} to {{Statistical Learning}}: With {{Applications}} in {{R}}},
+  year       = {2021},
+  address    = {{New York, NY}},
+  edition    = {second edition},
+  isbn       = {978-1-07-161417-4 978-1-07-161418-1},
+  series     = {Springer {{Texts}} in {{Statistics}}},
+  doi        = {10.1007/978-1-0716-1418-1},
+  file       = {/media/Daten/Chrissies Dateien/Literatur/Zotero/storage/EDAGZNMY/ISLRv2_corrected_June_2023.pdf},
+  langid     = {english},
+  shorttitle = {An {{Introduction}} to {{Statistical Learning}}},
+  urldate    = {2023-07-31},
+}
+
+@Article{Cutler2007,
+  Title                    = {Random forests for classification in ecology},
+  Author                   = {Cutler, D Richard and Edwards Jr, Thomas C and Beard, Karen H and Cutler, Adele and Hess, Kyle T and Gibson, Jacob and Lawler, Joshua J},
+  Journal                  = {Ecology},
+  Year                     = {2007},
+  Number                   = {11},
+  Pages                    = {2783--2792},
+  Volume          

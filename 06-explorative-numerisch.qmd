@@ -201,6 +201,9 @@ Da wir die Durchschnittstemperatur für jede Station und jedes Jahr separat bere
 
 Als zweiten Schritt nutzen wir dann die Funktion `summerise()`, die verschiedene statistische Zusammenfassungen der Daten berechnen kann. In diesem Fall möchten wir mithilfe der Funktion `mean()` den Mittelwert berechnen. Wir nennen den neu berechneten Datensatz `yearly_means`.
 ```{r}
+#| warning: false
+#| error: false
+
 yearly_means <- temp_humid %>%
   group_by(STATIONS_ID, year) %>% 
   summarize(mean_T = mean(TT_TU))
@@ -229,6 +232,8 @@ Jetzt können wir die Mittelwerte und die Standardabweichungen mit der Funktion 
 Für die Berechnung gruppieren wir die Daten nach `STATIONS_ID`, `year` und `month` mit der Funktion `group_by()`. Die Mittelwerte sollen ja je Station, Jahr und Monat berechnet werden. Beim Gruppieren gibt man die Variablennamen ohne Anführungszeichen durch Kommas getrennt an. Man kann nach einer oder mehreren Variablen gruppieren, die Logik bleibt immer die gleiche, nämlich `group_by(VARIABLE_1)` fürs Gruppieren mit einer Variablen oder `group_by(VARIABLE_1, VARIABLE_2, VARIABLE_3)` für z. B. gruppieren nach drei Variablen.
 
 ```{r}
+#| warning: false
+#| error: false
 monthly_means <- temp_humid %>%
   group_by(STATIONS_ID, year, month) %>% 
   summarize(mean_T = mean(TT_TU), sd_T = sd(TT_TU))
@@ -319,7 +324,7 @@ ggplot(monthly_means, aes(x = year_month, y = mean_T, ymin = mean_T - sd_T, ymax
 ```
 
 ### Welche Mittelwerte machen Sinn?
-Diskutieren Sie kritisch, welche mittleren Jahrestemperaturen Sinn machen und interpretiert werden können. Begründen Sie.
+Diskutieren Sie kritisch, für welche Zeitabschnitte in unseren Daten die Berechnung der Jahresmitteltemperatur sinnvoll ist und interpretiert werden kann Begründen Sie.
 
 ### Politbarometer
 Bearbeiten Sie die Aufgaben @sec-aufgabe-politbarometer-einlesen und @sec-aufgabe-politbarometer-exploration-kategorial aus der Aufgabensammlung.
