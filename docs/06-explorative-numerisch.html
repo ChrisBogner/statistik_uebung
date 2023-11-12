@@ -451,20 +451,10 @@ div.csl-indent {
 <p>Beim Einlesen zeigt Ihnen <code>read_delim()</code> bereits, welche Spalten und welche Datentypen es erkennt, mit <code>trim_ws = T</code> werden Leerzeichen aus Spalten entfernt, weil die Daten sonst falsch eingelesen werden.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>temp_humid <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">'Daten/Drei_Stationen.csv'</span>, <span class="at">delim =</span> <span class="st">';'</span>, <span class="at">trim_ws =</span> T)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 39600 Columns: 6
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ";"
-chr (1): eor
-dbl (5): STATIONS_ID, MESS_DATUM, QN_9, TT_TU, RF_TU
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
 </div>
 <p>Es sollte für Sie bereits Routine sein, das Ergebnis des Einlesens zu kontrollieren.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>temp_humid</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>temp_humid</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -476,7 +466,7 @@ dbl (5): STATIONS_ID, MESS_DATUM, QN_9, TT_TU, RF_TU
 </div>
 <p>Alternative können Sie die Funktion <code>glimpse()</code> verwenden.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(temp_humid)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(temp_humid)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 39,600
 Columns: 6
@@ -529,11 +519,11 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 <h2 data-number="6.3" class="anchored" data-anchor-id="geschickter-umgang-mit-zeit-und-datum"><span class="header-section-number">6.3</span> Geschickter Umgang mit Zeit und Datum</h2>
 <p>Ein weiteres Paket, das zwar nicht zum Kern von <code>tidyverse</code> gehört, jedoch trotzdem extrem nützlich ist, heißt <code>lubridate</code>. Das haben wir bereits im letzten Kapitel verwendet, um aus einem Datum das Jahr zu extrahieren. <code>lubridate</code> hilft aber auch, Text sehr einfach in richtige Datums-Objekte zu transformieren. Wir transformieren die Spalte <code>temp_humid$MESS_DATUM</code> in ein richtiges Datum mit Uhrzeit. Die Funktion <code>ymd_h()</code> kann <code>character</code> in ein richtiges Datumsformat transformieren, wenn das Datum als <strong>y</strong>ear, <strong>m</strong>onth, <strong>d</strong>ay, <strong>h</strong>our codiert ist. Es gibt noch weitere Varianten der Codierung, die Sie bei Bedarf in der Hilfe nachschlagen sollten.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>temp_humid<span class="sc">$</span>MESS_DATUM <span class="ot">&lt;-</span> <span class="fu">ymd_h</span>(temp_humid<span class="sc">$</span>MESS_DATUM)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>temp_humid</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>temp_humid<span class="sc">$</span>MESS_DATUM <span class="ot">&lt;-</span> <span class="fu">ymd_h</span>(temp_humid<span class="sc">$</span>MESS_DATUM)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>temp_humid</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -547,12 +537,12 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 <h3 data-number="6.3.1" class="anchored" data-anchor-id="daten-zusammenfassen"><span class="header-section-number">6.3.1</span> Daten zusammenfassen</h3>
 <p>Die drei Wetterstationen haben folgende IDs:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>station_ids <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">'2261'</span> <span class="ot">=</span> <span class="st">'Hof'</span>, <span class="st">'1420'</span> <span class="ot">=</span> <span class="st">'Frankfurt'</span>, <span class="st">'2667'</span> <span class="ot">=</span> <span class="st">'Koeln'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>station_ids <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">'2261'</span> <span class="ot">=</span> <span class="st">'Hof'</span>, <span class="st">'1420'</span> <span class="ot">=</span> <span class="st">'Frankfurt'</span>, <span class="st">'2667'</span> <span class="ot">=</span> <span class="st">'Koeln'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Wir zählen nach, wie viele Messpunkte es pro Station gibt. Die Funktion <code>count()</code> kennen Sie bereits. Sie zählt, wie häufig unterschiedlichen Merkmalsausprägungen vorkommen:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>temp_humid <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(STATIONS_ID)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>temp_humid <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(STATIONS_ID)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -604,9 +594,9 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 </table>
 <p>Wenn wir nur von einer bestimmten Station die Anzahl der Messwerte wissen möchten, dann filtern wir vorher.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>temp_humid <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(STATIONS_ID <span class="sc">==</span> <span class="st">'2667'</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(STATIONS_ID)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>temp_humid <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(STATIONS_ID <span class="sc">==</span> <span class="st">'2667'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(STATIONS_ID)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -642,9 +632,9 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 </table>
 <p>Zudem kann man bei <code>filter()</code> die Anfragen auch kombinieren. Wir wollen z. B. die Stationen Köln und Hof haben. <code>|</code> ist der logische Operator <em>oder</em>. Wenn man also sowohl Köln als auch Hof haben will, sagt man: finde alles, was entweder gleich Köln <strong>oder</strong> gleich Hof ist.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>temp_humid <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(STATIONS_ID <span class="sc">==</span> <span class="st">'2667'</span> <span class="sc">|</span> STATIONS_ID <span class="sc">==</span> <span class="st">'2261'</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(STATIONS_ID)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>temp_humid <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(STATIONS_ID <span class="sc">==</span> <span class="st">'2667'</span> <span class="sc">|</span> STATIONS_ID <span class="sc">==</span> <span class="st">'2261'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(STATIONS_ID)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -656,9 +646,9 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 </div>
 <p>Das Gleiche erreicht man mit folgendem Code, indem man Frankfurt ausschließt:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>temp_humid <span class="sc">%&gt;%</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(STATIONS_ID <span class="sc">!=</span> <span class="st">'1420'</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(STATIONS_ID)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>temp_humid <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(STATIONS_ID <span class="sc">!=</span> <span class="st">'1420'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(STATIONS_ID)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -670,9 +660,9 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 </div>
 <p>Alternative kann man auch den Operator <code>%in%</code> verwenden. Dieser ist sehr nützlich, wenn man anhand einer einzelnen Variablen filtert, aber unterschiedliche Einträge auswählen möchte (z. B. zwei Messstationen). Es wird bei jeder Zeile in der Variablen <code>STATIONS_ID</code> nun überprüft, ob hier entweder <code>2667</code> oder <code>2261</code> stehen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>temp_humid <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(STATIONS_ID <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'2667'</span>, <span class="st">'2261'</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(STATIONS_ID)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>temp_humid <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(STATIONS_ID <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'2667'</span>, <span class="st">'2261'</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(STATIONS_ID)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -686,9 +676,9 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 <h3 data-number="6.4.1" class="anchored" data-anchor-id="daten-plotten"><span class="header-section-number">6.4.1</span> Daten plotten</h3>
 <p>Wir sehen uns die Daten erst mal an, bevor wir weiter machen. Wir plotten die Temperatur. Weil es sich um Zeitreihen handelt, kommt auf die <span class="math inline">\(x\)</span>-Achse die Zeit.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> temp_humid, <span class="fu">aes</span>(<span class="at">x =</span> MESS_DATUM, <span class="at">y =</span> TT_TU, <span class="at">color =</span> <span class="fu">as_factor</span>(STATIONS_ID))) <span class="sc">+</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>, <span class="at">color =</span> <span class="st">'Stationen'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> temp_humid, <span class="fu">aes</span>(<span class="at">x =</span> MESS_DATUM, <span class="at">y =</span> TT_TU, <span class="at">color =</span> <span class="fu">as_factor</span>(STATIONS_ID))) <span class="sc">+</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>, <span class="at">color =</span> <span class="st">'Stationen'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="06-explorative-numerisch_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" style="width:90.0%"></p>
 </div>
@@ -696,10 +686,10 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 <p>Beachten Sie, dass wir die Variable zum Einfärben, nämlich<code>STATIONS_ID</code>, direkt in <code>ggplot()</code> in eine kategoriale Variable umgewandelt haben. Sonst werden die Farben als Farbeverlauf statt drei unterschiedliche Farben, dargestellt.</p>
 <p>Da man erwarten kann, dass sich der Temperaturverlauf innerhalb Deutschlands nicht so stark unterscheidet, überdecken sich die Zeitreihen. Das ist für die Darstellung ungünstig. Daher wäre es besser, wenn wir die Zeitreihen in getrennte Grafiken je Station plotten würden. Dafür gibt es eine neue Funktion aus dem Paket <code>ggplot2</code>, nämlich <code>facet_wrap()</code>. Sie kann eine Grafik mithilfe einer kategorialen Variablen in Teilgrafiken aufteilen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> temp_humid, <span class="fu">aes</span>(<span class="at">x =</span> MESS_DATUM, <span class="at">y =</span> TT_TU)) <span class="sc">+</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>STATIONS_ID, <span class="at">nrow =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> temp_humid, <span class="fu">aes</span>(<span class="at">x =</span> MESS_DATUM, <span class="at">y =</span> TT_TU)) <span class="sc">+</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>STATIONS_ID, <span class="at">nrow =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="06-explorative-numerisch_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" style="width:90.0%"></p>
 </div>
@@ -710,19 +700,19 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 <h3 data-number="6.4.2" class="anchored" data-anchor-id="jahresdurchschnittstemperatur"><span class="header-section-number">6.4.2</span> Jahresdurchschnittstemperatur</h3>
 <p>Wie hoch war die Jahresdurchschnittstemperatur auf den drei Stationen? Um diese Frage zu beantworten, erstellen wir zunächst eine neue Variable mit dem Jahr der Messungen. Das kennen Sie bereits aus dem letzten Kapitel. Die Funktion <code>year()</code> gehört zur Bibliothek <code>lubridate</code>. Die Funktion <code>mutate()</code> erstellt die neue Spalte und hängt sie an das Ende des Dataframes.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>temp_humid <span class="ot">&lt;-</span> temp_humid <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">year</span>(MESS_DATUM))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>temp_humid <span class="ot">&lt;-</span> temp_humid <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">year</span>(MESS_DATUM))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Da wir die Durchschnittstemperatur für jede Station und jedes Jahr separat berechnen wollen, müssen wir unseren Datensatz nach den Stationen gruppieren. Durch die Gruppierung entstehen intern Gruppen, für die Berechnungen getrennt laufen werden. An den Daten selbst ändert sich nichts.</p>
 <p>Als zweiten Schritt nutzen wir dann die Funktion <code>summerise()</code>, die verschiedene statistische Zusammenfassungen der Daten berechnen kann. In diesem Fall möchten wir mithilfe der Funktion <code>mean()</code> den Mittelwert berechnen. Wir nennen den neu berechneten Datensatz <code>yearly_means</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>yearly_means <span class="ot">&lt;-</span> temp_humid <span class="sc">%&gt;%</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(STATIONS_ID, year) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_T =</span> <span class="fu">mean</span>(TT_TU))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>yearly_means <span class="ot">&lt;-</span> temp_humid <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(STATIONS_ID, year) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_T =</span> <span class="fu">mean</span>(TT_TU))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Wir erhalten einen Datensatz, der pro Jahr und Station einen Mittelwert der Temperatur enthält. Die Variable, die die mittlere Temperatur enthält, haben wir <code>mean_T</code> genannt. Sie steht in der Zeile <code>summarize(mean_T = mean(TT_TU))</code> links vom Aufruf der Funktion <code>mean()</code>. Der Code <code>mean(TT_TU)</code> berechnet den Mittelwert der Variablen <code>TT_TU</code>, also der Temperatur.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>yearly_means</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>yearly_means</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -738,10 +728,10 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 <h3 data-number="6.4.3" class="anchored" data-anchor-id="monatliche-durchschnittstemperatur-und-ihre-variabilität"><span class="header-section-number">6.4.3</span> Monatliche Durchschnittstemperatur und ihre Variabilität</h3>
 <p>Wie hoch war die monatliche Durchschnittstemperatur auf den verschiedenen Stationen und wie stark schwankte sie? Diese Frage können wir beantworten, indem wir Mittelwerte und Standardabweichungen für jeden Monat eines jeden Jahres und jede Station berechnen. Für die Berechnung erstellen wir eine weite Spalte mit dem Monat. Die Funktion <code>month()</code> gehört ebenfalls zur Bibliothek <code>lubridate</code> und extrahiert den Monat aus <code>MESS_DATUM</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>temp_humid <span class="ot">&lt;-</span> temp_humid <span class="sc">%&gt;%</span> </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">month =</span> <span class="fu">month</span>(MESS_DATUM))</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>temp_humid</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>temp_humid <span class="ot">&lt;-</span> temp_humid <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">month =</span> <span class="fu">month</span>(MESS_DATUM))</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>temp_humid</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -754,11 +744,11 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 <p>Jetzt können wir die Mittelwerte und die Standardabweichungen mit der Funktion <code>summarise()</code> berechnen. Diese Funktion kann gleichzeitig verschiedene statistische Zusammenfassungen berechnen. Den Mittelwert berechnen wir erneut mit der Funktion <code>mean()</code> und die Standardabweichung mit der Funktion <code>sd()</code>.</p>
 <p>Für die Berechnung gruppieren wir die Daten nach <code>STATIONS_ID</code>, <code>year</code> und <code>month</code> mit der Funktion <code>group_by()</code>. Die Mittelwerte sollen ja je Station, Jahr und Monat berechnet werden. Beim Gruppieren gibt man die Variablennamen ohne Anführungszeichen durch Kommas getrennt an. Man kann nach einer oder mehreren Variablen gruppieren, die Logik bleibt immer die gleiche, nämlich <code>group_by(VARIABLE_1)</code> fürs Gruppieren mit einer Variablen oder <code>group_by(VARIABLE_1, VARIABLE_2, VARIABLE_3)</code> für z. B. gruppieren nach drei Variablen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>monthly_means <span class="ot">&lt;-</span> temp_humid <span class="sc">%&gt;%</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(STATIONS_ID, year, month) <span class="sc">%&gt;%</span> </span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_T =</span> <span class="fu">mean</span>(TT_TU), <span class="at">sd_T =</span> <span class="fu">sd</span>(TT_TU))</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>monthly_means</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>monthly_means <span class="ot">&lt;-</span> temp_humid <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(STATIONS_ID, year, month) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_T =</span> <span class="fu">mean</span>(TT_TU), <span class="at">sd_T =</span> <span class="fu">sd</span>(TT_TU))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>monthly_means</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -771,14 +761,14 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 <p>Die Variable, die die Standardabweichung enthält, haben wir <code>sd_T</code> genannt.</p>
 <p>Das Dataframe <code>monthly_means</code> ist ein gruppiertes <code>tibble</code>. Das ist für die meisten Anwendungen nicht von Belang. Insbesondere ändert es nicht die Daten selbst, sondern nur die interne Organisation des <code>tibble</code>. Manchmal stört die Gruppierung jedoch beim Rechnen mit dem Datensatz und wir lösen sie wieder auf.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>monthly_means <span class="ot">&lt;-</span> <span class="fu">ungroup</span>(monthly_means)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>monthly_means <span class="ot">&lt;-</span> <span class="fu">ungroup</span>(monthly_means)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Um die monatlichen Daten als Zeitreihen zu plotten, brauchen wir noch eine Variable mit dem dazugehörigen Datum. Die Funktion <code>parse_date_time()</code> kann aus <em>character</em> richtige Datums- und Zeitobjekte erstellen. Sie ist allgemeiner als die oben verwendete <code>ymd_h()</code> Funktion, da man hier das Format explizit angeben kann. In unserem Fall ist das Format ‘ym’ für Jahr und Monat.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>monthly_means <span class="ot">&lt;-</span> monthly_means <span class="sc">%&gt;%</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_month =</span> <span class="fu">parse_date_time</span>(<span class="fu">paste0</span>(year, month), <span class="at">orders =</span> <span class="st">'ym'</span>, <span class="at">tz =</span> <span class="st">'CET'</span>))</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>monthly_means</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>monthly_means <span class="ot">&lt;-</span> monthly_means <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_month =</span> <span class="fu">parse_date_time</span>(<span class="fu">paste0</span>(year, month), <span class="at">orders =</span> <span class="st">'ym'</span>, <span class="at">tz =</span> <span class="st">'CET'</span>))</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>monthly_means</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -790,38 +780,38 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 </div>
 <p>Der Code <code>paste0(year, month)</code> “klebt” die Daten in der Variablen <code>year</code> und <code>month</code> zusammen. Das ist nötig, da die Funktion <code>parse_date_time()</code> einen zusammenhängenden Text als Input erwartet und keine zwei getrennten Spalten. Da das Datum außer dem Jahr und dem Monat noch einen Tag braucht, hat <code>parse_date_time()</code> automatisch den Ersten eines jeden Monats genommen. Beim Erstellen von korrekten Zeitangaben kommt es auch auf die Zeitzone an. Wir sind in Deutschland, da gilt die mitteleuropäische Zeit (engl. <em>central European time</em>, CET). Die Zeitzone ist für unsere Daten zwar nicht wirklich relevant, da wir hier Monatsdaten darstellen. Ich würde sie aber trotzdem richtig setzten, da die Standardeinstellung der Funktion <code>parse_date_time(tz = "UTC")</code> lautet und für Deutschland falsch ist.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">col =</span> <span class="fu">factor</span>(STATIONS_ID))) <span class="sc">+</span> </span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>, <span class="at">color =</span> <span class="st">'Messstation'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">col =</span> <span class="fu">factor</span>(STATIONS_ID))) <span class="sc">+</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>, <span class="at">color =</span> <span class="st">'Messstation'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="06-explorative-numerisch_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" style="width:90.0%"></p>
 </div>
 </div>
 <p>Alternativ können wir die Mittelwerte mit den Standardabweichungen darstellen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T)) <span class="sc">+</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>() <span class="sc">+</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>STATIONS_ID, <span class="at">nrow =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T)) <span class="sc">+</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>() <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>STATIONS_ID, <span class="at">nrow =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="06-explorative-numerisch_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" style="width:90.0%"></p>
 </div>
 </div>
 <p>Oder, weil es gerade Spaß macht, als halb-transparentes Band 😎.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T)) <span class="sc">+</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>STATIONS_ID, <span class="at">nrow =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T)) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>STATIONS_ID, <span class="at">nrow =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="06-explorative-numerisch_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" style="width:90.0%"></p>
 </div>
 </div>
 <p>Ein letzter Trick. Die Überschriften für die Teilgrafiken sind ungeschickt, da man die IDs als Mensch einfach nicht zuordnen kann. Weiter oben haben wir einen benannten Vektor definiert, der die Klarnamen enthält.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>station_ids</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>station_ids</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       2261        1420        2667 
       "Hof" "Frankfurt"     "Koeln" </code></pre>
@@ -829,11 +819,11 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 </div>
 <p>Diesen Vektor nutzen wir als Titel.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T)) <span class="sc">+</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>STATIONS_ID, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">labeller =</span> <span class="fu">labeller</span>(<span class="at">STATIONS_ID =</span> station_ids)) <span class="sc">+</span> </span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T)) <span class="sc">+</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>STATIONS_ID, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">labeller =</span> <span class="fu">labeller</span>(<span class="at">STATIONS_ID =</span> station_ids)) <span class="sc">+</span> </span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Zeit'</span>, <span class="at">y =</span> <span class="st">'Temperatur (°C)'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="06-explorative-numerisch_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" style="width:90.0%"></p>
 </div>
@@ -855,7 +845,7 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 <h3 data-number="6.6.1" class="anchored" data-anchor-id="was-bedeutet-der-code"><span class="header-section-number">6.6.1</span> Was bedeutet der Code?</h3>
 <p>Was bedeuten die Parameter <code>ymin</code> und <code>ymax</code> im folgenden Code?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="welche-mittelwerte-machen-sinn" class="level3" data-number="6.6.2">

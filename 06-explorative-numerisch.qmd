@@ -56,6 +56,8 @@ Wir sehen uns Daten des Deutschen Wetterdienstes an, die ich am 24. Mai 2020 her
 Beim Einlesen zeigt Ihnen `read_delim()` bereits, welche Spalten und welche Datentypen es erkennt, mit `trim_ws = T` werden Leerzeichen aus Spalten entfernt, weil die Daten sonst falsch eingelesen werden.
 
 ```{r}
+#| warning: false
+#| message: false
 temp_humid <- read_delim('Daten/Drei_Stationen.csv', delim = ';', trim_ws = T)
 ```
 
@@ -89,6 +91,7 @@ Ein weiteres Paket, das zwar nicht zum Kern von `tidyverse` gehört, jedoch trot
 ```{r}
 #| message: false
 #| warning: false
+
 library(lubridate)
 
 temp_humid$MESS_DATUM <- ymd_h(temp_humid$MESS_DATUM)
@@ -203,6 +206,7 @@ Als zweiten Schritt nutzen wir dann die Funktion `summerise()`, die verschiedene
 ```{r}
 #| warning: false
 #| error: false
+#| message: false
 
 yearly_means <- temp_humid %>%
   group_by(STATIONS_ID, year) %>% 
@@ -234,6 +238,7 @@ Für die Berechnung gruppieren wir die Daten nach `STATIONS_ID`, `year` und `mon
 ```{r}
 #| warning: false
 #| error: false
+#| message: false
 monthly_means <- temp_humid %>%
   group_by(STATIONS_ID, year, month) %>% 
   summarize(mean_T = mean(TT_TU), sd_T = sd(TT_TU))
