@@ -134,11 +134,12 @@ Die Steigung des linearen Modells beschreibt, um wie viel die durchschnittliche 
 
 ## Aufgaben
 
-### Vertiefung des linearen Modells
-Arbeiten Sie das Tutorial [Regression modeling: 4 - Interpreting regression models](https://openintro.shinyapps.io/ims-03-model-04/) durch.
+### Tutorium 
+Bearbeiten Sie das Tutorium "Regressionsmodellierung: 4 - Interpretation von Regressionsmodellen". Sie können entweder die deutsche Übersetzung oder das [englische Original](ttps://openintro.shinyapps.io/ims-03-model-04/) bearbeiten. Das Tutorium muss nicht hochgeladen werden.
+
 
 ### Vorhersagen
-Nachdem Sie das Tutorial durchgearbeitet haben, nutzen Sie Ihr neues Wissen, und 
+Nachdem Sie das Tutorium durchgearbeitet haben, nutzen Sie Ihr neues Wissen, und 
 
 1. Berechnen Sie für einen Pinguin mit der Körpermasse 5000 g die zu erwartende Flügellänge. Tipp: `new_data <- data.frame(body_mass_g = 5000)`.
 2. Stellen Sie diesen vorhergesagten Wert dar. Tipp: Nutzen Sie die Funktion `augment()`. Es sollte die folgende Abbildung dabei entstehen: 
