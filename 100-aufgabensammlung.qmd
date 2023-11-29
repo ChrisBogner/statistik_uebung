@@ -218,6 +218,28 @@ Der Körper- und Kopflängen.
 
 4. Berechnen Sie den linearen Korrelationskoeffizienten mit der Funktion `cor()`.
 
+## Lineare Regression
+
+Wir arbeiten mit den Possum-Daten aus dem Paket `openintro`.
+
+1. Laden Sie das Paket und den Datensatz. Zusätzlich werden sie `tidyverse` und `broom` benötigen.
+
+2. Wir wollen die Kopflängen der Tiere mithilfe der Körperlänge vorhersagen (wie in der Vorlesung). Passen Sie das Modell an.
+
+3. Plotten Sie den Residualplot. Gibt es auffällige Muster im Plot?
+
+4. Sehen Sie sich die Parameter des Models und den Determinationskoeffizienten an. Interpretieren Sie beides.
+
+5. Nun möchten wir die Kopflängen nur mithilfe des Geschlechts der Tiere vorhersagen. Wiederholen Sie die vorherigen Schritte.
+
+6. Vergleichen Sie die beiden Modelle. Welches ist besser? Begründen Sie?
+
+7. Werden die Kopflängen der weiblichen oder der männlichen Tiere besser vorhergesagt? Beantworten Sie diese Frage grafisch mit einem Residualplot. Färben Sie die Residuen sinnvoll ein.
+
+8. Schwierig: Passen Sie ein Modell mit beiden Prädiktoren an. Tipp: Sie können die Prädiktoren mit einem Plus verbinden, nach folgendem Schema: lm(Zielvariable ~ Prädiktor1 + Prädiktor2, data = Datensatz)
+
+9. Vergleichen Sie alle drei Modelle. Welches ist besser?
+
 ## Umgang mit der Normalverteilung
 
 ### Simulieren von Daten aus einer Normalverteilung

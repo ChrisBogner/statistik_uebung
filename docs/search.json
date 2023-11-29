@@ -676,7 +676,7 @@
     "href": "07-lineare-regression-ein-pred.html#aufgaben",
     "title": "7  Lineare Regression mit einer erklärenden Variablen",
     "section": "7.4 Aufgaben",
-    "text": "7.4 Aufgaben\n\n7.4.1 Tutorium\nBearbeiten Sie das Tutorium “Regressionsmodellierung: 4 - Interpretation von Regressionsmodellen”. Sie können entweder die deutsche Übersetzung oder das englische Original bearbeiten. Das Tutorium muss nicht hochgeladen werden.\n\n\n7.4.2 Vorhersagen\nNachdem Sie das Tutorium durchgearbeitet haben, nutzen Sie Ihr neues Wissen, und\n\nBerechnen Sie für einen Pinguin mit der Körpermasse 5000 g die zu erwartende Flügellänge. Tipp: new_data <- data.frame(body_mass_g = 5000).\nStellen Sie diesen vorhergesagten Wert dar. Tipp: Nutzen Sie die Funktion augment(). Es sollte die folgende Abbildung dabei entstehen:"
+    "text": "7.4 Aufgaben\n\n7.4.1 Tutorium\nBearbeiten Sie das Tutorium “Regressionsmodellierung: 4 - Interpretation von Regressionsmodellen”. Sie können entweder die deutsche Übersetzung oder das englische Original bearbeiten. Das Tutorium muss nicht hochgeladen werden.\n\n\n7.4.2 Vorhersagen\nNachdem Sie das Tutorium durchgearbeitet haben, nutzen Sie Ihr neues Wissen, und\n\nBerechnen Sie für einen Pinguin mit der Körpermasse 5000 g die zu erwartende Flügellänge. Tipp: new_data <- data.frame(body_mass_g = 5000).\nStellen Sie diesen vorhergesagten Wert dar. Tipp: Nutzen Sie die Funktion augment(). Es sollte die folgende Abbildung dabei entstehen:\n\n\n\n\n\n\nDiese Aufgaben ist hochzuladen."
   },
   {
     "objectID": "07-lineare-regression-ein-pred.html#ihre-arbeit-einreichen",
@@ -808,22 +808,22 @@
     "objectID": "100-aufgabensammlung.html#umgang-mit-der-normalverteilung",
     "href": "100-aufgabensammlung.html#umgang-mit-der-normalverteilung",
     "title": "Appendix A — Aufgabensammlung",
-    "section": "A.6 Umgang mit der Normalverteilung",
-    "text": "A.6 Umgang mit der Normalverteilung\n\nA.6.1 Simulieren von Daten aus einer Normalverteilung\n\nSimulieren Sie 1000 Werte aus der Standardnormalverteilung. Nutzen Sie dazu die Funktion rnorm() und stellen Sie die Daten als Histogramm dar. Tipp: Wandeln Sie die Daten in ein tibble um.\nDie Funktion dnorm berechnet den Wert der Wahrscheinlichkeitsdichte \\(f(x)\\), also einen Punkt auf der Glockenkurve. Berechnen Sie diesen Wert für \\(x = 0.3\\) für die Standardnormalverteilung.\nDie Funktion dnorm kann man dazu nutzen, um die theoretische Normalverteilung über die simulierten Daten aus Aufgabe 1 zu plotten. Nutzen Sie dazu die Funktionen geom_density() und geom_function(). Diese Aufgabe machen wir gemeinsam.\nÜberprüfen Sie, dass der Bereich \\(\\pm\\) 1.96 Standardabweichungen in einer Normalverteilung 95% der Werte enthält. Zeichnen Sie den Bereich richtig ein."
+    "section": "A.7 Umgang mit der Normalverteilung",
+    "text": "A.7 Umgang mit der Normalverteilung\n\nA.7.1 Simulieren von Daten aus einer Normalverteilung\n\nSimulieren Sie 1000 Werte aus der Standardnormalverteilung. Nutzen Sie dazu die Funktion rnorm() und stellen Sie die Daten als Histogramm dar. Tipp: Wandeln Sie die Daten in ein tibble um.\nDie Funktion dnorm berechnet den Wert der Wahrscheinlichkeitsdichte \\(f(x)\\), also einen Punkt auf der Glockenkurve. Berechnen Sie diesen Wert für \\(x = 0.3\\) für die Standardnormalverteilung.\nDie Funktion dnorm kann man dazu nutzen, um die theoretische Normalverteilung über die simulierten Daten aus Aufgabe 1 zu plotten. Nutzen Sie dazu die Funktionen geom_density() und geom_function(). Diese Aufgabe machen wir gemeinsam.\nÜberprüfen Sie, dass der Bereich \\(\\pm\\) 1.96 Standardabweichungen in einer Normalverteilung 95% der Werte enthält. Zeichnen Sie den Bereich richtig ein."
   },
   {
     "objectID": "100-aufgabensammlung.html#mittelwert-der-studiendauer-in-werdeschlau",
     "href": "100-aufgabensammlung.html#mittelwert-der-studiendauer-in-werdeschlau",
     "title": "Appendix A — Aufgabensammlung",
-    "section": "A.7 Mittelwert der Studiendauer in Werdeschlau",
-    "text": "A.7 Mittelwert der Studiendauer in Werdeschlau\nDie Studierendenvertretung in Werdeschlau möchte wissen, wie hoch im Schnitt die Studiendauer an der Uni Werdeschlau beträgt.\nFühren Sie eine Befragung von 100 zufällig ausgewählten Studierenden durch. Schätzen Sie aus diesen Daten die Studiendauer und geben Sie ein 95%-Konfidenzintervall an. Berechnen Sie dieses Konfidenzintervall.\n\nmit Bootstrap\nmithilfe der Normalverteilung. Der Standardfehler des Mittelwerts sei 0.06 Jahre.\n\nVergleichen Sie die beiden Konfidenzintervalle."
+    "section": "A.8 Mittelwert der Studiendauer in Werdeschlau",
+    "text": "A.8 Mittelwert der Studiendauer in Werdeschlau\nDie Studierendenvertretung in Werdeschlau möchte wissen, wie hoch im Schnitt die Studiendauer an der Uni Werdeschlau beträgt.\nFühren Sie eine Befragung von 100 zufällig ausgewählten Studierenden durch. Schätzen Sie aus diesen Daten die Studiendauer und geben Sie ein 95%-Konfidenzintervall an. Berechnen Sie dieses Konfidenzintervall.\n\nmit Bootstrap\nmithilfe der Normalverteilung. Der Standardfehler des Mittelwerts sei 0.06 Jahre.\n\nVergleichen Sie die beiden Konfidenzintervalle."
   },
   {
     "objectID": "100-aufgabensammlung.html#umgang-mit-der-t-verteilung",
     "href": "100-aufgabensammlung.html#umgang-mit-der-t-verteilung",
     "title": "Appendix A — Aufgabensammlung",
-    "section": "A.8 Umgang mit der \\(t\\)-Verteilung",
-    "text": "A.8 Umgang mit der \\(t\\)-Verteilung\n\nFinden Sie den kritischen Wert \\(t^*_{2}\\) für das 95%-Konfidenzintervall. Nutzen Sie dazu die Funktion qt().\nPlotten Sie die dazugehörige Verteilung mit normTail() und markieren Sie den Bereich, der 95% aller Werte enthält.\nVergleichen Sie die mit dem kritischen Wert für eine \\(t\\)-Verteilung mit 18 Freiheitsgraden."
+    "section": "A.9 Umgang mit der \\(t\\)-Verteilung",
+    "text": "A.9 Umgang mit der \\(t\\)-Verteilung\n\nFinden Sie den kritischen Wert \\(t^*_{2}\\) für das 95%-Konfidenzintervall. Nutzen Sie dazu die Funktion qt().\nPlotten Sie die dazugehörige Verteilung mit normTail() und markieren Sie den Bereich, der 95% aller Werte enthält.\nVergleichen Sie die mit dem kritischen Wert für eine \\(t\\)-Verteilung mit 18 Freiheitsgraden."
   },
   {
     "objectID": "100-aufgabensammlung.html#mitttelwert-der-laufzeiten-beim-cherrys-blossom-race",
@@ -850,8 +850,8 @@
     "objectID": "100-aufgabensammlung.html#t-test-für-den-mittelwert",
     "href": "100-aufgabensammlung.html#t-test-für-den-mittelwert",
     "title": "Appendix A — Aufgabensammlung",
-    "section": "A.11 \\(t\\)-Test für den Mittelwert",
-    "text": "A.11 \\(t\\)-Test für den Mittelwert\nWird der typische US-Läufer mit der Zeit schneller oder langsamer? Wir betrachten diese Frage im Kontext des Cherrys Blossom Race, einem 10-Meilen-Lauf in Washington, DC, der jedes Frühjahr stattfindet. Die Durchschnittszeit aller Läufer, die den Kirschblütenlauf im Jahr 2016 beendeten, betrug 93.29 Minuten (93 Minuten und etwa 17 Sekunden). Anhand der Daten von 100 Teilnehmern des Kirschblütenlaufs 2017 möchten wir feststellen, ob die Läufer bei diesem Lauf schneller oder langsamer werden, oder ob es keine Veränderungen gibt.\nLösen Sie die Aufgabe mit infer.\n\nA.11.1 Bodenverdichtung\nSchwere landwirtschaftliche Maschinen können beim Bearbeiten des Bodens zu Bodenverdichtung führen. In einem randomisierten Design wurden zufällig Parzellen auf einem sonst homogenen Feld mit einer schweren Maschine bearbeitet (compacted). Auf allen Parzellen wurde danach die Lagerungsdichte bestimmt. Aus langjährigen Messungen ist der Mittelwert des unverdichteten Bodens bekannt und beträgt 1.3 [g/cm³]. Die Lagerungsdichte (auch Trockenrohdichte) ist ein Maß für Bodenstruktur und gibt das Verhältnis der Trockenmasse eines Bodens zu seinem Volumen. Sie wird häufig in [g/cm³] gemessen und kann als ein Indikator für Bodenverdichtung genutzt werden. Eine Erhöhung der Lagerungsdichte ist ein Indikator für Verdichtung. Der Datensatz ist in der Datei “bd_compaction_simple.csv” gespeichert.\n\nÜberprüfen Sie, ob sich die Lagerungsdichte auf den bearbeiteten Feldern erhöht hat.\n\n\n\n\n\nZuur, A. F., E. Ieno, and E. Meesters. 2009. A Beginner’s Guide to r. Springer. http://link.springer.com/book/10.1007%2F978-0-387-93837-0."
+    "section": "A.12 \\(t\\)-Test für den Mittelwert",
+    "text": "A.12 \\(t\\)-Test für den Mittelwert\nWird der typische US-Läufer mit der Zeit schneller oder langsamer? Wir betrachten diese Frage im Kontext des Cherrys Blossom Race, einem 10-Meilen-Lauf in Washington, DC, der jedes Frühjahr stattfindet. Die Durchschnittszeit aller Läufer, die den Kirschblütenlauf im Jahr 2016 beendeten, betrug 93.29 Minuten (93 Minuten und etwa 17 Sekunden). Anhand der Daten von 100 Teilnehmern des Kirschblütenlaufs 2017 möchten wir feststellen, ob die Läufer bei diesem Lauf schneller oder langsamer werden, oder ob es keine Veränderungen gibt.\nLösen Sie die Aufgabe mit infer.\n\nA.12.1 Bodenverdichtung\nSchwere landwirtschaftliche Maschinen können beim Bearbeiten des Bodens zu Bodenverdichtung führen. In einem randomisierten Design wurden zufällig Parzellen auf einem sonst homogenen Feld mit einer schweren Maschine bearbeitet (compacted). Auf allen Parzellen wurde danach die Lagerungsdichte bestimmt. Aus langjährigen Messungen ist der Mittelwert des unverdichteten Bodens bekannt und beträgt 1.3 [g/cm³]. Die Lagerungsdichte (auch Trockenrohdichte) ist ein Maß für Bodenstruktur und gibt das Verhältnis der Trockenmasse eines Bodens zu seinem Volumen. Sie wird häufig in [g/cm³] gemessen und kann als ein Indikator für Bodenverdichtung genutzt werden. Eine Erhöhung der Lagerungsdichte ist ein Indikator für Verdichtung. Der Datensatz ist in der Datei “bd_compaction_simple.csv” gespeichert.\n\nÜberprüfen Sie, ob sich die Lagerungsdichte auf den bearbeiteten Feldern erhöht hat.\n\n\n\n\n\nZuur, A. F., E. Ieno, and E. Meesters. 2009. A Beginner’s Guide to r. Springer. http://link.springer.com/book/10.1007%2F978-0-387-93837-0."
   },
   {
     "objectID": "25-lab-01-intro-to-r.html#die-entwicklungsumgebung-rstudio",
@@ -906,14 +906,21 @@
     "objectID": "100-aufgabensammlung.html#mittelwert-der-laufzeiten-beim-cherrys-blossom-race",
     "href": "100-aufgabensammlung.html#mittelwert-der-laufzeiten-beim-cherrys-blossom-race",
     "title": "Appendix A — Aufgabensammlung",
-    "section": "A.9 Mittelwert der Laufzeiten beim Cherrys Blossom Race",
-    "text": "A.9 Mittelwert der Laufzeiten beim Cherrys Blossom Race\nBeim Cherrys Blossom Race laufen die Teilnehmer ein 10-Meilen-Rennen. Wie hoch ist die mittlere Laufzeit (mit 95%-Konfidenzintervall) im Jahr 2017? Der Datensatz run17 enthält die Daten.\n\nFiltern Sie zuerst nach event == '10 Mile', da der Datensatz mehrere Rennen enthält (Hilfe lesen!).\nZiehen Sie eine Zufallsstichprobe von 100 Läufern und rechnen Sie die Laufzeit net_sec in Minuten um.\nÜberprüfen Sie die Anforderungen an die Daten. Welches Modell dürfen Sie nutzen?\nBerechnen Sie die Punktschätzung und das Konfidenzintervall."
+    "section": "A.10 Mittelwert der Laufzeiten beim Cherrys Blossom Race",
+    "text": "A.10 Mittelwert der Laufzeiten beim Cherrys Blossom Race\nBeim Cherrys Blossom Race laufen die Teilnehmer ein 10-Meilen-Rennen. Wie hoch ist die mittlere Laufzeit (mit 95%-Konfidenzintervall) im Jahr 2017? Der Datensatz run17 enthält die Daten.\n\nFiltern Sie zuerst nach event == '10 Mile', da der Datensatz mehrere Rennen enthält (Hilfe lesen!).\nZiehen Sie eine Zufallsstichprobe von 100 Läufern und rechnen Sie die Laufzeit net_sec in Minuten um.\nÜberprüfen Sie die Anforderungen an die Daten. Welches Modell dürfen Sie nutzen?\nBerechnen Sie die Punktschätzung und das Konfidenzintervall."
   },
   {
     "objectID": "100-aufgabensammlung.html#mittelwert-der-laufzeiten-beim-cherrys-blossom-race-mit-infer",
     "href": "100-aufgabensammlung.html#mittelwert-der-laufzeiten-beim-cherrys-blossom-race-mit-infer",
     "title": "Appendix A — Aufgabensammlung",
-    "section": "A.10 Mittelwert der Laufzeiten beim Cherrys Blossom Race – mit infer",
-    "text": "A.10 Mittelwert der Laufzeiten beim Cherrys Blossom Race – mit infer\nLösen Sie die obige Aufgabe mit dem Paket infer."
+    "section": "A.11 Mittelwert der Laufzeiten beim Cherrys Blossom Race – mit infer",
+    "text": "A.11 Mittelwert der Laufzeiten beim Cherrys Blossom Race – mit infer\nLösen Sie die obige Aufgabe mit dem Paket infer."
+  },
+  {
+    "objectID": "100-aufgabensammlung.html#lineare-regression",
+    "href": "100-aufgabensammlung.html#lineare-regression",
+    "title": "Appendix A — Aufgabensammlung",
+    "section": "A.6 Lineare Regression",
+    "text": "A.6 Lineare Regression\nWir arbeiten mit den Possum-Daten aus dem Paket openintro.\n\nLaden Sie das Paket und den Datensatz. Zusätzlich werden sie tidyverse und broom benötigen.\nWir wollen die Kopflängen der Tiere mithilfe der Körperlänge vorhersagen (wie in der Vorlesung). Passen Sie das Modell an.\nPlotten Sie den Residualplot. Gibt es auffällige Muster im Plot?\nSehen Sie sich die Parameter des Models und den Determinationskoeffizienten an. Interpretieren Sie beides.\nNun möchten wir die Kopflängen nur mithilfe des Geschlechts der Tiere vorhersagen. Wiederholen Sie die vorherigen Schritte.\nVergleichen Sie die beiden Modelle. Welches ist besser? Begründen Sie?\nWerden die Kopflängen der weiblichen oder der männlichen Tiere besser vorhergesagt? Beantworten Sie diese Frage grafisch mit einem Residualplot. Färben Sie die Residuen sinnvoll ein.\nSchwierig: Passen Sie ein Modell mit beiden Prädiktoren an. Tipp: Sie können die Prädiktoren mit einem Plus verbinden, nach folgendem Schema: lm(Zielvariable ~ Prädiktor1 + Prädiktor2, data = Datensatz)\nVergleichen Sie alle drei Modelle. Welches ist besser?"
   }
 ]
