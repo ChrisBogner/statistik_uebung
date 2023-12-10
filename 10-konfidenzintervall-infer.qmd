@@ -66,7 +66,7 @@ befragung <- rep_sample_n(grundgesamtheit, size = befragung_size, replace = FALS
 
 Unsere Forschungsfrage lautet: Wie groß ist der Anteil der Studierenden, die auf dem Land wohnen. Wir möchten aus der eben gewonnen Stichprobe, die wahren Parameter (Anteil der Studierenden, die auf dem Land wohnen in der Grundgesamtheit), den wir mit $p$ bezeichnen **schätzen**.
 
-Die beste Schätzung für $p$ ist der Anteil der Studierenden, die auf dem Land wohnen, den wir in der Befragung, d. h. unsere zufällige Stichprobe beobachten. Diesen Anteil nennen wir $\hat{p}$ und die R Variable `p_hat`.
+Die beste Schätzung für $p$ ist der Anteil der Studierenden, die auf dem Land wohnen, den wir in der Befragung, d. h. unsere zufällige Stichprobe beobachten. Diesen Anteil nennen wir $\hat{p}$ und die Variable `p_hat`.
 
 Zunächst zählen wir einfach die Studierenden der verschiedenen Wohnorte.
 ```{r}
@@ -108,7 +108,7 @@ Das Paket `infer` bietet ein einheitliches Framework sowohl für Hypothesentests
 1. `calculate()` Stichprobenverteilung (d.h. Verteilung der Teststatistik) berechnen
 1. `visualize()` Stichprobenverteilung darstellen
 
-Für die Berechnung der Konfidenzintervalle brauchen wir keine Hypothese (also kein `hypothesize()`) und keine $p$-Werte. Alle anderen Funktionen sind nach wie vor notwendig. Das Berechnen des Konfidenzintervalls übernimmt die Funktion `get_confidence_interval()`.
+Für die Berechnung der Konfidenzintervalle benötigen wir keine Hypothese (also kein `hypothesize()`) und keine $p$-Werte. Alle anderen Funktionen sind nach wie vor notwendig. Das Berechnen des Konfidenzintervalls übernimmt die Funktion `get_confidence_interval()`.
 
 
 ## Konfidenzintervalle berechnen mit `infer`
@@ -124,7 +124,7 @@ p_hat
 
 
 ### Schritt 2: Bootstrappen
-Im nächsten Schritt ziehen wir aus unserer Stichprobe `befragung` mit Zurücklegen Bootstrap-Stichproben und berechnen für diese die Anteile der Wohnorte. Das sind unsere Bootstrap-Stichproben und die entsprechenden Statistiken. Wir können `infer` mitteilen, dass wir nur den Anteil der Landbewohner brauchen.
+Im nächsten Schritt ziehen wir aus unserer Stichprobe `befragung` mit Zurücklegen Bootstrap-Stichproben und berechnen für diese die Anteile der Wohnorte. Das sind unsere Bootstrap-Stichproben und die entsprechenden Statistiken. Wir können `infer` mitteilen, dass wir nur den Anteil der Landbewohner benötigen.
 
 ```{r}
 set.seed(345)
@@ -163,8 +163,8 @@ Wir schätzen den Anteil der Studierenden, die auf dem Land wohnen, auf `r round
 :::{.alert}
 - **Grundgesamtheit**: alle Studierenden der Universität Werdeschlau
 - **zufällige Stichprobe**: eine zufällig ausgesuchte Gruppe von Studierenden
-- **Parameter der Grundgesamtheit**: z.B. der wahre Anteil von Studierenden, die in der Stadt oder auf dem Land leben
-- **Schätzer** für diesen Parameter der Grundgesamtheit: Anteil der Studierenden, die in der Stadt oder auf dem Land leben, berechnet aus der zufälligen Stichprobe. Da die Stichprobe zufällig ist, kann man davon ausgehen, dass sie repräsentativ für die Grundgesamtheit ist und der Schätzer unverzerrt (*unbiased*, d.h. ohne einen systematischen Fehler).
+- **Parameter der Grundgesamtheit**: z. B. der wahre Anteil von Studierenden, die in der Stadt oder auf dem Land leben
+- **Schätzer** für diesen Parameter der Grundgesamtheit: Anteil der Studierenden, die in der Stadt oder auf dem Land leben, berechnet aus der zufälligen Stichprobe. Da die Stichprobe zufällig ist, kann man davon ausgehen, dass sie repräsentativ für die Grundgesamtheit ist und der Schätzer unverzerrt (*unbiased*, d. h. ohne einen systematischen Fehler).
 - **Inferenz**: schließen auf die Grundgesamtheit darf man, wenn die Stichprobe zufällig erhoben wurde und repräsentativ für die Fragestellung ist.
 :::
 
@@ -174,4 +174,4 @@ Die Begriffe Statistik, Schätzer, Schätzfunktion und Stichprobenfunktion werde
 ## Aufgaben
 
 ### Vertiefung des Themas Parameterschätzung und Konfidenzintervalle
-Arbeiten Sie das Tutorial [Foundations of inference: 4 - Parameters and confidence intervals](https://openintro.shinyapps.io/ims-04-foundations-04) durch.
+Arbeiten Sie das Tutorium "Grundlagen der Inferenz: 4 - Parameter und Konfidenzintervalle" oder das englische Original [Foundations of inference: 4 - Parameters and confidence intervals](https://openintro.shinyapps.io/ims-04-foundations-04) durch.
