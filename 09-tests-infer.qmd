@@ -19,7 +19,7 @@ library(infer)
 
 Wir beschäftigen uns mit einem fiktiven Beispiel.
 
-An der (kleinen) Universität Werdeschlau möchte man wissen, ob die vor einiger Zeit eingeführte Studienordnung die Studiendauer verändert hat. Dazu werden 300 Studierende zufällig über die Dauer ihres Studiums befragt. Zusätzlich werden noch andere Daten erhoben, aber mit diesen beschäftigen wir uns in einer andern Übung.
+An der (kleinen) Universität Werdeschlau möchte man wissen, ob die vor einiger Zeit eingeführte Studienordnung die Studiendauer verändert hat. Dazu werden 300 Studierende zufällig über die Dauer ihres Studiums befragt. Zusätzlich werden noch andere Daten erhoben, aber mit diesen beschäftigen wir uns in einer anderen Übung.
 
 ### Simulation der Grundgesamtheit
 
@@ -160,18 +160,18 @@ visualize(null_dist) +
 
 
 ### Schritt 4: $p$-Wert berechnen und Schlussfolgerungen ziehen
-Der folgende Code berechnet den $p$-Wert. Der $p$-Wert gibt uns die Wahrscheinlichkeit an, eine Teststatistik (also die Differenz der Mittelwerte) so extrem oder noch extremer als `r as.numeric(d_hat)` zu beobachten, wenn die Nullhypothese tatsächlich korrekt ist. In anderen Worten, wenn wir in `infer` Daten generieren unter der Nullhypothese (d. h. übereinstimmend mit der Nullhypothese), dann kommt eine Differenz von `r as.numeric(d_hat)` oder noch größer und spiegelbildlich von `r -1* as.numeric(d_hat)` oder noch kleiner mit einer Wahrscheinlichkeit von $p$ vor. Um den $p$-Wert zu berechnen, rechnen wir den Anteil der eingefärbten Bereiche aus.
+Der folgende Code berechnet den $p$-Wert. Der $p$-Wert gibt uns die Wahrscheinlichkeit an, eine Teststatistik (also die Differenz der Mittelwerte) so extrem oder noch extremer als `r as.numeric(d_hat)` zu beobachten, wenn die Nullhypothese tatsächlich korrekt ist. In anderen Worten, wenn wir in `infer` Daten generieren unter der Nullhypothese (d. h. übereinstimmend mit der Nullhypothese), dann kommt eine Differenz von `r as.numeric(d_hat)` oder noch größer und spiegelbildlich von `r -1* as.numeric(d_hat)` oder noch kleiner, mit einer Wahrscheinlichkeit von $p$ vor. Um den $p$-Wert zu berechnen, rechnen wir den Anteil der eingefärbten Bereiche aus.
 
 ```{r}
 null_dist %>%
   get_p_value(obs_stat = d_hat, direction = "two-sided")
 ```
 
-Wir sehen also, dass Differenzen zwischen den Mittelwerten von `r as.numeric(d_hat)` oder noch größer oder und spiegelbildlich von `r -1* as.numeric(d_hat)` oder noch kleiner in `r null_dist %>%
-  get_p_value(obs_stat = d_hat, direction = "two_sided") %>% as.numeric() * 100`% der Fälle vorkommen, wenn die Nullhypothese gilt. So eine Differenz ist also nichts Besonderes. Unser Signifikanzniveau ist $\alpha = 0.05$. Da $p > \alpha$, behalten wir die Nullhypothese bei. Es gibt also keinen Unterschied in der Studiendauer zwischen der alten und der neuen Studienordnung.
+Wir sehen also, dass Differenzen zwischen den Mittelwerten von `r as.numeric(d_hat)` oder noch größer  und spiegelbildlich von `r -1* as.numeric(d_hat)` oder noch kleiner in `r null_dist %>%
+  get_p_value(obs_stat = d_hat, direction = "two_sided") %>% as.numeric() * 100`% der Fälle vorkommen, wenn die Nullhypothese gilt. Eine solche Differenz ist also nichts Besonderes. Unser Signifikanzniveau ist $\alpha = 0.05$. Da $p > \alpha$, behalten wir die Nullhypothese bei. Es gibt also keinen Unterschied in der Studiendauer zwischen der alten und der neuen Studienordnung.
 
 
 ## Aufgaben
 
 ### Vertiefung des Themas Zufall und Variabilität
-Arbeiten Sie das Tutorial [Foundations of inference: 1 - Sampling Variability](https://openintro.shinyapps.io/ims-04-foundations-01/) durch.
+Arbeiten Sie das Tutorium "Grundlagen der Inferenz: 1 - Stichprobenvariabilität" oder das englische Original [Foundations of inference: 1 - Sampling Variability](https://openintro.shinyapps.io/ims-04-foundations-01/) durch.
