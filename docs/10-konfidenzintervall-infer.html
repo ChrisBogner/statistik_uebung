@@ -408,7 +408,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>befragung <span class="ot">&lt;-</span> <span class="fu">rep_sample_n</span>(grundgesamtheit, <span class="at">size =</span> befragung_size, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">reps =</span> <span class="dv">1</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Unsere Forschungsfrage lautet: Wie groß ist der Anteil der Studierenden, die auf dem Land wohnen. Wir möchten aus der eben gewonnen Stichprobe, die wahren Parameter (Anteil der Studierenden, die auf dem Land wohnen in der Grundgesamtheit), den wir mit <span class="math inline">\(p\)</span> bezeichnen <strong>schätzen</strong>.</p>
-<p>Die beste Schätzung für <span class="math inline">\(p\)</span> ist der Anteil der Studierenden, die auf dem Land wohnen, den wir in der Befragung, d.&nbsp;h. unsere zufällige Stichprobe beobachten. Diesen Anteil nennen wir <span class="math inline">\(\hat{p}\)</span> und die R Variable <code>p_hat</code>.</p>
+<p>Die beste Schätzung für <span class="math inline">\(p\)</span> ist der Anteil der Studierenden, die auf dem Land wohnen, den wir in der Befragung, d.&nbsp;h. unsere zufällige Stichprobe beobachten. Diesen Anteil nennen wir <span class="math inline">\(\hat{p}\)</span> und die Variable <code>p_hat</code>.</p>
 <p>Zunächst zählen wir einfach die Studierenden der verschiedenen Wohnorte.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>befragung <span class="sc">%&gt;%</span> </span>
@@ -469,7 +469,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>calculate()</code> Stichprobenverteilung (d.h. Verteilung der Teststatistik) berechnen</li>
 <li><code>visualize()</code> Stichprobenverteilung darstellen</li>
 </ol>
-<p>Für die Berechnung der Konfidenzintervalle brauchen wir keine Hypothese (also kein <code>hypothesize()</code>) und keine <span class="math inline">\(p\)</span>-Werte. Alle anderen Funktionen sind nach wie vor notwendig. Das Berechnen des Konfidenzintervalls übernimmt die Funktion <code>get_confidence_interval()</code>.</p>
+<p>Für die Berechnung der Konfidenzintervalle benötigen wir keine Hypothese (also kein <code>hypothesize()</code>) und keine <span class="math inline">\(p\)</span>-Werte. Alle anderen Funktionen sind nach wie vor notwendig. Das Berechnen des Konfidenzintervalls übernimmt die Funktion <code>get_confidence_interval()</code>.</p>
 </section>
 <section id="konfidenzintervalle-berechnen-mit-infer" class="level2" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="konfidenzintervalle-berechnen-mit-infer"><span class="header-section-number">9.4</span> Konfidenzintervalle berechnen mit <code>infer</code></h2>
@@ -491,7 +491,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="schritt-2-bootstrappen" class="level3" data-number="9.4.2">
 <h3 data-number="9.4.2" class="anchored" data-anchor-id="schritt-2-bootstrappen"><span class="header-section-number">9.4.2</span> Schritt 2: Bootstrappen</h3>
-<p>Im nächsten Schritt ziehen wir aus unserer Stichprobe <code>befragung</code> mit Zurücklegen Bootstrap-Stichproben und berechnen für diese die Anteile der Wohnorte. Das sind unsere Bootstrap-Stichproben und die entsprechenden Statistiken. Wir können <code>infer</code> mitteilen, dass wir nur den Anteil der Landbewohner brauchen.</p>
+<p>Im nächsten Schritt ziehen wir aus unserer Stichprobe <code>befragung</code> mit Zurücklegen Bootstrap-Stichproben und berechnen für diese die Anteile der Wohnorte. Das sind unsere Bootstrap-Stichproben und die entsprechenden Statistiken. Wir können <code>infer</code> mitteilen, dass wir nur den Anteil der Landbewohner benötigen.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">345</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -524,6 +524,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">visualize</span>(bootstrap_distribution) <span class="sc">+</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shade_confidence_interval</span>(percentile_ci) <span class="sc">+</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> p_hat<span class="sc">$</span>prop[<span class="dv">1</span>], <span class="at">size =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">'red'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
 <div class="cell-output-display">
 <p><img src="10-konfidenzintervall-infer_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -541,8 +545,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><strong>Grundgesamtheit</strong>: alle Studierenden der Universität Werdeschlau</li>
 <li><strong>zufällige Stichprobe</strong>: eine zufällig ausgesuchte Gruppe von Studierenden</li>
-<li><strong>Parameter der Grundgesamtheit</strong>: z.B. der wahre Anteil von Studierenden, die in der Stadt oder auf dem Land leben</li>
-<li><strong>Schätzer</strong> für diesen Parameter der Grundgesamtheit: Anteil der Studierenden, die in der Stadt oder auf dem Land leben, berechnet aus der zufälligen Stichprobe. Da die Stichprobe zufällig ist, kann man davon ausgehen, dass sie repräsentativ für die Grundgesamtheit ist und der Schätzer unverzerrt (<em>unbiased</em>, d.h. ohne einen systematischen Fehler).</li>
+<li><strong>Parameter der Grundgesamtheit</strong>: z. B. der wahre Anteil von Studierenden, die in der Stadt oder auf dem Land leben</li>
+<li><strong>Schätzer</strong> für diesen Parameter der Grundgesamtheit: Anteil der Studierenden, die in der Stadt oder auf dem Land leben, berechnet aus der zufälligen Stichprobe. Da die Stichprobe zufällig ist, kann man davon ausgehen, dass sie repräsentativ für die Grundgesamtheit ist und der Schätzer unverzerrt (<em>unbiased</em>, d.&nbsp;h. ohne einen systematischen Fehler).</li>
 <li><strong>Inferenz</strong>: schließen auf die Grundgesamtheit darf man, wenn die Stichprobe zufällig erhoben wurde und repräsentativ für die Fragestellung ist.</li>
 </ul>
 </div>
@@ -552,7 +556,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="9.6" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">9.6</span> Aufgaben</h2>
 <section id="vertiefung-des-themas-parameterschätzung-und-konfidenzintervalle" class="level3" data-number="9.6.1">
 <h3 data-number="9.6.1" class="anchored" data-anchor-id="vertiefung-des-themas-parameterschätzung-und-konfidenzintervalle"><span class="header-section-number">9.6.1</span> Vertiefung des Themas Parameterschätzung und Konfidenzintervalle</h3>
-<p>Arbeiten Sie das Tutorial <a href="https://openintro.shinyapps.io/ims-04-foundations-04">Foundations of inference: 4 - Parameters and confidence intervals</a> durch.</p>
+<p>Arbeiten Sie das Tutorium “Grundlagen der Inferenz: 4 - Parameter und Konfidenzintervalle” oder das englische Original <a href="https://openintro.shinyapps.io/ims-04-foundations-04">Foundations of inference: 4 - Parameters and confidence intervals</a> durch.</p>
 
 
 </section>
