@@ -367,7 +367,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <section id="variabilität-von-schätzungen" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="variabilität-von-schätzungen"><span class="header-section-number">9.1</span> Variabilität von Schätzungen</h2>
-<p>Im der Vorlesung und im <a href="09-tests-infer.html"><span>Kapitel&nbsp;8</span></a> haben Sie erfahren, dass Statistiken aus zufällig gezogenen Stichproben, dem Zufall unterliegen. Sie sind <strong>Zufallsvariablen</strong>. Wenn wir Parameter der Grundgesamtheit schätzen (z. B. Mittelwert oder Anteil) oder in Experimenten die Effektstärke bestimmen möchten, dann ist es eher unwahrscheinlich, dass wir den wahren Parameter ganz genau treffen. Daher ist es sinnvoll, bei einer Schätzung einen Bereich von plausiblen Werten, das sogenannte <strong>Konfidenzintervall</strong> anzugeben.</p>
+<p>In der Vorlesung und im <a href="09-tests-infer.html"><span>Kapitel&nbsp;8</span></a> haben Sie erfahren, dass Statistiken aus zufällig gezogenen Stichproben dem Zufall unterliegen. Sie sind <strong>Zufallsvariablen</strong>. Wenn wir Parameter der Grundgesamtheit schätzen (z. B. Mittelwert oder Anteil) oder in Experimenten die Effektstärke bestimmen möchten, dann ist es eher unwahrscheinlich, dass wir den wahren Parameter ganz genau treffen. Daher ist es sinnvoll, bei einer Schätzung einen Bereich von plausiblen Werten, das sogenannte <strong>Konfidenzintervall</strong> anzugeben.</p>
 </section>
 <section id="studiendauer-in-werdeschlau" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="studiendauer-in-werdeschlau"><span class="header-section-number">9.2</span> Studiendauer in Werdeschlau</h2>
@@ -407,7 +407,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>befragung <span class="ot">&lt;-</span> <span class="fu">rep_sample_n</span>(grundgesamtheit, <span class="at">size =</span> befragung_size, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">reps =</span> <span class="dv">1</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Unsere Forschungsfrage lautet: Wie groß ist der Anteil der Studierenden, die auf dem Land wohnen. Wir möchten aus der eben gewonnen Stichprobe, die wahren Parameter (Anteil der Studierenden, die auf dem Land wohnen in der Grundgesamtheit), den wir mit <span class="math inline">\(p\)</span> bezeichnen <strong>schätzen</strong>.</p>
+<p>Unsere Forschungsfrage lautet: Wie groß ist der Anteil der Studierenden, die auf dem Land wohnen. Wir möchten aus der eben gewonnenen Stichprobe, den wahren Parameter (Anteil der Studierenden, die auf dem Land wohnen, in der Grundgesamtheit), den wir mit <span class="math inline">\(p\)</span> bezeichnen <strong>schätzen</strong>.</p>
 <p>Die beste Schätzung für <span class="math inline">\(p\)</span> ist der Anteil der Studierenden, die auf dem Land wohnen, den wir in der Befragung, d.&nbsp;h. unsere zufällige Stichprobe beobachten. Diesen Anteil nennen wir <span class="math inline">\(\hat{p}\)</span> und die Variable <code>p_hat</code>.</p>
 <p>Zunächst zählen wir einfach die Studierenden der verschiedenen Wohnorte.</p>
 <div class="cell">
@@ -461,7 +461,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="workflow-in-infer" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="workflow-in-infer"><span class="header-section-number">9.3</span> Workflow in <code>infer</code></h2>
-<p>Das Paket <code>infer</code> bietet ein einheitliches Framework sowohl für Hypothesentests als auch für die Berechnung von Konfidenzintervallen (<a href="09-tests-infer.html#fig-ht">Abbildung&nbsp;<span>8.1</span></a>). Es hat 4 Verben, die den oben beschriebenen Prozess der Hypothesentests vereinheitlichen und ein Verb für die Visualisierung der Ergebnisse:</p>
+<p>Das Paket <code>infer</code> bietet ein einheitliches Framework sowohl für Hypothesentests als auch für die Berechnung von Konfidenzintervallen (<a href="09-tests-infer.html#fig-ht">Abbildung&nbsp;<span>8.1</span></a>). Es hat 4 Verben, die den oben beschriebenen Prozess der Hypothesentests vereinheitlichen, und ein Verb für die Visualisierung der Ergebnisse:</p>
 <ol type="1">
 <li><code>specify()</code> Variablen festlegen</li>
 <li><code>hypothesize()</code> Nullhypothese definieren</li>

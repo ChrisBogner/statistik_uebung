@@ -17,7 +17,7 @@ library(infer)
 ```
 
 ## Variabilität von Schätzungen
-Im der Vorlesung und im @sec-hypothsen-randomisierung haben Sie erfahren, dass Statistiken aus zufällig gezogenen Stichproben, dem Zufall unterliegen. Sie sind **Zufallsvariablen**. Wenn wir Parameter der Grundgesamtheit schätzen (z. B. Mittelwert oder Anteil) oder in Experimenten die Effektstärke bestimmen möchten, dann ist es eher unwahrscheinlich, dass wir den wahren Parameter ganz genau treffen. Daher ist es sinnvoll, bei einer Schätzung einen Bereich von plausiblen Werten, das sogenannte **Konfidenzintervall** anzugeben.
+In der Vorlesung und im @sec-hypothsen-randomisierung haben Sie erfahren, dass Statistiken aus zufällig gezogenen Stichproben dem Zufall unterliegen. Sie sind **Zufallsvariablen**. Wenn wir Parameter der Grundgesamtheit schätzen (z. B. Mittelwert oder Anteil) oder in Experimenten die Effektstärke bestimmen möchten, dann ist es eher unwahrscheinlich, dass wir den wahren Parameter ganz genau treffen. Daher ist es sinnvoll, bei einer Schätzung einen Bereich von plausiblen Werten, das sogenannte **Konfidenzintervall** anzugeben.
 
 ## Studiendauer in Werdeschlau
 
@@ -64,7 +64,7 @@ befragung_size <- 300
 befragung <- rep_sample_n(grundgesamtheit, size = befragung_size, replace = FALSE, reps = 1)
 ```
 
-Unsere Forschungsfrage lautet: Wie groß ist der Anteil der Studierenden, die auf dem Land wohnen. Wir möchten aus der eben gewonnen Stichprobe, die wahren Parameter (Anteil der Studierenden, die auf dem Land wohnen in der Grundgesamtheit), den wir mit $p$ bezeichnen **schätzen**.
+Unsere Forschungsfrage lautet: Wie groß ist der Anteil der Studierenden, die auf dem Land wohnen. Wir möchten aus der eben gewonnenen Stichprobe, den wahren Parameter (Anteil der Studierenden, die auf dem Land wohnen, in der Grundgesamtheit), den wir mit $p$ bezeichnen **schätzen**.
 
 Die beste Schätzung für $p$ ist der Anteil der Studierenden, die auf dem Land wohnen, den wir in der Befragung, d. h. unsere zufällige Stichprobe beobachten. Diesen Anteil nennen wir $\hat{p}$ und die Variable `p_hat`.
 
@@ -100,7 +100,7 @@ Es wohnen also 44.3% auf dem Land und entsprechend 55.7% in der Stadt. Dass beid
 Erwartungsgemäß bringt jede Wiederholung der Befragung etwas andere Ergebnisse.
 
 ## Workflow in `infer`
-Das Paket `infer` bietet ein einheitliches Framework sowohl für Hypothesentests als auch für die Berechnung von Konfidenzintervallen (@fig-ht). Es hat 4 Verben, die den oben beschriebenen Prozess der Hypothesentests vereinheitlichen und ein Verb für die Visualisierung der Ergebnisse:
+Das Paket `infer` bietet ein einheitliches Framework sowohl für Hypothesentests als auch für die Berechnung von Konfidenzintervallen (@fig-ht). Es hat 4 Verben, die den oben beschriebenen Prozess der Hypothesentests vereinheitlichen, und ein Verb für die Visualisierung der Ergebnisse:
 
 1. `specify()` Variablen festlegen
 1. `hypothesize()` Nullhypothese definieren
