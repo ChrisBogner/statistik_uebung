@@ -261,6 +261,13 @@ b. mithilfe der Normalverteilung. Der Standardfehler des Mittelwerts sei 0.06 Ja
 
 Vergleichen Sie die beiden Konfidenzintervalle.
 
+## Chronische Krankheiten
+Im Jahr 2013 berichtete die Pew Research Foundation, dass "45% der Erwachsenen in den USA angeben, mit einer oder mehreren chronischen Krankheiten zu leben". Dieser Wert basierte jedoch auf einer Stichprobe, so dass er möglicherweise keine perfekte Schätzung für den interessierenden Parameter der Grundgesamtheit darstellt. Die Studie gab den Standardfehler mit 1.2% an, und die Normalverteilung kann kann in diesem Fall als Modell verwendet werden  [@data:pewdiagnosis:2013]..
+
+a. Berechnen Sie ein 90%-Konfidenzintervall für den Anteil der Erwachsenen in den USA, die mit einer oder mehreren chronischen Krankheiten leben. 
+b. Stellen Sie das Konfidenzintervall grafisch dar.
+c. Interpretieren Sie das Konfidenzintervall im Zusammenhang mit der Studie.
+
 ## Umgang mit der $t$-Verteilung
 1. Finden Sie den kritischen Wert $t^*_{2}$ für das 95%-Konfidenzintervall. Nutzen Sie dazu die Funktion `qt()`.
 

@@ -39,7 +39,7 @@ book:
     style: docked
     background: light
     
-bibliography: 'statistik_und_datenanalyse.bib'
+bibliography: ['statistik_und_datenanalyse.bib', '../../../Kurse/Literatur/IMS_book.bib', '../../../Kurse/Literatur/eoce.bib']
 
 language: _language-de.yml
 
