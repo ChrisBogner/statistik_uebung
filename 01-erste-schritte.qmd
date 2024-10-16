@@ -239,6 +239,6 @@ ggplot(gapminder2007, aes(x = gdpPercap, y = lifeExp, color = continent, size = 
 <!-- Beachten Sie die Frist für das Hochladen der Hausaufgaben! -->
 <!-- ::: -->
 
-## Lesestoff
-r4ds, Kapitel 4 [@r4ds]
+<!-- ## Lesestoff -->
+<!-- r4ds, Kapitel 4 [@r4ds] -->
 
