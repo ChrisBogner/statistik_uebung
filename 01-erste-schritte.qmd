@@ -233,11 +233,11 @@ ggplot(gapminder2007, aes(x = gdpPercap, y = lifeExp, color = continent, size = 
 <!-- - Vergleichen Sie Ihre Lösung selbstständig mit der Musterlösung. -->
 <!-- - Stellen Sie entweder in Campuswire (im #class-chat) oder in der nächsten Sitzung Fragen, falls Sie bei den Aufgaben etwas nicht verstanden haben und die Musterlösung es nicht aufklären konnte. -->
 
-<br>
+<!-- <br> -->
 
-:::{.alert}
-Beachten Sie die Frist für das Hochladen der Hausaufgaben!
-:::
+<!-- :::{.alert} -->
+<!-- Beachten Sie die Frist für das Hochladen der Hausaufgaben! -->
+<!-- ::: -->
 
 ## Lesestoff
 r4ds, Kapitel 4 [@r4ds]
