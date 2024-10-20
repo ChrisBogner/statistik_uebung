@@ -431,13 +431,13 @@ url = {https://bookdown.org/yihui/rmarkdown/}
   urldate    = {2024-01-22},
 }
 
-@Article{kuckartz2019qualitative,
+@InBook{Kuckartz2019,
   author    = {Kuckartz, Udo},
-  journal   = {Compendium for early career researchers in mathematics education},
-  title     = {Qualitative text analysis: A systematic approach},
-  year      = {2019},
+  chapter   = {Qualitative text analysis: A systematic approach},
   pages     = {181--197},
   publisher = {Springer International Publishing},
+  title     = {Compendium for early career researchers in mathematics education},
+  year      = {2019},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

@@ -22,9 +22,9 @@ library(kableExtra)
 ## Was ist `r fontawesome::fa("r-project", fill = "steelblue")`?
 R ist eine Programmiersprache für Datenanalyse und statistische Modellierung. Es ist frei verfügbar (*open source software*) und neben Python einer der am meisten benutzten Programmiersprachen zur Datenanalyse und -visualisierung. R wurde von Ross Ihaka und Robert Gentleman 1996 veröffentlicht [@Ihaka1996]. Es gibt für R eine Vielzahl von Zusatzpaketen, die die Funktionalität und die Einsatzmöglichkeiten enorm erweitern.
 
-Sie können R für Ihren Computer auf der offiziellen R-Seite https://www.r-project.org/ herunterladen und installieren. Eine kurze Anleitung finden Sie auf ILIAS, zusammen mit der Liste der Pakete, die wir in diesem Kurs brachen werden. Zusätzlich können Sie sich [hier](https://www.youtube.com/watch?v=kygOqp_zijk&list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o&t=14s) ein Video zur Installation ansehen. 
+Sie können R für Ihren Computer auf der offiziellen R-Seite https://www.r-project.org/ herunterladen und installieren. Eine kurze Anleitung finden Sie auf ILIAS, zusammen mit der Liste der Pakete, die wir in diesem Kurs benötigen. Zusätzlich können Sie sich [hier](https://www.youtube.com/watch?v=kygOqp_zijk&list=PLG4WP9jv27SeMbBjhVcyXrGKQgnaex-0o&t=14s) ein Video zur Installation ansehen. 
 
-Auf der offiziellen R-Seite finden Sie auch zusätzliche Pakete, und zwar unter CRAN (*The Comprehensive R Archive Network*). Manche Pakete sind auf den CRAN-Seiten thematische in sogen. [CRAN Task Views](http://cran.r-project.org/web/views/) gegliedert. Für den Umweltbereich sind folgende Paketsammlungen besonders relevant:
+Auf der offiziellen R-Seite finden Sie auch zusätzliche Pakete, und zwar unter CRAN (*The Comprehensive R Archive Network*). Manche Pakete sind auf den CRAN-Seiten thematisch in sogen. [CRAN Task Views](http://cran.r-project.org/web/views/) gegliedert. Für den Umweltbereich sind folgende Paketsammlungen besonders relevant:
 
 - Environmetrics: Analyse von Umweltdaten
 - Multivariate: Multivariate Statistik
@@ -74,7 +74,7 @@ knitr::kable(tab,
 3. Wie viel hätte er insgesamt ausgegeben, wenn er jeden Tag so viel gezahlt hätte, wie am Dienstag. **Wichtig: Verwenden Sie die [], um den Betrag von Dienstag auszuwählen!**
 
 
-Leider hat Ar sich beim Übertragen der Daten vertippt. Er hat am Dienstag seine Freundin zum Essen eingeladen und 7,95 € statt 2,90 € ausgegeben.
+Leider hat sich Ar beim Übertragen der Daten vertippt. Er hat am Dienstag seine Freundin zum Essen eingeladen und 7,95 € statt 2,90 € ausgegeben.
 
 4. Korrigieren Sie Ars Fehler.
 5. Wie verändern sich die Ergebnisse aus den Teilaufgaben 1 bis 3?
@@ -82,7 +82,7 @@ Leider hat Ar sich beim Übertragen der Daten vertippt. Er hat am Dienstag seine
 
 ### Fehlende Werte {#rob2}
 
-R kodiert fehlende Werte mit `NA`. Ar Stat hat am Montag der darauffolgenden Woche in der Mensa gegessen, aber vergessen die Ausgaben zu notieren.
+R kodiert fehlende Werte mit `NA`. Ar Stat hat am Montag der darauffolgenden Woche in der Mensa gegessen, aber vergessen, die Ausgaben zu notieren.
 
 ```{r}
 #| echo: false
@@ -106,7 +106,7 @@ knitr::kable(tab,
 
 R ist ein großer Taschenrechner mit vielen bereits definierten Funktionen. Es gelten die üblichen Rechenregeln wie z. B. Punkt-vor-Strich und die Klammern.
 
-- Schreiben Sie den Code, der 2 und 10 addiert
+- Schreiben Sie den Code, der 2 und 10 addiert.
 
 Das korrekte Multiplikationszeichen in R ist `*`.
 
@@ -160,7 +160,7 @@ my_a <- c(32, 54, 1.2, 398)
 In R gibt es eine Vielzahl von vordefinierten Funktionen. Ein Funktionsaufruf hat immer die gleiche Form: *mach_das(damit)* oder *mach_das(damit, und_mit_dieser_einstellung)*. Z. B. wird die Summe auf einem Objekt `mein_objekt` mit `sum(mein_objekt)` berechnet.
 
 - Erstellen Sie einen Vektor mit den Zahlen 32, 54, 1,2 und 398 und weisen Sie ihn der Variablen `my_a` zu.
-- Berechnen Sie die summe von `my_a`. 
+- Berechnen Sie die Summe von `my_a`. 
 
 Sie können im Übrigen auch Vektoren sinnvoll addieren.
 
@@ -241,4 +241,3 @@ ggplot(gapminder2007, aes(x = gdpPercap, y = lifeExp, color = continent, size = 
 
 <!-- ## Lesestoff -->
 <!-- r4ds, Kapitel 4 [@r4ds] -->
-

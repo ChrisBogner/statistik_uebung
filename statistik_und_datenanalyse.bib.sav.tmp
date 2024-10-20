@@ -298,13 +298,14 @@ url = {https://bookdown.org/yihui/rmarkdown/}
 
 
 
-@Book{IMS2021,
-  author = {{Çetinkaya-Rundel}, Mine and Hardin, Johanna},
-  title  = {Introduction to Modern Statistics},
-  year   = {2021},
-  note   = {Citation Key: IMS2021},
-  langid = {en},
-  url    = {https://openintro-ims.netlify.app/},
+@Book{IMS2024,
+  author  = {{Çetinkaya-Rundel}, Mine and Hardin, Johanna},
+  title   = {Introduction to Modern Statistics},
+  year    = {2024},
+  edition = {2nd edition},
+  note    = {Citation Key: IMS2021},
+  langid  = {en},
+  url     = {https://openintro-ims.netlify.app/},
 }
 
 @Book{r4ds,
@@ -391,5 +392,4 @@ url = {https://bookdown.org/yihui/rmarkdown/}
   Journal                  = {Ecology},
   Year                     = {2007},
   Number                   = {11},
-  Pages                    = {2783--2792},
-  Volume          
+  Pages                    =

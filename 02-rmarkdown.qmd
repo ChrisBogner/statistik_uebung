@@ -48,14 +48,13 @@ Ein weiteres [Video](https://www.youtube.com/watch?v=pjL2uP-fmPY&list=PLjTlxb-wK
 ## Lesestoff
 Intro zu Kapitel 2 (Basics), Kapitel 3.2.1 und 3.2.2 in @RMarkdownGuide
 
-## Weiterführende Literatur
-r4ds, Kapitel 27 [@r4ds]
+<!-- ## Weiterführende Literatur -->
+<!-- r4ds, Kapitel 27 [@r4ds] -->
 
 ## Aufgaben
 
-### Erstes Notebook
-- Erstellen Sie ein R Notebook. 
-- Fügen Sie Layoutelemente hinzu:
+### Layoutelemente in R Markdown
+Fügen Sie in Ihrem Notebook Layoutelemente hinzu:
   - Überschrift
   - Unterüberschrift
   - kursiver Text
@@ -65,7 +64,10 @@ r4ds, Kapitel 27 [@r4ds]
 
 Nutzen Sie die unter @sec-header verlinkte Liste der Layoutelemente.
 
-### Erste Schritte als Notebook
+### Editierene Sie Ihr erstes Notebook
 - Editieren Sie das R Notebook der ersten Session.
-- Gliedern Sie Ihr Notebook mit passenden Layoutelementen.
+- Gliedern Sie Ihr Notebook mit passenden Layoutelementen, wenn noch nicht geschehen.
 - Fügen Sie mehr Erklärungstext zu den einzelnen Abschnitten.
+
+### Hausaufgabe
+Schließen Sie den Kurs "Introduction to R" auf datacamp ab.

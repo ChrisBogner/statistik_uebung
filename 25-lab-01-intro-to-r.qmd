@@ -1,4 +1,4 @@
-# Lab 01: Einführung in R und RStudio {#sec-lab-01-intro-to-r}
+# Lab 01: Wiederholung und Festigung der Einführung in R und RStudio {#sec-lab-01-intro-to-r}
 
 :::{.info}
 Das ist die deutsche Übersetzung des "OpenIntro Labs for R and tidyverse" [1. Intro to R](http://openintrostat.github.io/oilabs-tidy/01_intro_to_r/intro_to_r.html). Es ist Teil des Buches von Çetinkaya-Rundel et al., [Introduction to Modern Statistics](https://openintro-ims.netlify.app/index.html), lizenziert unter CC-BY-SA 3.0. Übersetzt mit www.DeepL.com/Translator, bearbeitet und ergänzt von C. Bogner.
