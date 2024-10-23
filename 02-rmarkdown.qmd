@@ -70,4 +70,4 @@ Nutzen Sie die unter @sec-header verlinkte Liste der Layoutelemente.
 - Fügen Sie mehr Erklärungstext zu den einzelnen Abschnitten.
 
 ### Hausaufgabe
-Schließen Sie den Kurs "Introduction to R" auf datacamp ab.
+Bearbeiten Sie die Kapitel 1 und 2 im Kurs "Introduction to R" auf datacamp.
