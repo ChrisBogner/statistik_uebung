@@ -341,10 +341,11 @@ div.csl-indent {
   <li><a href="#ein-tibble-erstellen" id="toc-ein-tibble-erstellen" class="nav-link" data-scroll-target="#ein-tibble-erstellen"><span class="toc-section-number">4.4</span>  Ein <code>tibble</code> erstellen</a></li>
   <li><a href="#daten-aus-r-speichern" id="toc-daten-aus-r-speichern" class="nav-link" data-scroll-target="#daten-aus-r-speichern"><span class="toc-section-number">4.5</span>  Daten aus R speichern</a></li>
   <li><a href="#lesestoff" id="toc-lesestoff" class="nav-link" data-scroll-target="#lesestoff"><span class="toc-section-number">4.6</span>  Lesestoff</a></li>
-  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="toc-section-number">4.7</span>  Aufgaben</a></li>
-  <li><a href="#die-umfrage-aus-der-vorlesung" id="toc-die-umfrage-aus-der-vorlesung" class="nav-link" data-scroll-target="#die-umfrage-aus-der-vorlesung"><span class="toc-section-number">4.8</span>  Die Umfrage aus der Vorlesung</a></li>
-  <li><a href="#lab-01" id="toc-lab-01" class="nav-link" data-scroll-target="#lab-01"><span class="toc-section-number">4.9</span>  Lab 01</a></li>
-  <li><a href="#ihre-arbeit-einreichen" id="toc-ihre-arbeit-einreichen" class="nav-link" data-scroll-target="#ihre-arbeit-einreichen"><span class="toc-section-number">4.10</span>  Ihre Arbeit einreichen</a></li>
+  <li><a href="#sec-ha-kap4" id="toc-sec-ha-kap4" class="nav-link" data-scroll-target="#sec-ha-kap4"><span class="toc-section-number">4.7</span>  Hausaufgaben</a>
+  <ul class="collapse">
+  <li><a href="#die-umfrage-aus-der-vorlesung" id="toc-die-umfrage-aus-der-vorlesung" class="nav-link" data-scroll-target="#die-umfrage-aus-der-vorlesung"><span class="toc-section-number">4.7.1</span>  Die Umfrage aus der Vorlesung</a></li>
+  <li><a href="#ihre-arbeit-einreichen" id="toc-ihre-arbeit-einreichen" class="nav-link" data-scroll-target="#ihre-arbeit-einreichen"><span class="toc-section-number">4.7.2</span>  Ihre Arbeit einreichen</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -507,19 +508,19 @@ date (1): time
 <h2 data-number="4.6" class="anchored" data-anchor-id="lesestoff"><span class="header-section-number">4.6</span> Lesestoff</h2>
 <p>Kapitel 4.1 in <span class="citation" data-cites="ModernDive">Ismay and Kim (<a href="references.html#ref-ModernDive" role="doc-biblioref">2021</a>)</span></p>
 </section>
-<section id="aufgaben" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">4.7</span> Aufgaben</h2>
-</section>
-<section id="die-umfrage-aus-der-vorlesung" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="die-umfrage-aus-der-vorlesung"><span class="header-section-number">4.8</span> Die Umfrage aus der Vorlesung</h2>
-<p>Lesen Sie die Datei ‘Umfrage_2023_kurz.csv’ ein (sie ist auf ILIAS zu finden). Sie enthält die Umfrageergebnisse aus der ersten Session der Vorlesung zur Frage ‘Haben Sie schon mal einen Statistikkurs besucht?’</p>
+<section id="sec-ha-kap4" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="sec-ha-kap4"><span class="header-section-number">4.7</span> Hausaufgaben</h2>
+<section id="die-umfrage-aus-der-vorlesung" class="level3" data-number="4.7.1">
+<h3 data-number="4.7.1" class="anchored" data-anchor-id="die-umfrage-aus-der-vorlesung"><span class="header-section-number">4.7.1</span> Die Umfrage aus der Vorlesung</h3>
+<p>Lesen Sie die Datei ‘Umfrage_2024_kurz.csv’ ein (sie ist auf ILIAS zu finden). Sie enthält die Umfrageergebnisse aus der ersten Session der Vorlesung zur Frage ‘Haben Sie schon mal einen Statistikkurs besucht?’</p>
 <ol type="1">
 <li>Wie viele Einträge enthält der Datensatz?</li>
 <li>Wie viele Variablen enthält der Datensatz?</li>
 <li>Sind die Variablen numerisch oder kategorial? Wurden die Variablen auch so von R eingelesen?</li>
 <li>Erklären Sie jede Variable. Welche Information enthält sie?</li>
-<li>Stellen Sie die Antworten auf die Frage als Balkendiagramm dar. Es soll wie folgt aussehen:</li>
+<li>Stellen Sie die Antworten auf die Frage als Balkendiagramm dar. Es soll wie unten dargestellt aussehen. Achtung, da der Variablenname Leer- und Sonderzeichen enthält, muss er zwischen Hochkommas angegeben werden:</li>
 </ol>
+<pre><code>mapping = aes(x = `Haben Sie schon mal einen Statistikkurs besucht?`)</code></pre>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="04-einlesen_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
@@ -528,18 +529,13 @@ date (1): time
 <ol start="6" type="1">
 <li>Wie viele Teilnehmende haben bereits einen Statistikkurs besucht (ungefähr)?</li>
 </ol>
+<!-- ## Lab 01 -->
+<!-- Bearbeiten Sie selbständig das Lab 01: Einführung in R und RStudio in @sec-lab-01-intro-to-r. -->
 </section>
-<section id="lab-01" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="lab-01"><span class="header-section-number">4.9</span> Lab 01</h2>
-<p>Bearbeiten Sie selbständig das Lab 01: Einführung in R und RStudio in <a href="25-lab-01-intro-to-r.html"><span>Kapitel&nbsp;10</span></a>.</p>
-</section>
-<section id="ihre-arbeit-einreichen" class="level2" data-number="4.10">
-<h2 data-number="4.10" class="anchored" data-anchor-id="ihre-arbeit-einreichen"><span class="header-section-number">4.10</span> Ihre Arbeit einreichen</h2>
-<ul>
-<li>Speichern Sie Ihr Notebook ab.</li>
-<li>Laden Sie Ihre .Rmd Datei in ILIAS hoch. <strong>Beachten Sie die Frist!</strong></li>
-<li>Sie erhalten die Musterlösung nach dem Hochladen.</li>
-</ul>
+<section id="ihre-arbeit-einreichen" class="level3" data-number="4.7.2">
+<h3 data-number="4.7.2" class="anchored" data-anchor-id="ihre-arbeit-einreichen"><span class="header-section-number">4.7.2</span> Ihre Arbeit einreichen</h3>
+<p>Reichen Sie die Aufgabe aus <a href="#sec-ha-kap4"><span>Kapitel&nbsp;4.7</span></a> bei fiete.ai ein und erhalten Sie feedback:</p>
+<p><a href="https://app.fiete.ai/a/cm2m3db7t2qa841jq4w7eyicc">fiete.ai Hausaufgabe </a><a href="#sec-ha-kap4"><span>Kapitel&nbsp;4.7</span></a></p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
@@ -547,6 +543,7 @@ date (1): time
 Ismay, Chester, and Albert Y. Kim. 2021. <em><span>ModernDive</span>: <span>Statistical Inference</span> via <span>Data Science</span></em>. <a href="https://moderndive.com/">https://moderndive.com/</a>.
 </div>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->

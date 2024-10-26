@@ -87,15 +87,15 @@ write_delim(x = car_numbers_short, file = 'Daten/geo.csv', delim = ';')
 Kapitel 4.1 in @ModernDive
 
 
-## Aufgaben
+## Hausaufgaben {#sec-ha-kap4}
 
-## Die Umfrage aus der Vorlesung
-Lesen Sie die Datei 'Umfrage_2023_kurz.csv' ein (sie ist auf ILIAS zu finden). Sie enthält die Umfrageergebnisse aus der ersten Session der Vorlesung zur Frage 'Haben Sie schon mal einen Statistikkurs besucht?'
+### Die Umfrage aus der Vorlesung
+Lesen Sie die Datei 'Umfrage_2024_kurz.csv' ein (sie ist auf ILIAS zu finden). Sie enthält die Umfrageergebnisse aus der ersten Session der Vorlesung zur Frage 'Haben Sie schon mal einen Statistikkurs besucht?'
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
-umfrage <- read_delim(file = 'Daten/Umfrage_2023_kurz.csv', delim = ';')
+umfrage <- read_delim(file = 'Daten/Umfrage_2024_kurz.csv', delim = ';')
 
 ```
 
@@ -103,7 +103,11 @@ umfrage <- read_delim(file = 'Daten/Umfrage_2023_kurz.csv', delim = ';')
 2. Wie viele Variablen enthält der Datensatz?
 3. Sind die Variablen numerisch oder kategorial? Wurden die Variablen auch so von R eingelesen?
 4. Erklären Sie jede Variable. Welche Information enthält sie?
-5. Stellen Sie die Antworten auf die Frage als Balkendiagramm dar. Es soll wie folgt aussehen:
+5. Stellen Sie die Antworten auf die Frage als Balkendiagramm dar. Es soll wie unten dargestellt aussehen. Achtung, da der Variablenname Leer- und Sonderzeichen enthält, muss er zwischen Hochkommas angegeben werden: 
+
+```
+mapping = aes(x = `Haben Sie schon mal einen Statistikkurs besucht?`)
+```
 
 ```{r}
 #| echo: false
@@ -112,16 +116,19 @@ ggplot(umfrage, mapping = aes(x = `Haben Sie schon mal einen Statistikkurs besuc
   labs(x = 'Antworten',
        y = 'Anzahl',
        title = 'Haben Sie schon mal einen Statistikkurs besucht?',
-       caption = 'Quelle: Umfrageergebnisse Teilnehmende Vorlesung Statistik WS 2023-2024')
+       caption = 'Quelle: Umfrageergebnisse Teilnehmende Vorlesung Statistik WS 2024-2025')
 ```
 
 
 6. Wie viele Teilnehmende haben bereits einen Statistikkurs besucht (ungefähr)?
 
-## Lab 01
-Bearbeiten Sie selbständig das Lab 01: Einführung in R und RStudio in @sec-lab-01-intro-to-r.
+<!-- ## Lab 01 -->
+<!-- Bearbeiten Sie selbständig das Lab 01: Einführung in R und RStudio in @sec-lab-01-intro-to-r. -->
 
-## Ihre Arbeit einreichen
-- Speichern Sie Ihr Notebook ab.
-- Laden Sie Ihre .Rmd Datei in ILIAS hoch. **Beachten Sie die Frist!**
-- Sie erhalten die Musterlösung nach dem Hochladen.
+### Ihre Arbeit einreichen
+
+Reichen Sie die Aufgabe aus @sec-ha-kap4 bei fiete.ai ein und erhalten Sie feedback:
+
+[fiete.ai Hausaufgabe @sec-ha-kap4](https://app.fiete.ai/a/cm2m3db7t2qa841jq4w7eyicc)
+
+

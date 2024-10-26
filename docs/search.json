@@ -943,5 +943,19 @@
     "title": "3  Einführung in die Darstellung von Daten",
     "section": "3.8 Vertiefung ggplot2 auf datacamp",
     "text": "3.8 Vertiefung ggplot2 auf datacamp\nBearbeiten Sie das Kapitel 1 im Kurs “Introduction to Data Visualization with ggplot2” auf datacamp.\n\n\n\n\n\n\n\n\nIsmay, Chester, and Albert Y. Kim. 2021. ModernDive: Statistical Inference via Data Science. https://moderndive.com/."
+  },
+  {
+    "objectID": "04-einlesen.html#sec-ha-kap4",
+    "href": "04-einlesen.html#sec-ha-kap4",
+    "title": "4  Daten in R einlesen und aus R speichern",
+    "section": "4.7 Hausaufgaben",
+    "text": "4.7 Hausaufgaben\n\n4.7.1 Die Umfrage aus der Vorlesung\nLesen Sie die Datei ‘Umfrage_2024_kurz.csv’ ein (sie ist auf ILIAS zu finden). Sie enthält die Umfrageergebnisse aus der ersten Session der Vorlesung zur Frage ‘Haben Sie schon mal einen Statistikkurs besucht?’\n\nWie viele Einträge enthält der Datensatz?\nWie viele Variablen enthält der Datensatz?\nSind die Variablen numerisch oder kategorial? Wurden die Variablen auch so von R eingelesen?\nErklären Sie jede Variable. Welche Information enthält sie?\nStellen Sie die Antworten auf die Frage als Balkendiagramm dar. Es soll wie unten dargestellt aussehen. Achtung, da der Variablenname Leer- und Sonderzeichen enthält, muss er zwischen Hochkommas angegeben werden:\n\nmapping = aes(x = `Haben Sie schon mal einen Statistikkurs besucht?`)\n\n\n\n\n\n\nWie viele Teilnehmende haben bereits einen Statistikkurs besucht (ungefähr)?\n\n\n\n\n\n4.7.2 Ihre Arbeit einreichen\nReichen Sie die Aufgabe aus Kapitel 4.7 bei fiete.ai ein und erhalten Sie feedback:\nfiete.ai Hausaufgabe Kapitel 4.7\n\n\n\n\nIsmay, Chester, and Albert Y. Kim. 2021. ModernDive: Statistical Inference via Data Science. https://moderndive.com/."
+  },
+  {
+    "objectID": "03-ggplot.html#sec-ha-kap3",
+    "href": "03-ggplot.html#sec-ha-kap3",
+    "title": "3  Einführung in die Darstellung von Daten",
+    "section": "3.7 Hausaufgaben",
+    "text": "3.7 Hausaufgaben\n\n3.7.1 Darstellung von großen Zahlen\nWir verändern die Grafik aus Kapitel 3.2 so, dass die Symbole nach der Größe der Einwohnerzahl skaliert werden. Dazu benutzen wir ein neues Argument in der Funktion aes(size = pop):\n\nggplot(data = gapminder2007, \n       mapping = aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +\n  geom_point() + \n  labs(x = 'Bruttoinlandsprodukt pro Einwohner (US$, inflationsbereinigt)',\n       y = 'Lebenserwartung bei der Geburt (Jahre)',\n       color = 'Kontinent',\n       title = 'Daten von Gapminder für das Jahr 2007',\n       caption = 'http://www.gapminder.org/data/')\n\n\n\n\nDie Einwohnerzahlen sind sehr groß. Daher stellt R sie in der sogen. wissenschaftlichen Notation dar. Dabei steht z. B. e+08 für \\(10^8\\). Das heißt 2.5e+08 sind 250000000 Einwohner.\nBeschriften Sie die Legende für die Größe der Symbole richtig, indem Sie size = 'Einwohnerzahl' in der Funktion labs() hinzufügen.\n\n\n3.7.2 Grafiken richtig beschriften\nBis auf die Grafik in Kapitel 3.4 fehlen bei den Grafiken oben ordentliche Achsenbeschriftungen und Titel für die Legenden. Ergänzen Sie den Code entsprechend.\n\n\n3.7.3 Ihre Arbeit einreichen\nReichen Sie die Aufgabe aus Kapitel 3.7 bei fiete.ai ein und erhalten Sie feedback:\nfiete.ai aus Kapitel 3.7"
   }
 ]
