@@ -149,7 +149,7 @@ Reichen Sie die Aufgabe 3.7 bei fiete.ai ein und erhalten Sie feedback:
 
 [fiete.ai Aufgabe 3.7](https://app.fiete.ai/a/cm2irrbu62b8q41jqkkyvey0a)
 
-### Vertiefung ggplot2 auf datacamp
+## Vertiefung ggplot2 auf datacamp
 
 Bearbeiten Sie das Kapitel 1 im Kurs “Introduction to Data Visualization with ggplot2” auf datacamp.
 
