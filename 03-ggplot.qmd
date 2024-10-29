@@ -147,7 +147,7 @@ Bis auf die Grafik in @sec-line fehlen bei den Grafiken oben ordentliche Achsenb
 ### Ihre Arbeit einreichen
 Reichen Sie die Aufgabe aus @sec-ha-kap3 bei fiete.ai ein und erhalten Sie feedback:
 
-[fiete.ai Hausaufgabe @sec-ha-kap3](https://app.fiete.ai/a/cm2irrbu62b8q41jqkkyvey0a)
+[fiete.ai Hausaufgabe](https://app.fiete.ai/a/cm2irrbu62b8q41jqkkyvey0a)
 
 ## Vertiefung ggplot2 auf datacamp
 

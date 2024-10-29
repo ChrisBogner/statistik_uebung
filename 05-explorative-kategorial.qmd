@@ -2,7 +2,7 @@
 
 :::{.outcomes}
 - Den Pipe-Operator `%>%`nutzen
-- Kategoriale Variablen in Faktor umwandeln
+- Kategoriale Variablen in Faktoren umwandeln
 - Kategoriale Variablen darstellen
 - Neue Variablen mit `mutate()` erstellen
 - Häufigkeits- und Kontingenztabellen erstellen
@@ -11,6 +11,7 @@
 ```{r}
 #| echo: false
 #| warning: false
+#| message: false
 library(tidyverse)
 library(kableExtra)
 library(lubridate)
@@ -30,7 +31,7 @@ Das Einlesen eines Datensatzes aus einer Textdatei haben Sie ja bereits im letzt
 ```{r}
 #| warning: false
 #| message: false
-car_numbers <- read_delim(file = 'Daten/autos_2023-10-08.csv', delim = ';')
+car_numbers <- read_delim(file = 'Daten/autos_2024-10-14.csv', delim = ';')
 ```
 ### Kategoriale Variablen als Faktoren
 Wir sehen uns das `tibble` etwas genauer an.
@@ -47,7 +48,7 @@ car_numbers <- car_numbers %>%
   mutate(geo_factor = as_factor(geo))
 ```
 
-Das Zeichen `%>%` heißt Pipe-Operator. Man spricht ihn als **und dann** aus. Mehr dazu lernen Sie im Tutorium. Hier reicht es, wenn Sie sich die Funktion des Pipe-Operators als ein **Weitergeben** oder ein **Übergeben** des Objekts auf der linken Seite des Pipe-Operators (also `car_numbers`) an die erste Stelle der Funktion in der neuen Zeile (bzw. rechts vom Pipe-Operator, also an die Funktion `mutate()`) vorstellen. Das bedeutet, dass man den Code oben auch wie folgt schreiben könnte: 
+Das Zeichen `%>%` heißt Pipe-Operator. Man spricht ihn als **und dann** aus. Die Funktion des Pipe-Operators ist ein **Weitergeben** oder ein **Übergeben** des Objekts auf der linken Seite des Pipe-Operators (also `car_numbers`) an die erste Stelle der Funktion in der neuen Zeile (bzw. rechts vom Pipe-Operator, also an die Funktion `mutate()`). Das bedeutet, dass man den Code oben auch wie folgt schreiben könnte: 
 ```{r}
 car_numbers_test <- mutate(.data = car_numbers, geo_factor = as_factor(geo))
 ```
@@ -60,7 +61,7 @@ car_numbers_test
 ```
 
 
-Das ist aber viel unübersichtlicher als mit dem Pipe-Operator. Da dieser den Code so schön strukturiert, wird er häufig verwendet und ist ein fester Bestandteil von `tidyverse`. 
+Das ist aber viel unübersichtlicher als mit dem Pipe-Operator. Da dieser den Code so schön strukturiert, wird er häufig verwendet und ist ein fester Bestandteil von `tidyverse`. Seit der R-Version 4.1.0 gibt es einen weiteren Pipe-Operator `|>`. Er ist Teil von R base, also der Grundausstattung in R, und man braucht kein Paket zu laden, um diesen Pipe-Operator zu benutzten. Allerdings ist der Pipe-Operator `%>%` aus `tidyverse` flexibler. Daher übern wir mit diesem.
 
 Die Funktion `mutate()` kann neue Variablen in einem Datensatz erstellen, verändern oder löschen. In unserem Fall erstellen wir eine neue Variable, die wir `geo_factor` nennen. Die Funktion `as_factor()` wandelt (konvertiert) die Text-Variable `geo` in einen Faktor. 
 
@@ -92,7 +93,7 @@ Wir möchten die Daten als Balkendiagramm darstellen. Das Ziel ist eine ähnlich
 #| echo: false
 #| warning: false
 #| message: false
-ggplot(car_numbers, aes(x = geo, y = values, fill = as_factor(year(time)))) +
+ggplot(car_numbers, aes(x = geo, y = values, fill = as_factor(year(TIME_PERIOD)))) +
   geom_col(position = position_dodge()) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
   labs(x = '', y = 'Anzahl pro 1000 Einwohner',
@@ -108,10 +109,10 @@ Dafür müssen wir zuerst eine neue Variable erstellen, die wir zum Einfärben d
 library(lubridate)
 ```
 
-Nun nutzen wir die Funktion `year()` aus `lubridate`, um aus der Variablen `time` nur das Jahr zu extrahieren. Wir erstellen dazu mit `mutate()` wieder eine neue Variable, die wir `time_year` nennen.
+Nun nutzen wir die Funktion `year()` aus `lubridate`, um aus der Variablen `TIME_PERIOD` nur das Jahr zu extrahieren. Wir erstellen dazu mit `mutate()` wieder eine neue Variable, die wir `time_year` nennen.
 ```{r}
 car_numbers <- car_numbers %>% 
-  mutate(time_year = year(time))
+  mutate(time_year = year(TIME_PERIOD))
 ```
 
 Auch diese Variable wir an das Ende des Datensatzes `car_numbers` gestellt.
@@ -226,7 +227,7 @@ Bis auf wenige ästhetische Griffe ist das jetzt das Gleiche wie in der Vorlesun
 <!-- ## Lesestoff -->
 <!-- Kapitel 2.1 in @ModernDive -->
 
-## Aufgaben
+## Hausaufgaben {#sec-ha-kap5}
 
 ### Grafik beschriften
 Beschriften Sie die finale Grafik aus @sec-geom-col so, dass sie wie dort anfangs dargestellt aussieht.
@@ -236,10 +237,13 @@ Beschriften Sie die finale Grafik aus @sec-geom-col so, dass sie wie dort anfang
 2. Ich habe in der Vorlesung `theme_classic()` benutzt. Ändern Sie die finale Grafik in @sec-geom-col so, dass auch dort dieses `theme` benutzt wird.
 3. Finden Sie heraus, was `hjust` und `vjust` tun. Probieren Sie die Werte 0, 0.5 und 1 aus. Wie ändert sich die Position der Ländernamen?
 
-### Tutorium 
-Bearbeiten Sie das Tutorium "Explorative Datenanalyse: 1 - Erkundung kategorischer Daten". Sie können entweder die deutsche Übersetzung oder das [englische Original](https://openintro.shinyapps.io/ims-02-explore-01/) bearbeiten. Das Tutorium muss nicht hochgeladen werden.
+<!-- ### Tutorium  -->
+<!-- Bearbeiten Sie das Tutorium "Explorative Datenanalyse: 1 - Erkundung kategorischer Daten". Sie können entweder die deutsche Übersetzung oder das [englische Original](https://openintro.shinyapps.io/ims-02-explore-01/) bearbeiten. Das Tutorium muss nicht hochgeladen werden. -->
 
-## Ihre Arbeit einreichen
-- Speichern Sie Ihr Notebook ab.
-- Laden Sie Ihre .Rmd Datei in ILIAS hoch. **Beachten Sie die Frist!**
-- Sie erhalten die Musterlösung nach dem Hochladen.
+### Ihre Arbeit einreichen
+Reichen Sie die Aufgabe aus @sec-ha-kap5 bei fiete.ai ein und erhalten Sie feedback:
+
+[fiete.ai Hausaufgabe](https://app.fiete.ai/a/cm2m3tkok2s543bxtdfmn0hgo)
+
+## Exolorative Datenanalyse von kategorialen Daten vertiefen
+Bearbeiten Sie das Kapitel 1 des Kurses "Exploratory Data Analysis in R" auf datacamp.
