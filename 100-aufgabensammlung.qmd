@@ -48,6 +48,8 @@ kable(birds) %>%
 
 Sie sollten die gleiche (bis auf die Farbauswahl) Grafik erhalten, wie in der Vorlesung `r emo::ji('nerd')`.
 
+[Link zu fiete.ai](https://app.fiete.ai/a/cm2iqbpoz2aqx41jqyoe1hbyo)
+
 ## Daten in R einlesen und aus R speichern 
 
 ### Politbarometer 2021: Einlesen von Fremdformaten {#sec-aufgabe-politbarometer-einlesen}
