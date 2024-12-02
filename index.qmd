@@ -69,7 +69,7 @@ Dieses Skript baut stark auf folgenden freien Quellen auf:
 -   r4ds: @r4ds
 -   ggplot2: @Wickham2020
 -   ModernDive: @ModernDive
--   Introduction to Modern Statistics: @IMS2021
+-   Introduction to Modern Statistics: @IMS2024
 
 Den Autoren dieser Bücher gilt ein großer Dank für Ihren Beitrag zur `r fontawesome::fa("r-project", fill = "steelblue")`-Community `r fontawesome::fa("heart", fill = "red")`!
 

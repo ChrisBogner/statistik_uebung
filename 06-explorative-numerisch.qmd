@@ -319,9 +319,9 @@ ggplot(monthly_means, aes(x = year_month, y = mean_T, ymin = mean_T - sd_T, ymax
 
 - Eine [live Analyse](https://www.youtube.com/watch?v=go5Au01Jrvs) des Hauptautors von `tidyverse`, Hadley Wickham. Empfehlenswert, auch wenn er viel zu schnell tippt `r emo::ji('smile')`.
 
-## Aufgaben
+## Hausaufgaben {#sec-ha-kap7}
 
-### Was bedeutet der Code?
+### Was bedeutet der Code? {#sec-ha-code}
 Was bedeuten die Parameter `ymin` und `ymax` im folgenden Code?
 ```{r}
 #| eval: false
@@ -329,13 +329,15 @@ ggplot(monthly_means, aes(x = year_month, y = mean_T, ymin = mean_T - sd_T, ymax
 ```
 
 ### Welche Mittelwerte sind sinnvoll?
-Diskutieren Sie kritisch, für welche Zeitabschnitte in unseren Daten die Berechnung der Jahresmitteltemperatur sinnvoll ist und interpretiert werden kann. Begründen Sie.
+Diskutieren Sie kritisch, für welche Zeitabschnitte in unseren Daten die Berechnung der Jahresmitteltemperatur sinnvoll ist und interpretiert werden kann. Begründen Sie. Die Besprechung erfolgt in der nächsten Übung.
 
-### Politbarometer
-Bearbeiten Sie die Aufgaben @sec-aufgabe-politbarometer-einlesen und @sec-aufgabe-politbarometer-exploration-kategorial aus der Aufgabensammlung.
+<!-- ### Politbarometer -->
+<!-- Bearbeiten Sie die Aufgaben @sec-aufgabe-politbarometer-einlesen und @sec-aufgabe-politbarometer-exploration-kategorial aus der Aufgabensammlung. -->
 
+### Lab 02: Pünktlichkeit von Flügen
+Bearbeiten Sie das Lab 02. Die Besprechung erfolgt in der nächsten Übung.
 
 ## Ihre Arbeit einreichen
-- Speichern Sie Ihr Notebook ab.
-- Laden Sie Ihre .Rmd Datei in ILIAS hoch. **Beachten Sie die Frist!**
-- Sie erhalten die Musterlösung nach dem Hochladen.
+Reichen Sie die Aufgabe @sec-ha-code bei fiete.ai ein und erhalten Sie feedback:
+
+[fiete.ai Hausaufgabe](https://app.fiete.ai/a/cm472kf6rjapp14867huka8sh)

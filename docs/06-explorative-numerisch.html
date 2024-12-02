@@ -352,11 +352,11 @@ div.csl-indent {
   <li><a href="#monatliche-durchschnittstemperatur-und-ihre-variabilität" id="toc-monatliche-durchschnittstemperatur-und-ihre-variabilität" class="nav-link" data-scroll-target="#monatliche-durchschnittstemperatur-und-ihre-variabilität"><span class="toc-section-number">6.4.3</span>  Monatliche Durchschnittstemperatur und ihre Variabilität</a></li>
   </ul></li>
   <li><a href="#weiterführende-literatur-und-videos" id="toc-weiterführende-literatur-und-videos" class="nav-link" data-scroll-target="#weiterführende-literatur-und-videos"><span class="toc-section-number">6.5</span>  Weiterführende Literatur und Videos</a></li>
-  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="toc-section-number">6.6</span>  Aufgaben</a>
+  <li><a href="#sec-ha-kap7" id="toc-sec-ha-kap7" class="nav-link" data-scroll-target="#sec-ha-kap7"><span class="toc-section-number">6.6</span>  Hausaufgaben</a>
   <ul class="collapse">
-  <li><a href="#was-bedeutet-der-code" id="toc-was-bedeutet-der-code" class="nav-link" data-scroll-target="#was-bedeutet-der-code"><span class="toc-section-number">6.6.1</span>  Was bedeutet der Code?</a></li>
+  <li><a href="#sec-ha-code" id="toc-sec-ha-code" class="nav-link" data-scroll-target="#sec-ha-code"><span class="toc-section-number">6.6.1</span>  Was bedeutet der Code?</a></li>
   <li><a href="#welche-mittelwerte-sind-sinnvoll" id="toc-welche-mittelwerte-sind-sinnvoll" class="nav-link" data-scroll-target="#welche-mittelwerte-sind-sinnvoll"><span class="toc-section-number">6.6.2</span>  Welche Mittelwerte sind sinnvoll?</a></li>
-  <li><a href="#politbarometer" id="toc-politbarometer" class="nav-link" data-scroll-target="#politbarometer"><span class="toc-section-number">6.6.3</span>  Politbarometer</a></li>
+  <li><a href="#lab-02-pünktlichkeit-von-flügen" id="toc-lab-02-pünktlichkeit-von-flügen" class="nav-link" data-scroll-target="#lab-02-pünktlichkeit-von-flügen"><span class="toc-section-number">6.6.3</span>  Lab 02: Pünktlichkeit von Flügen</a></li>
   </ul></li>
   <li><a href="#ihre-arbeit-einreichen" id="toc-ihre-arbeit-einreichen" class="nav-link" data-scroll-target="#ihre-arbeit-einreichen"><span class="toc-section-number">6.7</span>  Ihre Arbeit einreichen</a></li>
   </ul>
@@ -839,10 +839,10 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 <li><p>Eine <a href="https://www.youtube.com/watch?v=go5Au01Jrvs">live Analyse</a> des Hauptautors von <code>tidyverse</code>, Hadley Wickham. Empfehlenswert, auch wenn er viel zu schnell tippt 😄.</p></li>
 </ul>
 </section>
-<section id="aufgaben" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">6.6</span> Aufgaben</h2>
-<section id="was-bedeutet-der-code" class="level3" data-number="6.6.1">
-<h3 data-number="6.6.1" class="anchored" data-anchor-id="was-bedeutet-der-code"><span class="header-section-number">6.6.1</span> Was bedeutet der Code?</h3>
+<section id="sec-ha-kap7" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="sec-ha-kap7"><span class="header-section-number">6.6</span> Hausaufgaben</h2>
+<section id="sec-ha-code" class="level3" data-number="6.6.1">
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="sec-ha-code"><span class="header-section-number">6.6.1</span> Was bedeutet der Code?</h3>
 <p>Was bedeuten die Parameter <code>ymin</code> und <code>ymax</code> im folgenden Code?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_means, <span class="fu">aes</span>(<span class="at">x =</span> year_month, <span class="at">y =</span> mean_T, <span class="at">ymin =</span> mean_T <span class="sc">-</span> sd_T, <span class="at">ymax =</span> mean_T <span class="sc">+</span> sd_T))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -850,20 +850,19 @@ $ eor         &lt;chr&gt; "eor", "eor", "eor", "eor", "eor", "eor", "eor", "eor"
 </section>
 <section id="welche-mittelwerte-sind-sinnvoll" class="level3" data-number="6.6.2">
 <h3 data-number="6.6.2" class="anchored" data-anchor-id="welche-mittelwerte-sind-sinnvoll"><span class="header-section-number">6.6.2</span> Welche Mittelwerte sind sinnvoll?</h3>
-<p>Diskutieren Sie kritisch, für welche Zeitabschnitte in unseren Daten die Berechnung der Jahresmitteltemperatur sinnvoll ist und interpretiert werden kann. Begründen Sie.</p>
+<p>Diskutieren Sie kritisch, für welche Zeitabschnitte in unseren Daten die Berechnung der Jahresmitteltemperatur sinnvoll ist und interpretiert werden kann. Begründen Sie. Die Besprechung erfolgt in der nächsten Übung.</p>
+<!-- ### Politbarometer -->
+<!-- Bearbeiten Sie die Aufgaben @sec-aufgabe-politbarometer-einlesen und @sec-aufgabe-politbarometer-exploration-kategorial aus der Aufgabensammlung. -->
 </section>
-<section id="politbarometer" class="level3" data-number="6.6.3">
-<h3 data-number="6.6.3" class="anchored" data-anchor-id="politbarometer"><span class="header-section-number">6.6.3</span> Politbarometer</h3>
-<p>Bearbeiten Sie die Aufgaben <a href="100-aufgabensammlung.html#sec-aufgabe-politbarometer-einlesen"><span>Kapitel&nbsp;A.3.1</span></a> und <a href="100-aufgabensammlung.html#sec-aufgabe-politbarometer-exploration-kategorial"><span>Kapitel&nbsp;A.4.1</span></a> aus der Aufgabensammlung.</p>
+<section id="lab-02-pünktlichkeit-von-flügen" class="level3" data-number="6.6.3">
+<h3 data-number="6.6.3" class="anchored" data-anchor-id="lab-02-pünktlichkeit-von-flügen"><span class="header-section-number">6.6.3</span> Lab 02: Pünktlichkeit von Flügen</h3>
+<p>Bearbeiten Sie das Lab 02. Die Besprechung erfolgt in der nächsten Übung.</p>
 </section>
 </section>
 <section id="ihre-arbeit-einreichen" class="level2" data-number="6.7">
 <h2 data-number="6.7" class="anchored" data-anchor-id="ihre-arbeit-einreichen"><span class="header-section-number">6.7</span> Ihre Arbeit einreichen</h2>
-<ul>
-<li>Speichern Sie Ihr Notebook ab.</li>
-<li>Laden Sie Ihre .Rmd Datei in ILIAS hoch. <strong>Beachten Sie die Frist!</strong></li>
-<li>Sie erhalten die Musterlösung nach dem Hochladen.</li>
-</ul>
+<p>Reichen Sie die Aufgabe <a href="#sec-ha-code"><span>Kapitel&nbsp;6.6.1</span></a> bei fiete.ai ein und erhalten Sie feedback:</p>
+<p><a href="https://app.fiete.ai/a/cm472kf6rjapp14867huka8sh">fiete.ai Hausaufgabe</a></p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
