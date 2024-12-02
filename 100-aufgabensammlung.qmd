@@ -109,6 +109,8 @@ gesis_short <- gesis %>%
 
 8. Speichern Sie den neuen Datensatz `gesis_short` mit `write_delim()` ab.
 
+[Link zu fiete.ai für Feedback](https://app.fiete.ai/a/cm2iqd6xf2arg41jqj69dla1n)
+
 ## Exploration von kategorialen Daten
 
 ### Politbarometer 2021: Das Interesse für Politik {#sec-aufgabe-politbarometer-exploration-kategorial}
@@ -187,6 +189,8 @@ ggplot(data = ___, mapping = aes(y = ___, fill = ___)) +
 ```
 
 Was macht `geom_bar(position = position_fill(reverse = TRUE))`?
+
+[Link zu fiete.ai für Feedback](https://app.fiete.ai/a/cm2iqfn3w2at041jqpfru5h9h)
 
 ## Exploration von numerischen Daten
 
