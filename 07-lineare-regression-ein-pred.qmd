@@ -138,7 +138,7 @@ Die Steigung des linearen Modells beschreibt, um wie viel die durchschnittliche 
 Bearbeiten Sie das Tutorium "Regression modeling: 4 - Interpreting regression models", das Sie [hier finden](ttps://openintro.shinyapps.io/ims-03-model-04/). Das Tutorium muss nicht abgegeben werden.
 
 
-### Vorhersagen
+### Vorhersagen {#sec-ha-prediction}
 Nachdem Sie das Tutorium durchgearbeitet haben, nutzen Sie Ihr neues Wissen, und 
 
 1. Berechnen Sie für einen Pinguin mit der Körpermasse 5000 g die zu erwartende Flügellänge. Tipp: `new_data <- data.frame(body_mass_g = 5000)`.
@@ -160,7 +160,7 @@ ggplot(data = penguins, mapping = aes(x = body_mass_g, y = flipper_length_mm)) +
 
 ## Ihre Arbeit einreichen
 
-Reichen Sie die Aufgabe @sec-ha-code bei fiete.ai ein und erhalten Sie feedback:
+Reichen Sie die Aufgabe @sec-ha-prediction bei fiete.ai ein und erhalten Sie feedback:
 
 [fiete.ai Hausaufgabe](https://app.fiete.ai/a/cm2neicsf04ff46b8fyzhrqlr)
 
