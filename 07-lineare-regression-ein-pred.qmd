@@ -135,7 +135,7 @@ Die Steigung des linearen Modells beschreibt, um wie viel die durchschnittliche 
 ## Hausaufgaben {#sec-ha-kap7}
 
 ### Tutorium 
-Bearbeiten Sie das Tutorium "Regression modeling: 4 - Interpreting regression models", das Sie [hier finden](ttps://openintro.shinyapps.io/ims-03-model-04/). Das Tutorium muss nicht abgegeben werden.
+Bearbeiten Sie das Tutorium "Regression modeling: 4 - Interpreting regression models", das Sie [hier finden](https://openintro.shinyapps.io/ims-03-model-04/). Das Tutorium muss nicht abgegeben werden.
 
 
 ### Vorhersagen {#sec-ha-prediction}
