@@ -61,7 +61,7 @@ car_numbers_test
 ```
 
 
-Das ist aber viel unübersichtlicher als mit dem Pipe-Operator. Da dieser den Code so schön strukturiert, wird er häufig verwendet und ist ein fester Bestandteil von `tidyverse`. Seit der R-Version 4.1.0 gibt es einen weiteren Pipe-Operator `|>`. Er ist Teil von R base, also der Grundausstattung in R, und man braucht kein Paket zu laden, um diesen Pipe-Operator zu benutzten. Allerdings ist der Pipe-Operator `%>%` aus `tidyverse` flexibler. Daher übern wir mit diesem.
+Das ist aber viel unübersichtlicher als mit dem Pipe-Operator. Da dieser den Code so schön strukturiert, wird er häufig verwendet und ist ein fester Bestandteil von `tidyverse`. Seit der R-Version 4.1.0 gibt es einen weiteren Pipe-Operator `|>`. Er ist Teil von R base, also der Grundausstattung in R, und man braucht kein Paket zu laden, um diesen Pipe-Operator zu benutzten. Allerdings ist der Pipe-Operator `%>%` aus `tidyverse` flexibler. Daher arbeiten wir mit diesem.
 
 Die Funktion `mutate()` kann neue Variablen in einem Datensatz erstellen, verändern oder löschen. In unserem Fall erstellen wir eine neue Variable, die wir `geo_factor` nennen. Die Funktion `as_factor()` wandelt (konvertiert) die Text-Variable `geo` in einen Faktor. 
 

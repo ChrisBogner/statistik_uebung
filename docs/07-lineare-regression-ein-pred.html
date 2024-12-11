@@ -346,7 +346,7 @@ div.csl-indent {
   <li><a href="#wie-gut-ist-das-modell" id="toc-wie-gut-ist-das-modell" class="nav-link" data-scroll-target="#wie-gut-ist-das-modell"><span class="toc-section-number">7.3.4</span>  Wie gut ist das Modell?</a></li>
   <li><a href="#interpretation-der-modellparameter" id="toc-interpretation-der-modellparameter" class="nav-link" data-scroll-target="#interpretation-der-modellparameter"><span class="toc-section-number">7.3.5</span>  Interpretation der Modellparameter</a></li>
   </ul></li>
-  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="toc-section-number">7.4</span>  Aufgaben</a>
+  <li><a href="#sec-ha-kap7" id="toc-sec-ha-kap7" class="nav-link" data-scroll-target="#sec-ha-kap7"><span class="toc-section-number">7.4</span>  Hausaufgaben</a>
   <ul class="collapse">
   <li><a href="#tutorium" id="toc-tutorium" class="nav-link" data-scroll-target="#tutorium"><span class="toc-section-number">7.4.1</span>  Tutorium</a></li>
   <li><a href="#vorhersagen" id="toc-vorhersagen" class="nav-link" data-scroll-target="#vorhersagen"><span class="toc-section-number">7.4.2</span>  Vorhersagen</a></li>
@@ -413,7 +413,8 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">y =</span> flipper_length_mm)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="07-lineare-regression-ein-pred_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
@@ -428,10 +429,12 @@ div.csl-indent {
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing non-finite values (`stat_smooth()`).</code></pre>
+<pre><code>Warning: Removed 2 rows containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="07-lineare-regression-ein-pred_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
@@ -483,7 +486,8 @@ div.csl-indent {
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Angepasste Werte'</span>, <span class="at">y =</span> <span class="st">'Residuen'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="07-lineare-regression-ein-pred_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
@@ -514,11 +518,11 @@ div.csl-indent {
 <p>Die Steigung des linearen Modells beschreibt, um wie viel die durchschnittliche Flügellänge sich ändert, wenn die Körpermasse des Tieres um eine Einheit (also ein g) steigt. Der <span class="math inline">\(y\)</span>-Achsenabschnitt beschreibt die durchschnittliche Flügellänge, wenn die Körpermasse 0 ist. Das ist keine relevante Größe, da Körpermassen von 0 nicht beobachtet werden. Allerdings darf man den <span class="math inline">\(y\)</span>-Achsenabschnitt nicht einfach weglassen, da sonst die Gerade nicht optimal an die Daten angepasst wird.</p>
 </section>
 </section>
-<section id="aufgaben" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">7.4</span> Aufgaben</h2>
+<section id="sec-ha-kap7" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="sec-ha-kap7"><span class="header-section-number">7.4</span> Hausaufgaben</h2>
 <section id="tutorium" class="level3" data-number="7.4.1">
 <h3 data-number="7.4.1" class="anchored" data-anchor-id="tutorium"><span class="header-section-number">7.4.1</span> Tutorium</h3>
-<p>Bearbeiten Sie das Tutorium “Regressionsmodellierung: 4 - Interpretation von Regressionsmodellen”. Sie können entweder die deutsche Übersetzung oder das <a href="ttps://openintro.shinyapps.io/ims-03-model-04/">englische Original</a> bearbeiten. Das Tutorium muss nicht hochgeladen werden.</p>
+<p>Bearbeiten Sie das Tutorium “Regression modeling: 4 - Interpreting regression models”, das Sie <a href="ttps://openintro.shinyapps.io/ims-03-model-04/">hier finden</a>. Das Tutorium muss nicht abgegeben werden.</p>
 </section>
 <section id="vorhersagen" class="level3" data-number="7.4.2">
 <h3 data-number="7.4.2" class="anchored" data-anchor-id="vorhersagen"><span class="header-section-number">7.4.2</span> Vorhersagen</h3>
@@ -532,16 +536,12 @@ div.csl-indent {
 <p><img src="07-lineare-regression-ein-pred_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Diese Aufgaben ist hochzuladen.</p>
 </section>
 </section>
 <section id="ihre-arbeit-einreichen" class="level2" data-number="7.5">
 <h2 data-number="7.5" class="anchored" data-anchor-id="ihre-arbeit-einreichen"><span class="header-section-number">7.5</span> Ihre Arbeit einreichen</h2>
-<ul>
-<li>Speichern Sie Ihr Notebook ab.</li>
-<li>Laden Sie Ihre .Rmd Datei in ILIAS hoch. <strong>Beachten Sie die Frist!</strong></li>
-<li>Sie erhalten die Musterlösung nach dem Hochladen.</li>
-</ul>
+<p>Reichen Sie die Aufgabe <a href="06-explorative-numerisch.html#sec-ha-code"><span>Kapitel&nbsp;6.6.1</span></a> bei fiete.ai ein und erhalten Sie feedback:</p>
+<p><a href="https://app.fiete.ai/a/cm2neicsf04ff46b8fyzhrqlr">fiete.ai Hausaufgabe</a></p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">

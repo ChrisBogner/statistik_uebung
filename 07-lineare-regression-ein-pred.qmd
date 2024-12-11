@@ -132,10 +132,10 @@ Die Steigung des linearen Modells beschreibt, um wie viel die durchschnittliche 
 
 ```
 
-## Aufgaben
+## Hausaufgaben {#sec-ha-kap7}
 
 ### Tutorium 
-Bearbeiten Sie das Tutorium "Regressionsmodellierung: 4 - Interpretation von Regressionsmodellen". Sie können entweder die deutsche Übersetzung oder das [englische Original](ttps://openintro.shinyapps.io/ims-03-model-04/) bearbeiten. Das Tutorium muss nicht hochgeladen werden.
+Bearbeiten Sie das Tutorium "Regression modeling: 4 - Interpreting regression models", das Sie [hier finden](ttps://openintro.shinyapps.io/ims-03-model-04/). Das Tutorium muss nicht abgegeben werden.
 
 
 ### Vorhersagen
@@ -158,10 +158,9 @@ ggplot(data = penguins, mapping = aes(x = body_mass_g, y = flipper_length_mm)) +
 ```
 
 
-Diese Aufgaben ist hochzuladen.
-
-
 ## Ihre Arbeit einreichen
-- Speichern Sie Ihr Notebook ab.
-- Laden Sie Ihre .Rmd Datei in ILIAS hoch. **Beachten Sie die Frist!**
-- Sie erhalten die Musterlösung nach dem Hochladen.
+
+Reichen Sie die Aufgabe @sec-ha-code bei fiete.ai ein und erhalten Sie feedback:
+
+[fiete.ai Hausaufgabe](https://app.fiete.ai/a/cm2neicsf04ff46b8fyzhrqlr)
+

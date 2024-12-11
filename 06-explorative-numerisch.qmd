@@ -319,7 +319,7 @@ ggplot(monthly_means, aes(x = year_month, y = mean_T, ymin = mean_T - sd_T, ymax
 
 - Eine [live Analyse](https://www.youtube.com/watch?v=go5Au01Jrvs) des Hauptautors von `tidyverse`, Hadley Wickham. Empfehlenswert, auch wenn er viel zu schnell tippt `r emo::ji('smile')`.
 
-## Hausaufgaben {#sec-ha-kap7}
+## Hausaufgaben {#sec-ha-kap6}
 
 ### Was bedeutet der Code? {#sec-ha-code}
 Was bedeuten die Parameter `ymin` und `ymax` im folgenden Code?
