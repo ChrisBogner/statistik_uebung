@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.191">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Übung zur Vorlesung Statistik und Datenanalyse - 12&nbsp; Lab 03: Lineare Regression mit einer erklärenden Variablen</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./30-lab-02-intro-to-data.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken"
+  }
+}</script>
+
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="stat_style.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Lab 03: Lineare Regression mit einer erklärenden Variablen</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Übung zur Vorlesung Statistik und Datenanalyse</a> 
+        <div class="sidebar-tools-main">
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Übung-zur-Vorlesung-Statistik-und-Datenanalyse.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Übung-zur-Vorlesung-Statistik-und-Datenanalyse.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Vorwort</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">EINFÜHRUNG IN R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-erste-schritte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Erste Schritte in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-rmarkdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Markdown für reproduzierbare Forschung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-ggplot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Einführung in die Darstellung von Daten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-einlesen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Daten in R einlesen und aus R speichern</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">EXPLORATIVE DATENANALYSE</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-explorative-kategorial.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exploration von kategorialen Daten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-explorative-numerisch.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exploration von numerischen Daten</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">STATISTISCHE MODELLIERUNG</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-lineare-regression-ein-pred.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lineare Regression mit einer erklärenden Variablen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">STATISTISCHE INFERENZ</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-tests-infer.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesentests mit Randomisierung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-konfidenzintervall-infer.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Konfidenzintervalle mit Bootstrap</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">LABS: EIGENSTÄNDIGE ÜBUNGEN</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-lab-01-intro-to-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Lab 01: Wiederholung und Festigung der Einführung in R und RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30-lab-02-intro-to-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./40-lab-03-linear-regression.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Lab 03: Lineare Regression mit einer erklärenden Variablen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Literatur</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">Anhang</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./100-aufgabensammlung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Aufgabensammlung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#loslegen" id="toc-loslegen" class="nav-link active" data-scroll-target="#loslegen"><span class="toc-section-number">12.1</span>  Loslegen</a>
+  <ul class="collapse">
+  <li><a href="#pakete-laden" id="toc-pakete-laden" class="nav-link" data-scroll-target="#pakete-laden"><span class="toc-section-number">12.1.1</span>  Pakete laden</a></li>
+  <li><a href="#erstellen-eines-reproduzierbaren-berichts" id="toc-erstellen-eines-reproduzierbaren-berichts" class="nav-link" data-scroll-target="#erstellen-eines-reproduzierbaren-berichts"><span class="toc-section-number">12.1.2</span>  Erstellen eines reproduzierbaren Berichts</a></li>
+  <li><a href="#die-daten" id="toc-die-daten" class="nav-link" data-scroll-target="#die-daten"><span class="toc-section-number">12.1.3</span>  Die Daten</a></li>
+  </ul></li>
+  <li><a href="#summe-der-quadrierten-residuen" id="toc-summe-der-quadrierten-residuen" class="nav-link" data-scroll-target="#summe-der-quadrierten-residuen"><span class="toc-section-number">12.2</span>  Summe der quadrierten Residuen</a></li>
+  <li><a href="#das-lineare-modell" id="toc-das-lineare-modell" class="nav-link" data-scroll-target="#das-lineare-modell"><span class="toc-section-number">12.3</span>  Das lineare Modell</a></li>
+  <li><a href="#vorhersage-und-vorhersagefehler" id="toc-vorhersage-und-vorhersagefehler" class="nav-link" data-scroll-target="#vorhersage-und-vorhersagefehler"><span class="toc-section-number">12.4</span>  Vorhersage und Vorhersagefehler</a></li>
+  <li><a href="#modelldiagnose" id="toc-modelldiagnose" class="nav-link" data-scroll-target="#modelldiagnose"><span class="toc-section-number">12.5</span>  Modelldiagnose</a></li>
+  <li><a href="#mehr-übungen" id="toc-mehr-übungen" class="nav-link" data-scroll-target="#mehr-übungen"><span class="toc-section-number">12.6</span>  Mehr Übungen</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-lab-03-linear-regression" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Lab 03: Lineare Regression mit einer erklärenden Variablen</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="info">
+<p>Das ist die deutsche Übersetzung des “OpenIntro Labs for R and tidyverse” <a href="http://openintrostat.github.io/oilabs-tidy/">8. Simple linear regression</a>. Es ist Teil des Buches von Çetinkaya-Rundel et al., <a href="https://openintro-ims.netlify.app/index.html">Introduction to Modern Statistics</a>, lizenziert unter CC-BY-SA 3.0. Übersetzt mit www.DeepL.com/Translator, bearbeitet und ergänzt von C. Bogner</p>
+</div>
+<p>Der Human Freedom Index ist ein Bericht, der versucht, den Begriff “Freiheit” durch eine Reihe verschiedener Variablen für viele Länder auf der ganzen Welt zusammenzufassen. Er dient als grobe objektive Messgröße für die Beziehungen zwischen den verschiedenen Arten von Freiheit – sei es politische, religiöse, wirtschaftliche oder persönliche Freiheit – und anderen sozialen und wirtschaftlichen Umständen. Der Human Freedom Index ist ein jährlich gemeinsam veröffentlichter Bericht des Cato Institute, des Fraser Institute und des Liberales Institute der Friedrich-Naumann-Stiftung für die Freiheit.</p>
+<p>In dieser Übung analysieren Sie Daten aus den Berichten des Human Freedom Index. Ihr Ziel ist es, einige der Beziehungen innerhalb der Daten sowohl grafisch als auch numerisch zusammenzufassen, um herauszufinden, welche Variablen dabei helfen können, eine Geschichte über Freiheit zu erzählen.</p>
+<section id="loslegen" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="loslegen"><span class="header-section-number">12.1</span> Loslegen</h2>
+<section id="pakete-laden" class="level3" data-number="12.1.1">
+<h3 data-number="12.1.1" class="anchored" data-anchor-id="pakete-laden"><span class="header-section-number">12.1.1</span> Pakete laden</h3>
+<p>In diesem Labor werden Sie die Daten mit der <code>tidyverse</code>-Paketreihe untersuchen und visualisieren. Sie werden auch das <code>statsr</code>-Paket verwenden, um eine Regressionslinie auszuwählen, die die Summe der quadratischen Residuen minimiert, und das <code>broom</code>-Paket, um die Regressionsausgabe zu bereinigen. Die Daten finden Sie im <code>openintro</code>-Paket, einem Begleitpaket für OpenIntro-Ressourcen.</p>
+<p>Laden Sie die Pakete.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(statsr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="erstellen-eines-reproduzierbaren-berichts" class="level3" data-number="12.1.2">
+<h3 data-number="12.1.2" class="anchored" data-anchor-id="erstellen-eines-reproduzierbaren-berichts"><span class="header-section-number">12.1.2</span> Erstellen eines reproduzierbaren Berichts</h3>
+<p>Denken Sie daran, dass wir R Markdown verwenden werden, um reproduzierbare Berichte zu erstellen. Gehen Sie in RStudio zu “File -&gt; New File -&gt; R Markdown…” Wählen Sie dann “From Template” und wählen Sie dann “Lab Report for OpenIntro Statistics Labs” aus der Liste der Vorlagen. Oder verfahren Sie so, wie wir es in den Übungen gelernt haben “File -&gt; New File -&gt; R Notebook…” Beide Varianten sind in Ordnung. Wenn Sie die Variante mit R Markdown wählen, gibt es keinen Button “Preview”, sondern Sie müssen das Dokument “knitten” über den Button mit dem Wollknäuel.</p>
+</section>
+<section id="die-daten" class="level3" data-number="12.1.3">
+<h3 data-number="12.1.3" class="anchored" data-anchor-id="die-daten"><span class="header-section-number">12.1.3</span> Die Daten</h3>
+<p>Die Daten, mit denen wir arbeiten, befinden sich im <code>openintro</code>-Paket und heißen <code>hfi</code>, kurz für Human Freedom Index.</p>
+<div class="exercises">
+<ol type="1">
+<li>Welche Dimensionen hat der Datensatz? Was stellt jede Zeile dar?</li>
+</ol>
+</div>
+<div class="exercises">
+<ol start="2" type="1">
+<li>Der Datensatz umfasst viele Jahre, aber wir interessieren uns nur für Daten aus dem Jahr 2016. Filtern Sie Datensatz <code>hfi</code> nach dem Jahr 2016, wählen Sie die sechs Variablen aus und weisen Sie das Ergebnis einem Datensatz namens <code>hfi_2016</code> zu.</li>
+</ol>
+</div>
+<div class="exercises">
+<ol start="3" type="1">
+<li>Welche Art von Diagramm würden Sie verwenden, um die Beziehung zwischen dem persönlichen Freiheitswert, <code>pf_score</code>, und <code>pf_expression_control</code> darzustellen? Stellen Sie diese Beziehung dar, indem Sie die Variable <code>pf_expression_control</code> als Prädiktor verwenden. Sieht die Beziehung linear aus? Wenn Sie den Wert von <code>pf_expression_control</code> eines Landes oder dessen Punktzahl von 10 für politischen Druck und Kontrolle von Medieninhalten kennen würden, wobei 0 die höchste Punktzahl ist, würden Sie dann ein lineares Modell zur Vorhersage des persönlichen Freiheitswerts verwenden?</li>
+</ol>
+</div>
+<p>Wenn die Beziehung linear aussieht, können wir die Stärke der Beziehung mit dem Korrelationskoeffizienten quantifizieren.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>hfi_2016 <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="fu">cor</span>(pf_expression_control, pf_score))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="summe-der-quadrierten-residuen" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="summe-der-quadrierten-residuen"><span class="header-section-number">12.2</span> Summe der quadrierten Residuen</h2>
+<div class="info">
+<p>In diesem Abschnitt verwenden Sie eine interaktive Funktion, um zu untersuchen, was wir unter „Summe der quadrierten Residuen“ verstehen. Sie müssen diese Funktion in Ihrer Konsole ausführen, nicht in Ihrem Markdown-Dokument. Zum Ausführen der Funktion muss außerdem der Datensatz „hfi“ in Ihre Umgebung geladen werden. Sie müssen außerdem sicherstellen, dass auf der Registerkarte „Plots“ unten rechts genügend Platz für die Erstellung eines Plots vorhanden ist.</p>
+</div>
+<p>Denken Sie an die Art und Weise zurück, wie wir die Verteilung einer einzelnen Variablen beschrieben haben. Erinnern Sie sich daran, dass wir Merkmale wie Zentrum, Streuung und Form besprochen haben. Es ist auch nützlich, die Beziehung zwischen zwei numerischen Variablen beschreiben zu können, wie z. B. <code>pf_expression_control</code> und <code>pf_score</code> oben.</p>
+<div class="exercises">
+<ol start="4" type="1">
+<li>Betrachten Sie Ihr Diagramm aus der vorherigen Übung und beschreiben Sie die Beziehung zwischen diesen beiden Variablen. Achten Sie darauf, die Form, Richtung und Stärke der Beziehung sowie ungewöhnliche Beobachtungen zu besprechen.</li>
+</ol>
+</div>
+<p>Genauso wie Sie den Mittelwert und die Standardabweichung verwendet haben, um eine einzelne Variable zusammenzufassen, können Sie die Beziehung zwischen diesen beiden Variablen zusammenfassen, indem Sie die Linie finden, die ihrer Assoziation am besten folgt. Verwenden Sie die folgende interaktive Funktion, um die Linie auszuwählen, die Ihrer Meinung nach am besten durch die Punktwolke verläuft.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ss</span>(<span class="at">x =</span> pf_expression_control, <span class="at">y =</span> pf_score, <span class="at">data =</span> hfi_2016)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nach Ausführung dieses Befehls werden Sie aufgefordert, auf zwei Punkte im Diagramm zu klicken, um eine Linie zu definieren. Sobald Sie dies getan haben, wird die von Ihnen angegebene Linie in Schwarz und die Residuen in Blau angezeigt.</p>
+<div>
+<p>Wenn Ihr Plot unter Ihrem Code-Block angezeigt wird und Sie keine Punkte auswählen können, um eine Linie zu erstellen, führen Sie die folgenden Schritte aus:</p>
+<ul>
+<li>Gehen Sie zur Symbolleiste “Tools” oben in RStudio</li>
+<li>Klicken Sie auf “Global Options…”</li>
+<li>Klicken Sie auf den Bereich “R Markdown” (links)</li>
+<li>Deaktivieren Sie das Kontrollkästchen “Show output inline for all R Markdown documents”</li>
+</ul>
+</div>
+<p>Denken Sie daran, dass die Residuen die Differenz zwischen den beobachteten Werten und den von der Linie vorhergesagten Werten sind:</p>
+<p><span class="math display">\[
+e_i = y_i - \hat{y}_i
+\]</span></p>
+<p>Die häufigste Methode zur Durchführung einer linearen Regression besteht darin, die Linie auszuwählen, die die Summe der quadratischen Residuen minimiert. Um die quadratischen Residuen zu visualisieren, können Sie den plot-Befehl erneut ausführen und das Argument <code>showSquares = TRUE</code> hinzufügen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ss</span>(<span class="at">x =</span> pf_expression_control, <span class="at">y =</span> pf_score, <span class="at">data =</span> hfi_2016, <span class="at">showSquares =</span> <span class="cn">TRUE</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Beachten Sie, dass die Ausgabe der Funktion „plot_ss“ die Steigung und den Schnittpunkt Ihrer Linie sowie die Quadratsumme liefert.</p>
+<div class="exercises">
+<ol start="5" type="1">
+<li>Wählen Sie mithilfe von „plot_ss“ eine Linie aus, die die Summe der Quadrate gut minimiert. Führen Sie die Funktion mehrmals aus. Was war die kleinste Summe der Quadrate, die Sie erhalten haben? Wie schneidet sie im Vergleich zu Ihren Nachbarn ab?</li>
+</ol>
+</div>
+</section>
+<section id="das-lineare-modell" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="das-lineare-modell"><span class="header-section-number">12.3</span> Das lineare Modell</h2>
+<p>Es ist ziemlich mühsam, die richtige Linie der kleinsten Quadrate, d.&nbsp;h. die Linie, die die Summe der quadratischen Residuen minimiert, durch Versuch und Irrtum zu ermitteln. Stattdessen können Sie die Funktion <code>lm()</code> in R verwenden, um das lineare Modell (auch bekannt als Regressionsgerade) anzupassen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pf_score <span class="sc">~</span> pf_expression_control, <span class="at">data =</span> hfi_2016)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Das erste Argument in der Funktion <code>lm()</code> ist eine Formel (Argument formula), die die Form ‘y ~ x’ hat. Hieraus geht hervor, dass wir ein lineares Modell von <code>pf_score</code> als Funktion von <code>pf_expression_control</code> erstellen möchten. Das zweite Argument gibt an, dass R im <code>hfi</code>-Datenrahmen nach den beiden Variablen suchen soll.</p>
+<p><strong>Hinweis:</strong> Piping <strong>funktioniert hier nicht</strong>, da der Datensatz nicht das erste Argument ist!</p>
+<p>Die Ausgabe von <code>lm()</code> ist ein Objekt, das alle Informationen enthält, die wir über das gerade angepasste lineare Modell benötigen. Wir können mit der Funktion <code>tidy()</code> auf diese Informationen zugreifen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(m1)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Betrachten wir diese Ausgabe Stück für Stück. Zunächst wird die Formel, die zur Beschreibung des Modells verwendet wird, oben in der Anzeige als “Call” angezeigt. Nach der Formel finden Sie die Fünf-Zahlen-Zusammenfassung der Residuen. Die als Nächstes angezeigte Tabelle “Coefficients” ist von entscheidender Bedeutung; in der ersten Spalte werden der <span class="math inline">\(y\)</span>-Achsenabschnitt des linearen Modells und der Koeffizient von <code>pf_expression_control</code> angezeigt. Mit dieser Tabelle können wir die Regressionsgerade der kleinsten Quadrate für das lineare Modell aufstellen:</p>
+<p><span class="math display">\[
+\hat{y} = 4,28 + 0,542 \times pf\_expression\_control
+\]</span></p>
+<p>Diese Gleichung sagt uns zwei Dinge:</p>
+<p>Für Länder mit einem <code>pf_expression_control</code>-Wert von 0 (d.&nbsp;h. Länder, in denen der politische Druck auf Medieninhalte am größten ist) erwarten wir einen Mittelwert für die persönliche Freiheit von 4,28. Für jede Zunahme um 1 Einheit bei <code>pf_expression_control</code> erwarten wir eine Zunahme des Mittelwerts für die persönliche Freiheit eines Landes um 0,542 Einheiten.</p>
+<p>Wir können die Modellanpassung anhand von <span class="math inline">\(R^2\)</span> bewerten, dem Anteil der Variabilität in der Zielvariablen, der durch die erklärende Variable erklärt wird. Wir verwenden die Funktion <code>glance()</code>, um auf diese Informationen zuzugreifen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(m1)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Für dieses Modell werden 71,4 % der Variabilität in <code>pf_score</code> durch <code>pf_expression_control</code> erklärt.</p>
+<div class="exercises">
+<ol start="6" type="1">
+<li>Passen Sie ein neues Modell an, das <code>pf_expression_control</code> verwendet, um <code>hf_score</code> oder den Gesamtwert für die menschliche Freiheit vorherzusagen. Schreiben Sie anhand der Schätzungen aus der R-Ausgabe die Gleichung der Regressionslinie. Was sagt uns die Steigung im Zusammenhang mit der Beziehung zwischen der menschlichen Freiheit und dem Ausmaß des politischen Drucks auf Medieninhalte?</li>
+</ol>
+</div>
+</section>
+<section id="vorhersage-und-vorhersagefehler" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="vorhersage-und-vorhersagefehler"><span class="header-section-number">12.4</span> Vorhersage und Vorhersagefehler</h2>
+<p>Erstellen wir ein Streudiagramm mit der Linie der kleinsten Quadrate für <code>m1</code> darüber.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> hfi_2016, <span class="fu">aes</span>(<span class="at">x =</span> pf_expression_control, <span class="at">y =</span> pf_score)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Hier fügen wir buchstäblich eine Ebene über unserem Diagramm hinzu. <code>geom_smooth</code> erstellt die Linie durch Anpassung eines linearen Modells. Es kann uns auch den mit unserer Linie verbundenen Standardfehler <code>se</code> anzeigen, aber wir werden das vorerst unterdrücken.</p>
+<p>Diese Linie kann verwendet werden, um <span class="math inline">\(y\)</span> bei jedem Wert von <span class="math inline">\(x\)</span> vorherzusagen. Wenn Vorhersagen für Werte von <span class="math inline">\(x\)</span> getroffen werden, die außerhalb des Bereichs der beobachteten Daten liegen, wird dies als <em>Extrapolation</em> bezeichnet und ist in der Regel nicht zu empfehlen. Vorhersagen, die innerhalb des Datenbereichs getroffen werden, sind jedoch zuverlässiger. Sie werden auch zur Berechnung der Residuen verwendet.</p>
+<div class="exercises">
+<ol start="7" type="1">
+<li>Wenn jemand nur die Regressionsgerade der kleinsten Quadrate und nicht die tatsächlichen Daten sehen würde, wie würde er dann die Schule für persönliche Freiheit eines Landes mit einer Bewertung von 3 für <code>pf_expression_control</code> vorhersagen? Ist dies eine Überschätzung oder eine Unterschätzung und um wie viel? Mit anderen Worten, wie hoch ist das Residuum für diese Vorhersage?</li>
+</ol>
+</div>
+</section>
+<section id="modelldiagnose" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="modelldiagnose"><span class="header-section-number">12.5</span> Modelldiagnose</h2>
+<p>Um zu beurteilen, ob das lineare Modell zuverlässig ist, müssen wir Folgendes überprüfen: (1) Linearität, (2) nahezu normale Residuen und (3) konstante Variabilität. Die Annahme (2) haben wir noch nicht gelernt, daher können Sie diesen Teil in dieser Übung überspringen.</p>
+<p>Um diese Überprüfungen durchzuführen, benötigen wir Zugriff auf die angepassten (vorhergesagten) Werte und die Residuen. Wir können die Funktion <code>augment()</code> verwenden, um diese zu berechnen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>m1_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(m1)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Linearität</strong>: Sie haben bereits mithilfe eines Streudiagramms überprüft, ob die Beziehung zwischen <code>pf_score</code> und <code>pf_expression_control</code> linear ist. Wir sollten diese Bedingung auch mit einem Diagramm der Residuen im Vergleich zu den angepassten (vorhergesagten) Werten überprüfen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> m1_aug, <span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Fitted values"</span>, <span class="at">y =</span> <span class="st">"Residuals"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Beachten Sie hier, dass <code>m1</code> auch als Datensatz dienen kann, da darin die angepassten Werte (<span class="math inline">\(\hat{y}\)</span>) und die Residuen gespeichert sind. Beachten Sie auch, dass wir hier mit dem Code etwas ausgefallenes machen. Nach der Erstellung des Streudiagramms auf der ersten Ebene (erste Codezeile) überlagern wir eine rote horizontale gestrichelte Linie bei <span class="math inline">\(y = 0\)</span> (um zu überprüfen, ob die Residuen um 0 verteilt sind), und wir benennen auch die Achsenbeschriftungen um, damit sie informativer sind.</p>
+<div class="exercises">
+<ol start="8" type="1">
+<li>Gibt es ein erkennbares Muster im Residuendiagramm? Was sagt dies über die Linearität der Beziehung zwischen den beiden Variablen aus?</li>
+</ol>
+</div>
+<p><br></p>
+<p><strong>Fast normale Residuen</strong>: Um diese Bedingung zu überprüfen, können wir uns ein Histogramm der Residuen ansehen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> m1_aug, <span class="fu">aes</span>(<span class="at">x =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Residuen"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="exercises">
+<ol start="9" type="1">
+<li>Scheint die Bedingung der nahezu normalen Residuen auf der Grundlage des Histogramms verletzt zu sein? Warum oder warum nicht?</li>
+</ol>
+</div>
+<p><br></p>
+<p><strong>Konstante Variabilität</strong>:</p>
+<div class="exercises">
+<ol start="10" type="1">
+<li>Scheint die Bedingung der konstanten Variabilität auf der Grundlage des Residuen-Diagramms verletzt zu sein? Warum oder warum nicht?</li>
+</ol>
+</div>
+</section>
+<section id="mehr-übungen" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="mehr-übungen"><span class="header-section-number">12.6</span> Mehr Übungen</h2>
+<div class="oyo">
+<ol type="1">
+<li><p>Wählen Sie eine andere Variable, von der Sie glauben, dass sie stark mit <code>pf_score</code> korreliert. Erstellen Sie ein Streudiagramm der beiden Variablen und passen Sie ein lineares Modell an. Gibt es auf den ersten Blick eine lineare Beziehung?</p></li>
+<li><p>Wie lässt sich diese Beziehung mit der Beziehung zwischen <code>pf_score</code> und <code>pf_expression_control</code> vergleichen? Verwenden Sie die <span class="math inline">\(R^2\)</span>-Werte aus den beiden Modellzusammenfassungen, um einen Vergleich anzustellen. Scheint Ihre unabhängige Variable <code>pf_score</code> besser vorherzusagen? Warum oder warum nicht?</p></li>
+<li><p>Überprüfen Sie die Modelldiagnose mithilfe geeigneter Visualisierungen und bewerten Sie, ob die Modellbedingungen erfüllt wurden.</p></li>
+<li><p>Wählen Sie ein anderes interessantes Variablenpaar aus und visualisieren Sie die Beziehung zwischen ihnen. Überrascht Sie die Beziehung oder entspricht sie Ihren Erwartungen? Diskutieren Sie, warum Sie sich für diese Variablen interessieren und warum Sie von der beobachteten Beziehung überrascht/nicht überrascht sind.</p></li>
+</ol>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./30-lab-02-intro-to-data.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Lab 02: Pünktlichkeit von Flügen</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">Literatur</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

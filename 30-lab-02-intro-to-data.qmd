@@ -27,7 +27,7 @@ library(openintro)
 
 ### Erstellen eines reproduzierbaren Berichts
 
-Denken Sie daran, dass wir R Markdown verwenden werden, um reproduzierbare Berichte zu erstellen. Gehen Sie in RStudio zu New File -> R Markdown... Wählen Sie dann `From Template` und wählen Sie dann `Lab Report for OpenIntro Statistics Labs` aus der Liste der Vorlagen. Oder verfahren Sie so, wie wir es in den Übungen gelernt haben New File -> R Notebook... Beide Varianten sind in Ordnung. Wenn Sie die Variante mit R Markdown wählen, gibt es keinen Button "Preview", sondern Sie müssen das Dokument "knitten" über den Button mit dem Wollknäuel.
+Denken Sie daran, dass wir R Markdown verwenden werden, um reproduzierbare Berichte zu erstellen. Gehen Sie in RStudio zu "File -> New File -> R Markdown..." Wählen Sie dann "From Template" und wählen Sie dann "Lab Report for OpenIntro Statistics Labs" aus der Liste der Vorlagen. Oder verfahren Sie so, wie wir es in den Übungen gelernt haben "File -> New File -> R Notebook..." Beide Varianten sind in Ordnung. Wenn Sie die Variante mit R Markdown wählen, gibt es keinen Button "Preview", sondern Sie müssen das Dokument "knitten" über den Button mit dem Wollknäuel.
 
 Sehen Sie sich das folgende Video an, in dem beschrieben wird, wie Sie mit der Erstellung dieser Berichte für dieses und alle zukünftigen Labs beginnen können:
 

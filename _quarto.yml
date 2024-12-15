@@ -30,6 +30,7 @@ book:
       chapters: 
         - 25-lab-01-intro-to-r.qmd
         - 30-lab-02-intro-to-data.qmd
+        - 40-lab-03-linear-regression.qmd
     - references.qmd
   appendices:
     - 100-aufgabensammlung.qmd

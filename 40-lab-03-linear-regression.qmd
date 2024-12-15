@@ -1,0 +1,243 @@
+# Lab 03: Lineare Regression mit einer erklärenden Variablen {#sec-lab-03-linear-regression}
+
+:::{.info}
+Das ist die deutsche Übersetzung des "OpenIntro Labs for R and tidyverse" [8. Simple linear regression](http://openintrostat.github.io/oilabs-tidy/). Es ist Teil des Buches von Çetinkaya-Rundel et al., [Introduction to Modern Statistics](https://openintro-ims.netlify.app/index.html), lizenziert unter CC-BY-SA 3.0. Übersetzt mit www.DeepL.com/Translator, bearbeitet und ergänzt von C. Bogner
+:::
+
+```{r global-options}
+#| include=FALSE
+knitr::opts_chunk$set(eval = TRUE, results = FALSE, fig.show = "hide", message = FALSE)
+library(tidyverse)
+library(openintro)
+```
+
+Der Human Freedom Index ist ein Bericht, der versucht, den Begriff "Freiheit" durch eine Reihe verschiedener Variablen für viele Länder auf der ganzen Welt zusammenzufassen.
+Er dient als grobe objektive Messgröße für die Beziehungen zwischen den verschiedenen Arten von Freiheit – sei es politische, religiöse, wirtschaftliche oder persönliche Freiheit – und anderen sozialen und wirtschaftlichen Umständen. Der Human Freedom Index ist ein jährlich gemeinsam veröffentlichter Bericht des Cato Institute, des Fraser Institute und des Liberales Institute der Friedrich-Naumann-Stiftung für die Freiheit.
+
+In dieser Übung analysieren Sie Daten aus den Berichten des Human Freedom Index. Ihr Ziel ist es, einige der Beziehungen innerhalb der Daten sowohl grafisch als auch numerisch zusammenzufassen, um herauszufinden, welche Variablen dabei helfen können, eine Geschichte über Freiheit zu erzählen.
+
+## Loslegen
+
+### Pakete laden
+
+In diesem Labor werden Sie die Daten mit der `tidyverse`-Paketreihe untersuchen und visualisieren. Sie werden auch das `statsr`-Paket verwenden, um eine Regressionslinie auszuwählen, die die Summe der quadratischen Residuen minimiert, und das `broom`-Paket, um die Regressionsausgabe zu bereinigen. Die Daten finden Sie im `openintro`-Paket, einem Begleitpaket für OpenIntro-Ressourcen.
+
+Laden Sie die Pakete.
+
+```{r load-packages}
+#| warning: false
+library(tidyverse)
+library(openintro)
+library(statsr)
+library(broom)
+```
+
+### Erstellen eines reproduzierbaren Berichts
+
+Denken Sie daran, dass wir R Markdown verwenden werden, um reproduzierbare Berichte zu erstellen. Gehen Sie in RStudio zu "File -> New File -> R Markdown..." Wählen Sie dann "From Template" und wählen Sie dann "Lab Report for OpenIntro Statistics Labs" aus der Liste der Vorlagen. Oder verfahren Sie so, wie wir es in den Übungen gelernt haben "File -> New File -> R Notebook..." Beide Varianten sind in Ordnung. Wenn Sie die Variante mit R Markdown wählen, gibt es keinen Button "Preview", sondern Sie müssen das Dokument "knitten" über den Button mit dem Wollknäuel.
+
+### Die Daten
+
+Die Daten, mit denen wir arbeiten, befinden sich im `openintro`-Paket und heißen `hfi`, kurz für Human Freedom Index.
+
+:::{.exercises}
+1. Welche Dimensionen hat der Datensatz? Was stellt jede Zeile dar?
+:::
+
+:::{.exercises}
+2. Der Datensatz umfasst viele Jahre, aber wir interessieren uns nur für Daten aus dem Jahr 2016. Filtern Sie Datensatz `hfi` nach dem Jahr 2016, wählen Sie die sechs Variablen aus und weisen Sie das Ergebnis einem Datensatz namens `hfi_2016` zu.
+:::
+
+```{r}
+#| include: false
+hfi_2016 <- hfi %>% 
+filter(year == 2016)
+```
+
+:::{.exercises}
+3. Welche Art von Diagramm würden Sie verwenden, um die Beziehung zwischen dem persönlichen Freiheitswert, `pf_score`, und `pf_expression_control` darzustellen? Stellen Sie diese Beziehung dar, indem Sie die Variable `pf_expression_control` als Prädiktor verwenden. Sieht die Beziehung linear aus? Wenn Sie den Wert von `pf_expression_control` eines Landes oder dessen Punktzahl von 10 für politischen Druck und Kontrolle von Medieninhalten kennen würden, wobei 0 die höchste Punktzahl ist, würden Sie dann ein lineares Modell zur Vorhersage des persönlichen Freiheitswerts verwenden?
+:::
+
+Wenn die Beziehung linear aussieht, können wir die Stärke der Beziehung mit dem Korrelationskoeffizienten quantifizieren.
+
+```{r cor}
+#| eval: false
+hfi_2016 %>%
+summarise(cor(pf_expression_control, pf_score))
+```
+
+## Summe der quadrierten Residuen
+
+:::{.info}
+In diesem Abschnitt verwenden Sie eine interaktive Funktion, um zu untersuchen, was wir unter „Summe der quadrierten Residuen“ verstehen.
+Sie müssen diese Funktion in Ihrer Konsole ausführen, nicht in Ihrem Markdown-Dokument.
+Zum Ausführen der Funktion muss außerdem der Datensatz „hfi“ in Ihre Umgebung geladen werden.
+Sie müssen außerdem sicherstellen, dass auf der Registerkarte „Plots“ unten rechts genügend Platz für die Erstellung eines Plots vorhanden ist.
+:::
+
+Denken Sie an die Art und Weise zurück, wie wir die Verteilung einer einzelnen Variablen beschrieben haben. Erinnern Sie sich daran, dass wir Merkmale wie Zentrum, Streuung und Form besprochen haben. Es ist auch nützlich, die Beziehung zwischen zwei numerischen Variablen beschreiben zu können, wie z. B. `pf_expression_control` und `pf_score` oben.
+
+:::{.exercises}
+4. Betrachten Sie Ihr Diagramm aus der vorherigen Übung und beschreiben Sie die Beziehung zwischen diesen beiden Variablen. Achten Sie darauf, die Form, Richtung und Stärke der Beziehung sowie ungewöhnliche Beobachtungen zu besprechen.
+:::
+
+Genauso wie Sie den Mittelwert und die Standardabweichung verwendet haben, um eine einzelne Variable zusammenzufassen, können Sie die Beziehung zwischen diesen beiden Variablen zusammenfassen, indem Sie die Linie finden, die ihrer Assoziation am besten folgt.
+Verwenden Sie die folgende interaktive Funktion, um die Linie auszuwählen, die Ihrer Meinung nach am besten durch die Punktwolke verläuft.
+
+```{r plotss-expression-score}
+#| eval: false
+plot_ss(x = pf_expression_control, y = pf_score, data = hfi_2016)
+```
+
+Nach Ausführung dieses Befehls werden Sie aufgefordert, auf zwei Punkte im Diagramm zu klicken, um eine Linie zu definieren.
+Sobald Sie dies getan haben, wird die von Ihnen angegebene Linie in Schwarz und die Residuen in Blau angezeigt.
+
+<div>
+
+Wenn Ihr Plot unter Ihrem Code-Block angezeigt wird und Sie keine Punkte auswählen können, um eine Linie zu erstellen, führen Sie die folgenden Schritte aus:
+
+- Gehen Sie zur Symbolleiste "Tools" oben in RStudio
+- Klicken Sie auf "Global Options..."
+- Klicken Sie auf den Bereich "R Markdown" (links)
+- Deaktivieren Sie das Kontrollkästchen "Show output inline for all R Markdown documents"
+
+</div>
+
+Denken Sie daran, dass die Residuen die Differenz zwischen den beobachteten Werten und den von der Linie vorhergesagten Werten sind:
+
+$$
+e_i = y_i - \hat{y}_i
+$$
+
+Die häufigste Methode zur Durchführung einer linearen Regression besteht darin, die Linie auszuwählen, die die Summe der quadratischen Residuen minimiert. Um die quadratischen Residuen zu visualisieren, können Sie den plot-Befehl erneut ausführen und das Argument `showSquares = TRUE` hinzufügen.
+
+```{r plotss-expression-score-squares}
+#| eval: false
+plot_ss(x = pf_expression_control, y = pf_score, data = hfi_2016, showSquares = TRUE)
+```
+
+Beachten Sie, dass die Ausgabe der Funktion „plot_ss“ die Steigung und den Schnittpunkt Ihrer Linie sowie die Quadratsumme liefert.
+
+:::{.exercises}
+5. Wählen Sie mithilfe von „plot_ss“ eine Linie aus, die die Summe der Quadrate gut minimiert. Führen Sie die Funktion mehrmals aus. Was war die kleinste Summe der Quadrate, die Sie erhalten haben? Wie schneidet sie im Vergleich zu Ihren Nachbarn ab?
+:::
+
+## Das lineare Modell
+
+Es ist ziemlich mühsam, die richtige Linie der kleinsten Quadrate, d. h. die Linie, die die Summe der quadratischen Residuen minimiert, durch Versuch und Irrtum zu ermitteln. Stattdessen können Sie die Funktion `lm()` in R verwenden, um das lineare Modell (auch bekannt als Regressionsgerade) anzupassen.
+
+```{r m1}
+m1 <- lm(pf_score ~ pf_expression_control, data = hfi_2016)
+```
+
+Das erste Argument in der Funktion `lm()` ist eine Formel (Argument formula), die die Form 'y ~ x' hat. Hieraus geht hervor, dass wir ein lineares Modell von `pf_score` als Funktion von `pf_expression_control` erstellen möchten. Das zweite Argument gibt an, dass R im `hfi`-Datenrahmen nach den beiden Variablen suchen soll.
+
+**Hinweis:** Piping **funktioniert hier nicht**, da der Datensatz nicht das erste Argument ist!
+
+Die Ausgabe von `lm()` ist ein Objekt, das alle Informationen enthält, die wir über das gerade angepasste lineare Modell benötigen. Wir können mit der Funktion `tidy()` auf diese Informationen zugreifen.
+
+```{r summary-m1}
+tidy(m1)
+```
+
+Betrachten wir diese Ausgabe Stück für Stück. Zunächst wird die Formel, die zur Beschreibung des Modells verwendet wird, oben in der Anzeige als "Call" angezeigt. Nach der Formel finden Sie die Fünf-Zahlen-Zusammenfassung der Residuen. Die als Nächstes angezeigte Tabelle "Coefficients" ist von entscheidender Bedeutung; in der ersten Spalte werden der $y$-Achsenabschnitt des linearen Modells und der Koeffizient von `pf_expression_control` angezeigt. Mit dieser Tabelle können wir die Regressionsgerade der kleinsten Quadrate für das lineare Modell aufstellen:
+
+$$
+\hat{y} = 4,28 + 0,542 \times pf\_expression\_control
+$$
+
+Diese Gleichung sagt uns zwei Dinge:
+
+Für Länder mit einem `pf_expression_control`-Wert von 0 (d. h. Länder, in denen der politische Druck auf Medieninhalte am größten ist) erwarten wir einen Mittelwert für die persönliche Freiheit von 4,28. Für jede Zunahme um 1 Einheit bei `pf_expression_control` erwarten wir eine Zunahme des Mittelwerts für die persönliche Freiheit eines Landes um 0,542 Einheiten.
+
+Wir können die Modellanpassung anhand von $R^2$ bewerten, dem Anteil der Variabilität in der Zielvariablen, der durch die erklärende Variable erklärt wird. Wir verwenden die Funktion `glance()`, um auf diese Informationen zuzugreifen.
+
+```{r}
+glance(m1)
+```
+
+Für dieses Modell werden 71,4 % der Variabilität in `pf_score` durch `pf_expression_control` erklärt.
+
+:::{.exercises}
+6. Passen Sie ein neues Modell an, das `pf_expression_control` verwendet, um `hf_score` oder den Gesamtwert für die menschliche Freiheit vorherzusagen. Schreiben Sie anhand der Schätzungen aus der R-Ausgabe die Gleichung der Regressionslinie. Was sagt uns die Steigung im Zusammenhang mit der Beziehung zwischen der menschlichen Freiheit und dem Ausmaß des politischen Drucks auf Medieninhalte?
+:::
+
+## Vorhersage und Vorhersagefehler
+
+Erstellen wir ein Streudiagramm mit der Linie der kleinsten Quadrate für `m1` darüber.
+
+```{r reg-with-line}
+ggplot(data = hfi_2016, aes(x = pf_expression_control, y = pf_score)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+Hier fügen wir buchstäblich eine Ebene über unserem Diagramm hinzu. `geom_smooth` erstellt die Linie durch Anpassung eines linearen Modells. Es kann uns auch den mit unserer Linie verbundenen Standardfehler `se` anzeigen, aber wir werden das vorerst unterdrücken.
+
+Diese Linie kann verwendet werden, um $y$ bei jedem Wert von $x$ vorherzusagen. Wenn Vorhersagen für Werte von $x$ getroffen werden, die außerhalb des Bereichs der beobachteten Daten liegen, wird dies als *Extrapolation* bezeichnet und ist in der Regel nicht zu empfehlen. Vorhersagen, die innerhalb des Datenbereichs getroffen werden, sind jedoch zuverlässiger. Sie werden auch zur Berechnung der Residuen verwendet.
+
+:::{.exercises}
+7. Wenn jemand nur die Regressionsgerade der kleinsten Quadrate und nicht die tatsächlichen Daten sehen würde, wie würde er dann die Schule für persönliche Freiheit eines Landes mit einer Bewertung von 3 für `pf_expression_control` vorhersagen? Ist dies eine Überschätzung oder eine Unterschätzung und um wie viel? Mit anderen Worten, wie hoch ist das Residuum für diese Vorhersage?
+:::
+
+## Modelldiagnose
+
+Um zu beurteilen, ob das lineare Modell zuverlässig ist, müssen wir Folgendes überprüfen: (1) Linearität, (2) nahezu normale Residuen und (3) konstante Variabilität. Die Annahme (2) haben wir noch nicht gelernt, daher können Sie diesen Teil in dieser Übung überspringen.
+
+Um diese Überprüfungen durchzuführen, benötigen wir Zugriff auf die angepassten (vorhergesagten) Werte und die Residuen. Wir können die Funktion `augment()` verwenden, um diese zu berechnen.
+
+```{r}
+m1_aug <- augment(m1)
+```
+
+**Linearität**: Sie haben bereits mithilfe eines Streudiagramms überprüft, ob die Beziehung zwischen `pf_score` und `pf_expression_control` linear ist. Wir sollten diese Bedingung auch mit einem Diagramm der Residuen im Vergleich zu den angepassten (vorhergesagten) Werten überprüfen.
+
+```{r Residuen}
+ggplot(data = m1_aug, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  labs(x = "Fitted values", y = "Residuals")
+```
+
+Beachten Sie hier, dass `m1` auch als Datensatz dienen kann, da darin die angepassten Werte ($\hat{y}$) und die Residuen gespeichert sind. Beachten Sie auch, dass wir hier mit dem Code etwas ausgefallenes machen. Nach der Erstellung des Streudiagramms auf der ersten Ebene (erste Codezeile) überlagern wir eine rote horizontale gestrichelte Linie bei $y = 0$ (um zu überprüfen, ob die Residuen um 0 verteilt sind), und wir benennen auch die Achsenbeschriftungen um, damit sie informativer sind.
+
+:::{.exercises}
+8. Gibt es ein erkennbares Muster im Residuendiagramm? Was sagt dies über die Linearität der Beziehung zwischen den beiden Variablen aus?
+:::
+
+</br>
+
+**Fast normale Residuen**: Um diese Bedingung zu überprüfen, können wir uns ein Histogramm der Residuen ansehen.
+
+```{r hist-res}
+ggplot(data = m1_aug, aes(x = .resid)) +
+  geom_histogram(binwidth = 0.25) +
+  labs(x = "Residuen")
+```
+
+:::{.exercises}
+9. Scheint die Bedingung der nahezu normalen Residuen auf der Grundlage des Histogramms verletzt zu sein? Warum oder warum nicht?
+:::
+
+</br>
+
+**Konstante Variabilität**:
+
+:::{.exercises}
+10. Scheint die Bedingung der konstanten Variabilität auf der Grundlage des Residuen-Diagramms verletzt zu sein? Warum oder warum nicht?
+:::
+
+
+## Mehr Übungen
+
+<div class="oyo">
+
+1. Wählen Sie eine andere Variable, von der Sie glauben, dass sie stark mit `pf_score` korreliert. Erstellen Sie ein Streudiagramm der beiden Variablen und passen Sie ein lineares Modell an. Gibt es auf den ersten Blick eine lineare Beziehung?
+
+2. Wie lässt sich diese Beziehung mit der Beziehung zwischen `pf_score` und `pf_expression_control` vergleichen? Verwenden Sie die $R^2$-Werte aus den beiden Modellzusammenfassungen, um einen Vergleich anzustellen. Scheint Ihre unabhängige Variable `pf_score` besser vorherzusagen? Warum oder warum nicht?
+
+3. Überprüfen Sie die Modelldiagnose mithilfe geeigneter Visualisierungen und bewerten Sie, ob die Modellbedingungen erfüllt sind.
+
+4. Wählen Sie ein anderes interessantes Variablenpaar aus und visualisieren Sie die Beziehung zwischen ihnen. Überrascht Sie die Beziehung oder entspricht sie Ihren Erwartungen?
+Diskutieren Sie, warum Sie sich für diese Variablen interessieren und warum Sie von der beobachteten Beziehung überrascht/nicht überrascht sind.
+</div>
