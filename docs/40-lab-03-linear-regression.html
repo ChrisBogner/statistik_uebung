@@ -508,7 +508,6 @@ e_i = y_i - \hat{y}_i
 <li>Gibt es ein erkennbares Muster im Residuendiagramm? Was sagt dies über die Linearität der Beziehung zwischen den beiden Variablen aus?</li>
 </ol>
 </div>
-<p><br></p>
 <p><strong>Fast normale Residuen</strong>: Um diese Bedingung zu überprüfen, können wir uns ein Histogramm der Residuen ansehen.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> m1_aug, <span class="fu">aes</span>(<span class="at">x =</span> .resid)) <span class="sc">+</span></span>
@@ -520,7 +519,6 @@ e_i = y_i - \hat{y}_i
 <li>Scheint die Bedingung der nahezu normalen Residuen auf der Grundlage des Histogramms verletzt zu sein? Warum oder warum nicht?</li>
 </ol>
 </div>
-<p><br></p>
 <p><strong>Konstante Variabilität</strong>:</p>
 <div class="exercises">
 <ol start="10" type="1">
@@ -534,7 +532,7 @@ e_i = y_i - \hat{y}_i
 <ol type="1">
 <li><p>Wählen Sie eine andere Variable, von der Sie glauben, dass sie stark mit <code>pf_score</code> korreliert. Erstellen Sie ein Streudiagramm der beiden Variablen und passen Sie ein lineares Modell an. Gibt es auf den ersten Blick eine lineare Beziehung?</p></li>
 <li><p>Wie lässt sich diese Beziehung mit der Beziehung zwischen <code>pf_score</code> und <code>pf_expression_control</code> vergleichen? Verwenden Sie die <span class="math inline">\(R^2\)</span>-Werte aus den beiden Modellzusammenfassungen, um einen Vergleich anzustellen. Scheint Ihre unabhängige Variable <code>pf_score</code> besser vorherzusagen? Warum oder warum nicht?</p></li>
-<li><p>Überprüfen Sie die Modelldiagnose mithilfe geeigneter Visualisierungen und bewerten Sie, ob die Modellbedingungen erfüllt wurden.</p></li>
+<li><p>Überprüfen Sie die Modelldiagnose mithilfe geeigneter Visualisierungen und bewerten Sie, ob die Modellbedingungen erfüllt sind.</p></li>
 <li><p>Wählen Sie ein anderes interessantes Variablenpaar aus und visualisieren Sie die Beziehung zwischen ihnen. Überrascht Sie die Beziehung oder entspricht sie Ihren Erwartungen? Diskutieren Sie, warum Sie sich für diese Variablen interessieren und warum Sie von der beobachteten Beziehung überrascht/nicht überrascht sind.</p></li>
 </ol>
 </div>

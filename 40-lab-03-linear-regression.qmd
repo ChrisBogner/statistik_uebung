@@ -205,7 +205,6 @@ Beachten Sie hier, dass `m1` auch als Datensatz dienen kann, da darin die angepa
 8. Gibt es ein erkennbares Muster im Residuendiagramm? Was sagt dies über die Linearität der Beziehung zwischen den beiden Variablen aus?
 :::
 
-</br>
 
 **Fast normale Residuen**: Um diese Bedingung zu überprüfen, können wir uns ein Histogramm der Residuen ansehen.
 
@@ -219,7 +218,6 @@ ggplot(data = m1_aug, aes(x = .resid)) +
 9. Scheint die Bedingung der nahezu normalen Residuen auf der Grundlage des Histogramms verletzt zu sein? Warum oder warum nicht?
 :::
 
-</br>
 
 **Konstante Variabilität**:
 
