@@ -45,7 +45,7 @@ Die Daten, mit denen wir arbeiten, befinden sich im `openintro`-Paket und heiße
 :::
 
 :::{.exercises}
-2. Der Datensatz umfasst viele Jahre, aber wir interessieren uns nur für Daten aus dem Jahr 2016. Filtern Sie Datensatz `hfi` nach dem Jahr 2016, wählen Sie die sechs Variablen aus und weisen Sie das Ergebnis einem Datensatz namens `hfi_2016` zu.
+2. Der Datensatz umfasst viele Jahre, aber wir interessieren uns nur für Daten aus dem Jahr 2016. Filtern Sie Datensatz `hfi` nach dem Jahr 2016 und weisen Sie das Ergebnis einem Datensatz namens `hfi_2016` zu.
 :::
 
 ```{r}
