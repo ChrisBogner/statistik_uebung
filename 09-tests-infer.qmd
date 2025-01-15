@@ -174,4 +174,4 @@ Wir sehen also, dass Differenzen zwischen den Mittelwerten von `r as.numeric(d_h
 ## Aufgaben
 
 ### Vertiefung des Themas Zufall und Variabilität
-Arbeiten Sie das Tutorium "Grundlagen der Inferenz: 1 - Stichprobenvariabilität" oder das englische Original [Foundations of inference: 1 - Sampling Variability](https://openintro.shinyapps.io/ims-04-foundations-01/) durch.
+Arbeiten Sie das Tutorium [Foundations of inference: 1 - Sampling Variability](https://openintro.shinyapps.io/ims-04-foundations-01/) durch.
