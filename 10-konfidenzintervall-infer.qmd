@@ -174,4 +174,4 @@ Die Begriffe Statistik, Schätzer, Schätzfunktion und Stichprobenfunktion werde
 ## Aufgaben
 
 ### Vertiefung des Themas Parameterschätzung und Konfidenzintervalle
-Arbeiten Sie das Tutorium "Grundlagen der Inferenz: 4 - Parameter und Konfidenzintervalle" oder das englische Original [Foundations of inference: 4 - Parameters and confidence intervals](https://openintro.shinyapps.io/ims-04-foundations-04) durch.
+Arbeiten Sie das Tutorium [Foundations of inference: 4 - Parameters and confidence intervals](https://openintro.shinyapps.io/ims-04-foundations-04) durch.
