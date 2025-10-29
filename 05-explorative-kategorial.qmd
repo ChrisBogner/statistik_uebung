@@ -241,9 +241,9 @@ Beschriften Sie die finale Grafik aus @sec-geom-col so, dass sie wie dort anfang
 <!-- Bearbeiten Sie das Tutorium "Explorative Datenanalyse: 1 - Erkundung kategorischer Daten". Sie können entweder die deutsche Übersetzung oder das [englische Original](https://openintro.shinyapps.io/ims-02-explore-01/) bearbeiten. Das Tutorium muss nicht hochgeladen werden. -->
 
 ### Ihre Arbeit einreichen
-Reichen Sie die Aufgabe aus @sec-ha-kap5 bei fiete.ai ein und erhalten Sie feedback:
+Reichen Sie die Aufgabe aus @sec-ha-kap5 bei FelloFish ein und erhalten Sie Feedback:
 
-[fiete.ai Hausaufgabe](https://app.fiete.ai/a/cm2m3tkok2s543bxtdfmn0hgo)
+[FelloFish Hausaufgabe](https://app.fiete.ai/a/cm2m3tkok2s543bxtdfmn0hgo)
 
 ## Exolorative Datenanalyse von kategorialen Daten vertiefen
 Bearbeiten Sie das Kapitel 1 des Kurses "Exploratory Data Analysis in R" auf datacamp.

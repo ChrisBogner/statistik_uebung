@@ -129,8 +129,8 @@ ggplot(umfrage, mapping = aes(x = `Haben Sie schon mal einen Statistikkurs besuc
 
 ### Ihre Arbeit einreichen
 
-Reichen Sie die Aufgabe aus @sec-ha-kap4 bei fiete.ai ein und erhalten Sie feedback:
+Reichen Sie die Aufgabe aus @sec-ha-kap4 bei FelloFish ein und erhalten Sie Feedback:
 
-[fiete.ai Hausaufgabe](https://app.fiete.ai/a/cm2m3db7t2qa841jq4w7eyicc)
+[FelloFish Hausaufgabe](https://app.fiete.ai/a/cm2m3db7t2qa841jq4w7eyicc)
 
 
