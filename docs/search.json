@@ -4,7 +4,10 @@
     "href": "index.html",
     "title": "Übung zur Vorlesung Statistik und Datenanalyse",
     "section": "",
-    "text": "Vorwort\nIn dieser Veranstaltung werden wir folgende Werkzeuge verwenden:\nILIAS: die Online-Lernplattform der UzK. Sie sollten alle bereits registriert sein.\nCampuswire: die Chatplattform dient der allgemeinen Kommunikation und der Selbstorganisation des Lernens. Verwenden Sie diese, um Fragen mit Ihren Kommilitonen*innen und mir zu diskutieren. Sie sollten eine Einladungsmail zu Campuswire erhalten haben."
+    "text": "Vorwort\nIn dieser Veranstaltung werden wir folgende Werkzeuge verwenden:\nILIAS: die Online-Lernplattform der UzK. Sie sollten alle bereits registriert sein.\nCampuswire: die Chatplattform dient der allgemeinen Kommunikation und der Selbstorganisation des Lernens. Verwenden Sie diese, um Fragen mit Ihren Kommilitonen*innen und mir zu diskutieren. Sie sollten eine Einladungsmail zu Campuswire erhalten haben.",
+    "crumbs": [
+      "Vorwort"
+    ]
   },
   {
     "objectID": "01-einfuehrung.html",
@@ -39,28 +42,44 @@
     "href": "01-erste-schritte.html",
     "title": "1  Erste Schritte in R",
     "section": "",
-    "text": "── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.3.6     ✔ purrr   0.3.4\n✔ tibble  3.1.7     ✔ dplyr   1.0.9\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n\n\nAttache Paket: 'kableExtra'\n\n\nDas folgende Objekt ist maskiert 'package:dplyr':\n\n    group_rows"
+    "text": "1.1 Was ist ?\nR ist eine Programmiersprache für Datenanalyse und statistische Modellierung. Es ist frei verfügbar (open source software) und neben Python einer der am meisten benutzten Programmiersprachen zur Datenanalyse und -visualisierung. R wurde von Ross Ihaka und Robert Gentleman 1996 veröffentlicht (Ihaka and Gentleman 1996). Es gibt für R eine Vielzahl von Zusatzpaketen, die die Funktionalität und die Einsatzmöglichkeiten enorm erweitern.\nSie können R für Ihren Computer auf der offiziellen R-Seite https://www.r-project.org/ herunterladen und installieren. Eine kurze Anleitung finden Sie auf ILIAS, zusammen mit der Liste der Pakete, die wir in diesem Kurs benötigen. Zusätzlich können Sie sich hier ein Video zur Installation ansehen.\nAuf der offiziellen R-Seite finden Sie auch zusätzliche Pakete, und zwar unter CRAN (The Comprehensive R Archive Network). Manche Pakete sind auf den CRAN-Seiten thematisch in sogen. CRAN Task Views gegliedert. Für den Umweltbereich sind folgende Paketsammlungen besonders relevant:\nZu Beginn des Kurses werden wir jedoch nicht auf Ihren lokalen Rechnern arbeiten, sondern auf den bereits eingerichteten Uni-Rechnern in den EDV-Räumen. Daher biete ich zu diesem frühen Zeitpunkt im Kurs keine Unterstützung bei der Installation von R auf Ihren Privatrechnern. Für die ganz Ungeduldigen gibt es hier eine kurze Einleitung zur Installation.",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Erste Schritte in R</span>"
+    ]
   },
   {
     "objectID": "01-erste-schritte.html#was-ist",
     "href": "01-erste-schritte.html#was-ist",
     "title": "1  Erste Schritte in R",
-    "section": "1.1 Was ist ?",
-    "text": "1.1 Was ist ?\nR ist eine Programmiersprache für Datenanalyse und statistische Modellierung. Es ist frei verfügbar (open source software) und neben Python einer der am meisten benutzten Programmiersprachen zur Datenanalyse und -visualisierung. R wurde von Ross Ihaka und Robert Gentleman 1996 veröffentlicht (Ihaka and Gentleman 1996). Es gibt für R eine Vielzahl von Zusatzpaketen, die die Funktionalität und die Einsatzmöglichkeiten enorm erweitern.\nSie können R für Ihren Computer auf der offiziellen R-Seite https://www.r-project.org/ herunterladen und installieren. Eine kurze Anleitung finden Sie auf ILIAS, zusammen mit der Liste der Pakete, die wir in diesem Kurs benötigen. Zusätzlich können Sie sich hier ein Video zur Installation ansehen.\nAuf der offiziellen R-Seite finden Sie auch zusätzliche Pakete, und zwar unter CRAN (The Comprehensive R Archive Network). Manche Pakete sind auf den CRAN-Seiten thematisch in sogen. CRAN Task Views gegliedert. Für den Umweltbereich sind folgende Paketsammlungen besonders relevant:\n\nEnvironmetrics: Analyse von Umweltdaten\nMultivariate: Multivariate Statistik\nSpatial: Analyse von räumlichen Daten\nTimeSeries: Zeitreihenanalyse\n\nZu Beginn des Kurses werden wir jedoch nicht auf Ihren lokalen Rechnern arbeiten, sondern auf den bereits eingerichteten Uni-Rechnern in den EDV-Räumen. Daher biete ich zu diesem frühen Zeitpunkt im Kurs keine Unterstützung bei der Installation von R auf Ihren Privatrechnern. Für die ganz Ungeduldigen gibt es hier eine kurze Einleitung zur Installation."
+    "section": "",
+    "text": "Environmetrics: Analyse von Umweltdaten\nMultivariate: Multivariate Statistik\nSpatial: Analyse von räumlichen Daten\nTimeSeries: Zeitreihenanalyse",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Erste Schritte in R</span>"
+    ]
   },
   {
     "objectID": "01-erste-schritte.html#was-ist-rstudio",
     "href": "01-erste-schritte.html#was-ist-rstudio",
     "title": "1  Erste Schritte in R",
     "section": "1.2 Was ist RStudio?",
-    "text": "1.2 Was ist RStudio?\nRStudio Desktop ist eine Entwicklungsumgebung für R. Wichtig: RStudio wird erst nach R installiert und ergibt ohne R keinen Sinn. Sie können die open source Version kostenlos für Ihren Rechner hier herunterladen, falls Sie sich entscheiden, (später) R auf Ihrem Rechner zu installieren. Es gibt eine live Einführung in RStudio im Kurs. Zusätzlich können Sie hier ein Video dazu ansehen.\nDie Oberfläche von RStudio ist in vier Bereiche unterteilt (Abbildung 1.1).\n\n\n\nAbbildung 1.1: Aufbau von RStudio\n\n\nSie sollten auch auf Ihrem eigenen Rechner einen Ordner für die Veranstaltung anlegen und darin jeweils einen Ordner für Folien, Daten und Notebooks."
+    "text": "1.2 Was ist RStudio?\nRStudio Desktop ist eine Entwicklungsumgebung für R. Wichtig: RStudio wird erst nach R installiert und ergibt ohne R keinen Sinn. Sie können die open source Version kostenlos für Ihren Rechner hier herunterladen, falls Sie sich entscheiden, (später) R auf Ihrem Rechner zu installieren. Es gibt eine live Einführung in RStudio im Kurs. Zusätzlich können Sie hier ein Video dazu ansehen.\nDie Oberfläche von RStudio ist in vier Bereiche unterteilt (Abbildung 1.1).\n\n\n\n\n\n\nAbbildung 1.1: Aufbau von RStudio\n\n\n\nSie sollten auch auf Ihrem eigenen Rechner einen Ordner für die Veranstaltung anlegen und darin jeweils einen Ordner für Folien, Daten und Notebooks.",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Erste Schritte in R</span>"
+    ]
   },
   {
     "objectID": "01-erste-schritte.html#lesestoff",
     "href": "01-erste-schritte.html#lesestoff",
     "title": "1  Erste Schritte in R",
     "section": "1.3 Lesestoff",
-    "text": "1.3 Lesestoff\nKapitel 1.1 und 1.2 in Ismay and Kim (2021)."
+    "text": "1.3 Lesestoff\nKapitel 1.1 und 1.2 in Ismay and Kim (2021).",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Erste Schritte in R</span>"
+    ]
   },
   {
     "objectID": "01-erste-schritte.html#aufgaben",
@@ -88,7 +107,11 @@
     "href": "02-rmarkdown.html",
     "title": "2  R Markdown für reproduzierbare Forschung",
     "section": "",
-    "text": "Wichtigkeit der Reproduzierbarkeit erklären\nBegriff literate programming definieren\nAufbau einer RMarkdown-Datei erklären\nEinen einfachen ersten reproduzierbaren Bericht selbst schreiben"
+    "text": "2.1 Warum Reproduzierbarkeit in der Forschung wichtig ist\nAls Motivation für dieses Thema empfehle ich das Video von Prof. Roger Peng der John Hopkins Bloogmerg School of Public Health.",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Markdown für reproduzierbare Forschung</span>"
+    ]
   },
   {
     "objectID": "02-rmarkdown.html#warum-reproduzierbarkeit-in-der-forschung-wichtig-ist",
@@ -102,21 +125,33 @@
     "href": "02-rmarkdown.html#literate-programming-idee-von-donald-knuth",
     "title": "2  R Markdown für reproduzierbare Forschung",
     "section": "2.2 Literate Programming Idee von Donald Knuth",
-    "text": "2.2 Literate Programming Idee von Donald Knuth\nDie Idee, dass man den Code und die dazugehörige Interpretation (Text, Bericht etc.) nicht voneinander trennen sollte, geht auf Knuth (1984) zurück. Mit Literate Programming meinte Knuth, dass Programme auch nichts anderes wie literarische Werke sind. Er setzte den Fokus darauf, mit Programmen menschlichen Benutzern zu erklären, was man den Computer machen lassen möchte. Also weg vom computer- hin zum mensch-zentrierten Zugang. So wird Programmieren und in unserem Fall die Datenanalyse verständlich und vor allem reproduzierbar.\nLeider ist es in unserer modernen Forschungslandschaft immer noch nicht Standard. Das Trennen von Analyseergebnissen und Berichten (Forschungsartikeln) sorgt für viele (unentdeckte und unnötige) Fehler und Frust."
+    "text": "2.2 Literate Programming Idee von Donald Knuth\nDie Idee, dass man den Code und die dazugehörige Interpretation (Text, Bericht etc.) nicht voneinander trennen sollte, geht auf Knuth (1984) zurück. Mit Literate Programming meinte Knuth, dass Programme auch nichts anderes wie literarische Werke sind. Er setzte den Fokus darauf, mit Programmen menschlichen Benutzern zu erklären, was man den Computer machen lassen möchte. Also weg vom computer- hin zum mensch-zentrierten Zugang. So wird Programmieren und in unserem Fall die Datenanalyse verständlich und vor allem reproduzierbar.\nLeider ist es in unserer modernen Forschungslandschaft immer noch nicht Standard. Das Trennen von Analyseergebnissen und Berichten (Forschungsartikeln) sorgt für viele (unentdeckte und unnötige) Fehler und Frust.",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Markdown für reproduzierbare Forschung</span>"
+    ]
   },
   {
     "objectID": "02-rmarkdown.html#reproduzierbare-berichte-mit-r-markdown",
     "href": "02-rmarkdown.html#reproduzierbare-berichte-mit-r-markdown",
     "title": "2  R Markdown für reproduzierbare Forschung",
     "section": "2.3 Reproduzierbare Berichte mit R Markdown",
-    "text": "2.3 Reproduzierbare Berichte mit R Markdown\nR hat sein eigenes System von reproduzierbaren Berichten, genannt R Markdown (Xie, Allaire, and Grolemund 2021). Es ist benutzerfreundlich und ermöglicht unterschiedliche Formate von Berichten, wie HTML-Dokumente, PDF-Dateien, Präsentationsfolien usw.\nEs wird Sie vielleicht überraschen, aber das Skript, das Sie gerade lesen, ist nichts anderes als ein “literarisch” programmiertes Buch in R Bookdown (Xie, Allaire, and Grolemund 2021), einem R-Paket speziell für lange R Markdown-Dokumente.\nWir werden vor allem mit R Notebooks arbeiten, die eine gute Interaktion zwischen dem geschriebenen Text und dem R-Code ermöglichen. Das Notebook kann sowohl in ein HTML-Dokument als auch in PDF oder Word als endgültiges Dokument umgewandelt werden. Diesen Prozess nennt man knit."
+    "text": "2.3 Reproduzierbare Berichte mit R Markdown\nR hat sein eigenes System von reproduzierbaren Berichten, genannt R Markdown (Xie, Allaire, and Grolemund 2021). Es ist benutzerfreundlich und ermöglicht unterschiedliche Formate von Berichten, wie HTML-Dokumente, PDF-Dateien, Präsentationsfolien usw.\nEs wird Sie vielleicht überraschen, aber das Skript, das Sie gerade lesen, ist nichts anderes als ein “literarisch” programmiertes Buch in R Bookdown (Xie, Allaire, and Grolemund 2021), einem R-Paket speziell für lange R Markdown-Dokumente.\nWir werden vor allem mit R Notebooks arbeiten, die eine gute Interaktion zwischen dem geschriebenen Text und dem R-Code ermöglichen. Das Notebook kann sowohl in ein HTML-Dokument als auch in PDF oder Word als endgültiges Dokument umgewandelt werden. Diesen Prozess nennt man knit.",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Markdown für reproduzierbare Forschung</span>"
+    ]
   },
   {
     "objectID": "02-rmarkdown.html#ein-neues-r-notebook-erstellen",
     "href": "02-rmarkdown.html#ein-neues-r-notebook-erstellen",
     "title": "2  R Markdown für reproduzierbare Forschung",
     "section": "2.4 Ein neues R Notebook erstellen",
-    "text": "2.4 Ein neues R Notebook erstellen\nUm ein neues R Notebook zu erstellen, klicken Sie das kleine grüne Plus oben links und wählen Sie R Notebook aus. Sie können es erst einmal bei untitled belassen (Abbildung 2.1).\n\n\n\nAbbildung 2.1: Neues R Notebook anlegen\n\n\nWenn Sie ein neues Notebook erstellen, enthält das Template etwas Code. Lesen Sie sich das ruhig noch einmal durch, da es ein paar hilfreiche Tastenkürzel und Tipps. Danach können Sie den Text unterhalb des Headers löschen."
+    "text": "2.4 Ein neues R Notebook erstellen\nUm ein neues R Notebook zu erstellen, klicken Sie das kleine grüne Plus oben links und wählen Sie R Notebook aus. Sie können es erst einmal bei untitled belassen (Abbildung 2.1).\n\n\n\n\n\n\nAbbildung 2.1: Neues R Notebook anlegen\n\n\n\nWenn Sie ein neues Notebook erstellen, enthält das Template etwas Code. Lesen Sie sich das ruhig noch einmal durch, da es ein paar hilfreiche Tastenkürzel und Tipps. Danach können Sie den Text unterhalb des Headers löschen.",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Markdown für reproduzierbare Forschung</span>"
+    ]
   },
   {
     "objectID": "02-rmarkdown.html#header",
@@ -130,14 +165,22 @@
     "href": "02-rmarkdown.html#wichtigste-regeln-für-reproduzierbarkeit",
     "title": "2  R Markdown für reproduzierbare Forschung",
     "section": "2.6 Wichtigste Regeln für Reproduzierbarkeit",
-    "text": "2.6 Wichtigste Regeln für Reproduzierbarkeit\nEin weiteres Video von Prof. Peng widmet sich den wichtigsten Regeln für Reproduzierbarkeit."
+    "text": "2.6 Wichtigste Regeln für Reproduzierbarkeit\nEin weiteres Video von Prof. Peng widmet sich den wichtigsten Regeln für Reproduzierbarkeit.",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Markdown für reproduzierbare Forschung</span>"
+    ]
   },
   {
     "objectID": "02-rmarkdown.html#lesestoff",
     "href": "02-rmarkdown.html#lesestoff",
     "title": "2  R Markdown für reproduzierbare Forschung",
     "section": "2.7 Lesestoff",
-    "text": "2.7 Lesestoff\nIntro zu Kapitel 2 (Basics), Kapitel 3.2.1 und 3.2.2 in Xie, Allaire, and Grolemund (2021)"
+    "text": "2.7 Lesestoff\nIntro zu Kapitel 2 (Basics), Kapitel 3.2.1 und 3.2.2 in Xie, Allaire, and Grolemund (2021)",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Markdown für reproduzierbare Forschung</span>"
+    ]
   },
   {
     "objectID": "02-rmarkdown.html#weiterführende-literatur",
@@ -151,28 +194,44 @@
     "href": "02-rmarkdown.html#aufgaben",
     "title": "2  R Markdown für reproduzierbare Forschung",
     "section": "2.8 Aufgaben",
-    "text": "2.8 Aufgaben\n\n2.8.1 Layoutelemente in R Markdown\nFügen Sie in Ihrem Notebook Layoutelemente hinzu: - Überschrift - Unterüberschrift - kursiver Text - ein Exponent: R2 - ein Mathematikelement: \\(x^2\\) - eine Liste\nNutzen Sie die unter Kapitel 2.5 verlinkte Liste der Layoutelemente.\n\n\n2.8.2 Editierene Sie Ihr erstes Notebook\n\nEditieren Sie das R Notebook der ersten Session.\nGliedern Sie Ihr Notebook mit passenden Layoutelementen, wenn noch nicht geschehen.\nFügen Sie mehr Erklärungstext zu den einzelnen Abschnitten.\n\n\n\n2.8.3 Hausaufgabe\nBearbeiten Sie die Kapitel 1 und 2 im Kurs “Introduction to R” auf datacamp.\n\n\n\n\nKnuth, D. E. 1984. “Literate Programming.” The Computer Journal 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.\n\n\nXie, Yihui, J. J. Allaire, and Garrett Grolemund. 2021. R Markdown: The Definitive Guide. https://bookdown.org/yihui/rmarkdown/."
+    "text": "2.8 Aufgaben\n\n2.8.1 Layoutelemente in R Markdown\nFügen Sie in Ihrem Notebook Layoutelemente hinzu: - Überschrift - Unterüberschrift - kursiver Text - ein Exponent: R2 - ein Mathematikelement: \\(x^2\\) - eine Liste\nNutzen Sie die unter Kapitel 2.5 verlinkte Liste der Layoutelemente.\n\n\n2.8.2 Editierene Sie Ihr erstes Notebook\n\nEditieren Sie das R Notebook der ersten Session.\nGliedern Sie Ihr Notebook mit passenden Layoutelementen, wenn noch nicht geschehen.\nFügen Sie mehr Erklärungstext zu den einzelnen Abschnitten.\n\n\n\n2.8.3 Hausaufgabe\nBearbeiten Sie die Kapitel 1 und 2 im Kurs “Introduction to R” auf datacamp.\n\n\n\n\nKnuth, D. E. 1984. “Literate Programming.” The Computer Journal 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.\n\n\nXie, Yihui, J. J. Allaire, and Garrett Grolemund. 2021. R Markdown: The Definitive Guide. https://bookdown.org/yihui/rmarkdown/.",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Markdown für reproduzierbare Forschung</span>"
+    ]
   },
   {
     "objectID": "01-erste-schritte.html#gemeinsame-aufgaben",
     "href": "01-erste-schritte.html#gemeinsame-aufgaben",
     "title": "1  Erste Schritte in R",
     "section": "1.4 Gemeinsame Aufgaben",
-    "text": "1.4 Gemeinsame Aufgaben\n\nBitte speichern Sie Ihr Skript regelmäßig ab!\n\n\n1.4.1 Ars Haushaltsbuch\nDer angehende Datenanalyst Ar Stat möchte dem Rat seiner Mutter folgen und ein Haushaltsbuch anlegen. Zuerst möchte er sich einen Überblick über seine Ausgaben in der Uni-Mensa verschaffen und erstellt die folgende Tabelle:\n\n\nArs Mensaausgaben\n\n\nWochentag\nAusgaben (€)\n\n\n\n\nMontag\n2,57\n\n\nDienstag\n2,90\n\n\nMittwoch\n2,73\n\n\nDonnerstag\n3,23\n\n\nFreitag\n3,90\n\n\n\n\n\n\n\nWie viel hat Ar insgesamt in der Woche ausgegeben?\nWie groß ist die Differenz zwischen dem höchsten und dem niedrigsten Betrag?\nWie viel hätte er insgesamt ausgegeben, wenn er jeden Tag so viel gezahlt hätte, wie am Dienstag. Wichtig: Verwenden Sie die [], um den Betrag von Dienstag auszuwählen!\n\nLeider hat sich Ar beim Übertragen der Daten vertippt. Er hat am Dienstag seine Freundin zum Essen eingeladen und 7,95 € statt 2,90 € ausgegeben.\n\nKorrigieren Sie Ars Fehler.\nWie verändern sich die Ergebnisse aus den Teilaufgaben 1 bis 3?\n\n\n\n1.4.2 Fehlende Werte\nR kodiert fehlende Werte mit NA. Ar Stat hat am Montag der darauffolgenden Woche in der Mensa gegessen, aber vergessen, die Ausgaben zu notieren.\n\n\nArs Mensaausgaben, cont.\n\n\nWochentag\nAmount spent (€)\n\n\n\n\nMontag, 9. März\n2,57\n\n\nDienstag, 10. März\n2,90\n\n\nMittwoch, 11. März\n2,73\n\n\nDonnerstag, 12. März\n3,23\n\n\nFreitag, 13. März\n3,90\n\n\nMontag, 16. März\nNA\n\n\n\n\n\n\n\nWie ändert der fehlende Wert die Berechnung der Summe?\nLesen Sie, was passiert, wenn der Datenvektor bei der Berechnung der Summe fehlende Werte enthält. Rufen Sie dazu die Hilfe auf, i.e. ?sum.\nKorrigieren Sie die Berechnung der Summe entsprechend."
+    "text": "1.4 Gemeinsame Aufgaben\n\nBitte speichern Sie Ihr Skript regelmäßig ab!\n\n\n1.4.1 Ars Haushaltsbuch\nDer angehende Datenanalyst Ar Stat möchte dem Rat seiner Mutter folgen und ein Haushaltsbuch anlegen. Zuerst möchte er sich einen Überblick über seine Ausgaben in der Uni-Mensa verschaffen und erstellt die folgende Tabelle:\n\n\nArs Mensaausgaben\n\n\nWochentag\nAusgaben (€)\n\n\n\n\nMontag\n2,57\n\n\nDienstag\n2,90\n\n\nMittwoch\n2,73\n\n\nDonnerstag\n3,23\n\n\nFreitag\n3,90\n\n\n\n\n\nWie viel hat Ar insgesamt in der Woche ausgegeben?\nWie groß ist die Differenz zwischen dem höchsten und dem niedrigsten Betrag?\nWie viel hätte er insgesamt ausgegeben, wenn er jeden Tag so viel gezahlt hätte, wie am Dienstag. Wichtig: Verwenden Sie die [], um den Betrag von Dienstag auszuwählen!\n\nLeider hat sich Ar beim Übertragen der Daten vertippt. Er hat am Dienstag seine Freundin zum Essen eingeladen und 7,95 € statt 2,90 € ausgegeben.\n\nKorrigieren Sie Ars Fehler.\nWie verändern sich die Ergebnisse aus den Teilaufgaben 1 bis 3?\n\n\n\n1.4.2 Fehlende Werte\nR kodiert fehlende Werte mit NA. Ar Stat hat am Montag der darauffolgenden Woche in der Mensa gegessen, aber vergessen, die Ausgaben zu notieren.\n\n\nArs Mensaausgaben, cont.\n\n\nWochentag\nAmount spent (€)\n\n\n\n\nMontag, 9. März\n2,57\n\n\nDienstag, 10. März\n2,90\n\n\nMittwoch, 11. März\n2,73\n\n\nDonnerstag, 12. März\n3,23\n\n\nFreitag, 13. März\n3,90\n\n\nMontag, 16. März\nNA\n\n\n\n\n\nWie ändert der fehlende Wert die Berechnung der Summe?\nLesen Sie, was passiert, wenn der Datenvektor bei der Berechnung der Summe fehlende Werte enthält. Rufen Sie dazu die Hilfe auf, i.e. ?sum.\nKorrigieren Sie die Berechnung der Summe entsprechend.",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Erste Schritte in R</span>"
+    ]
   },
   {
     "objectID": "01-erste-schritte.html#hausaufgaben",
     "href": "01-erste-schritte.html#hausaufgaben",
     "title": "1  Erste Schritte in R",
     "section": "1.5 Hausaufgaben",
-    "text": "1.5 Hausaufgaben\n\n1.5.1 R als Taschenrechner\nR ist ein großer Taschenrechner mit vielen bereits definierten Funktionen. Es gelten die üblichen Rechenregeln wie z. B. Punkt-vor-Strich und die Klammern.\n\nSchreiben Sie den Code, der 2 und 10 addiert.\n\nDas korrekte Multiplikationszeichen in R ist *.\n\nGeben Sie den folgenden Befehl korrekt in R ein: (2 + 10) \\(\\times\\) 27\n\nBei Dezimalzahlen wird der Dezimalpunkt und nicht das Komma verwendet. Das ist wichtig zu beachten, wenn Sie später Daten in R einlesen möchten.\n\nBerechnen Sie die Summe von 2,34 und 4,98.\n\n\n\n1.5.2 Zuweisungen\nIn R arbeitet man mit Objekten. Ein Objekt kann alles Mögliche sein: eine Variable, Daten, Vektoren etc. Wenn also das Ergebnis einer Berechnung oder ein Datenobjekt im R-Arbeitsbereich (workspace) zur Verfügung stehen soll, muss daraus ein Objekt erstellt werden.\nObjekte erstellt man, indem man ihnen Namen gibt. Diesen Vorgang nennt man Zuweisung (assignment). Im Beispiel unten wird ein Objekt, in diesem Fall ein Skalar, namens x erzeugt, mit dem Wert 42. Um den Wert von x anzuzeigen, tippen Sie x ein.\n\nx <- 42\n\n# Zeige den Wert von x\nx\n\nZuweisungen können in R entweder mit dem = erfolgen oder mit <-. Beide Varianten sind gleichwertig. Dabei ist allerdings die Pfeilrichtung entscheidend! x <- 42 bedeutet: Die rechte Seite (Zahl 42) wird dem Objekt x zugeordnet. Wenn man die Pfeilrichtung umdreht, ergibt die Zuweisung keinen Sinn und man erhält eine Fehlermeldung.\n\n# Sinnvolle Zuweisung\nx <- 42\n# Gleichwertige sinnvolle Zuweisung\nx = 42\n# Sinnloser Ausdruck. Fehlermeldung!\nx -> 42\n\nError in 42 <- x: ungültige (do_set) linke Seite in Zuweisung\n\n\nObjektnamen können (fast) frei gewählt werden. Sie müssen mit einem Buchstaben beginnen und dürfen keine Sonderzeichen enthalten. Bei längeren Namen empfiehlt sich ein _. Streng verboten sind Namen von vordefinierten Funktionen!\n\nErstellen Sie ein Objekt namens mein_objekt und weisen Sie ihm das Ergebnis der Berechnung \\(23^{2}\\) zu. Eine Potenz berechnen Sie mit ^.\n\nEine Zuweisung kann auch kompliziertere Anweisungen enthalten. Hier erstellen wir z. B. einen Vektor mithilfe der Funktion c (concatenate) und weisen das Ergebnis dem Objekt my_a zu.\n\nmy_a <- c(32, 54, 1.2, 398)\n\n\n\n1.5.3 Funktionsaufruf\nIn R gibt es eine Vielzahl von vordefinierten Funktionen. Ein Funktionsaufruf hat immer die gleiche Form: mach_das(damit) oder mach_das(damit, und_mit_dieser_einstellung). Z. B. wird die Summe auf einem Objekt mein_objekt mit sum(mein_objekt) berechnet.\n\nErstellen Sie einen Vektor mit den Zahlen 32, 54, 1,2 und 398 und weisen Sie ihn der Variablen my_a zu.\nBerechnen Sie die Summe von my_a.\n\nSie können im Übrigen auch Vektoren sinnvoll addieren.\n\nErstellen Sie einen Vektor my_b mit der passenden Länge und addieren Sie ihn zum Vektor my_a. Die Addition erfolgt elementweise.\n\nHäufig wollen wir für unsere Daten den Mittelwert berechnen.\n\nBerechnen Sie den Mittelwert von my_a\nBerechnen Sie die Standardabweichung von my_a.\n\n\n\n1.5.4 Objekte ansprechen\nUm das “Innenleben” der Objekte in R anzusprechen, gibt es verschiedene Möglichkeiten. In diesem Tutorial konzentrieren wir uns auf Vektoren. Um die einzelnen Komponenten im Vektor anzusprechen, benutzt man eckige Klammern [ ]. Um eine bestimmte Komponente zu adressieren (anzusprechen), schreibt man die Platznummer der Komponente in die Klammer. Wenn man im Vektor my_c, z. B. die dritte Komponente extrahieren möchte, dann schreibt man my_c[3]\n\nmy_c <- c(2, 45.7, pi, sqrt(23), 2^6)\nmy_c[3]\n\nWir können auch Vektoren erstellen, bei denen einzelne Elemente benannt sind.\n\nbenannt <- c('Koeln' = 50667, 'Berlin' = 10965, \"Stuttgart\" = 70173)\n\nElemente in solchen Vektoren kann man mit Namen in eckigen Klammern ansprechen. Die Namen müssen in Anführungszeichen geschrieben werden. Es spielt keine Rolle, ob Sie einfache oder doppelte Anführungszeichen benutzen.\n\nFragen Sie nach dem Element Koeln im Vektor benannt.\n\n\n\n1.5.5 Ihr erster Plot\nVor allem am Anfang kann die Lernkurve in R recht flach verlaufen. Daher sollten Sie nicht vergessen, warum Sie R lernen, nämlich um echte Datensätze zu analysieren.\nAuch wenn Sie den Code unten noch nicht verstehen, kopieren Sie ihn in einen neuen R-Chunk in Ihrem Notebook und lassen Sie ihn laufen.\n\nlibrary(tidyverse)\nlibrary(gapminder)\n\ngapminder2007 <- gapminder %>% \n  filter(year == 2007)\n\nggplot(gapminder2007, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +\n  geom_point() +\n  scale_x_log10() +\n  labs(x = 'Bruttoinlandsprodukt pro Einwohner (US$, inflationsbereinigt)', \n       y = 'Lebenserwartung bei der Geburt (Jahre)',\n       title = 'Daten von Gapminder für das Jahr 2007',\n       caption = 'http://www.gapminder.org/data/')\n\n\nWelche Daten sind in diesem Datensatz enthalten? Nutzen Sie die Hilfe, i. e. ?gapminder.\nWas stellen die Farben in der Abbildung dar?\nWas wird durch die Symbolgröße dargestellt?\nWie würden Sie den Zusammenhang zwischen den Variablen Bruttoinlandsprodukt pro Einwohner ($, inflationsbereinigt) und Lebenserwartung bei der Geburt (Jahre) beschreiben?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIhaka, Ross, and Robert Gentleman. 1996. “R: A Language for Data Analysis and Graphics.” Journal of Computational and Graphical Statistics 5 (3): 299–314. https://doi.org/10.1080/10618600.1996.10474713.\n\n\nIsmay, Chester, and Albert Y. Kim. 2021. ModernDive: Statistical Inference via Data Science. https://moderndive.com/."
+    "text": "1.5 Hausaufgaben\n\n1.5.1 R als Taschenrechner\nR ist ein großer Taschenrechner mit vielen bereits definierten Funktionen. Es gelten die üblichen Rechenregeln wie z. B. Punkt-vor-Strich und die Klammern.\n\nSchreiben Sie den Code, der 2 und 10 addiert.\n\nDas korrekte Multiplikationszeichen in R ist *.\n\nGeben Sie den folgenden Befehl korrekt in R ein: (2 + 10) \\(\\times\\) 27\n\nBei Dezimalzahlen wird der Dezimalpunkt und nicht das Komma verwendet. Das ist wichtig zu beachten, wenn Sie später Daten in R einlesen möchten.\n\nBerechnen Sie die Summe von 2,34 und 4,98.\n\n\n\n1.5.2 Zuweisungen\nIn R arbeitet man mit Objekten. Ein Objekt kann alles Mögliche sein: eine Variable, Daten, Vektoren etc. Wenn also das Ergebnis einer Berechnung oder ein Datenobjekt im R-Arbeitsbereich (workspace) zur Verfügung stehen soll, muss daraus ein Objekt erstellt werden.\nObjekte erstellt man, indem man ihnen Namen gibt. Diesen Vorgang nennt man Zuweisung (assignment). Im Beispiel unten wird ein Objekt, in diesem Fall ein Skalar, namens x erzeugt, mit dem Wert 42. Um den Wert von x anzuzeigen, tippen Sie x ein.\n\nx &lt;- 42\n\n# Zeige den Wert von x\nx\n\nZuweisungen können in R entweder mit dem = erfolgen oder mit &lt;-. Beide Varianten sind gleichwertig. Dabei ist allerdings die Pfeilrichtung entscheidend! x &lt;- 42 bedeutet: Die rechte Seite (Zahl 42) wird dem Objekt x zugeordnet. Wenn man die Pfeilrichtung umdreht, ergibt die Zuweisung keinen Sinn und man erhält eine Fehlermeldung.\n\n# Sinnvolle Zuweisung\nx &lt;- 42\n# Gleichwertige sinnvolle Zuweisung\nx = 42\n# Sinnloser Ausdruck. Fehlermeldung!\nx -&gt; 42\n\nError in 42 &lt;- x: ungültige (do_set) linke Seite in Zuweisung\n\n\nObjektnamen können (fast) frei gewählt werden. Sie müssen mit einem Buchstaben beginnen und dürfen keine Sonderzeichen enthalten. Bei längeren Namen empfiehlt sich ein _. Streng verboten sind Namen von vordefinierten Funktionen!\n\nErstellen Sie ein Objekt namens mein_objekt und weisen Sie ihm das Ergebnis der Berechnung \\(23^{2}\\) zu. Eine Potenz berechnen Sie mit ^.\n\nEine Zuweisung kann auch kompliziertere Anweisungen enthalten. Hier erstellen wir z. B. einen Vektor mithilfe der Funktion c (concatenate) und weisen das Ergebnis dem Objekt my_a zu.\n\nmy_a &lt;- c(32, 54, 1.2, 398)\n\n\n\n1.5.3 Funktionsaufruf\nIn R gibt es eine Vielzahl von vordefinierten Funktionen. Ein Funktionsaufruf hat immer die gleiche Form: mach_das(damit) oder mach_das(damit, und_mit_dieser_einstellung). Z. B. wird die Summe auf einem Objekt mein_objekt mit sum(mein_objekt) berechnet.\n\nErstellen Sie einen Vektor mit den Zahlen 32, 54, 1,2 und 398 und weisen Sie ihn der Variablen my_a zu.\nBerechnen Sie die Summe von my_a.\n\nSie können im Übrigen auch Vektoren sinnvoll addieren.\n\nErstellen Sie einen Vektor my_b mit der passenden Länge und addieren Sie ihn zum Vektor my_a. Die Addition erfolgt elementweise.\n\nHäufig wollen wir für unsere Daten den Mittelwert berechnen.\n\nBerechnen Sie den Mittelwert von my_a\nBerechnen Sie die Standardabweichung von my_a.\n\n\n\n1.5.4 Objekte ansprechen\nUm das “Innenleben” der Objekte in R anzusprechen, gibt es verschiedene Möglichkeiten. In diesem Tutorial konzentrieren wir uns auf Vektoren. Um die einzelnen Komponenten im Vektor anzusprechen, benutzt man eckige Klammern [ ]. Um eine bestimmte Komponente zu adressieren (anzusprechen), schreibt man die Platznummer der Komponente in die Klammer. Wenn man im Vektor my_c, z. B. die dritte Komponente extrahieren möchte, dann schreibt man my_c[3]\n\nmy_c &lt;- c(2, 45.7, pi, sqrt(23), 2^6)\nmy_c[3]\n\nWir können auch Vektoren erstellen, bei denen einzelne Elemente benannt sind.\n\nbenannt &lt;- c('Koeln' = 50667, 'Berlin' = 10965, \"Stuttgart\" = 70173)\n\nElemente in solchen Vektoren kann man mit Namen in eckigen Klammern ansprechen. Die Namen müssen in Anführungszeichen geschrieben werden. Es spielt keine Rolle, ob Sie einfache oder doppelte Anführungszeichen benutzen.\n\nFragen Sie nach dem Element Koeln im Vektor benannt.\n\n\n\n1.5.5 Ihr erster Plot\nVor allem am Anfang kann die Lernkurve in R recht flach verlaufen. Daher sollten Sie nicht vergessen, warum Sie R lernen, nämlich um echte Datensätze zu analysieren.\nAuch wenn Sie den Code unten noch nicht verstehen, kopieren Sie ihn in einen neuen R-Chunk in Ihrem Notebook und lassen Sie ihn laufen.\n\nlibrary(tidyverse)\nlibrary(gapminder)\n\ngapminder2007 &lt;- gapminder %&gt;% \n  filter(year == 2007)\n\nggplot(gapminder2007, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +\n  geom_point() +\n  scale_x_log10() +\n  labs(x = 'Bruttoinlandsprodukt pro Einwohner (US$, inflationsbereinigt)', \n       y = 'Lebenserwartung bei der Geburt (Jahre)',\n       title = 'Daten von Gapminder für das Jahr 2007',\n       caption = 'http://www.gapminder.org/data/')\n\n\nWelche Daten sind in diesem Datensatz enthalten? Nutzen Sie die Hilfe, i. e. ?gapminder.\nWas stellen die Farben in der Abbildung dar?\nWas wird durch die Symbolgröße dargestellt?\nWie würden Sie den Zusammenhang zwischen den Variablen Bruttoinlandsprodukt pro Einwohner ($, inflationsbereinigt) und Lebenserwartung bei der Geburt (Jahre) beschreiben?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIhaka, Ross, and Robert Gentleman. 1996. “R: A Language for Data Analysis and Graphics.” Journal of Computational and Graphical Statistics 5 (3): 299–314. https://doi.org/10.1080/10618600.1996.10474713.\n\n\nIsmay, Chester, and Albert Y. Kim. 2021. ModernDive: Statistical Inference via Data Science. https://moderndive.com/.",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Erste Schritte in R</span>"
+    ]
   },
   {
     "objectID": "02-rmarkdown.html#sec-header",
     "href": "02-rmarkdown.html#sec-header",
     "title": "2  R Markdown für reproduzierbare Forschung",
     "section": "2.5 Der Header eines Notebooks",
-    "text": "2.5 Der Header eines Notebooks\nEin R Notebook (und jedes andere R Markdown Dokument) besteht aus einem Header (Kopf) und dem eigentlichen Text und Code. Der Header hat dabei ein bestimmtes Layout, auf das Sie unbedingt achten müssen (Rechtschreibung!). Der Header ist immer zwischen drei Minuszeichen --- eingeschlossen. Bei komplizierteren Headern gibt es auch Einrückungen (mit der Tab-Taste), die auch Bedeutung haben (s. weiterführende Literatur). Wir bleiben bei einem einfachen Header ohne Einrückungen (Abbildung 2.2).\nUm einen neuen R-Chunk hinzuzufügen, klicken Sie auf das kleine grüne C+ oben rechts oder verwenden Sie das Tastenkürzel Str+Alt+i.\n\n\n\nAbbildung 2.2: Einen neuen R Chunk hinzufügen\n\n\nText kann einfach unterhalb des Headers und außerhalb der Chunks getippt werden. Die wichtigsten Layoutelemente für den Text finden Sie hier. R Markdown unterstützt mathematische Notation in Latex-Stil. Eine Einführung in Latex würde an dieser Stelle aber zu weit führen.\nDas R Notebook hat den Vorteil, dass man über den Button Preview oben in der Leiste sofort die Ergebnisse anzeigen lassen kann. Sie müssen also nicht knitten. Falls Sie es doch möchten, klicken Sie auf das kleine Dreieck neben dem Preview und suchen Sie sich ein Output-Format aus. Ein einmal “geknittetes” Notebook ist kein Notebook mehr (kein Preview). Damit es wieder zum Nobebook wird, müssen Sie im Header output: html_notebbok einstellen (Abbildung 2.2)."
+    "text": "2.5 Der Header eines Notebooks\nEin R Notebook (und jedes andere R Markdown Dokument) besteht aus einem Header (Kopf) und dem eigentlichen Text und Code. Der Header hat dabei ein bestimmtes Layout, auf das Sie unbedingt achten müssen (Rechtschreibung!). Der Header ist immer zwischen drei Minuszeichen --- eingeschlossen. Bei komplizierteren Headern gibt es auch Einrückungen (mit der Tab-Taste), die auch Bedeutung haben (s. weiterführende Literatur). Wir bleiben bei einem einfachen Header ohne Einrückungen (Abbildung 2.2).\nUm einen neuen R-Chunk hinzuzufügen, klicken Sie auf das kleine grüne C+ oben rechts oder verwenden Sie das Tastenkürzel Str+Alt+i.\n\n\n\n\n\n\nAbbildung 2.2: Einen neuen R Chunk hinzufügen\n\n\n\nText kann einfach unterhalb des Headers und außerhalb der Chunks getippt werden. Die wichtigsten Layoutelemente für den Text finden Sie hier. R Markdown unterstützt mathematische Notation in Latex-Stil. Eine Einführung in Latex würde an dieser Stelle aber zu weit führen.\nDas R Notebook hat den Vorteil, dass man über den Button Preview oben in der Leiste sofort die Ergebnisse anzeigen lassen kann. Sie müssen also nicht knitten. Falls Sie es doch möchten, klicken Sie auf das kleine Dreieck neben dem Preview und suchen Sie sich ein Output-Format aus. Ein einmal “geknittetes” Notebook ist kein Notebook mehr (kein Preview). Damit es wieder zum Nobebook wird, müssen Sie im Header output: html_notebbok einstellen (Abbildung 2.2).",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Markdown für reproduzierbare Forschung</span>"
+    ]
   },
   {
     "objectID": "20-aufgabensammlung.html",
@@ -186,14 +245,22 @@
     "href": "03-ggplot.html",
     "title": "3  Einführung in die Darstellung von Daten",
     "section": "",
-    "text": "Aufbau des Aufrufs der Funktion ggplot() kennen\nfünf wichtigste Grafiktypen kennen und einsetzten"
+    "text": "3.1 Aufbau eines Darstellungsbefehls\nDas Paket ggplot2 ist ein sehr mächtiges Visualisierungswerkzeug. Der Name steht für “the grammar of graphics”. Das bedeutet, dass man mithilfe von verschiedenen Funktionen in ggplot2 seine Grafik Schritt für Schritt aufbaut, wie einen (grammatikalisch korrekten) Satz. In aller Kürze bedeutet das:\nWir müssen also für die Darstellung von Daten R Folgendes mitteilen:\nWir laden zunächst die nötigen Bibliotheken.\nlibrary(tidyverse)\nlibrary(gapminder)\nAnschließend filtern wir den Datensatz gapminder, um nur die Daten aus dem Jahr 2007 zu behalten. Der Code filter(year == 2007) bedeutet, dass wir nur die Zeilen aus dem Datensatz behalten wollen, in denen in der Variable year 2007 steht.\ngapminder2007 &lt;- gapminder %&gt;% \n  filter(year == 2007)\nWir überzeugen uns davon, dass es geklappt hat 😄. Blättern Sie durch den Datensatz und überprüfen Sie die Werte in der Variablen year.\ngapminder2007",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Einführung in die Darstellung von Daten</span>"
+    ]
   },
   {
     "objectID": "03-ggplot.html#aufbau-eines-darstellungsbefehls",
     "href": "03-ggplot.html#aufbau-eines-darstellungsbefehls",
     "title": "3  Einführung in die Darstellung von Daten",
-    "section": "3.1 Aufbau eines Darstellungsbefehls",
-    "text": "3.1 Aufbau eines Darstellungsbefehls\nDas Paket ggplot2 ist ein sehr mächtiges Visualisierungswerkzeug. Der Name steht für “the grammar of graphics”. Das bedeutet, dass man mithilfe von verschiedenen Funktionen in ggplot2 seine Grafik Schritt für Schritt aufbaut, wie einen (grammatikalisch korrekten) Satz. In aller Kürze bedeutet das:\n\nEine statistische Grafik ist eine Zuordnung (mapping) von Variablen in einem Datensatz (data) zu (ästhetischen) Attributen (aes) von geometrischen Objekten (geom).\n\nWir müssen also für die Darstellung von Daten R Folgendes mitteilen:\n\ndata: der Datensatz, der die Variablen enthält, die wir darstellen möchten.\naes: (ästhetische) Attribute für die geometrischen Objekte, die dargestellt werden sollen. Diese Attribute sind, z. B. die \\(x\\)- und \\(y\\)-Koordinaten, Farbe, Form und Größe der geometrischen Objekte.\ngeom: geometrische Objekte, die dargestellt werden sollen, z. B. Punkte, Linien, Boxen, Balken/Säulen etc.\n\nWir laden zunächst die nötigen Bibliotheken.\n\nlibrary(tidyverse)\nlibrary(gapminder)\n\nAnschließend filtern wir den Datensatz gapminder, um nur die Daten aus dem Jahr 2007 zu behalten. Der Code filter(year == 2007) bedeutet, dass wir nur die Zeilen aus dem Datensatz behalten wollen, in denen in der Variable year 2007 steht.\n\ngapminder2007 <- gapminder %>% \n  filter(year == 2007)\n\nWir überzeugen uns davon, dass es geklappt hat 😄. Blättern Sie durch den Datensatz und überprüfen Sie die Werte in der Variablen year.\n\ngapminder2007"
+    "section": "",
+    "text": "Eine statistische Grafik ist eine Zuordnung (mapping) von Variablen in einem Datensatz (data) zu (ästhetischen) Attributen (aes) von geometrischen Objekten (geom).\n\n\n\ndata: der Datensatz, der die Variablen enthält, die wir darstellen möchten.\naes: (ästhetische) Attribute für die geometrischen Objekte, die dargestellt werden sollen. Diese Attribute sind, z. B. die \\(x\\)- und \\(y\\)-Koordinaten, Farbe, Form und Größe der geometrischen Objekte.\ngeom: geometrische Objekte, die dargestellt werden sollen, z. B. Punkte, Linien, Boxen, Balken/Säulen etc.",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Einführung in die Darstellung von Daten</span>"
+    ]
   },
   {
     "objectID": "03-ggplot.html#punktdiagramm",
@@ -207,7 +274,11 @@
     "href": "03-ggplot.html#weitere-geoms",
     "title": "3  Einführung in die Darstellung von Daten",
     "section": "3.3 Weitere geoms",
-    "text": "3.3 Weitere geoms\nDas geom_point() produziert ein Streudiagramm, auch XY-Diagramm (scatter plot). Weiter wichtige Grafiktypen sind:\n\ngeom_line(): Linien\ngeom_bar(): Balken"
+    "text": "3.3 Weitere geoms\nDas geom_point() produziert ein Streudiagramm, auch XY-Diagramm (scatter plot). Weiter wichtige Grafiktypen sind:\n\ngeom_line(): Linien\ngeom_bar(): Balken",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Einführung in die Darstellung von Daten</span>"
+    ]
   },
   {
     "objectID": "03-ggplot.html#scatter",
@@ -242,7 +313,11 @@
     "href": "03-ggplot.html#lesestoff",
     "title": "3  Einführung in die Darstellung von Daten",
     "section": "3.6 Lesestoff",
-    "text": "3.6 Lesestoff\nKapitel 2.1 in Ismay and Kim (2021)"
+    "text": "3.6 Lesestoff\nKapitel 2.1 in Ismay and Kim (2021)",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Einführung in die Darstellung von Daten</span>"
+    ]
   },
   {
     "objectID": "03-ggplot.html#aufgaben",
@@ -277,14 +352,22 @@
     "href": "03-ggplot.html#sec-scatter",
     "title": "3  Einführung in die Darstellung von Daten",
     "section": "3.2 Streudiagramm",
-    "text": "3.2 Streudiagramm\nEin typischer Befehl zur Visualisierung eines Streudiagramms würde so aussehen:\n\nggplot(data = gapminder2007, \n       mapping = aes(x = gdpPercap, y = lifeExp, color = continent)) +\n  geom_point()\n\n\n\n\nIn Worten könnte man es vielleicht wie folgt umschreiben:\n\nNimm den Datensatz gapminder2007 (data = gapminder2007) und\nOrdne folgende Attribute zu:\n\nauf die \\(x\\)-Achse die Variable gdpPercap (x = gdpPercap) (Bruttoinlandsprodukt)\nauf die \\(y\\)-Achse die Variable lifeExp (y = lifeExp) (Lebenserwartung)\nfärbe ein mithilfe der Variablen continent (color = continent).\n\nStelle das Ganze als geometrisches Objekt Punkte dar (geom_point())\n\nSie sehen, dass diese Zuordnungen klar nach einer Legende verlangen, die dann auch automatisch erstellt wird. Merke: color innerhalb der Funktion aes() erstellt die Legende automatisch.\nDie Anweisungen zur Visualisierung in ggplot2 werden mit einem + verbunden. Man kann (und in diesem Fall soll) weitere Anweisungen geben. Z. B. sind die Beschriftungen der beiden Achsen so nichtssagend und müssen verbessert werden. Wir hängen mit einem +-Zeichen weitere Befehle hinzu:\n\nggplot(data = gapminder2007, \n       mapping = aes(x = gdpPercap, y = lifeExp, color = continent)) +\n  geom_point() + \n  labs(x = 'Bruttoinlandsprodukt pro Einwohner (US$, inflationsbereinigt)',\n       y = 'Lebenserwartung bei der Geburt (Jahre)',\n       color = 'Kontinent',\n       title = 'Daten von Gapminder für das Jahr 2007',\n       caption = 'http://www.gapminder.org/data/')"
+    "text": "3.2 Streudiagramm\nEin typischer Befehl zur Visualisierung eines Streudiagramms würde so aussehen:\n\nggplot(data = gapminder2007, \n       mapping = aes(x = gdpPercap, y = lifeExp, color = continent)) +\n  geom_point()\n\n\n\n\n\n\n\n\nIn Worten könnte man es vielleicht wie folgt umschreiben:\n\nNimm den Datensatz gapminder2007 (data = gapminder2007) und\nOrdne folgende Attribute zu:\n\nauf die \\(x\\)-Achse die Variable gdpPercap (x = gdpPercap) (Bruttoinlandsprodukt)\nauf die \\(y\\)-Achse die Variable lifeExp (y = lifeExp) (Lebenserwartung)\nfärbe ein mithilfe der Variablen continent (color = continent).\n\nStelle das Ganze als geometrisches Objekt Punkte dar (geom_point())\n\nSie sehen, dass diese Zuordnungen klar nach einer Legende verlangen, die dann auch automatisch erstellt wird. Merke: color innerhalb der Funktion aes() erstellt die Legende automatisch.\nDie Anweisungen zur Visualisierung in ggplot2 werden mit einem + verbunden. Man kann (und in diesem Fall soll) weitere Anweisungen geben. Z. B. sind die Beschriftungen der beiden Achsen so nichtssagend und müssen verbessert werden. Wir hängen mit einem +-Zeichen weitere Befehle hinzu:\n\nggplot(data = gapminder2007, \n       mapping = aes(x = gdpPercap, y = lifeExp, color = continent)) +\n  geom_point() + \n  labs(x = 'Bruttoinlandsprodukt pro Einwohner (US$, inflationsbereinigt)',\n       y = 'Lebenserwartung bei der Geburt (Jahre)',\n       color = 'Kontinent',\n       title = 'Daten von Gapminder für das Jahr 2007',\n       caption = 'http://www.gapminder.org/data/')",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Einführung in die Darstellung von Daten</span>"
+    ]
   },
   {
     "objectID": "03-ggplot.html#sec-line",
     "href": "03-ggplot.html#sec-line",
     "title": "3  Einführung in die Darstellung von Daten",
     "section": "3.4 Liniendiagramm",
-    "text": "3.4 Liniendiagramm\nEs ergibt wenig Sinn, die obere Grafik mit Linien darzustellen. Allerdings eignen sich Linien ausgezeichnet, um einen zeitlichen Verlauf zu visualisieren. Daher filtern wir aus dem Datensatz gapminder die Zeitreihen für Frankreich und Deutschland heraus. Weil wir jetzt zwei Länder haben möchten, muss beim Filtern ein Vektor mit Ländernamen angegeben werden und statt == der Operator %in%. Wir werden später noch ausführlich auf diese Operatoren zurückkommen.\n\nfrance_germany <- gapminder %>% \n  filter(country %in% c('France', 'Germany'))\n\n\nggplot(data = france_germany, \n       mapping = aes(x = year, y = gdpPercap, color = country)) +\n  geom_line()"
+    "text": "3.4 Liniendiagramm\nEs ergibt wenig Sinn, die obere Grafik mit Linien darzustellen. Allerdings eignen sich Linien ausgezeichnet, um einen zeitlichen Verlauf zu visualisieren. Daher filtern wir aus dem Datensatz gapminder die Zeitreihen für Frankreich und Deutschland heraus. Weil wir jetzt zwei Länder haben möchten, muss beim Filtern ein Vektor mit Ländernamen angegeben werden und statt == der Operator %in%. Wir werden später noch ausführlich auf diese Operatoren zurückkommen.\n\nfrance_germany &lt;- gapminder %&gt;% \n  filter(country %in% c('France', 'Germany'))\n\n\nggplot(data = france_germany, \n       mapping = aes(x = year, y = gdpPercap, color = country)) +\n  geom_line()",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Einführung in die Darstellung von Daten</span>"
+    ]
   },
   {
     "objectID": "20-aufgabensammlung.html#einführung-in-die-darstellung-von-daten",
@@ -298,7 +381,11 @@
     "href": "03-ggplot.html#balkendiagramm",
     "title": "3  Einführung in die Darstellung von Daten",
     "section": "3.5 Balkendiagramm",
-    "text": "3.5 Balkendiagramm\nWie viele Länder gibt es pro Kontinent im Jahr 2007? Das Balkendiagramm zählt für uns die Einträge im Datensatz zusammen. Es stellt also dieselben Daten dar, die eine Häufigkeitstabelle enthalten würde.\n\nggplot(data = gapminder2007, \n       mapping = aes(x = continent)) +\n  geom_bar()"
+    "text": "3.5 Balkendiagramm\nWie viele Länder gibt es pro Kontinent im Jahr 2007? Das Balkendiagramm zählt für uns die Einträge im Datensatz zusammen. Es stellt also dieselben Daten dar, die eine Häufigkeitstabelle enthalten würde.\n\nggplot(data = gapminder2007, \n       mapping = aes(x = continent)) +\n  geom_bar()",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Einführung in die Darstellung von Daten</span>"
+    ]
   },
   {
     "objectID": "04-einlesen.html",
@@ -690,35 +777,50 @@
     "href": "index.html#lernergebnisse-intended-learning-outcomes",
     "title": "Übung zur Vorlesung Statistik und Datenanalyse",
     "section": "Lernergebnisse (intended learning outcomes)",
-    "text": "Lernergebnisse (intended learning outcomes)\n\nDatenanalyse\n\nDaten für statistische Analysen aufbereiten\nExplorative (beschreibende) Datenanalyse durchführen\nDaten visualisieren\nErgebnisse der Analysen reproduzierbar darstellen\n\nStatistische Methoden\n\nEinfache statistische Kenngrößen (Mittelwert, Standardabweichung etc.) berechnen\nEine Korrelation zwischen zwei Datensätzen berechnen\nHypothesentests durchführen und die Ergebnisse richtig berichten und interpretieren\nKonfidenzintervalle berechnen und interpretieren\nEin lineares Modell berechnen, die Ergebnisse darstellen und interpretieren"
+    "text": "Lernergebnisse (intended learning outcomes)\n\nDatenanalyse\n\nDaten für statistische Analysen aufbereiten\nExplorative (beschreibende) Datenanalyse durchführen\nDaten visualisieren\nErgebnisse der Analysen reproduzierbar darstellen\n\nStatistische Methoden\n\nEinfache statistische Kenngrößen (Mittelwert, Standardabweichung etc.) berechnen\nEine Korrelation zwischen zwei Datensätzen berechnen\nHypothesentests durchführen und die Ergebnisse richtig berichten und interpretieren\nKonfidenzintervalle berechnen und interpretieren\nEin lineares Modell berechnen, die Ergebnisse darstellen und interpretieren",
+    "crumbs": [
+      "Vorwort"
+    ]
   },
   {
     "objectID": "index.html#was-mir-im-umgang-miteinander-wichtig-ist",
     "href": "index.html#was-mir-im-umgang-miteinander-wichtig-ist",
     "title": "Übung zur Vorlesung Statistik und Datenanalyse",
     "section": "Was mir im Umgang miteinander wichtig ist",
-    "text": "Was mir im Umgang miteinander wichtig ist\n\nPünktlichkeit in der Vorlesung und den Übungen\nGute Vorbereitung durch Erledigen der Hausaufgaben\nRespektieren anderer Meinungen\nOffenheit gegenüber neuen Sichtweisen, Themen und Methoden\nGeduld mit sich selbst und den anderen 😄"
+    "text": "Was mir im Umgang miteinander wichtig ist\n\nPünktlichkeit in der Vorlesung und den Übungen\nGute Vorbereitung durch Erledigen der Hausaufgaben\nRespektieren anderer Meinungen\nOffenheit gegenüber neuen Sichtweisen, Themen und Methoden\nGeduld mit sich selbst und den anderen 😄",
+    "crumbs": [
+      "Vorwort"
+    ]
   },
   {
     "objectID": "index.html#sinn-und-unsinn-dieses-skripts",
     "href": "index.html#sinn-und-unsinn-dieses-skripts",
     "title": "Übung zur Vorlesung Statistik und Datenanalyse",
     "section": "Sinn und Unsinn dieses Skripts",
-    "text": "Sinn und Unsinn dieses Skripts\nDieses Skript ist ein lebendiges Begleitdokument des Kurses. Es wird laufend angepasst und aktualisiert.\nIch nutze verschiedenfarbige Blöcke, um wichtige Stellen hervorzuheben:\n\nInfoblock\n\n\n\nAchtung, wichtig!\n\n\n\nDefinition\n\n\n\nLernziele"
+    "text": "Sinn und Unsinn dieses Skripts\nDieses Skript ist ein lebendiges Begleitdokument des Kurses. Es wird laufend angepasst und aktualisiert.\nIch nutze verschiedenfarbige Blöcke, um wichtige Stellen hervorzuheben:\n\nInfoblock\n\n\n\nAchtung, wichtig!\n\n\n\nDefinition\n\n\n\nLernziele",
+    "crumbs": [
+      "Vorwort"
+    ]
   },
   {
     "objectID": "index.html#inspiration-quellen-und-danksagung",
     "href": "index.html#inspiration-quellen-und-danksagung",
     "title": "Übung zur Vorlesung Statistik und Datenanalyse",
     "section": "Inspiration, Quellen und Danksagung",
-    "text": "Inspiration, Quellen und Danksagung\nDieses Skript baut stark auf folgenden freien Quellen auf:\n\nr4ds: Wickham, Çetinkaya-Rundel, and Grolemund (2023)\nggplot2: Wickham (2020)\nModernDive: Ismay and Kim (2021)\nIntroduction to Modern Statistics: Çetinkaya-Rundel and Hardin (2024)\n\nDen Autoren dieser Bücher gilt ein großer Dank für Ihren Beitrag zur -Community !"
+    "text": "Inspiration, Quellen und Danksagung\nDieses Skript baut stark auf folgenden freien Quellen auf:\n\nr4ds: Wickham, Çetinkaya-Rundel, and Grolemund (2023)\nggplot2: Wickham (2020)\nModernDive: Ismay and Kim (2021)\nIntroduction to Modern Statistics: Çetinkaya-Rundel and Hardin (2024)\n\nDen Autoren dieser Bücher gilt ein großer Dank für Ihren Beitrag zur -Community !",
+    "crumbs": [
+      "Vorwort"
+    ]
   },
   {
     "objectID": "index.html#reproduzierbarkeit",
     "href": "index.html#reproduzierbarkeit",
     "title": "Übung zur Vorlesung Statistik und Datenanalyse",
     "section": "Reproduzierbarkeit",
-    "text": "Reproduzierbarkeit\nDieses Skript wurde in RStudio mit Quarto geschrieben und in R version 4.4.2 (2024-10-31) gebaut. Folgende Pakete werden für die Beispiele und Übungen benötigt:\n\n\n\n\npackage\nversion\nsource\n\n\n\n\ndabestr\n2023.9.12\nCRAN (R 4.3.2)\n\n\nemojifont\n0.5.5\nCRAN (R 4.2.0)\n\n\nfontawesome\n0.5.2\nCRAN (R 4.3.2)\n\n\ngapminder\n1.0.0\nCRAN (R 4.3.2)\n\n\ninfer\n1.0.7\nCRAN (R 4.4.1)\n\n\nlubridate\n1.9.3\nCRAN (R 4.3.2)\n\n\nmoderndive\n0.5.5\nCRAN (R 4.3.2)\n\n\ntidyverse\n2.0.0\nCRAN (R 4.3.2)\n\n\n\n\nDie komplette Information zur Session lautet:\n\n\nR version 4.4.2 (2024-10-31)\nPlatform: x86_64-pc-linux-gnu\nRunning under: Ubuntu 22.04.5 LTS\n\nMatrix products: default\nBLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3 \nLAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3;  LAPACK version 3.10.0\n\nlocale:\n [1] LC_CTYPE=de_DE.UTF-8       LC_NUMERIC=C              \n [3] LC_TIME=de_DE.UTF-8        LC_COLLATE=de_DE.UTF-8    \n [5] LC_MONETARY=de_DE.UTF-8    LC_MESSAGES=de_DE.UTF-8   \n [7] LC_PAPER=de_DE.UTF-8       LC_NAME=C                 \n [9] LC_ADDRESS=C               LC_TELEPHONE=C            \n[11] LC_MEASUREMENT=de_DE.UTF-8 LC_IDENTIFICATION=C       \n\ntime zone: Europe/Berlin\ntzcode source: system (glibc)\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nloaded via a namespace (and not attached):\n [1] crayon_1.5.2      vctrs_0.6.5       cli_3.6.2         knitr_1.48       \n [5] rlang_1.1.3       xfun_0.46         stringi_1.8.3     purrr_1.0.2      \n [9] generics_0.1.3    assertthat_0.2.1  jsonlite_1.8.8    glue_1.7.0       \n[13] rprojroot_2.0.4   htmltools_0.5.7   fansi_1.0.6       rmarkdown_2.25.2 \n[17] emo_0.0.0.9000    tibble_3.2.1      evaluate_0.23     fontawesome_0.5.2\n[21] fastmap_1.1.1     yaml_2.3.8        lifecycle_1.0.4   stringr_1.5.1    \n[25] compiler_4.4.2    sessioninfo_1.2.2 pkgconfig_2.0.3   htmlwidgets_1.6.2\n[29] timechange_0.2.0  rstudioapi_0.15.0 digest_0.6.33     R6_2.5.1         \n[33] utf8_1.2.4        pillar_1.9.0      magrittr_2.0.3    tools_4.4.2      \n[37] lubridate_1.9.3   desc_1.4.2       \n\n\n\nDieses Skript ist lizenziert unter Creative Commons Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 4.0 International.\n\n\n\n\nÇetinkaya-Rundel, Mine, and Johanna Hardin. 2024. Introduction to Modern Statistics. 2nd edition. https://openintro-ims.netlify.app/.\n\n\nIsmay, Chester, and Albert Y. Kim. 2021. ModernDive: Statistical Inference via Data Science. https://moderndive.com/.\n\n\nWickham, Hadley. 2020. Ggplot2: Elegant Graphics for Data Analysis. 3rd, in progress. https://ggplot2-book.org/.\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science (2e). https://r4ds.hadley.nz/."
+    "text": "Reproduzierbarkeit\nDieses Skript wurde in RStudio mit Quarto geschrieben und in R version 4.5.1 (2025-06-13) gebaut. Folgende Pakete werden für die Beispiele und Übungen benötigt:\n\n\n\npackage\nversion\nsource\n\n\n\n\ndabestr\nNA\nNA\n\n\nemojifont\nNA\nNA\n\n\nfontawesome\n0.5.3\nCRAN (R 4.5.0)\n\n\ngapminder\n1.0.0\nCRAN (R 4.5.0)\n\n\ninfer\n1.0.8\nCRAN (R 4.5.0)\n\n\nlubridate\n1.9.4\nCRAN (R 4.5.0)\n\n\nmoderndive\nNA\nNA\n\n\ntidyverse\n2.0.0\nCRAN (R 4.5.0)\n\n\n\nDie komplette Information zur Session lautet:\n\n\nR version 4.5.1 (2025-06-13)\nPlatform: x86_64-pc-linux-gnu\nRunning under: Ubuntu 24.04.3 LTS\n\nMatrix products: default\nBLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 \nLAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0  LAPACK version 3.12.0\n\nlocale:\n [1] LC_CTYPE=de_DE.UTF-8       LC_NUMERIC=C              \n [3] LC_TIME=de_DE.UTF-8        LC_COLLATE=de_DE.UTF-8    \n [5] LC_MONETARY=de_DE.UTF-8    LC_MESSAGES=de_DE.UTF-8   \n [7] LC_PAPER=de_DE.UTF-8       LC_NAME=C                 \n [9] LC_ADDRESS=C               LC_TELEPHONE=C            \n[11] LC_MEASUREMENT=de_DE.UTF-8 LC_IDENTIFICATION=C       \n\ntime zone: Europe/Berlin\ntzcode source: system (glibc)\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nloaded via a namespace (and not attached):\n [1] crayon_1.5.3      vctrs_0.6.5       cli_3.6.5         knitr_1.50       \n [5] rlang_1.1.6       xfun_0.52         stringi_1.8.7     purrr_1.1.0      \n [9] generics_0.1.4    assertthat_0.2.1  jsonlite_2.0.0    glue_1.8.0       \n[13] htmltools_0.5.8.1 rmarkdown_2.29    emo_0.0.0.9000    tibble_3.2.1     \n[17] evaluate_1.0.3    fontawesome_0.5.3 fastmap_1.2.0     yaml_2.3.10      \n[21] lifecycle_1.0.4   stringr_1.5.2     compiler_4.5.1    sessioninfo_1.2.3\n[25] pkgconfig_2.0.3   htmlwidgets_1.6.4 timechange_0.3.0  rstudioapi_0.17.1\n[29] digest_0.6.37     R6_2.6.1          pillar_1.10.2     magrittr_2.0.4   \n[33] tools_4.5.1       lubridate_1.9.4   desc_1.4.3       \n\n\n\nDieses Skript ist lizenziert unter Creative Commons Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 4.0 International.\n\n\n\n\nÇetinkaya-Rundel, Mine, and Johanna Hardin. 2024. Introduction to Modern Statistics. 2nd edition. https://openintro-ims.netlify.app/.\n\n\nIsmay, Chester, and Albert Y. Kim. 2021. ModernDive: Statistical Inference via Data Science. https://moderndive.com/.\n\n\nWickham, Hadley. 2020. Ggplot2: Elegant Graphics for Data Analysis. 3rd, in progress. https://ggplot2-book.org/.\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science (2e). https://r4ds.hadley.nz/.",
+    "crumbs": [
+      "Vorwort"
+    ]
   },
   {
     "objectID": "09-tests-infer.html#workflow-in-infer",
@@ -942,7 +1044,11 @@
     "href": "03-ggplot.html#vertiefung-ggplot2-auf-datacamp",
     "title": "3  Einführung in die Darstellung von Daten",
     "section": "3.8 Vertiefung ggplot2 auf datacamp",
-    "text": "3.8 Vertiefung ggplot2 auf datacamp\nBearbeiten Sie das Kapitel 1 im Kurs “Introduction to Data Visualization with ggplot2” auf datacamp.\n\n\n\n\n\n\n\n\nIsmay, Chester, and Albert Y. Kim. 2021. ModernDive: Statistical Inference via Data Science. https://moderndive.com/."
+    "text": "3.8 Vertiefung ggplot2 auf datacamp\nBearbeiten Sie das Kapitel 1 im Kurs “Introduction to Data Visualization with ggplot2” auf datacamp.\n\n\n\n\n\n\n\n\nIsmay, Chester, and Albert Y. Kim. 2021. ModernDive: Statistical Inference via Data Science. https://moderndive.com/.",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Einführung in die Darstellung von Daten</span>"
+    ]
   },
   {
     "objectID": "04-einlesen.html#sec-ha-kap4",
@@ -956,7 +1062,11 @@
     "href": "03-ggplot.html#sec-ha-kap3",
     "title": "3  Einführung in die Darstellung von Daten",
     "section": "3.7 Hausaufgaben",
-    "text": "3.7 Hausaufgaben\n\n3.7.1 Darstellung von großen Zahlen\nWir verändern die Grafik aus Kapitel 3.2 so, dass die Symbole nach der Größe der Einwohnerzahl skaliert werden. Dazu benutzen wir ein neues Argument in der Funktion aes(size = pop):\n\nggplot(data = gapminder2007, \n       mapping = aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +\n  geom_point() + \n  labs(x = 'Bruttoinlandsprodukt pro Einwohner (US$, inflationsbereinigt)',\n       y = 'Lebenserwartung bei der Geburt (Jahre)',\n       color = 'Kontinent',\n       title = 'Daten von Gapminder für das Jahr 2007',\n       caption = 'http://www.gapminder.org/data/')\n\n\n\n\nDie Einwohnerzahlen sind sehr groß. Daher stellt R sie in der sogen. wissenschaftlichen Notation dar. Dabei steht z. B. e+08 für \\(10^8\\). Das heißt 2.5e+08 sind 250000000 Einwohner.\nBeschriften Sie die Legende für die Größe der Symbole richtig, indem Sie size = 'Einwohnerzahl' in der Funktion labs() hinzufügen.\n\n\n3.7.2 Grafiken richtig beschriften\nBis auf die Grafik in Kapitel 3.4 fehlen bei den Grafiken oben ordentliche Achsenbeschriftungen und Titel für die Legenden. Ergänzen Sie den Code entsprechend.\n\n\n3.7.3 Ihre Arbeit einreichen\nReichen Sie die Aufgabe aus Kapitel 3.7 bei fiete.ai ein und erhalten Sie feedback:\nfiete.ai Hausaufgabe"
+    "text": "3.7 Hausaufgaben\n\n3.7.1 Darstellung von großen Zahlen\nWir verändern die Grafik aus Kapitel 3.2 so, dass die Symbole nach der Größe der Einwohnerzahl skaliert werden. Dazu benutzen wir ein neues Argument in der Funktion aes(size = pop):\n\nggplot(data = gapminder2007, \n       mapping = aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +\n  geom_point() + \n  labs(x = 'Bruttoinlandsprodukt pro Einwohner (US$, inflationsbereinigt)',\n       y = 'Lebenserwartung bei der Geburt (Jahre)',\n       color = 'Kontinent',\n       title = 'Daten von Gapminder für das Jahr 2007',\n       caption = 'http://www.gapminder.org/data/')\n\n\n\n\n\n\n\n\nDie Einwohnerzahlen sind sehr groß. Daher stellt R sie in der sogen. wissenschaftlichen Notation dar. Dabei steht z. B. e+08 für \\(10^8\\). Das heißt 2.5e+08 sind 250000000 Einwohner.\nBeschriften Sie die Legende für die Größe der Symbole richtig, indem Sie size = 'Einwohnerzahl' in der Funktion labs() hinzufügen.\n\n\n3.7.2 Grafiken richtig beschriften\nBis auf die Grafik in Kapitel 3.4 fehlen bei den Grafiken oben ordentliche Achsenbeschriftungen und Titel für die Legenden. Ergänzen Sie den Code entsprechend.\n\n\n3.7.3 Ihre Arbeit einreichen\nReichen Sie die Aufgabe aus Kapitel 3.7 bei FelloFish ein und erhalten Sie feedback:\nFelloFish Hausaufgabe",
+    "crumbs": [
+      "EINFÜHRUNG IN R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Einführung in die Darstellung von Daten</span>"
+    ]
   },
   {
     "objectID": "05-explorative-kategorial.html#sec-ha-kap5",

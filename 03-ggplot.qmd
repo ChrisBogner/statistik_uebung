@@ -145,9 +145,9 @@ Beschriften Sie die Legende für die Größe der Symbole richtig, indem Sie `siz
 Bis auf die Grafik in @sec-line fehlen bei den Grafiken oben ordentliche Achsenbeschriftungen und Titel für die Legenden. Ergänzen Sie den Code entsprechend.
 
 ### Ihre Arbeit einreichen
-Reichen Sie die Aufgabe aus @sec-ha-kap3 bei fiete.ai ein und erhalten Sie feedback:
+Reichen Sie die Aufgabe aus @sec-ha-kap3 bei FelloFish ein und erhalten Sie feedback:
 
-[fiete.ai Hausaufgabe](https://app.fiete.ai/a/cm2irrbu62b8q41jqkkyvey0a)
+[FelloFish Hausaufgabe](https://app.fiete.ai/a/cm2irrbu62b8q41jqkkyvey0a)
 
 ## Vertiefung ggplot2 auf datacamp
 
