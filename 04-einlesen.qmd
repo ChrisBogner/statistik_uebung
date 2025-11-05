@@ -92,7 +92,7 @@ Kapitel 4.1 in @ModernDive
 ## Hausaufgaben {#sec-ha-kap4}
 
 ### Die Umfrage aus der Vorlesung
-Lesen Sie die Datei 'Umfrage_2024_kurz.csv' ein (sie ist auf ILIAS zu finden). Sie enthält die Umfrageergebnisse aus der ersten Session der Vorlesung zur Frage 'Haben Sie schon mal einen Statistikkurs besucht?'
+Lesen Sie die Datei 'Datenerhebung_kurz_2025.csv' ein (sie ist auf ILIAS zu finden). Sie enthält die Umfrageergebnisse aus der ersten Session der Vorlesung zur Frage 'Haben Sie schon mal einen Statistikkurs besucht?'
 ```{r}
 #| echo: false
 #| warning: false
