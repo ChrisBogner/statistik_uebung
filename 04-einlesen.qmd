@@ -31,7 +31,7 @@ Um die Daten zu laden, gibt es in der Bibliothek `readr` verschiedene Funktionen
 ```{r}
 #| message: false
 #| warning: false
-car_numbers <- read_delim(file = 'Daten/autos_2024-10-14.csv', delim = ';')
+car_numbers <- read_delim(file = 'Daten/autos_2025-10-12.csv', delim = ';')
 ```
 
 Ein kurzer Blick auf den Datensatz, den Sie aus der ersten Sitzung der Vorlesung erkennen sollten `r emo::ji('smile')`. Es sind die Daten zur **Mobilität in Europa** aus [eurostat](https://ec.europa.eu/eurostat/databrowser/view/road_eqs_carhab/default/bar?lang=en). Die Daten beinhalten die Anzhal der "Personenkraftwagen je 1 000 Einwohner", online Datencode: ROAD_EQS_CARHAB.
@@ -97,7 +97,7 @@ Lesen Sie die Datei 'Umfrage_2024_kurz.csv' ein (sie ist auf ILIAS zu finden). S
 #| echo: false
 #| warning: false
 #| message: false
-umfrage <- read_delim(file = 'Daten/Umfrage_2024_kurz.csv', delim = ';')
+umfrage <- read_delim(file = 'Daten/Datenerhebung_kurz_2025.csv', delim = ';')
 
 ```
 
@@ -118,7 +118,7 @@ ggplot(umfrage, mapping = aes(x = `Haben Sie schon mal einen Statistikkurs besuc
   labs(x = 'Antworten',
        y = 'Anzahl',
        title = 'Haben Sie schon mal einen Statistikkurs besucht?',
-       caption = 'Quelle: Umfrageergebnisse Teilnehmende Vorlesung Statistik WS 2024-2025')
+       caption = 'Quelle: Umfrageergebnisse Teilnehmende Vorlesung Statistik WS 2025-2026')
 ```
 
 

@@ -34,6 +34,8 @@ kable(birds) %>%
 2. Wie viele Vögel sind in der Tabelle zu finden. Nutzen Sie dazu die Funktion `length()`. Sehen Sie in der Hilfe nach, wie man diese benutzt.
 3. Führen Sie alle Variablen zu einem einzelnen Datenobjekt, einem `tibble` zusammen mithilfe der Funktion `tibble()` aus dem R-Paket `tibble`.
 
+[Link zu FelloFish](https://app.fiete.ai/a/cm2iqae202aq741jqkxy2zncf)
+
 
 ## Einführung in die Darstellung von Daten
 
@@ -48,7 +50,7 @@ kable(birds) %>%
 
 Sie sollten die gleiche (bis auf die Farbauswahl) Grafik erhalten, wie in der Vorlesung `r emo::ji('nerd')`.
 
-[Link zu fiete.ai](https://app.fiete.ai/a/cm2iqbpoz2aqx41jqyoe1hbyo)
+[Link zu FelloFish](https://app.fiete.ai/a/cm2iqbpoz2aqx41jqyoe1hbyo)
 
 ## Daten in R einlesen und aus R speichern 
 
@@ -59,16 +61,16 @@ In dieser Übung lernen Sie das Paket [haven](https://haven.tidyverse.org/) kenn
 
 1. Laden Sie die Bibliotheken `tidyverse` und `haven`.
 
-Wir beschäftigen uns mit dem Datensatz "Politbarometer 2021". Das Politbarometer kennen Sie bestimmt aus dem ZDF. Das sind Telefonumfragen, die seit 1977 etwa monatlich von der Forschungsgruppe Wahlen für das ZDF durchgeführt werden. Wir sehen uns die Daten aus dem Jahr 2021 an. Sie sind für Lehre und Forschung frei. Sie müssen sie jedoch selbst herunterladen, die Nutzungsbedingungen lesen und ihnen zustimmen. Die Daten gibt es hier: http://dx.doi.org/10.4232/1.13909.
+Wir beschäftigen uns mit dem Datensatz "Politbarometer 2021". Das Politbarometer kennen Sie bestimmt aus dem ZDF. Das sind Telefonumfragen, die seit 1977 etwa monatlich von der Forschungsgruppe Wahlen für das ZDF durchgeführt werden. Wir sehen uns die Daten aus dem Jahr 2021 an. Sie sind für Lehre und Forschung frei. Sie müssen sie jedoch selbst herunterladen, die Nutzungsbedingungen lesen und ihnen zustimmen. Die Daten gibt es hier: https://doi.org/10.4232/1.14464.
 
-2. Laden Sie unter "Downloads/Datasets" (rechts oben) den Datensatz "ZA7856_v1-0-0.dta.zip Stata (Dataset) 1.9 MB" herunter. Dafür werden Sie sich einmalig (und kostenlos) anmelden müssen.
+2. Laden Sie unter "Downloads/Datasets" (rechts oben) den Datensatz "ZA7856_v1-1-0.dta.zip Stata (Dataset) 1.9 MB" herunter. Dafür werden Sie sich einmalig (und kostenlos) anmelden müssen.
 
-Das ist ein komprimierter Datensatz des Statistikpakets Stata. Speichern Sie den Datensatz in Ihrem "Daten"-Ordner und entpacken Sie ihn dort. Es wird ein Ordner namens ZA7856_v1-0-0.dta erstellt, in dem Sie die Datei "ZA7856_v1-0-0.dta" finden. Das ist der eigentliche Datensatz.
+Das ist ein komprimierter Datensatz des Statistikpakets Stata. Speichern Sie den Datensatz in Ihrem "Daten"-Ordner und entpacken Sie ihn dort. Es wird ein Ordner namens ZA7856_v1-1-0.dta erstellt, in dem Sie die Datei "ZA7856_v1-1-0.dta" finden. Das ist der eigentliche Datensatz.
 
 3. Den Datensatz einlesen mit der Funktion read_dta(). Passen Sie den Pfad zur Datei an, da ich für die Übung eine andere Verzeichnisstruktur habe!
 ```{r}
 #| eval: false
-gesis <- read_dta('Daten/ZA7856_v1-0-0.dta/ZA7856_v1-0-0.dta')
+gesis <- read_dta('Daten/ZA7856_v1-1-0.dta/ZA7856_v1-1-0.dta')
 ```
 
 
@@ -109,7 +111,7 @@ gesis_short <- gesis %>%
 
 8. Speichern Sie den neuen Datensatz `gesis_short` mit `write_delim()` ab.
 
-[Link zu fiete.ai für Feedback](https://app.fiete.ai/a/cm2iqd6xf2arg41jqj69dla1n)
+[Link zu FelloFish für Feedback](https://app.fiete.ai/a/cm2iqd6xf2arg41jqj69dla1n)
 
 ## Exploration von kategorialen Daten
 
@@ -190,7 +192,7 @@ ggplot(data = ___, mapping = aes(y = ___, fill = ___)) +
 
 Was macht `geom_bar(position = position_fill(reverse = TRUE))`?
 
-[Link zu fiete.ai für Feedback](https://app.fiete.ai/a/cm2iqfn3w2at041jqpfru5h9h)
+[Link zu FelloFish für Feedback](https://app.fiete.ai/a/cm2iqfn3w2at041jqpfru5h9h)
 
 ## Exploration von numerischen Daten
 
@@ -204,6 +206,8 @@ Die Datei "Temperatur.csv" aus @Zuur2009 enthält Messungen von Temperatur, Sali
 1. Stellen Sie die Monatsmittel der Temperatur als Linien dar. Tipp: Um die Montasnamen darzustellen, nutzen Sie den folgenden Code `scale_x_discrete(limits = as_factor(1:12), labels = month.abb)`. Hängen Sie ihn mit einem `+` an. Was macht dieser Code?
 1. Beschriften Sie die Grafik sinnvoll.
 1. Fügen Sie die Standardabweichungen als Band hinzu.
+
+[Link zu FelloFish für Feedback](https://app.fiete.ai/a/cm2iqgukg2c783bxtfeqzg8tm)
 
 ### Quantile
 Wir beschäftigen uns mit dem Datensatz `possum` im Paket `openintro`.
@@ -223,6 +227,8 @@ Der Körper- und Kopflängen.
 3. Stellen Sie die beiden Variablen als Streudiagramm dar (Körperlängen auf die $x$-Achse).
 
 4. Berechnen Sie den linearen Korrelationskoeffizienten mit der Funktion `cor()`.
+
+[Link zu FelloFish für Feedback](https://app.fiete.ai/a/cm2iqht9c2au241jquefegqsi)
 
 ## Lineare Regression
 
@@ -246,6 +252,8 @@ Wir arbeiten mit den Possum-Daten aus dem Paket `openintro`.
 
 9. Vergleichen Sie alle drei Modelle. Welches ist besser?
 
+[Link zu FelloFish für Feedback](https://app.fiete.ai/a/cm2iqixh12c7s3bxthbwe8ywf)
+
 ## Umgang mit der Normalverteilung
 
 ### Simulieren von Daten aus einer Normalverteilung
@@ -256,6 +264,8 @@ Wir arbeiten mit den Possum-Daten aus dem Paket `openintro`.
 3. Die Funktion `dnorm` kann man dazu nutzen, um die theoretische Normalverteilung über die simulierten Daten aus Aufgabe 1 zu plotten. Nutzen Sie dazu die Funktionen `geom_density()` und `geom_function()`. Diese Aufgabe machen wir gemeinsam.
 
 4. Überprüfen Sie, dass der Bereich $\pm$ 1.96 Standardabweichungen in einer Normalverteilung 95% der Werte enthält. Zeichnen Sie den Bereich richtig ein. 
+
+[Link zu FelloFish für Feedback](https://app.fiete.ai/a/cm2iqk3962aus41jqiogylh6w)
 
 ## Mittelwert der Studiendauer in Werdeschlau
 Die Studierendenvertretung in Werdeschlau möchte wissen, wie hoch im Schnitt die Studiendauer an der Uni Werdeschlau beträgt.
