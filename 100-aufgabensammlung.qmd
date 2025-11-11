@@ -113,7 +113,7 @@ gesis_short <- gesis %>%
 
 [Link zu FelloFish für Feedback](https://app.fiete.ai/a/cm2iqd6xf2arg41jqj69dla1n)
 
-## Exploration von kategorialen Daten
+## Exploration von qualitativen Daten
 
 ### Politbarometer 2021: Das Interesse für Politik {#sec-aufgabe-politbarometer-exploration-kategorial}
 Wir analysieren den Datensatz, den Sie in der vorherigen Übung geladen und vorbereitet haben.
@@ -194,7 +194,7 @@ Was macht `geom_bar(position = position_fill(reverse = TRUE))`?
 
 [Link zu FelloFish für Feedback](https://app.fiete.ai/a/cm2iqfn3w2at041jqpfru5h9h)
 
-## Exploration von numerischen Daten
+## Exploration von quntitativen Daten
 
 ### Umweltdaten entlang der dänischen Küste
 
