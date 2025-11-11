@@ -163,7 +163,7 @@ arbuthnot$boys + arbuthnot$girls
 
 Was Sie sehen, ist eine Liste von 82 Zahlen. Diese Zahlen erscheinen als Liste, weil wir mit Vektoren und nicht mit einem Dataframe arbeiten. Jede Zahl steht für die Summe der Anzahl der Jungen und Mädchen, die in diesem Jahr getauft wurden. Sie können einen Blick auf die ersten Zeilen der Spalten `boys` und `girls` werfen, um zu sehen, ob die Berechnung richtig ist.
 
-### Hinzufügen einer neuen Variable zum Dataframe
+### Hinzufügen einer neuen Variable zum Datensatz
 
 Wir möchten diesen neuen Vektor der Gesamtzahl der Taufen verwenden, um einige Diagramme zu erstellen, daher möchten wir ihn als permanente Spalte in unserem Dataframe speichern. Dies können wir mit dem folgenden Code tun:
 
