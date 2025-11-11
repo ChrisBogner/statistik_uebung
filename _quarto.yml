@@ -17,8 +17,8 @@ book:
         - 04-einlesen.qmd
     - part: "EXPLORATIVE DATENANALYSE"
       chapters:
-        - 05-explorative-kategorial.qmd
-        - 06-explorative-numerisch.qmd
+        - 05-explorative-qualitativ.qmd
+        - 06-explorative-quantitativ.qmd
     - part: "STATISTISCHE MODELLIERUNG"
       chapters: 
         - 07-lineare-regression-ein-pred.qmd
