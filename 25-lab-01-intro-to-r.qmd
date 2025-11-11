@@ -55,7 +55,7 @@ Wir haben uns für das tidyverse-Paket entschieden, weil es aus einer Reihe von 
 
 ### Erstellen eines reproduzierbaren Berichts
 
-Wir werden R Markdown verwenden, um reproduzierbare Berichte zu erstellen. Wie und warum Sie das machen sollen, haben Sie bereits in Kapitel @sec-erste-schritte gelernt.
+Wir werden R Notebooks verwenden, um reproduzierbare Berichte zu erstellen. Wie und warum Sie das machen sollen, haben Sie bereits in Kapitel @sec-erste-schritte gelernt.
 
 
 ## Taufaufzeichnungen von Dr. Arbuthnot
