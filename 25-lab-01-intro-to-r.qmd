@@ -288,7 +288,7 @@ Diese Daten stammen aus Berichten der Centers for Disease Control. Sie können m
 
 Das war eine kurze Einführung in R und RStudio, aber wir werden Ihnen im weiteren Verlauf des Kurses weitere Funktionen und ein umfassenderes Gefühl für die Sprache vermitteln.
 
-In diesem Kurs werden wir die R-Pakete aus dem **tidyverse** verwenden. Das Buch [R For Data Science] (https://r4ds.hadley.nz/) von Wickham et al. ist eine fantastische Quelle für die Datenanalyse in R mit tidyverse. Wenn Sie nach R-Code suchen, stellen Sie sicher, dass Sie auch diese Paketnamen in Ihre Suchanfrage aufnehmen. Suchen Sie zum Beispiel nicht nach "scatterplot in R", sondern nach "scatterplot in R with the tidyverse".
+In diesem Kurs werden wir die R-Pakete aus dem **tidyverse** verwenden. Das Buch [R For Data Science](https://r4ds.hadley.nz/) von Wickham et al. ist eine fantastische Quelle für die Datenanalyse in R mit tidyverse. Wenn Sie nach R-Code suchen, stellen Sie sicher, dass Sie auch diese Paketnamen in Ihre Suchanfrage aufnehmen. Suchen Sie zum Beispiel nicht nach "scatterplot in R", sondern nach "scatterplot in R with the tidyverse".
 
 Diese Unterlagen können sich im Laufe des Semesters als nützlich erweisen:
 
