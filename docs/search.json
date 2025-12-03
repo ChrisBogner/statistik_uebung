@@ -1321,5 +1321,16 @@
       "LABS: EIGENSTÄNDIGE ÜBUNGEN",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Lab 01: Wiederholung und Festigung der Einführung in R und RStudio</span>"
     ]
+  },
+  {
+    "objectID": "100-aufgabensammlung.html#exploration-von-quantitativen-daten",
+    "href": "100-aufgabensammlung.html#exploration-von-quantitativen-daten",
+    "title": "Anhang A — Aufgabensammlung",
+    "section": "A.5 Exploration von quantitativen Daten",
+    "text": "A.5 Exploration von quantitativen Daten\n\nA.5.1 Umweltdaten entlang der dänischen Küste\nDie Datei “Temperatur.csv” aus Zuur, Ieno, and Meesters (2009) enthält Messungen von Temperatur, Salinität und Chlorophyll a an 31 Orten entlang der dänischen Küste. Der Datensatz kann hier heruntergeladen werden. Sie bekommen ihn aber bereits über ILIAS gestellt. Die Daten stammen vom dänischen Institut RIKZ (Monitoringprogramm MWTL: Monitoring Waterstaatkundige Toestand des Lands). Die Messungen wurden zwischen 1990 und 2005 durchgeführt, mit einer Häufigkeit von 0–4 Mal pro Monat je nach Jahreszeit.\n\nLesen Sie den Datensatz “Temperatur.csv” (auf ILIAS) ein.\nKonvertieren Sie die Spalte Date in ein richtiges Datumsformat und plotten Sie die Temperaturen pro Station (facet_wrap()) als Zeitreihen.\nBerechnen Sie die Anzahl der Messwerte, Monatsmittelwerte der Temperatur für alle Stationen, sowie die Standardabweichungen. Tipp: innerhalb von summarize() müssen Sie n = n() schreiben, um die Anzahl der Messwerte zu erhalten.\nStellen Sie die Monatsmittel der Temperatur als Linien dar. Tipp: Um die Montasnamen darzustellen, nutzen Sie den folgenden Code scale_x_discrete(limits = as_factor(1:12), labels = month.abb). Hängen Sie ihn mit einem + an. Was macht dieser Code?\nBeschriften Sie die Grafik sinnvoll.\nFügen Sie die Standardabweichungen als Band hinzu.\n\nLink zu FelloFish für Feedback\n\n\nA.5.2 Quantile\nWir beschäftigen uns mit dem Datensatz possum im Paket openintro.\n\nLaden Sie die Bibliothek und anschließend den Datensatz.\nBerechnen Sie\n\n\nDas 1. Quartil\nDas 3. Quartil\nDen Median\n\nDer Körper- und Kopflängen.\n\nStellen Sie die Körper- und Kopflängen als Boxplots nebeneinander dar. Nutzen Sie dazu die Bibliothek patchwork.\nStellen Sie die beiden Variablen als Streudiagramm dar (Körperlängen auf die \\(x\\)-Achse).\nBerechnen Sie den linearen Korrelationskoeffizienten mit der Funktion cor().\n\nLink zu FelloFish für Feedback",
+    "crumbs": [
+      "Anhang",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Aufgabensammlung</span>"
+    ]
   }
 ]

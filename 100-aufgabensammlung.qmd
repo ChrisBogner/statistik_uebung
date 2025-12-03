@@ -194,7 +194,7 @@ Was macht `geom_bar(position = position_fill(reverse = TRUE))`?
 
 [Link zu FelloFish für Feedback](https://app.fiete.ai/a/cm2iqfn3w2at041jqpfru5h9h)
 
-## Exploration von quntitativen Daten
+## Exploration von quantitativen Daten
 
 ### Umweltdaten entlang der dänischen Küste
 
