@@ -160,7 +160,7 @@ ggplot(data = penguins, mapping = aes(x = body_mass_g, y = flipper_length_mm)) +
 
 ## Ihre Arbeit einreichen
 
-Reichen Sie die Aufgabe @sec-ha-prediction bei fiete.ai ein und erhalten Sie feedback:
+Reichen Sie die Aufgabe @sec-ha-prediction bei FelloFish ein und erhalten Sie feedback:
 
-[fiete.ai Hausaufgabe](https://app.fiete.ai/a/cm2neicsf04ff46b8fyzhrqlr)
+[FelloFish Hausaufgabe](https://app.fiete.ai/a/cm2neicsf04ff46b8fyzhrqlr)
 

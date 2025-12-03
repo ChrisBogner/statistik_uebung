@@ -370,7 +370,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#datenvisualisierung" id="toc-datenvisualisierung" class="nav-link" data-scroll-target="#datenvisualisierung"><span class="header-section-number">10.3.1</span> Datenvisualisierung</a></li>
   <li><a href="#r-als-großer-taschenrechner" id="toc-r-als-großer-taschenrechner" class="nav-link" data-scroll-target="#r-als-großer-taschenrechner"><span class="header-section-number">10.3.2</span> R als großer Taschenrechner</a></li>
-  <li><a href="#hinzufügen-einer-neuen-variable-zum-dataframe" id="toc-hinzufügen-einer-neuen-variable-zum-dataframe" class="nav-link" data-scroll-target="#hinzufügen-einer-neuen-variable-zum-dataframe"><span class="header-section-number">10.3.3</span> Hinzufügen einer neuen Variable zum Dataframe</a></li>
+  <li><a href="#hinzufügen-einer-neuen-variable-zum-datensatz" id="toc-hinzufügen-einer-neuen-variable-zum-datensatz" class="nav-link" data-scroll-target="#hinzufügen-einer-neuen-variable-zum-datensatz"><span class="header-section-number">10.3.3</span> Hinzufügen einer neuen Variable zum Datensatz</a></li>
   </ul></li>
   <li><a href="#mehr-übungen" id="toc-mehr-übungen" class="nav-link" data-scroll-target="#mehr-übungen"><span class="header-section-number">10.4</span> Mehr Übungen</a></li>
   <li><a href="#ressourcen-zum-erlernen-von-r-und-zum-arbeiten-in-rstudio" id="toc-ressourcen-zum-erlernen-von-r-und-zum-arbeiten-in-rstudio" class="nav-link" data-scroll-target="#ressourcen-zum-erlernen-von-r-und-zum-arbeiten-in-rstudio"><span class="header-section-number">10.5</span> Ressourcen zum Erlernen von R und zum Arbeiten in RStudio</a></li>
@@ -580,8 +580,8 @@ $ girls &lt;int&gt; 4683, 4457, 4102, 4590, 4839, 4820, 4928, 4605, 4457, 4952, 
 </div>
 <p>Was Sie sehen, ist eine Liste von 82 Zahlen. Diese Zahlen erscheinen als Liste, weil wir mit Vektoren und nicht mit einem Dataframe arbeiten. Jede Zahl steht für die Summe der Anzahl der Jungen und Mädchen, die in diesem Jahr getauft wurden. Sie können einen Blick auf die ersten Zeilen der Spalten <code>boys</code> und <code>girls</code> werfen, um zu sehen, ob die Berechnung richtig ist.</p>
 </section>
-<section id="hinzufügen-einer-neuen-variable-zum-dataframe" class="level3" data-number="10.3.3">
-<h3 data-number="10.3.3" class="anchored" data-anchor-id="hinzufügen-einer-neuen-variable-zum-dataframe"><span class="header-section-number">10.3.3</span> Hinzufügen einer neuen Variable zum Dataframe</h3>
+<section id="hinzufügen-einer-neuen-variable-zum-datensatz" class="level3" data-number="10.3.3">
+<h3 data-number="10.3.3" class="anchored" data-anchor-id="hinzufügen-einer-neuen-variable-zum-datensatz"><span class="header-section-number">10.3.3</span> Hinzufügen einer neuen Variable zum Datensatz</h3>
 <p>Wir möchten diesen neuen Vektor der Gesamtzahl der Taufen verwenden, um einige Diagramme zu erstellen, daher möchten wir ihn als permanente Spalte in unserem Dataframe speichern. Dies können wir mit dem folgenden Code tun:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>arbuthnot <span class="ot">&lt;-</span> arbuthnot <span class="sc">%&gt;%</span></span>
@@ -687,7 +687,7 @@ $ girls &lt;int&gt; 4683, 4457, 4102, 4590, 4839, 4820, 4928, 4605, 4457, 4952, 
 <section id="ressourcen-zum-erlernen-von-r-und-zum-arbeiten-in-rstudio" class="level2" data-number="10.5">
 <h2 data-number="10.5" class="anchored" data-anchor-id="ressourcen-zum-erlernen-von-r-und-zum-arbeiten-in-rstudio"><span class="header-section-number">10.5</span> Ressourcen zum Erlernen von R und zum Arbeiten in RStudio</h2>
 <p>Das war eine kurze Einführung in R und RStudio, aber wir werden Ihnen im weiteren Verlauf des Kurses weitere Funktionen und ein umfassenderes Gefühl für die Sprache vermitteln.</p>
-<p>In diesem Kurs werden wir die R-Pakete aus dem <strong>tidyverse</strong> verwenden. Das Buch [R For Data Science] (https://r4ds.hadley.nz/) von Wickham et al.&nbsp;ist eine fantastische Quelle für die Datenanalyse in R mit tidyverse. Wenn Sie nach R-Code suchen, stellen Sie sicher, dass Sie auch diese Paketnamen in Ihre Suchanfrage aufnehmen. Suchen Sie zum Beispiel nicht nach “scatterplot in R”, sondern nach “scatterplot in R with the tidyverse”.</p>
+<p>In diesem Kurs werden wir die R-Pakete aus dem <strong>tidyverse</strong> verwenden. Das Buch <a href="https://r4ds.hadley.nz/">R For Data Science</a> von Wickham et al.&nbsp;ist eine fantastische Quelle für die Datenanalyse in R mit tidyverse. Wenn Sie nach R-Code suchen, stellen Sie sicher, dass Sie auch diese Paketnamen in Ihre Suchanfrage aufnehmen. Suchen Sie zum Beispiel nicht nach “scatterplot in R”, sondern nach “scatterplot in R with the tidyverse”.</p>
 <p>Diese Unterlagen können sich im Laufe des Semesters als nützlich erweisen:</p>
 <ul>
 <li><a href="https://github.com/rstudio/cheatsheets/raw/main/rmarkdown-2.0.pdf">RMarkdown Cheatsheet</a></li>
