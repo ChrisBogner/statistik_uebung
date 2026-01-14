@@ -428,7 +428,7 @@ window.Quarto = {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>anreise <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">runif</span>(<span class="at">n =</span> pop_size <span class="sc">*</span> <span class="fl">0.8</span>, <span class="at">min =</span> <span class="dv">5</span>, <span class="at">max =</span> <span class="dv">40</span>),</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>             <span class="fu">runif</span>(<span class="at">n =</span> pop_size <span class="sc">*</span> <span class="fl">0.2</span>, <span class="at">min =</span> <span class="dv">60</span>, <span class="at">max =</span> <span class="dv">120</span>))</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>geschlecht <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">'m'</span>, <span class="st">'w'</span>), <span class="at">size =</span> pop_size, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>geschlecht <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">'m'</span>, <span class="st">'w'</span>, <span class="st">'d'</span>), <span class="at">size =</span> pop_size, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>studienordnung <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">'alt'</span>, <span class="st">'neu'</span>), <span class="at">size =</span> pop_size, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
@@ -465,7 +465,7 @@ window.Quarto = {
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["studienordnung"],"name":[1],"type":["chr"],"align":["left"]},{"label":["dauer"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"alt","2":"3.392754"},{"1":"neu","2":"3.511118"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["studienordnung"],"name":[1],"type":["chr"],"align":["left"]},{"label":["dauer"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"alt","2":"3.442786"},{"1":"neu","2":"3.522911"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -474,7 +474,7 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stat_obs<span class="sc">$</span>dauer[<span class="dv">1</span>] <span class="sc">-</span> stat_obs<span class="sc">$</span>dauer[<span class="dv">2</span>]</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.1183631</code></pre>
+<pre><code>[1] -0.08012473</code></pre>
 </div>
 </div>
 <p>Wie verändert sich die Differenz, wenn wir zufälligerweise andere Studierende befragt hätten? Wir wählen neue Studierende aus und wiederholen die Berechnung des Mittelwerts der Studiendauer.</p>
@@ -491,12 +491,12 @@ window.Quarto = {
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["studienordnung"],"name":[1],"type":["chr"],"align":["left"]},{"label":["dauer"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"alt","2":"3.545039"},{"1":"neu","2":"3.512692"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["studienordnung"],"name":[1],"type":["chr"],"align":["left"]},{"label":["dauer"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"alt","2":"3.460554"},{"1":"neu","2":"3.515290"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
 </div>
-<p>Für diese Gruppe der Befragten beträgt die Differenz der Mittelwerte 0.0323477.</p>
+<p>Für diese Gruppe der Befragten beträgt die Differenz der Mittelwerte -0.0547357.</p>
 </section>
 </section>
 <section id="workflow-in-infer" class="level2" data-number="8.2">
@@ -542,7 +542,7 @@ Abbildung&nbsp;8.1: Allgemeines Vorgehen bei Hypothesentests (Quelle: https://in
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["stat"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.03234768"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["stat"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"-0.05473572"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -563,7 +563,7 @@ Abbildung&nbsp;8.1: Allgemeines Vorgehen bei Hypothesentests (Quelle: https://in
 </section>
 <section id="schritt-3-ergebnisse-darstellen" class="level3" data-number="8.3.3">
 <h3 data-number="8.3.3" class="anchored" data-anchor-id="schritt-3-ergebnisse-darstellen"><span class="header-section-number">8.3.3</span> Schritt 3: Ergebnisse darstellen</h3>
-<p>Wir stellen die Verteilung der Teststatistiken unter der Nullhypothese als ein Histogramm dar und zeichnen zusätzlich ein, wo sich die beobachtete Teststatistik (d.&nbsp;h. der beobachtete Unterschied der Mittelwerte) befindet als vertikale rote Linie. Die schattierten Bereiche zeigen Teststatistiken aus den Permutationen, die so extrem oder noch extremer sind, als die beobachtete Teststatistik von 0.0323477. Da unsere Alternativhypothese lautet, dass sich die Studiendauer verändert hat, betrachten wir extreme Werte sowohl bei der Verlängerung als auch bei der Verkürzung der Studiendauer als Evidenz gegen die Nullhypothese und zugunsten der Alternativhypothese. Daher färben wird die Bereiche links und spiegelbildlich rechts der beobachteten Teststatistik ein.</p>
+<p>Wir stellen die Verteilung der Teststatistiken unter der Nullhypothese als ein Histogramm dar und zeichnen zusätzlich ein, wo sich die beobachtete Teststatistik (d.&nbsp;h. der beobachtete Unterschied der Mittelwerte) befindet als vertikale rote Linie. Die schattierten Bereiche zeigen Teststatistiken aus den Permutationen, die so extrem oder noch extremer sind, als die beobachtete Teststatistik von -0.0547357. Da unsere Alternativhypothese lautet, dass sich die Studiendauer verändert hat, betrachten wir extreme Werte sowohl bei der Verlängerung als auch bei der Verkürzung der Studiendauer als Evidenz gegen die Nullhypothese und zugunsten der Alternativhypothese. Daher färben wird die Bereiche links und spiegelbildlich rechts der beobachteten Teststatistik ein.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">visualize</span>(null_dist) <span class="sc">+</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shade_p_value</span>(<span class="at">obs_stat =</span> d_hat, <span class="at">direction =</span> <span class="st">"two-sided"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
@@ -578,19 +578,19 @@ Abbildung&nbsp;8.1: Allgemeines Vorgehen bei Hypothesentests (Quelle: https://in
 </section>
 <section id="schritt-4-p-wert-berechnen-und-schlussfolgerungen-ziehen" class="level3" data-number="8.3.4">
 <h3 data-number="8.3.4" class="anchored" data-anchor-id="schritt-4-p-wert-berechnen-und-schlussfolgerungen-ziehen"><span class="header-section-number">8.3.4</span> Schritt 4: <span class="math inline">\(p\)</span>-Wert berechnen und Schlussfolgerungen ziehen</h3>
-<p>Der folgende Code berechnet den <span class="math inline">\(p\)</span>-Wert. Der <span class="math inline">\(p\)</span>-Wert gibt uns die Wahrscheinlichkeit an, eine Teststatistik (also die Differenz der Mittelwerte) so extrem oder noch extremer als 0.0323477 zu beobachten, wenn die Nullhypothese tatsächlich korrekt ist. In anderen Worten, wenn wir in <code>infer</code> Daten generieren unter der Nullhypothese (d.&nbsp;h. übereinstimmend mit der Nullhypothese), dann kommt eine Differenz von 0.0323477 oder noch größer und spiegelbildlich von -0.0323477 oder noch kleiner, mit einer Wahrscheinlichkeit von <span class="math inline">\(p\)</span> vor. Um den <span class="math inline">\(p\)</span>-Wert zu berechnen, rechnen wir den Anteil der eingefärbten Bereiche aus.</p>
+<p>Der folgende Code berechnet den <span class="math inline">\(p\)</span>-Wert. Der <span class="math inline">\(p\)</span>-Wert gibt uns die Wahrscheinlichkeit an, eine Teststatistik (also die Differenz der Mittelwerte) so extrem oder noch extremer als -0.0547357 zu beobachten, wenn die Nullhypothese tatsächlich korrekt ist. In anderen Worten, wenn wir in <code>infer</code> Daten generieren unter der Nullhypothese (d.&nbsp;h. übereinstimmend mit der Nullhypothese), dann kommt eine Differenz von -0.0547357 oder noch größer und spiegelbildlich von 0.0547357 oder noch kleiner, mit einer Wahrscheinlichkeit von <span class="math inline">\(p\)</span> vor. Um den <span class="math inline">\(p\)</span>-Wert zu berechnen, rechnen wir den Anteil der eingefärbten Bereiche aus.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">%&gt;%</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> d_hat, <span class="at">direction =</span> <span class="st">"two-sided"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["p_value"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.6192"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["p_value"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.3958"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
 </div>
-<p>Wir sehen also, dass Differenzen zwischen den Mittelwerten von 0.0323477 oder noch größer und spiegelbildlich von -0.0323477 oder noch kleiner in 61.92% der Fälle vorkommen, wenn die Nullhypothese gilt. Eine solche Differenz ist also nichts Besonderes. Unser Signifikanzniveau ist <span class="math inline">\(\alpha = 0.05\)</span>. Da <span class="math inline">\(p &gt; \alpha\)</span>, behalten wir die Nullhypothese bei. Es gibt also keinen Unterschied in der Studiendauer zwischen der alten und der neuen Studienordnung.</p>
+<p>Wir sehen also, dass Differenzen zwischen den Mittelwerten von -0.0547357 oder noch größer und spiegelbildlich von 0.0547357 oder noch kleiner in 39.58% der Fälle vorkommen, wenn die Nullhypothese gilt. Eine solche Differenz ist also nichts Besonderes. Unser Signifikanzniveau ist <span class="math inline">\(\alpha = 0.05\)</span>. Da <span class="math inline">\(p &gt; \alpha\)</span>, behalten wir die Nullhypothese bei. Es gibt also keinen Unterschied in der Studiendauer zwischen der alten und der neuen Studienordnung.</p>
 </section>
 </section>
 <section id="aufgaben" class="level2" data-number="8.4">

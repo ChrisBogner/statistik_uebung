@@ -36,7 +36,7 @@ student_id <- 1:pop_size
 anreise <- c(runif(n = pop_size * 0.8, min = 5, max = 40),
              runif(n = pop_size * 0.2, min = 60, max = 120))
 
-geschlecht <- sample(c('m', 'w'), size = pop_size, replace = TRUE)
+geschlecht <- sample(c('m', 'w', 'd'), size = pop_size, replace = TRUE)
 
 studienordnung <- sample(c('alt', 'neu'), size = pop_size, replace = TRUE)
 
